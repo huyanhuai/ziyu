@@ -1,0 +1,640 @@
+@charset "utf-8";
+/*Client_Mannage_System Html v1.0 css v:1.0 */
+/*initial style */
+*{
+	box-sizing:border-box;
+	width:100%;
+	padding:1px 0 0 0;
+	margin:0px;
+	border:none;
+	text-align:center;
+	outline:none;
+}
+/* tag style */
+body,html{
+	height:auto;
+	min-width:1050px;
+}
+html{
+	font-size:10px;
+	background-color:#f1f1f1;
+}
+span{
+	display:inline-block;
+}
+img{
+	max-height:100%;
+}
+ins{
+	cursor:pointer;
+}
+ins:hover{
+	color:gray;
+}
+button:hover{
+	cursor:pointer;
+}
+/* common style */
+.reset{
+	border:none;
+	background-color:#d3eef9;
+}
+#close{
+	width:3rem;
+	height:3rem;
+	position:absolute;
+	right:2rem;
+	border-bottom-left-radius:1.5rem;
+	border-bottom-right-radius:1.5rem;
+	background-color:black;
+	color:white;
+	line-height:2.5rem;
+	z-index:63;
+}
+/* 系统初始化 */
+.DBMS_header{
+	height:70px;
+	line-height:70px;
+	background-image:linear-gradient(180deg,#161b1f 3%,#374754 6%,#252e37 9%, #28323b 83%,#28323a 86%, #2a3740 93%,#181f25 96%,#161b1f 100%);
+	position:relative;
+	color:white;
+}
+.DBMS_body{
+	height:1200px;
+	overflow:hidden;
+	background-color:#333333;
+}
+/*后台系统头部*/
+.DBMS_header span{
+	width:15%;
+	height:60px;
+	vertical-align:top;
+	float:left;
+}
+span.DBMS_header--logout{
+	width:240px;
+	height:40px;
+	float:right;
+	margin-top:20px;
+	margin-right:2%;
+}
+.DBMS_header--logout button{
+	float:left;
+	width:120px;
+	height:40px;
+	font-size:1.8rem;
+	background-color:transparent;
+	color:white;
+}
+.DBMS_header--logout button:hover{
+	color:#bdbcbc;
+}
+.DBMS_header--logout i{
+	height:100%;
+	width:30px;
+}
+.DBMS_header--exception{
+	width:10%;
+}
+span.DBMS_header--title{
+	width:280px;
+}
+.DBMS_header--title p{
+	height:60px;
+	line-height:60px;
+	font-size:2rem;
+}
+.DBMS_header--title i{
+	width:10%;
+	margin-right:10px;
+}
+.DBMS_header sup{
+	font-size:8px;
+	margin-left:6px;
+}
+span.DBMS_header--select{
+	width:380px;
+}
+.DBMS_header--select span:first-child{
+	width:30%;
+}
+.DBMS_header--select span:last-child{
+	width:70%;
+}
+.DBMS_header--select p{
+	height:100%;
+	font-size:1.6rem;
+}
+.DBMS_header--select i{
+	width:20%;
+}
+.DBMS_header--select select{
+	width:30%;
+	height:60%;
+	background-color:transparent;
+	color:white;
+}
+.DBMS_header--select option{
+	color:black;
+}
+.DBMS_header--select ul{
+  height:100%;
+}
+.DBMS_header--select li{
+  float: left;
+  width:30%;
+  height:60%;
+  list-style:none;
+  font-size:1.6rem;
+}
+.DBMS_header--select input{
+  width:70%;
+  height:70%;
+  background:linear-gradient(90deg,#ea1e4c 50%,#dd0a20 100%);
+  color:white;
+  cursor:pointer;
+}
+/*后台系统功能区*/
+.DBMS_body>span{
+	height:1200px;
+	float:left;
+	overflow-x:hidden;
+}
+.DBMS_funcArea{
+	width:15%;
+	background-color:#1f262e;
+}
+.DBMS_funcArea>div{
+	padding:45px 0;
+}
+.DBMS_funcArea i{
+	width:7%;
+	margin-right:15px;
+}
+.DBMS_funcArea p{
+	width:85%;
+	height:4.5rem;
+	text-align:left;
+	padding-left:15%;
+	font-size:1.9rem;
+	background-color:transparent;
+	color:#a4c6e5;
+}
+.DBMS_funcArea i:nth-child(even){
+	margin-left:80px;
+	margin-right:0px;
+}
+.DBMS_funcArea button{
+	width:60%;
+	height:4.5rem;
+	background-color:transparent;
+	font-size:1.7rem;
+	color:white;
+}
+.DBMS_funcArea button:hover{
+	background:#6cba42;
+}
+/*后台内容显示区*/
+.DBMS_disArea{
+	width:85%;
+	background:#eef2f5;
+	overflow:scroll;
+}
+/*表单初始化*/
+.product--warp{
+	position:relative;
+	width:auto;
+	height:auto;
+}
+.product--warp fieldset{
+	width:auto;
+	height:auto;
+	border:1px solid black;
+	margin:2% 2%;
+	text-align:left;
+	background-color:#eef2f0;
+}
+.product--warp legend{
+	width:auto;
+	margin-left:10%;
+	font-size:20px;
+	font-weight:600;
+	text-align:left;
+}
+.product--warp div{
+	width:200px;
+	height:50px;
+}
+.product--warp input{
+  border:1px solid rgba(50%,50%,50%,.4);
+}
+.product--warp div input{
+	width:35%;
+}
+.product--warp select{
+	width:200px;
+	height:50px;
+	font-size:18px;
+	padding-left:30%;
+  border:1px solid rgba(50%,50%,50%,.4);
+}
+.product--warp p{
+	width:200px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+}
+.product--warp i{
+	display:inline-block;
+	width:20px;
+	height:50px;
+	white-space:nowrap;
+}
+.product--warp b{
+	display:inline-block;
+	width:30px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+	white-space: nowrap;
+	font-weight:300;
+}
+/*基本要求*/
+.product_basicInfo--warp span{
+	float: left;
+	width:200px;
+	height:150px;
+	margin-left:40px;
+}
+.product_basicInfo--warp input{
+	width:200px;
+	height:50px;
+	font-size:18px;
+}
+span.product_company--warp::before{
+	content:'单位限制';
+	display: block;
+	width:200px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+}
+span.product_industry--warp::before{
+	content:'行业限制';
+	display: block;
+	width:200px;
+	height:50px;
+	line-height:50px;
+	font-size:18px;
+}
+/*申请人及单位要求*/
+.product_otherInfo--warp span{
+	width:200px;
+	height:150px;
+	margin-left:40px;
+}
+.product_otherInfo--warp input{
+	width:200px;
+	height:50px;
+	font-size:18px;
+}
+/*征信要求*/
+.product_creditRequire--warp span{
+	height:60px;
+	line-height:60px;
+	width:18%;
+}
+.product_creditRequire--warp input{
+	height:30px;
+	width:40%;
+}
+.product_creditRequire--warp select{
+	width:100px;
+	height:35px;
+	font-size:15px;
+	padding-left:0;
+}
+.product_creditRequire--warp button{
+	height:50px;
+	width:70px;
+  border:1px solid rgba(50%,50%,50%,.4);
+}
+.product_creditRequire--warp p{
+	width:70%;
+	height:50px;
+}
+.product_creditRequire--warp b{
+	height:50px;
+	width:25%;
+	font-size:15px;
+}
+div.creditRequire_child_head{
+	width:100%;
+	height:auto;
+	border-bottom:2px solid yellow;
+	overflow:hidden;
+}
+.creditRequire_child_head span{
+	float:left;
+	height:50px;
+	width:50%;
+}
+.creditRequire_child_head select{
+	margin-top:10px;
+	margin-right:10%;
+	width:15%;
+	height:50%;
+	float:right;
+}
+[class=product_creditRequire--warp] input{
+	width:60px;
+}
+button[class*=singleEnable]{
+	height:35px;
+	background:white;
+}
+div[class*=creditRequire]{
+	width:100%;
+	height:auto;
+}
+div[class=creditRequire_child_foot]{
+	margin-top:10px;
+	width:100%;
+	height:50px;
+}
+.creditRequire_child_foot button{
+	margin:0 auto;
+	height:35px;
+	background:white;
+}
+/*征信查询次数样式*/
+div[class$=overduo--warp]{
+	margin:20px auto;
+	width:96%;
+	background:white;
+	border:1px solid rgba(50%,50%,50%,.5);
+}
+div[class$=query--warp]{
+	margin:20px auto;
+	width:96%;
+	background:white;
+	border:1px solid rgba(50%,50%,50%,.5);
+}
+div[class$=liability--warp]{
+	margin:20px auto;
+	width:96%;
+	background:white;
+	border:1px solid rgba(50%,50%,50%,.5);
+}
+/*补充数据*/
+.disArea_product--data span{
+	height:150px;
+}
+.disArea_product--data textarea{
+	height:100px;
+	width:80%;
+	font-size:30px;
+	text-align:left;
+	padding:30px 20px;
+	margin-top:2%;
+}
+.disArea_product--data p{
+	height:50px;
+	width:100%;
+}
+/*表单处理*/
+div.disArea_product--handle{
+	width:100%;
+	height:8rem;
+}
+.disArea_product--handle button{
+	height:4rem;
+	width:10rem;
+	background:linear-gradient(90deg,#ea1e4c 50%,#dd0a20 100%);
+	color:white;
+}
+/*添加产品成功显示界面*/
+.disArea_product--success{
+	height:400px;
+	width:400px;
+	margin:200px auto;
+}
+.disArea_product--success p{
+	height:200px;
+	font-size:20px;
+}
+.disArea_product--success div{
+	height:200px;
+}
+.disArea_product--success i{
+	margin-bottom:22px;
+	font-size:100px;
+	color:green;
+}
+.disArea_product--success span{
+	height:100%;
+	width:50%;
+	float:left;
+}
+.disArea_product--success button{
+	width:120px;
+	height:63px;
+	color:white;
+	font-size:18px;
+	background-image:linear-gradient(to top,rgb(44,160,202) 0%,rgb(62,184,229) 100%);
+	box-shadow: inset 0px 1px 0px #7fd2f1, 0px 5px 10px #156785;
+}
+/*选择要添加产品类型*/
+.disArea_loanType{
+	height:auto;
+	width:auto;
+	margin:2rem 2rem;
+}
+/*选择要添加产品类型详情*/
+.disArea_loanType--details{
+	width:100%;
+	height:auto;
+	background:white;
+	margin-top:2rem;
+	text-align:left;
+	box-shadow:0 0 6px 0px gray;
+}
+.disArea_loanType--details>div{
+	height:3rem;
+	line-height:3rem;
+	background:#e3e6eb;
+}
+.disArea_loanType--details h2{
+	font-size:2rem;
+	text-align:left;
+	padding-left:2rem;
+}
+.disArea_loanType--details span{
+	position:relative;
+	height:10rem;
+	width:10rem;
+	margin:2rem 2rem;
+	background:#0c5fa1;
+	color:white;
+}
+/*选择要添加产品类型详情-1*/
+div.disArea_loanType--one{
+	position:absolute;
+	height:100%;
+	width:100%;
+	background:#0c5fa1;
+}
+.disArea_loanType--one i{
+	margin-top:20%;
+	font-size:50px;
+}
+.disArea_loanType--one p{
+	margin-top:5%;
+}
+/*选择要添加产品类型详情-2*/
+div.disArea_loanType--two{
+	visibility: hidden;
+	position:absolute;
+	height:100%;
+	width:100%;
+}
+.disArea_loanType--two div{
+	height:50%;
+	width:100%;
+	background:#0c5fa1;
+}
+.disArea_loanType--two button{
+	height:50%;
+	width:80%;
+	margin:10% auto;
+	border-radius:10px;
+	background-color:white;
+	box-shadow:0 0 10px 2px gray;
+	color:black;
+}
+.disArea_loanType--two button:hover{
+	cursor:pointer;
+	opacity:0.9;
+}
+/*产品管理*/
+.product_edit{
+	margin:20px auto;
+	width:90%;
+	height:auto;
+}
+.product_edit--title{
+	padding-left:20px;
+	width:100%;
+	height:40px;
+	font-size:30px;
+}
+.product_edit--body{
+	margin-top:20px;
+	width:100%;
+	height:auto;
+	font-size:18px;
+	border: 1px solid rgba(50%,50%,50%,.4);
+}
+.product_edit--body tr{
+	width:100%;
+	height:50px;
+}
+.product_edit--body th{
+	width:25%;
+	height:50px;
+	color:white;
+	background: #4e606a;
+	border-left:1px solid gray;
+}
+.product_edit--body td{
+	width:25%;
+	height:50px;
+}
+.product_edit--editor{
+	width:60px;
+	height:25px;
+	background: #07c6c4;
+	color:white;
+}
+.table_tbody--warp tr{
+	background:#fff;
+	transition:box-shadow .5s;
+}
+.table_tbody--warp tr:hover{
+	opacity:.8;
+	box-shadow:0px 0px 10px 0px gray;
+}
+tr.table_tfoot{
+	margin-top:20px;
+	height:120px;
+}
+.table_tfoot td{
+	width:50px;
+}
+.table_tfoot button{
+	height:40px;
+	width:60px;
+	background:#fff;
+	font-size:14px;
+	border: 1px solid rgba(50%,50%,50%,.4);
+}
+.table_tfoot button:hover{
+	background:#07c6c4;
+}
+.table_tfoot input{
+	height:40px;
+	width:60px;
+	background:#fff;
+	font-size:15px;
+	border: 1px solid rgba(50%,50%,50%,.4);
+}
+.table_tfoot span{
+	height:40px;
+	width:60px;
+}
+.table_tfoot p{
+	line-height: 40px;
+	height:100%;
+	width:100%;
+	font-size:15px;
+}
+/* 模块库 */
+div[class*=module]{
+  display:none;
+  position:relative;
+  width:200px;
+  height:200px;
+  background:#fff;
+  overflow-y:scroll;
+  border:1px solid rgba(50%,50%,50%,.4);
+  z-index:3;
+}
+p[class*=module]{
+  width:200px;
+  height:50px;
+  background:#fff;
+  border:1px solid rgba(50%,50%,50%,.4);
+  overflow:hidden;
+}
+[class*=module] div{
+  width:100%;
+  height:30px;
+  font-size:18px;
+}
+[class*=module] div:hover{
+  background:#07c6c4;
+  color:white;
+}
+[class*=module] label{
+  display:inline-block;
+  vertical-align:top;
+  width:60%;
+}
+[class*=module] input{
+ display:inline-block;
+ margin-left:2%;
+vertical-align:middle;
+ width:20px;
+ height:20px;
+}
+/* end */

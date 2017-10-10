@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>子育金服 -入驻机构后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css"/>
+		<script type="text/javascript" src="js/Common_Map.js"></script>
+    <script type="text/javascript" src="js/Common_UW.js"></script>
+  </head>
+  <body>
+				<!-- website header begin -->
+				<header class="DBMS_header">
+							<span class="DBMS_header--title">
+								<p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p>
+							</span>
+							<span class="DBMS_header--select">
+								<span>
+									<p><i class="fa fa-location-arrow"></i>城市选择</p>
+								</span>
+								<span>
+									<select name="province" id="province">
+										<option value="请选择">请选择</option>
+									</select>
+									<select name="city" id="city">
+										<option value="请选择">请选择</option>
+									</select>
+									<select name="town" id="town">
+										<option value="请选择">请选择</option>
+									</select>
+								</span>
+							</span>
+							<span class="DBMS_header--logout">
+								<button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+								<button type="button"><i class="fa fa-tv"></i>返回首页</button>
+							</span>
+						</header>
+    <!-- website header over -->
+				<div class="DBMS_body">
+						<!-- funcition area begin -->
+						<span class="DBMS_funcArea">
+							<div>
+								<p><i  class="fa fa-suitcase"></i>产品发布</p>
+								<div><button id="loan">贷款</button></div>
+								<div><button id="money">理财</button></div>
+								<div><button id="insurance">保险</button></div>
+								<div><button id="other">其他</button></div>
+							</div>
+							<div>
+								<p><i class="fa fa-file"></i>还款管理</p>
+								<div><button id="refundManage">还款管理</button></div>
+							</div>
+							<div>
+								<p><i class="fa fa-address-book"></i>贷款审核</p>
+								<div><button id="loanAudit">贷款审核</button></div>
+							</div>
+							<div>
+								<p><i class="fa fa-folder-open"></i>产品管理</p>
+								<div><button id="productManage">产品管理</button></div>
+							</div>
+							<div>
+								<p><i class="fa fa-user-circle"></i>帐号管理</p>
+								<div><button id="addAccount">添加帐号</button></div>
+							</div>
+						</span>
+					<span class="DBMS_disArea">
+								<!-- function over -->
+						<!-- content displayer begin -->
+								<!-- dynamic change start -->
+										<div id="loanType" class="disArea_loanType">
+														<div class="disArea_loanType--details">
+																<div>
+																		<h2>信用贷款</h2>
+																</div>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>按揭车贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>全款车贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>按揭房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>抵押房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>全款房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>保单贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+														</div>
+														<div class="disArea_loanType--details">
+																<div>
+																		<h2>抵押贷款</h2>
+																</div>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>按揭车贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>全款车贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>按揭房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>抵押房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>全款房贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+																<span>
+																		<div data-name="mgCar" class="disArea_loanType--one">
+																				<i class="fa fa-yen"></i>
+																				<p>保单贷</p>
+																		</div>
+																		<div class="disArea_loanType--two">
+																				<div><button name="Bour" >企业主</button></div>
+																				<div><button name="Sala" >上班族</button></div>
+																		</div>
+																</span>
+														</div>
+														<div class="disArea_loanType--details">
+																<div>
+																		<h2>担保贷款</h2>
+																</div>
+														</div>
+												</div>
+								<!-- dynamic change end  -->  
+						</span>
+						<!-- content displayer over -->
+				</div>
+				<script src="js/Client_Total_Script.js"></script> 
+		</body>
+</html>

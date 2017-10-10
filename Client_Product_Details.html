@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>  
+<head>
+  <title>子育金服 -入驻机构后台</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="robit" content="no-fallow">
+  <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+  <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+	<script type="text/javascript" src="js/Common_Map.js"></script>
+  <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+<header class="DBMS_header">
+  <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+  <span class="DBMS_header--select">
+    <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+    <span>
+      <select name="province" id="province">
+        <option value="请选择">请选择</option>
+      </select>
+      <select name="city" id="city">
+        <option value="请选择">请选择</option>
+      </select>
+    </span>
+  </span>
+  <span class="DBMS_header--logout">
+    <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+    <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+  </span>
+</header>
+<div class="DBMS_body">
+  <span class="DBMS_funcArea">
+    <div>
+      <p><i  class="fa fa-suitcase"></i>产品发布</p>
+      <div><button id="loan">贷款</button></div>
+      <div><button id="money">理财</button></div>
+      <div><button id="insurance">保险</button></div>
+      <div><button id="other">其他</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-file"></i>还款管理</p>
+      <div><button id="refundManage">还款管理</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-address-book"></i>贷款审核</p>
+      <div><button id="loanAudit">贷款审核</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-folder-open"></i>产品管理</p>
+      <div><a href="http://www.baidu.com"><button type="button" id="productManage">产品管理</button></a></div>
+    </div>
+    <div>
+      <p><i class="fa fa-user-circle"></i>帐号管理</p>
+      <div><button id="addAccount">添加帐号</button></div>
+    </div>
+  </span>
+  <span class="DBMS_disArea">
+    <form class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post">
+      <fieldset class="product_basicInfo--warp">
+        <legend>产品基本信息</legend>
+          <input type="hidden" value="1" name="a_id" />
+          <span>
+            <p>产品名称</p>
+            <input type="text" name="product_productName" placeholder="按揭车贷" />
+          </span>
+          <span>
+            <p>额度区间</p>
+            <div>
+              <input type="text" name="product_minimumLimit" />
+              <b>&#45;</b>
+              <input type="text" name="product_maximumAmount" />
+            </div>
+          </span>
+        <span>
+          <p>利息区间</p>
+          <div>
+            <input type="text" name="product_minimumInterest" />
+            <b>&#45;</b>
+            <input type="text" name="product_maximumInterest" />
+          </div>
+        </span>
+        <span>
+          <p>还款期限</p>
+          <div>
+            <input type="text" name="product_minTerm" />
+            <b>&#45;</b>
+            <input type="text" name="product_maxTerm" />
+          </div>
+        </span>
+        <span>
+          <p>放款时间</p>
+          <input type="text" name="product_time" placeholder="7(天)" />
+        </span>
+        <span>
+          <p>行业限制</p>
+          <input type="text"  name="product_industry" />
+        </span>
+        <span>
+          <p>单位限制</p>
+          <input type="text" name="product_company" />
+        </span>
+        <span>
+          <p>还款方式</p>
+          <select name="product_mode">
+            <option>等额本金</option>
+            <option>等额本息</option>
+            <option>先息后本</option>
+            <option>循环借贷</option>
+          </select>
+        </span>
+        <span>
+          <p>可做区域限制</p>
+          <div>
+            <p class="module_select--title">请选择</p>
+            <div class="module_select" id="town"></div>
+          </div>
+        </span>
+        <span>
+          <p>民族限制</p>
+          <div>
+            <p class="module_nation--title">请选择</p>
+            <div class="module_nation" id="nation"></div>
+          </div>
+        </span>
+        <span>
+          <p>户籍限制</p>
+          <input name="product_place" />
+        </span>
+      </fieldset>
+      <fieldset class="product_otherInfo--warp">
+        <legend>申请人及单位要求</legend>
+        <span>
+          <p>男性年龄(岁)</p>
+          <div>
+            <input type="text" name="product_maleInitialAge" />
+            <b>&#45;</b>
+            <input type="text" name="product_maleCutoffAge" />
+          </div>
+        </span>
+        <span>
+          <p>女性年龄(岁)</p>
+          <div>
+            <input type="text" name="product_femaleInitialAge" />
+            <b>&#45;</b>
+            <input type="text" name="product_femaleCutoffAge" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;上牌时间(月)</p>
+          <div>
+            <input type="text" name="minVehicleLicenseTime" />
+            <b>&#45;</b>
+            <input type="text" name="maxVehicleLicenseTime" />
+          </div>
+        </span>
+        <span>
+          <p>营业执照要求</p>
+          <div>
+            <select class="require_businessLicense" name="businessLicense">
+              <option value="1">有</option>
+              <option value="0">有无均可</option>
+            </select>
+          </div>
+        </span>
+        <span class="require_registerTime">
+          <p>营业执照注册时间</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="registerTime" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;购车价格</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleOnePrice" />
+            <b>万元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;过户时间</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleTransferTime" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;二手车购买价格</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleSecondPrice" />
+            <b>万元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;总按揭期数</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleTerm" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;已还期数</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleRepaidTerm" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;按揭总金额</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleMoney" />
+            <b>元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;月供金额</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="vehicleMonthPay" />
+            <b>元</b>
+          </div>
+        </span>
+        <span>
+          <p>车辆类型</p>
+          <select name="vehicleType">
+            <option>全款车</option>
+            <option>本市全款</option>
+            <option>外市全款</option>
+          </select>
+        </span>
+        <span>
+          <p>白户是否可进件</p>
+          <select name="overdueCredit_whiteHouse">
+            <option value="1">可以</option>
+            <option value="0">不可以</option>
+          </select>
+        </span>
+        <span>
+          <p>呆账是否可进件</p>
+          <select name="overdueCredit_badDebt">
+            <option value="1">可以</option>
+            <option value="0">不可以</option>
+          </select>
+        </span>
+      </fieldset>
+      <fieldset class="product_creditRequire--warp">
+        <legend>征信要求</legend>
+        <div class="creditRequire_query--warp">
+          <div class="creditRequire_query--body">
+            <div class="creditRequire_child_head">
+              <span><p>征信查询次数要求</p></span>
+              <span>
+                <select name="creditRequirement_require" class="creditRequire_query--wholeEnable">
+                  <option value="1">可用</option>
+                  <option value="0">不可用</option>
+                </select>
+              </span>
+            </div>
+            <div class="creditRequire_query--reuse">
+              <span>
+                <input type="text" name="creditRequirement_months" />
+                <b>月内</b>
+              </span>
+              <span>
+                <select name="creditRequirement_loanStates">
+                  <option value="1">无</option>
+                  <option value="0">贷款</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select name="creditRequirement_cardStates">
+                  <option value="1">无</option>
+                  <option value="0">信用卡</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select name="creditRequirement_examinationStates">
+                  <option value="1">无</option>
+                  <option value="0">自查</option>
+                </select>
+                <b>&#8804;</b>
+              </span>
+              <span>
+                <input type="text" name="creditRequirement_numbers" />
+                <b>次</b>
+              </span>
+              <button type="button" class="creditRequire_query--singleEnable">此条失效</button>
+            </div>
+          </div>
+          <div class="creditRequire_child_foot">
+            <button type="button" class="creditRequire_query--add">再加一条</button>
+          </div>
+        </div>
+        <div class="creditRequire_overduo--warp">
+          <div class="creditRequire_overduo--body">
+            <div class="creditRequire_child_head">
+              <span><p>征信逾期要求</p></span>
+              <span>
+                <select name="overdueCredit_require" class="creditRequire_overduo--wholeEnable">
+                  <option value="1">可用</option>
+                  <option value="0">不可用</option>
+                </select>
+              </span>
+            </div>
+            <div class="creditRequire_overduo--reuse">
+              <span>
+                <input type="text" name="overdueCredit_months" />
+                <b>月内</b>
+              </span>
+              <span>
+                <select name="overdueCredit_cardStates">
+                  <option value="0">信用卡</option>
+                  <option value="1">无</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select name="overdueCredit_loanStates">
+                  <option value="0">贷款</option>
+                  <option value="1">无</option>
+                </select>
+                <b>&#8804;</b>
+              </span>
+              <span>
+                <input type="text" name="overdueCredit_overdues" />
+                <b>次</b>
+              </span>
+              <span>
+                <b>连续&#8804;</b>
+                <input type="text" name="overdueCredit_continuityOverdues" />
+                <b>次</b>
+              </span>
+              <button type="button" class="creditRequire_overduo--singleEnable">此条失效</button>
+            </div>
+          </div>
+          <div class="creditRequire_child_foot">
+            <button type="button" class="creditRequire_overduo--add">再加一条</button>
+          </div>
+        </div>
+        <div class="creditRequire_liability--warp">
+          <div class="creditRequire_liability--body">
+            <div class="creditRequire_child_head">
+              <span><p>负债要求</p></span>
+              <span>
+                <select class="creditRequire_liability--wholeEnable">
+                  <option value="1">可用</option>
+                  <option value="0">不可用</option>
+                </select>
+              </span>
+            </div>
+            <div class="creditRequire_liability--reuse">
+              <span>
+                <input type="text" name="liabilityCredit_months" />
+                <b>月内</b>
+              </span>
+              <span>
+                <select>
+                  <option>信用卡</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select>
+                  <option>信用卡</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select>
+                  <option>贷款</option>
+                </select>
+                <b>&#8804;</b>
+              </span>
+              <span>
+                <input type="text" name="liabilityCredit_numbers" />
+                <b>次</b>
+              </span>
+              <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>
+            </div>
+          </div>
+          <div class="creditRequire_child_foot">
+            <button type="button" class="creditRequire_liability--add">再加一条</button>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="disArea_product--data">
+        <legend>进件条件</legend>
+        <span>
+          <textarea name="product_data" placeholder="XX证+XX表+...."></textarea>
+        </span>
+        <p>请按照提示框中格式书写</p>
+      </fieldset>
+      <div class="disArea_product--handle">
+        <button type="button" id="dataHandle">提交</button>
+      </div>
+    </form>
+  </span>
+</div>
+<script src="js/Client_Total_Script.js"></script>
+</body>
+</html>

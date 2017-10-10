@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>  
+<head>
+  <title>子育金服 -入驻机构后台</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+  <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+  <script type="text/javascript" src="js/Common_Map.js"></script>
+  <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+<header class="DBMS_header">
+  <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+  <span class="DBMS_header--select">
+    <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+    <span>
+      <select name="province" id="province">
+        <option value="请选择">请选择</option>
+      </select>
+      <select name="city" id="city">
+        <option value="请选择">请选择</option>
+      </select>
+      <select name="town" id="town">
+        <option value="请选择">请选择</option>
+      </select>
+    </span>
+  </span>
+  <span class="DBMS_header--logout">
+    <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+    <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+  </span>
+</header>
+<div class="DBMS_body">
+  <span class="DBMS_funcArea">
+    <div>
+      <p><i  class="fa fa-suitcase"></i>产品发布</p>
+      <div><button id="loan">贷款</button></div>
+      <div><button id="money">理财</button></div>
+      <div><button id="insurance">保险</button></div>
+      <div><button id="other">其他</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-file"></i>还款管理</p>
+      <div><button id="refundManage">还款管理</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-address-book"></i>贷款审核</p>
+      <div><button id="loanAudit">贷款审核</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-folder-open"></i>产品管理</p>
+      <div><button id="productManage">产品管理</button></div>
+    </div>
+    <div>
+      <p><i class="fa fa-user-circle"></i>帐号管理</p>
+      <div><button id="addAccount">添加帐号</button></div>
+    </div>
+  </span>
+  <span class="DBMS_disArea">
+    <div class="product_edit">
+      <table class="product_edit--body">
+        <thead>
+          <tr>
+            <th>产品名称</th>
+            <th>利息区间</th>
+            <th>额度区间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody class="table_tbody--warp">
+          <tr>
+            <td>裸贷</td>
+            <td>5555</td>
+            <td>555</td>
+            <td><button class="product_edit--editor">编辑</button></td>
+          </tr>
+          <tr>
+            <td>裸贷</td>
+            <td>5555</td>
+            <td>555</td>
+            <td><button class="product_edit--editor">编辑</button></td>
+          </tr>
+          <tr>
+            <td>裸贷</td>
+            <td>5555</td>
+            <td>555</td>
+            <td><button class="product_edit--editor">编辑</button></td>
+          </tr>
+        </tbody>
+        <tfoot class="table_tfoot--warp">
+          <tr class="table_tfoot">
+            <td colspan="4">
+              <button>首页</button>
+              <button>上一页</button>
+              <button>下一页</button>
+              <button>尾页</button>
+              <input type="text" name="" placeholder="页数">
+              <button>跳转</button>
+              <span><p>当前/页</p></span>
+              <span><p>共/页</p></span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </span>
+</div>
+<script src="js/Client_Total_Script.js"></script>
+</body>
+</html>
