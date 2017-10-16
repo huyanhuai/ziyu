@@ -87,17 +87,33 @@ $('@product--warp') && function(Courier){
 	var AreaStatus = 0;
 	var NationStatus = 0;
 	CitySelector(NationSelect,NationName,nationList,'nation');
-	Business.addEventListener('change',function(){
+	// Business.addEventListener('change',function(){
 		var x = $('@require_registerTime');
-		if (this.value == 0) {
-			x.style.display ='none';
-		}
-		if (this.value == 0) {
-			x.style.display ='none';
-		}else{
-			x.style.display ='inline-block';
-		}
-	})
+		// if (this.value == 0) {
+		// 	x.style.display ='none';
+		// }else{
+		// 	x.style.display ='inline-block';
+		// }
+	// })
+	Business.value == 0 ? function(){
+		x.style.display ='none';
+		Business.addEventListener('change',function(){
+			if (this.value == 0) {
+				x.style.display ='none';
+			}else{
+				x.style.display ='inline-block';
+			}
+		})
+	}(): function(){
+		x.style.display ='inline-block';
+		Business.addEventListener('change',function(){
+			if (this.value == 0) {
+				x.style.display ='none';
+			}else{
+				x.style.display ='inline-block';
+			}
+		})
+	}() 
 	AreaName.onclick = function(){
 		if(Status){
 			AreaSelect.style.display = 'block';
@@ -227,11 +243,12 @@ $('@product--warp') && function(Courier){
 		QueryBody.appendChild(ReuseModule);
 		var SingleEnable = $('button',QueryBody);
 		for (var i = 0; i < SingleEnable.length; i++) {
-			SingleEnable[i].onclick = function(){
-				QueryBody.removeChild(this.parentNode);
-			};
+				SingleEnable[i].onclick = function(){
+					QueryBody.removeChild(this.parentNode);
+				};
 		};
 	};
+	
 	var ValueRegion = $('input',Courier);
 	var CreditRequire = $('@product_creditRequire--warp');
 	var QueryWarp = $('@creditRequire_query--warp');
@@ -266,9 +283,16 @@ $('@product--warp') && function(Courier){
 		});
 	});
 	QueryAdd.onclick = QueryDymic;
-	QuerySingleEnable.onclick = function(){
-		QueryBody.removeChild(this.parentNode);
-	};
+	var btn1 = document.getElementsByClassName('creditRequire_query--singleEnable');
+	for(var i = 0; i < btn1.length; i++){
+	   btn1[i].onclick = function(){
+		 QueryBody.removeChild(this.parentNode);
+	   }
+    } 
+	// QuerySingleEnable.onclick = function(){
+	// 	QueryBody.removeChild(this.parentNode);
+	// };
+
 	var OverduoWarp = $('@creditRequire_overduo--warp')
 	var OverduoBody = $('@creditRequire_overduo--body');
 	var OverduoReuse = $('@creditRequire_overduo--reuse');
@@ -296,14 +320,16 @@ $('@product--warp') && function(Courier){
                   <option value="0">贷款</option>
                   <option value="1">无</option>
                 </select>
-                <b>&#8804;</b>
+                <b>&#43;</b>
               </span>
               <span>
-                <input type="text" name="overdueCredit_overdues" />
-                <b>次</b>
+				<select name="overdueCredit_loanStates">
+				<option value="0">逾期</option>
+				<option value="1">连续逾期</option>
+			  </select>
+			  <b>&#8804;</b>
               </span>
               <span>
-                <b>连续&#8804;</b>
                 <input type="text" name="overdueCredit_continuityOverdues" />
                 <b>次</b>
               </span>
@@ -342,9 +368,15 @@ $('@product--warp') && function(Courier){
 		});
 	});
 	OverduoAdd.onclick = OverduoDymic;
-	OverduoSingleEnable.onclick = function(){
-		OverduoBody.removeChild(this.parentNode);
-	};
+	var btn2 = document.getElementsByClassName('creditRequire_overduo--singleEnable');
+	for(var i = 0; i < btn2.length; i++){
+		btn2[i].onclick = function(){
+			OverduoBody.removeChild(this.parentNode);
+		}
+	}
+	// OverduoSingleEnable.onclick = function(){
+	// 	OverduoBody.removeChild(this.parentNode);
+	// };
 	var LiabilityWarp = $('@creditRequire_liability--warp')
 	var LiabilityBody = $('@creditRequire_liability--body');
 	var LiabilityReuse = $('@creditRequire_liability--reuse');
@@ -417,9 +449,15 @@ $('@product--warp') && function(Courier){
 		});
 	});
 	LiabilityAdd.onclick = LiabilityDymic;
-	LiabilitySingleEnable.onclick = function(){
-		LiabilityBody.removeChild(this.parentNode);
-	};
+	var btn3 = document.getElementsByClassName('creditRequire_liability--singleEnable');
+	for(var i = 0; i < btn3.length; i++){
+		btn3[i].onclick = function(){
+			LiabilityBody.removeChild(this.parentNode);
+		}
+	}
+	// LiabilitySingleEnable.onclick = function(){
+	// 	LiabilityBody.removeChild(this.parentNode);
+	// };
 
 	// 初级数据检测函数				
 	function JuniorInspector(Courier){
@@ -461,11 +499,11 @@ $('@product--warp') && function(Courier){
 					],
 					FloatName = [
 						'product_minimumInterest',
-						'product_maximumInterest'
-					],
-					IntExcptionName = [
+						'product_maximumInterest',
 						'minVehicleLicenseTime',
 						'maxVehicleLicenseTime',
+					],
+					IntExcptionName = [
 						'vehicleOnePrice',
 						'vehicleTransferTime',
 						'vehicleSecondPrice',
@@ -531,16 +569,17 @@ $('#loanType') && function(){
 	// 启动相应产品的详单
 	var loanTypeOne = $('.disArea_loanType--one'),
 			loanTypeTwo = $('.disArea_loanType--two');
-	for(var i = 0; i < loanTypeOne.length; i++) {
+	for(var i = 0; i < loanTypeOne.length; i++) { //5
 		(function(i){
 		  loanTypeOne[i].onmouseenter = function(){
 		   	var loanTypeButton = $('button',loanTypeTwo[i]);
-		   	loanTypeTwo[i].style.visibility = 'visible';
+			   loanTypeTwo[i].style.visibility = 'visible';
 			  loanTypeTwo[i].onmouseleave = function(){
 			    loanTypeTwo[i].style.visibility = 'hidden';
-		  	};
+			  };
+			  console.log(i);
 	    	loanTypeButton[0].onclick = function(){
-	    		location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
+				location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 	    	};
 				loanTypeButton[1].onclick = function(){
 					location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');

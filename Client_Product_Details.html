@@ -63,7 +63,7 @@
           <input type="hidden" value="1" name="a_id" />
           <span>
             <p>产品名称</p>
-            <input type="text" name="product_productName" placeholder="按揭车贷" />
+            <input type="text" name="product_productName" placeholder="按揭车贷" id="productName"/>
           </span>
           <span>
             <p>额度区间</p>
@@ -129,6 +129,7 @@
           <input name="product_place" />
         </span>
       </fieldset>
+
       <fieldset class="product_otherInfo--warp">
         <legend>申请人及单位要求</legend>
         <span>
@@ -148,7 +149,7 @@
           </div>
         </span>
         <span>
-          <p>&#42;上牌时间(月)</p>
+          <p>&#42;上牌时间(年/月)</p>
           <div>
             <input type="text" name="minVehicleLicenseTime" />
             <b>&#45;</b>
@@ -159,8 +160,8 @@
           <p>营业执照要求</p>
           <div>
             <select class="require_businessLicense" name="businessLicense">
-              <option value="1">有</option>
               <option value="0">有无均可</option>
+              <option value="1">有</option>
             </select>
           </div>
         </span>
@@ -251,6 +252,7 @@
           </select>
         </span>
       </fieldset>
+
       <fieldset class="product_creditRequire--warp">
         <legend>征信要求</legend>
         <div class="creditRequire_query--warp">
@@ -264,7 +266,9 @@
                 </select>
               </span>
             </div>
-            <div class="creditRequire_query--reuse">
+
+            <!-- <div class="one"> -->
+            <div class="creditRequire_query--reuse one">
               <span>
                 <input type="text" name="creditRequirement_months" />
                 <b>月内</b>
@@ -296,7 +300,41 @@
               </span>
               <button type="button" class="creditRequire_query--singleEnable">此条失效</button>
             </div>
+            <div class="creditRequire_query--reuse">
+                <span>
+                  <input type="text" name="creditRequirement_months" />
+                  <b>月内</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_loanStates">
+                    <option value="1">无</option>
+                    <option value="0">贷款</option>
+                  </select>
+                  <b>&#43;</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_cardStates">
+                    <option value="1">无</option>
+                    <option value="0">信用卡</option>
+                  </select>
+                  <b>&#43;</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_examinationStates">
+                    <option value="1">无</option>
+                    <option value="0">自查</option>
+                  </select>
+                  <b>&#8804;</b>
+                </span>
+                <span>
+                  <input type="text" name="creditRequirement_numbers" />
+                  <b>次</b>
+                </span>
+                <button type="button" class="creditRequire_query--singleEnable">此条失效</button>
+              </div>
           </div>
+        <!-- </div> -->
+
           <div class="creditRequire_child_foot">
             <button type="button" class="creditRequire_query--add">再加一条</button>
           </div>
@@ -329,14 +367,19 @@
                   <option value="0">贷款</option>
                   <option value="1">无</option>
                 </select>
+                <b>&#43;</b>
+                <!-- <b>&#8804;</b> -->
+              </span>
+              <span>
+                <!-- <input type="text" name="overdueCredit_overdues" />
+                <b>次</b> -->
+                <select name="overdueCredit_loanStates">
+                  <option value="0">逾期</option>
+                  <option value="1">连续逾期</option>
+                </select>
                 <b>&#8804;</b>
               </span>
               <span>
-                <input type="text" name="overdueCredit_overdues" />
-                <b>次</b>
-              </span>
-              <span>
-                <b>连续&#8804;</b>
                 <input type="text" name="overdueCredit_continuityOverdues" />
                 <b>次</b>
               </span>
@@ -387,6 +430,35 @@
               </span>
               <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>
             </div>
+            <div class="creditRequire_liability--reuse">
+              <span>
+                <input type="text" name="liabilityCredit_months" />
+                <b>月内</b>
+              </span>
+              <span>
+                <select>
+                  <option>信用卡</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select>
+                  <option>信用卡</option>
+                </select>
+                <b>&#43;</b>
+              </span>
+              <span>
+                <select>
+                  <option>贷款</option>
+                </select>
+                <b>&#8804;</b>
+              </span>
+              <span>
+                <input type="text" name="liabilityCredit_numbers" />
+                <b>次</b>
+              </span>
+              <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>
+            </div>
           </div>
           <div class="creditRequire_child_foot">
             <button type="button" class="creditRequire_liability--add">再加一条</button>
@@ -407,5 +479,15 @@
   </span>
 </div>
 <script src="js/Client_Total_Script.js"></script>
+<script>
+  var value = sessionStorage.getItem("key"); 
+        console.log(value);
+  var btn_submit = document.getElementById("dataHandle");
+  btn_submit.onclick = function(){
+    sessionStorage.setItem("name",$('#productName').innerText);
+    location.href = 'Client_Product_Edit.html';
+  }
+  
+</script>
 </body>
 </html>
