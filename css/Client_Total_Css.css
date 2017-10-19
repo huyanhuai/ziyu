@@ -638,3 +638,15 @@ vertical-align:middle;
  height:20px;
 }
 /* end */
+/* chushen */
+.clear:after{ clear:both;content:'';display:block;width: 0;height: 0;visibility:hidden;}
+ul,li{ list-style: none; }
+#rightBox{ width: 85%;background: #efefef; }
+#cusFir{ width: 80%;background: #fff;margin: 0 auto;height: 38px;line-height: 38px;border-top: 4px solid #009cff; }
+.cusFir_span{ font-size: 16px;display: block;margin-left: 18px; }
+#cusCon{ width: 80%;margin: 0 auto;border: 1px solid #e5e5e5;border-top: none;background: #efefef;overflow: hidden; }
+#cusCon li{ width: 95%;height:108px;background: #fff;margin: 9px auto 0; }
+#cusCon li img{ margin-top: 27px;margin-left: 26px;float: left; }
+#cusCon li p{ float: left;width: 346px;margin-top: 20px;font-size: 20px;margin-left: 42px;}
+.cusPad{ padding-left: 20px; }
+#page{text-align: center;}

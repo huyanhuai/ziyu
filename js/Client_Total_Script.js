@@ -612,7 +612,6 @@ $('#loanType') && function(){
 			  loanTypeTwo[i].onmouseleave = function(){
 			    loanTypeTwo[i].style.visibility = 'hidden';
 			  };
-			  console.log(i);
 	    	loanTypeButton[0].onclick = function(){
 				location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 	    	};
@@ -623,3 +622,18 @@ $('#loanType') && function(){
 		})(i);
 	};
 }();
+var list = document.getElementsByClassName('product_otherInfo--warp');
+list[1].style.display = 'block';
+var num = location.herf.split('=')[1];
+move(num);
+function move(str){
+for(var i = 0; i < list.length; i++){
+	if(str == num){
+		list[num].style.display = 'block';
+	}else{
+		list.style.display = 'none';
+	}
+}
+list[num].style.display = 'block';
+
+}

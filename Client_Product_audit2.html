@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>子育金服 -入驻机构后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robit" content="no-fallow">
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+    <script type="text/javascript" src="js/Common_Map.js"></script>
+    <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+    <header class="DBMS_header">
+        <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+        <span class="DBMS_header--select">
+          <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+          <span>
+            <select name="province" id="province">
+              <option value="请选择">请选择</option>
+            </select>
+            <select name="city" id="city">
+              <option value="请选择">请选择</option>
+            </select>
+          </span>
+        </span>
+        <span class="DBMS_header--logout">
+          <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+          <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+        </span>
+    </header>
+    <div class="DBMS_body">
+        <span class="DBMS_funcArea">
+          <div>
+            <p><i  class="fa fa-suitcase"></i>产品发布</p>
+            <div><button id="loan">贷款</button></div>
+            <div><button id="money">理财</button></div>
+            <div><button id="insurance">保险</button></div>
+            <div><button id="other">其他</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-file"></i>还款管理</p>
+            <div><button id="refundManage">还款管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-address-book"></i>贷款审核</p>
+            <div><button id="loanAudit">贷款审核</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-folder-open"></i>产品管理</p>
+            <div><a href="http://www.baidu.com"><button type="button" id="productManage">产品管理</button></a></div>
+          </div>
+          <div>
+            <p><i class="fa fa-user-circle"></i>帐号管理</p>
+            <div><button id="addAccount">添加帐号</button></div>
+          </div>
+        </span>
+        <span class="DBMS_disArea">
+            <div id="totalBox">
+                <jsp:include page="model/top.jsp"></jsp:include>
+                   <jsp:include page="model/left.jsp"></jsp:include>
+                   <!-- this form left-hand face.[end]-->
+                   <!-- this form right-hand face.[start]-->
+                   <span id="rightBox">
+                       <form id="form" target="formData">
+                           <div id="formMain">
+                           <!-- start -->
+                               <div id="approval">
+                               <div>
+                                   <div>
+                                       <span>姓名</span>
+                                       <span>客户编号</span>
+                                       <span>贷款金额</span>
+                                       <span>贷款产品</span>
+                                       <span>还款期限</span>
+                                       <span>操作</span>
+                                   </div>
+                               </div>
+                               <div class="applicant">
+                                   <c:forEach items="${examines }" var="examine">
+                                       
+                                   <div>
+                                       <span>${examine.basicInformation.basicInformation_name }</span>
+                                       <span class="bid">${examine.basicInformation.b_id }</span>
+                                       <span>${examine.image.image_money/10000 }万</span>
+                                       <span>${examine.creit.product_productName }</span>
+                                       <span>${examine.image.image_month }期</span>
+                                       <span>
+                                           <button class="applyBtn" onclick="selectByID(${examine.image.image_id})">申请资料</button>
+                                           <button class="applyBtn" onclick="image(${examine.image.image_id})">申请表</button>
+                                       </span>
+                                   </div>
+                                   </c:forEach>
+                               </div>
+                           </div>
+                           
+                           <!-- end  -->
+                           </div>
+                           <div id="formHandle">
+                               <input id="dataHandle" type="button" value="提交" />
+                           </div>
+                       </form>	
+                   </span>
+                   <!-- this form right-hand face.[start]-->
+               </div>
+        </span>
+    </div>
+    <iframe name="formData" id="formData"></iframe>
+    <script src="js/Client_Total_Script.js"></script>
+</body>
+</html>

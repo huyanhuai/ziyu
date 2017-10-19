@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>子育金服 -入驻机构后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robit" content="no-fallow">
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+    <script type="text/javascript" src="js/Common_Map.js"></script>
+    <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+    <header class="DBMS_header">
+        <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+        <span class="DBMS_header--select">
+          <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+          <span>
+            <select name="province" id="province">
+              <option value="请选择">请选择</option>
+            </select>
+            <select name="city" id="city">
+              <option value="请选择">请选择</option>
+            </select>
+          </span>
+        </span>
+        <span class="DBMS_header--logout">
+          <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+          <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+        </span>
+    </header>
+      <div class="DBMS_body">
+        <span class="DBMS_funcArea">
+          <div>
+            <p><i  class="fa fa-suitcase"></i>产品发布</p>
+            <div><button id="loan">贷款</button></div>
+            <div><button id="money">理财</button></div>
+            <div><button id="insurance">保险</button></div>
+            <div><button id="other">其他</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-file"></i>还款管理</p>
+            <div><button id="refundManage">还款管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-address-book"></i>贷款审核</p>
+            <div><button id="loanAudit">贷款审核</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-folder-open"></i>产品管理</p>
+            <div><a href="http://www.baidu.com"><button type="button" id="productManage">产品管理</button></a></div>
+          </div>
+          <div>
+            <p><i class="fa fa-user-circle"></i>帐号管理</p>
+            <div><button id="addAccount">添加帐号</button></div>
+          </div>
+        </span>
+        <span class="DBMS_disArea">
+          <span id="rightBox">
+            <div id="cusFir">
+                <span class="cusFir_span">客户初审</span>
+            </div>
+            <ul id="cusCon">
+              <c:forEach items="${examines }" var="examines" begin="${page.startPos }" end="${page.pageNow*page.pageSize-1 }">
+                <li class="clear">
+                    <img src="${examines.creit.product_bankImage }" alt="" width="60px" height="60px">
+                    <p>申请${examines.account.account_bankName }贷款</p>
+                    <p>身份证号码：<span>${examines.basicInformation.basicInformation_IDcard }</span></p>
+                    <p>
+                        <span>姓名：${examines.basicInformation.basicInformation_name }</span>
+                        <span class="cusPad">性别：
+                        <span>
+                            <c:if test="${examines.basicInformation.basicInformation_sex==0 }">男</c:if>
+                            <c:if test="${examines.basicInformation.basicInformation_sex==1 }">女</c:if>
+                        </span></span>
+                    </p>
+                    <p>
+                                           电话号码：<span>${examines.basicInformation.basicInformation_mobile }</span>
+                    </p>
+                    <p><a href="product_trial.do?image_id=${examines.image.image_id }"><button>查看详细</button></a></p>
+                  </li>
+              </c:forEach>
+            </ul>
+        </span>
+            <div id="page">
+              <a href="product_trialTable.do?account_id=${account.account_id }&a_id=${account.a_id}&pageNum=${page.pageNow-1 }">上一页</a>
+              <a href="product_trialTable.do?account_id=${account.account_id }&a_id=${account.a_id}&pageNum=${page.pageNow+1 }">下一页</a>
+              <a href="product_trialTable.do?account_id=${account.account_id }&a_id=${account.a_id}">首页</a>
+              <a href="product_trialTable.do?account_id=${account.account_id }&a_id=${account.a_id}&pageNum=${page.totalPageCount }">尾页</a>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前第${page.pageNow }页共${page.totalPageCount }页
+            </div>
+        </span>
+    </div>
+    <script src="js/Client_Total_Script.js"></script>
+</body>
+</html>
