@@ -130,7 +130,7 @@
         </span>
       </fieldset>
 
-      <fieldset class="product_otherInfo--warp">
+      <!-- <fieldset class="product_otherInfo--warp">
         <legend>申请人及单位要求</legend>
         <span>
           <p>男性年龄(岁)</p>
@@ -149,7 +149,7 @@
           </div>
         </span>
         <span>
-          <p>&#42;上牌时间(年/月)</p>
+          <p>&#42;上牌时间月</p>
           <div>
             <input type="text" name="minVehicleLicenseTime" />
             <b>&#45;</b>
@@ -251,8 +251,332 @@
             <option value="0">不可以</option>
           </select>
         </span>
+      </fieldset> -->
+      <fieldset class="product_otherInfo--warp">
+        <legend>进件要求</legend>
+        <span>
+          <p>&#42;房龄</p>
+          <div>
+            <b>&#8804;</b>
+            <input type="text" name="mortgageHouseYears" />
+            <b>年</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;房屋性质</p>
+          <div>
+          	<select name="mortgageHouseNature">
+          		<option>住宅</option>
+          		<option>厂房</option>
+          		<option>别墅/排屋</option>
+          		<option>经济适用房</option>
+          		<option>房改房</option>
+          		<option>商住两用房</option>
+          		<option>写字楼</option>
+          		<option>商铺</option>
+          		<option>商用</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;土地性质</p>
+          <div>
+          	<select name="mortgageHouseLandNature">
+          		<option>住宅用地</option>
+          		<option>工业用地</option>
+          		<option>仓储用地</option>
+          		<option>商业服务用地</option>
+          		<option>旅游业用地</option>
+          		<option>金融保险业用地</option>
+          		<option>市政公用设施用地</option>
+          		<option>绿代用地</option>
+          		<option>公共建筑用地</option>
+          		<option>文/体娱用地</option>
+          		<option>机关/宣传用地</option>
+          		<option>科研设计用地</option>
+          		<option>教育用地</option>
+          		<option>医卫用地</option>
+          		<option>交通用地</option>
+          		<option>铁路用地</option>
+          		<option>民用机场用地</option>
+          		<option>港口码头用地</option>
+          		<option>其他交通用地</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;使用权类型</p>
+          <div>
+          	<select name="mortgageHouseUseType">
+          		<option>出让</option>
+          		<option>划拨</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;第二住所证明</p>
+          <div>
+          	<select name="mortgageHouseSecondResidence">
+          		<option>有</option>
+          		<option>有无均可</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;房屋与工作地是否一致</p>
+          <div>
+          	<select name="mortgageHouseDeptAgreement">
+          		<option>是</option>
+          		<option>无要求</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>全款房</p>
+          <select name="mortgageHouseQuankuan">
+            <option value="1">接受</option>
+            <option value="0">不接受</option>
+          </select>
+        </span>
+        <span>
+          <p>全款房折扣</p>
+          <input type="text" name="mortgageHouseQuankuanDiscount"/>
+        </span>
+        <span>
+          <p>按揭房或已抵押房</p>
+          <select name="mortgageHouseAnjie">
+            <option value="1">接受</option>
+            <option value="0">不接受</option>
+          </select>
+        </span>
+        <span>
+          <p>按揭房或已抵押折扣</p>
+          <input type="text" name="mortgageHouseAnjieDiscount"/>
+        </span>
       </fieldset>
-
+      <fieldset class="product_otherInfo--warp">
+        <legend>进件要求</legend>
+        <span>
+          <p>&#42;车辆品牌</p>
+          <div>
+            <input type="text" name="mortgageVehicleBrand" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;车型</p>
+          <div>
+          	<select name="mortgageVehicleModels">
+          		<option>轿车</option>
+          		<option>商务车</option>
+          		<option>面包车</option>
+          		<option>越野车</option>
+          		<option>越野车(城市SUV)</option>
+          		<option>皮卡车</option>
+          		<option>跑车</option>
+          		<option>货车</option>
+          		<option>工程车</option>
+          		<option>客车</option>
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;裸车价(万元)</p>
+          <div>
+            <input type="text" name="minmortgageVehiclePrice" />
+            <b>&#45;</b>
+            <input type="text" name="maxmortgageVehiclePrice" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;车龄</p>
+          <div>
+            <b>&#8804;</b>
+            <input type="text" name="mortgageVehicleLicenseTime" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;公里数</p>
+          <div>
+            <b>&#8804;</b>
+            <input type="text" name="mortgageVehicleKilometer" />
+            <b>公里</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;全款车</p>
+          <div>
+           <select name="mortgageVehicleQuankuan">
+           		<option value="1">接受</option>
+           		<option value="0">不接受</option>
+           </select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;全款车抵押折扣</p>
+          <div>
+            <input type="text" name="mortgageVehicleQuankuanDiscount" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;按揭车</p>
+          <div>
+           <select name="mortgageVehicleAnjie">
+           		<option value="1">接受</option>
+           		<option value="0">不接受</option>
+           </select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;按揭车抵押折扣</p>
+          <div>
+            <input type="text" name="mortgageVehicleAnjieDiscount" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;已抵押车</p>
+          <div>
+           <select name="mortgageVehicleYidiya">
+           		<option value="1">接受</option>
+           		<option value="0">不接受</option>
+           </select>
+          </div>
+        </span>
+        <span>
+          <p>&#42;已抵押车折扣</p>
+          <div>
+            <input type="text" name="mortgageVehicleYidiyaDiscount" />
+          </div>
+        </span>
+        <span>
+          <p>&#42;车牌</p>
+          <div>
+          	<select name="mortgageVehiclePlate">
+          		
+          	</select>
+          </div>
+        </span>
+        <span>
+          <p>抵押方式</p>
+          <select name="vehicleType">
+            <option>押车</option>
+            <option>不押车</option>
+          </select>
+        </span>
+      </fieldset>
+      <fieldset class="product_otherInfo--warp">
+        <legend>进件要求</legend>
+        <c:choose>
+        	<c:when test="${creit.product_identity==1 }">
+        		<span>
+		          <p>现单位工作时间</p>
+		          <div>
+		            <b>&#8805;</b>
+		            <input type="text" name="workShift" />
+		            <b>月</b>
+		          </div>
+		        </span>
+		        <span>
+		          <p>工作时间</p>
+		          <div>
+		            <b>&#8805;</b>
+		            <input type="text" name="workTime" />
+		            <b>月</b>
+		          </div>
+		        </span>
+        	</c:when>
+        	<c:otherwise>
+        		 <span>
+		          <p>营业执照要求</p>
+		          <div>
+		            <select class="require_businessLicense" name="businessLicense">
+		              <option value="1">有</option>
+		              <option value="0">有无均可</option>
+		            </select>
+		          </div>
+		        </span>
+		        <span class="require_registerTime">
+		          <p>营业执照注册时间</p>
+		          <div>
+		            <b>&#8805;</b>
+		            <input type="text" name="registerTime" />
+		            <b>月</b>
+		          </div>
+		        </span>
+		        <span>
+		          <p>经营时间</p>
+		          <div>
+		            <b>&#8805;</b>
+		            <input type="text" name="managementTime" />
+		            <b>月</b>
+		          </div>
+		        </span>
+        	</c:otherwise>
+        </c:choose>
+        <span>
+          <p>&#42;购房价格</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="housePrice" />
+            <b>万元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;总抵押期限</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="houseMortgageTerm" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;已抵押期限</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="houseSecuredTerm" />
+            <b>月</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;月付利息</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="houseMonthInterest" />
+            <b>元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;季付利息</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="houseSeasonInterest" />
+            <b>元</b>
+          </div>
+        </span>
+        <span>
+          <p>&#42;月收入</p>
+          <div>
+            <b>&#8805;</b>
+            <input type="text" name="houseMonthIncome" />
+            <b>元</b>
+          </div>
+        </span>
+        <span>
+          <p>房产类型</p>
+          <select name="houseType">
+            <option>抵押房</option>
+            <option>本市抵押</option>
+            <option>外市抵押</option>
+          </select>
+        </span>
+        <span>
+          <p>是否出租</p>
+          <select name="houseLease">
+            <option value="1">是</option>
+            <option value="0">无要求</option>
+          </select>
+        </span>
+      </fieldset>
       <fieldset class="product_creditRequire--warp">
         <legend>征信要求</legend>
         <div class="creditRequire_query--warp">
@@ -430,35 +754,6 @@
               </span>
               <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>
             </div>
-            <div class="creditRequire_liability--reuse">
-              <span>
-                <input type="text" name="liabilityCredit_months" />
-                <b>月内</b>
-              </span>
-              <span>
-                <select>
-                  <option>信用卡</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-                <select>
-                  <option>信用卡</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-                <select>
-                  <option>贷款</option>
-                </select>
-                <b>&#8804;</b>
-              </span>
-              <span>
-                <input type="text" name="liabilityCredit_numbers" />
-                <b>次</b>
-              </span>
-              <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>
-            </div>
           </div>
           <div class="creditRequire_child_foot">
             <button type="button" class="creditRequire_liability--add">再加一条</button>
@@ -479,6 +774,9 @@
   </span>
 </div>
 <script src="js/Client_Total_Script.js"></script>
-
+<script>
+  var value = sessionStorage.getItem("key"); 
+      console.log(value);
+</script>
 </body>
 </html>

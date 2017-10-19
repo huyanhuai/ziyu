@@ -120,7 +120,7 @@
         <span>
           <p>房产类型</p>
           <select name="houseType">
-            <option>抵押房房</option>
+            <option>抵押房</option>
             <option>本市抵押</option>
             <option>外市抵押</option>
           </select>

@@ -106,7 +106,7 @@
           <div>
             <b>&#8805;</b>
             <input type="text" name="houseMoney" />
-            <b>元</b>
+            <b>万元</b>
           </div>
         </span>
         <span>

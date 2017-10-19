@@ -495,13 +495,15 @@ $('@product--warp') && function(Courier){
 						'vehicleCoty',
 						'vehicleLicense',
 						'product_minTerm',
-						'product_maxTerm'
+						'product_maxTerm',
+						'mortgageHouseYears'
 					],
 					FloatName = [
 						'product_minimumInterest',
 						'product_maximumInterest',
-						'minVehicleLicenseTime',
-						'maxVehicleLicenseTime',
+						'houseMonthInterest',
+						'houseSeasonInterest'
+
 					],
 					IntExcptionName = [
 						'vehicleOnePrice',
@@ -510,20 +512,53 @@ $('@product--warp') && function(Courier){
 						'vehicleTerm',
 						'vehicleRepaidTerm',
 						'vehicleMoney',
-						'vehicleMonthPay'
+						'vehicleMonthPay',
+						'minVehicleLicenseTime',
+						'maxVehicleLicenseTime',
+						'workShift',
+						'workTime',
+						'managementTime',
+						'houseTerm',
+						'houseRepaidTerm',
+						'houseAppointRepaidTerm',
+						'housePrice',
+						'houseMoney',
+						'houseMonthPay',
+						'houseMonthIncome',
+						'houseMortgageTerm',
+						'houseSecuredTerm',
+						'policyTotalTime',
+						'policyPrice',
+						'policyMonthlyPayment',
+						'policyYearPayment',
+						'policySurplusTime',
+						'mortgageHouseQuankuanDiscount',
+						'mortgageHouseAnjieDiscount',
+						'minmortgageVehiclePrice',
+						'maxmortgageVehiclePrice',
+						'mortgageVehicleLicenseTime',
+						'mortgageVehicleKilometer',
+						'mortgageVehicleQuankuanDiscount',
+						'mortgageVehicleAnjieDiscount',
+						'mortgageVehicleYidiyaDiscount',
 					],
 					StringExcp = [
 						'product_place',
 						'product_industry',
-						'product_company'
+						'product_company',
+						'policyCompany',
+						'policyRestrictType',
+						'policyRestrictMode',
+						'policyHholder',
+						'mortgageVehicleBrand'
 					],
 			Int = /^\d+$/,
 			Float = /^(\d+\.\d+|\d+(\.\d+)?%)$/,
 			StringReg = /[^1-9A-z]/;
 
 			return StringName.indexOf(Courier.name) !== -1 ? StringReg.test(Courier.value):
-			IntName.indexOf(Courier.name) !== -1 ?Int.test(Courier.value) :
-			FloatName.indexOf(Courier.name) !== -1?Float.test(Courier.value) : 
+			IntName.indexOf(Courier.name) !== -1 ? Int.test(Courier.value) :
+			FloatName.indexOf(Courier.name) !== -1 ? Float.test(Courier.value) : 
 			IntExcptionName.indexOf(Courier.name) !== -1 ? function(){
 				if (Courier.value == '' || Courier.value == null) {
 					return true;
@@ -569,7 +604,7 @@ $('#loanType') && function(){
 	// 启动相应产品的详单
 	var loanTypeOne = $('.disArea_loanType--one'),
 			loanTypeTwo = $('.disArea_loanType--two');
-	for(var i = 0; i < loanTypeOne.length; i++) { //5
+	for(var i = 0; i < loanTypeOne.length; i++) { 
 		(function(i){
 		  loanTypeOne[i].onmouseenter = function(){
 		   	var loanTypeButton = $('button',loanTypeTwo[i]);
