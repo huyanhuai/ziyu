@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title>子育金服 -入驻机构后台</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -58,55 +58,222 @@
         </span>
         <span class="DBMS_disArea">
             <div id="totalBox">
-                <jsp:include page="model/top.jsp"></jsp:include>
-                   <jsp:include page="model/left.jsp"></jsp:include>
-                   <!-- this form left-hand face.[end]-->
-                   <!-- this form right-hand face.[start]-->
                    <span id="rightBox">
-                       <form id="form" target="formData">
-                           <div id="formMain">
-                           <!-- start -->
-                               <div id="approval">
-                               <div>
-                                   <div>
-                                       <span>姓名</span>
-                                       <span>客户编号</span>
-                                       <span>贷款金额</span>
-                                       <span>贷款产品</span>
-                                       <span>还款期限</span>
-                                       <span>操作</span>
-                                   </div>
-                               </div>
-                               <div class="applicant">
-                                   <c:forEach items="${examines }" var="examine">
-                                       
-                                   <div>
-                                       <span>${examine.basicInformation.basicInformation_name }</span>
-                                       <span class="bid">${examine.basicInformation.b_id }</span>
-                                       <span>${examine.image.image_money/10000 }万</span>
-                                       <span>${examine.creit.product_productName }</span>
-                                       <span>${examine.image.image_month }期</span>
-                                       <span>
-                                           <button class="applyBtn" onclick="selectByID(${examine.image.image_id})">申请资料</button>
-                                           <button class="applyBtn" onclick="image(${examine.image.image_id})">申请表</button>
-                                       </span>
-                                   </div>
-                                   </c:forEach>
-                               </div>
-                           </div>
-                           
-                           <!-- end  -->
-                           </div>
-                           <div id="formHandle">
-                               <input id="dataHandle" type="button" value="提交" />
-                           </div>
-                       </form>	
+                        <div id="cusFir">
+                            <span class="cusFir_span">客户初审</span>
+                            <div id="cusFir_btn" class="clear">
+                                <button>成功</button> <button>补件</button> <button class="lose">失败</button> <button>图片信息</button>
+                            </div>
+                        </div>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>姓名</th> 
+                                <th>性别</th> 
+                                <th>身份证号</th> 
+                                <th>电话号码</th>
+                            </tr>
+                            <tr>
+                                <td class="listRight">姓名</td> 
+                                <td class="listCentre">111</td> 
+                                <td class="listCentre">111</td> 
+                                <td class="listLeft">111</td>
+                            </tr>
+                        </table>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th>贷款金额</th> 
+                                <th>贷款期限</th> 
+                                <th>职业身份</th> 
+                                <th>贷款用途</th>
+                            </tr>
+                            <tr>
+                                <td class="listRight">111</td> 
+                                <td class="listCentre">111</td> 
+                                <td class="listCentre">111</td> 
+                                <td class="listLeft">111</td>
+                            </tr>
+                        </table>
+                        <table border="1" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <th>个人信息上班族</th> 
+                                    <th>工作信息</th> 
+                                    <th>财力信息</th> 
+                                    <th>联系人信息</th>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne">身份证发证机关： </td> 
+                                    <td class="listOne">单位名称： </td> 
+                                    <td class="listOne">是否有房：  &nbsp;&nbsp;<a href="#">查看</a></td> 
+                                    <td >亲属姓名： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">籍贯： </td> 
+                                    <td class="listOne listTop">单位地址： </td> 
+                                    <td class="listOne listTop">保单信息： 份  &nbsp;&nbsp;<a href="#">查看</a></td> 
+                                    <td class="listTop">关系： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">民族： </td> 
+                                    <td class="listOne listTop">单位电话： </td> 
+                                    <td class="listOne listTop">车辆信息：  &nbsp;&nbsp;<a href="#">查看</a></td> 
+                                    <td class="listTop">联系电话： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">婚姻状况： </td> 
+                                    <td class="listOne listTop">部门： </td> 
+                                    <td class="listOne listTop">自建房信息： <br>租金： </td> 
+                                    <td class="listTop">亲属姓名： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">学历： </td> 
+                                    <td class="listOne listTop">职位： </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">关系： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">户籍地址： </td> 
+                                     <td class="listOne listTop">所属行业： </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">联系电话： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">住宅地址： </td> 
+                                    <td class="listOne listTop">单位性质： </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">同事姓名： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">供养子女数： </td> 
+                                    <td class="listOne listTop">现单位工作时间：&#8805;月</td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">联系电话： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">现居住时间：</td> 
+                                    <td class="listOne listTop">连续打卡月数：&#8805;</td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">朋友姓名： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">居住类型：<br> 租金： 元</td> 
+                                    <td class="listOne listTop">平均工资： 元</td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">联系电话： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop">邮箱： </td> 
+                                    <td class="listOne listTop">社保：  </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">朋友姓名： </td>
+                                </tr>
+                                <tr class="list">
+                                    <td class="listOne listTop"> &nbsp; </td> 
+                                    <td class="listOne listTop">公积金：  </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">联系电话： </td>
+                                </tr>    
+                                <tr class="list">
+                                    <td class="listOne listTop">&nbsp; </td> 
+                                    <td class="listOne listTop">每月总收入： 元  </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                    <td class="listTop">家人或联系人是否知道此项贷款：  </td>
+                                </tr> 
+                                <tr class="list">
+                                    <td class="listOne listTop">&nbsp; </td> 
+                                    <td class="listOne listTop">每月总支出： 元 </td> 
+                                    <td class="listOne listTop">  &nbsp;</td> 
+                                     <td class="listTop">是否有推荐人： </td>
+                                </tr> 
+                                <tr class="list">
+                                    <td class="listOne listTop">&nbsp; </td> 
+                                    <td class="listOne listTop">总工龄： 年 </td> 
+                                    <td class="listOne listTop"> &nbsp;</td> 
+                                    <td class="listTop">推荐人姓名：  </td>
+                                </tr> 
+                        </table>
+                        <table border="1" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <td class="listHouse">房屋套数： 套</td> 
+                                </tr>
+                        </table>        
+                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+                            <tr>
+                                <td class="listRight">商品房信息：</td> 
+                                <td class="listCentre">是否出租：</td> 
+                                <td class="listCentre">房价：万元</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">商品房信息：</td> 
+                                <td class="listCentre">是否出租：</td> 
+                                <td class="listCentre">房价：万元</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">月供金额：</td> 
+                                <td class="listCentre">已还期数：&#8805; 期</td> 
+                                <td class="listCentre">&nbsp;</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="listHouse">保单数量： 份</td> 
+                                </tr>
+                        </table>        
+                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+                            <tr>
+                                <td class="listRight">投保人：</td> 
+                                <td class="listCentre">&nbsp;</td> 
+                                <td class="listCentre">&nbsp;</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">投保人：</td> 
+                                <td class="listCentre">投保公司：</td> 
+                                <td class="listCentre">投保生效时间：&#8805; 月</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">保险类型：</td> 
+                                <td class="listCentre">缴费方式：</td> 
+                                <td class="listCentre">缴费金额：</td> 
+                                <td class="listLeft">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="1" cellspacing="0" cellpadding="0" >
+                                <tr>
+                                    <td class="listHouse">车辆数： </td> 
+                                </tr>
+                        </table>        
+                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+                            <tr>
+                                <td class="listRight">车辆信息：</td> 
+                                <td class="listCentre">车辆状态：</td> 
+                                <td class="listCentre">车龄：&#8805; 月</td> 
+                                <td class="listLeft">购车价格：万元</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">车辆信息：</td> 
+                                <td class="listCentre">车辆状态：</td> 
+                                <td class="listCentre">车龄：&#8805; 月</td> 
+                                <td class="listLeft">购车价格：万元</td>
+                            </tr>
+                            <tr>
+                                <td class="listRight">按揭金额：</td> 
+                                <td class="listCentre">月供金额：元</td> 
+                                <td class="listCentre">按揭期数： 期</td> 
+                                <td class="listLeft">已还期数： 期</td>
+                            </tr>
+                        </table>
+                        <div id="picture" class="clear">
+                            <div class="pictureOne"><img src="#" alt=""></div>
+                            <div class="pictureOne"><img src="#" alt=""></div>
+                        </div>
                    </span>
-                   <!-- this form right-hand face.[start]-->
-               </div>
+            </div>
         </span>
     </div>
-    <iframe name="formData" id="formData"></iframe>
     <script src="js/Client_Total_Script.js"></script>
 </body>
 </html>

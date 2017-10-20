@@ -622,18 +622,3 @@ $('#loanType') && function(){
 		})(i);
 	};
 }();
-var list = document.getElementsByClassName('product_otherInfo--warp');
-list[1].style.display = 'block';
-var num = location.herf.split('=')[1];
-move(num);
-function move(str){
-for(var i = 0; i < list.length; i++){
-	if(str == num){
-		list[num].style.display = 'block';
-	}else{
-		list.style.display = 'none';
-	}
-}
-list[num].style.display = 'block';
-
-}
