@@ -57,12 +57,26 @@
           </div>
         </span>
         <span class="DBMS_disArea">
+            <div id="nav">
+                <div class="per-que-nav clear">
+                    <p class="que-nav-cur">
+                        <span class="fa fa-home house"></span>
+                        <h7>您当前的位置：</h7>
+                        <span><a href="#">首页</a> &gt; 客户初审</span>
+                    </p>
+                    <p id="que-nav-data">
+                        <span id="nav-data-span1"></span>
+                        <span id="nav-data-span2"></span>
+                        <span id="nav-data-span3"></span>
+                    </p>
+                </div>
+            </div>
             <div id="totalBox">
                    <span id="rightBox">
-                        <div id="cusFir">
+                        <div class="cusFir">
                             <span class="cusFir_span">客户初审</span>
                             <div id="cusFir_btn" class="clear">
-                                <button>成功</button> <button>补件</button> <button class="lose">失败</button> <button>图片信息</button>
+                                <button id="Success">成功</button> <button>补件</button> <button id="lose">失败</button> <button>图片信息</button>
                             </div>
                         </div>
                         <table border="1" cellspacing="0" cellpadding="0">
@@ -267,13 +281,46 @@
                             </tr>
                         </table>
                         <div id="picture" class="clear">
-                            <div class="pictureOne"><img src="#" alt=""></div>
+                            <div class="pictureOne"><img src="t018d359947506be72c.jpg" alt=""></div>
                             <div class="pictureOne"><img src="#" alt=""></div>
                         </div>
                    </span>
             </div>
+            <!-- 审核推送 -->
+        <div id="box">
+            <div class="Audit">
+                    <div class="AuditPush">
+                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo">&times;</span> 
+                    </div>
+                    <div class="AuditSuccess">
+                        <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
+                        <div class="AuditChoose">
+                            <span class="">您选择推送银行</span> 
+                            <select id="bank"><option value="0">南京银行</option> </select>
+                        </div>
+                    </div>
+                    <div class="AuditEnter">
+                            <button id="cancel">取消</button>
+                            <button class="confirm">确定</button>
+                       </div>
+            </div>
+        </div>
         </span>
     </div>
     <script src="js/Client_Total_Script.js"></script>
+    <script>
+       var success = document.getElementById('Success');
+       var box = document.getElementById('box');
+       var cancel = document.getElementById('cancel');
+       var times = document.getElementById('AuditPushTwo')
+       success.onclick = function(){
+        box.style.display = 'block';
+       }
+       var close = function(){
+           box.style.display = 'none';
+       }
+       cancel.onclick = close;
+       times.onclick = close;
+    </script>
 </body>
 </html>

@@ -107,36 +107,43 @@ function StrCodeLoop(v_attr){
 //消息提示框函数开始边界
 //此函数接收样式参数传入参数无需特定顺序
 function Dialog(Courier){
+	var BigDiv = document.createElement('div');
 	var Div = document.createElement('div'),
 			Style = Div.style,
 			Disapper = function(){
-				document.body.removeChild(this);
+				document.body.removeChild(BigDiv);
         $('@DBMS_body').removeAttribute('style');
 			};
+	BigDiv.appendChild(Div);
+	BigDiv.style.height = '1200px';
+	BigDiv.style.position = 'absolute';
+	BigDiv.style.top = '70px';
+	BigDiv.style.zIndex = '100px';
 	Style.position = 'fixed';
   Style.height = '200px';
   Style.width = '300px';
   Style.top = (window.innerHeight-300)/2+'px';
-  Style.left = (window.innerWidth-200)/2+'px';
+	Style.left = (window.innerWidth-200)/2+'px';
 	Style.backgroundColor = '#1f262e';
 	Style.color = 'white';
 	Style.fontSize = '21px';
-	Style.zIndex = '666';
-  Style.boxShadow = '0 0 20px 0 black';
+	Style.zIndex = '666px';
+	Style.boxShadow = '0 0 20px 0 black';
 	Courier.Model && Courier.Model == 'Confirm' ? function(){
 		document.body.appendChild(Div);
 		Div.innerHTML = '<p style="margin-top:20%;">'+(Courier.Message||'未知错误')+'</p><p style="margin-top:5%;">Tips：点击关闭提示框</p>';
 	}:function(){
     Courier.Background && function(){
-      Courier.Background.style.filter = 'blur(3px)'
-    }();
-		document.body.appendChild(Div);
+			Courier.Background.style.filter = 'blur(3px)';
+		}();
+		document.body.appendChild(BigDiv);
 		Courier.Type && Courier.Type == 'img' ?
 			Div.innerHTML =	'<img src="'+Courier.Path+'"/>' : Div.innerHTML = '<p style="margin-top:20%;">'+(Courier.Message||'未知错误')+'</p><p style="margin-top:5%;">Tips：点击关闭提示框</p>';
 	}();
 	Div.onclick = Disapper;
 };
 //城市选择函数
+console.log(provinceList);
 function CitySelector(ACourier,BCourier,CCourier){
   if(arguments[3] == 'head'){
   var StatusReporter = new Promise(function(resolve,reject){

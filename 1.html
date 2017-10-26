@@ -5,82 +5,341 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
     <style>
-     table tr td{
-	width:16%;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .Audit{
+            background: #F2F2F2;
+            width: 400px;
+            height: 250px;
+            font-size: 18px;
+            display: block;
+        }
+        .AuditPush{
+            height: 40px;
+            line-height: 40px;
+            background: #E8E8E8;
+        }
+        .AuditPush span{
+            padding: 0 10px;
+        }
+        .AuditPushTwo {
+            float: right;
+            font-size:25px;
+            cursor:pointer;
+        }
+        .AuditSuccess{
+            height: 150px;
+            border-bottom: 1px solid #E8E8E8;
+        }
+        .AuditSuccess .Radic{
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #68C56A;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            margin: 20px 20px 20px 40px;
+        }
+        .AuditSuccess .AuditChoose{
+            width: 400px;
+            text-align: center;
+            font-size: 14px;
+        }
+        #bank{
+            color: #398AF6;
+            width: 100px;
+            text-align: center;
+        }
+        .AuditEnter button{
+            float: right;
+            width: 60px;
+            height: 25px;
+            margin: 18px 10px;
+            border: none;
+        }
+        .AuditEnter .confirm{
+            background: #37CA34;
+            color: #fff;
+        }
+        .AuditEnter .cancel{
+            border: 1px solid #9E9E9E;
+            background: #F2F2F2;
+        }
+        .Question{
+	width: 100%;
+	font-size: 16px;
+	padding: 10px 0;
+	border-bottom: 1px dashed #9E9E9E;
+}
+.QuestionOne{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+}
+p{
+	width: 200px;
+	text-align: left;
+	float: left;
+}
+.QuestionOne_1{
+    font-size: 12px;
+    margin-left: 40px;
+}
+.QuestionOne_2{
+	font-size: 12px;
+    width: 50%;
+    text-align: right;
+}
+.QuestionOne_3{
+    font-size: 12px;
+}
+#per-que{
+    width: 100%;
+    text-align: left;
+}
+table{
+	margin: 0 auto;
+	width: 100%;
+	margin-top: 10px;
+    table-layout:fixed;
+}
+table tr th{
 	font-size: 14px;
 	line-height: 30px;
-	/* border: 1px solid #3cacf1; */
+	/* border: 1px solid #7ccefd; */
+	background-image: linear-gradient(to bottom, #e3f6ff, #60c5fc);
 }
-.onecenter{text-align:center;width:200px;height:50px;}
-#se{background-color:#006699 ;padding:20px;color:#FFF;}
+table tr td{
+	font-size: 14px;
+	border: 1px solid #aaddfa;
+	padding: 10px 0;
+}
+table tr .listRight{
+	border-right: 0px;
+}
+table tr .listCentre{
+	border-right: 0px;
+	border-left: 0px;
+}
+table tr .listLeft{
+	border-left: 0px;
+}
+table tr .listOne{
+	border-right: 0px;
+}
+table tr .listTop{
+	border-top:0px;
+}
     </style>
 </head>
 <body>
-            <table border='1'cellspacing="0" cellpadding="0"> 
-                <tr> 
-                    <td class="onecenter">1</td> 
-                    <td class="onecenter">2</td> 
-                    <td class="onecenter">3</td>
-                 </tr> 
-                 <tr> 
-                     <td class="onecenter">a</td> 
-                     <td class="onecenter"> b</td> 
-                     <td  class="onecenter"> c</td>
-                     </tr > 
-                     <tr> 
-                         <td class="onecenter" >中国</td> 
-                         <td class="onecenter" >我</td>
-                          <td class="onecenter" >爱你</td>
-                    </tr>
-             </table>
-             <table border='1'cellspacing="0" cellpadding="20" > <tr> <td class="onecenter">1</td> <td class="onecenter" style="border-left:0px;border-right:0px;"  >2</td> <td class="onecenter">3</td> </tr> <tr> <td class="onecenter">a</td> <td class="onecenter" style="border:0px"> b</td> <td class="onecenter" > c</td> </tr > <tr id="se"> <td class="onecenter" >中国</td> <td class="onecenter" >我</td> <td class="onecenter" >爱你</td> </tr> </table>
-        <table border="1">
-                <tr>
-                        <td cosplan="3">111</td> 
-                        <!-- <td>111</td> 
-                        <td>111</td> 
-                        <td>111</td> -->
-                    </tr>
-                <tr>
-                    <th width="100px;"></th> 
-                    <th>性别</th> 
-                    <th>身份证号</th> 
-                    <th>电话号码</th>
-                </tr>
-                
-            </table>
-            <table border='1'>
-                    <tr>
-                    <td cosplan="3">
-                    <tr>
-                    
-                    <tr>
-                    <td>2-1</td>
-                    <td>2-2</td>
-                    
-                    <td>2-3</td>
-                    
-                    </tr>
-</table>
-<table border="1" cellspacing="0" cellpadding="0" class="refund">
-        <tr>
-            <th width="16%">申请人</th> 
-            <th>手机号</th> 
-            <th>贷款产品</th> 
-            <th>期限</th>
-            <th>还款方式</th>
-            <th>操作</th>
-        </tr>
-        <tr>
-            <td class="listRight" width="16%">姓名</td> 
-            <td class="listCentre">111</td> 
-            <td class="listCentre">111</td> 
-            <td class="listCentre">111</td>
-            <td class="listCentre">111</td>
-            <td class="listLeft"><a href="#">查看</a></td>
-        </tr>
-    </table>
+    <div id="Audit">
+        <div class="AuditPush">
+            <span class="AuditPushOne">审核推送</span> <span class="AuditPushTwo" onclick="close()">&times;</span> 
+        </div>
+        <div class="AuditSuccess">
+            <span class="fa fa-check Radic"></span> <span>审核成功</span>
+            <div class="AuditChoose">
+                <span class="">您选择推送银行</span> 
+                <select id="bank"><option value="0">南京银行</option> </select>
+            </div>
+        </div>
+        <div class="AuditEnter">
+                <button class="cancel" onclick="close()">取消</button>
+                <button id="confirm">确定</button>
+           </div>
+    </div>
+    <br>
+    <div class="Question">
+            <div class="QuestionOne clear">
+                <p style="font-size: 30px;width: 40px;">&bull;</p> <p>问题描述</p>
+            </div>
+            <div class="QuestionOne clear">
+                <p class="QuestionOne_1">身份证照片</p> <p class="QuestionOne_2">时间</p>
+            </div>
+            <!-- ... -->
+            <div class="QuestionOne clear">
+                <p style="font-size: 30px;width: 40px;">&bull;</p> <p>子育审核</p>
+            </div>
+            <div class="QuestionOne clear">
+                <p class="QuestionOne_1">请重新提交身份证照片</p> <p class="QuestionOne_2">时间</p>
+            </div>
+            <div class="QuestionOne clear">
+                <p style="font-size: 30px;width: 40px;">&bull;</p><p class="QuestionOne_3">请重新提交身份证照片</p> <p class="QuestionOne_2">时间</p>
+            </div>
+    </div>
+<!-- 帐号 -->
+    <div id="per-que">
+            <div class="per-que-nav clear">
+                <!-- <img src="img/home2.png" alt=""> -->
+                <p class="que-nav-cur">
+                    <h7>您当前的位置：</h7>
+                    <span><a href="">首页</a> > 添加子账号</span>
+                </p>
+                <p id="que-nav-data">
+                    <span id="nav-data-span1">1</span>
+                    <span id="nav-data-span2">1</span>
+                    <span id="nav-data-span3">1</span>
+                </p>
+            </div>
+            <div class="per_que_con">
+                <div class="per_con_con">
+                    <div class="per_con_tit">
+                        <h3>添加子账号</h3>
+                    </div>
+                    <div class="per_con_form">
+                        <form action="">
+                            <p>
+                                <span>账号</span>
+                                <input type="text" placeholder="请输入账号" name="account_name">
+                            </p>
+                            <p>
+                                <span>用户名</span>
+                                <input type="text" placeholder="请输入用户名" name="account_bankName">
+                            </p>
+                            <p>
+                                <span>密码</span>
+                                <input type="text" placeholder="密码最小长度为6位" name="account_pass">
+                            </p>
+                            <p>
+                                <span>确认密码</span>
+                                <input type="text" placeholder="请重复密码">
+                            </p>
+                            <div class="clear">
+                                <span>权限</span>
+                                <!--<li>
+                                    <div>可授权权限</div>
+                                    <select multiple>
+                                        <option value="0">产品管理</option>
+                                        <option value="1">子账号管理</option>
+                                        <option value="2">客户</option>
+                                        <option value="3">产品管理</option>
+                                        <option value="4">产品管理</option>
+                                    </select>
+                                </li>
+                                <li class="li_2">
+                                    <div>已授权权限</div>
+                                    <select multiple></select>
+                                </li>-->
+                                <input type="text" id="sel">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" value="0" name="account_power">
+                                        <span>产品发布</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" value="1" name="account_power">
+                                        <span>还款管理</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" value="2" name="account_power">
+                                        <span>贷款审核</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" value="3" name="account_power">
+                                        <span>产品管理</span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" value="4" name="account_power">
+                                        <span>账号管理</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>
+                                <span>状态</span>
+                                <select name="account_state" id="">
+                                    <option value="0">激活</option>
+                                    <option value="1">不激活</option>
+                                </select>
+                            </p>
+                            <div class="per_btn">
+                                <button>保存</button>
+                                <button class="btn_2">取消</button>
+                            </div>
+                        </form>
+                        <input type="hidden" value="${message }" id="message"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span id="mytime"></span>
+        <table border="1" cellspacing="0" cellpadding="0" class="refund">
+            <tr>
+                <th>放款单位</th> 
+                <th>放款金额</th> 
+                <th>放款时间</th> 
+                <th>合同编号</th>
+                <th>放款类型</th>
+                <th>产品名称</th>
+            </tr>
+            <tr>
+                <td class="listRight">姓名</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td>
+                <td class="listCentre">111</td>
+                <td class="listLeft"><a href="#">查看</a></td>
+            </tr>
+            <tr>
+                <th>还款周期</th> 
+                <th>还款方式</th> 
+                <th>财务状态</th> 
+                <th>已还期数</th>
+                <th>已还本金</th>
+                <th>剩余期数</th>
+            </tr>
+            <tr>
+                <td class="listRight">姓名</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td>
+                <td class="listCentre">111</td>
+                <td class="listLeft">111</td>
+            </tr>
+            <tr>
+                <th>剩余本金</th> 
+                <th>总利息</th> 
+                <th>已还利息</th> 
+                <th>剩余利息</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td class="listRight">姓名</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td> 
+                <td class="listCentre">111</td>
+                <td class="listCentre">&nbsp;</td>
+                <td class="listLeft">&nbsp;</td>
+            </tr>
+        </table>
+    <script>
+        var box = document.getElementById("Audit");
+        var id = document.getElementById('confirm');
+        id.onclick = function(){
+            box.style.display = 'none';
+        }
+        function close(){
+            box.style.display = 'none';
+        }
+        // close();
+        function showTime(){
+    nowtime=new Date();
+    year=nowtime.getFullYear();
+    month=nowtime.getMonth()+1;
+    date=nowtime.getDate();
+    document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+}
 
+setInterval("showTime()",1000);
+    </script>
 </body>
 </html>

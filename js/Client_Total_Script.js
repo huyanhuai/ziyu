@@ -37,6 +37,16 @@ window.onload = function(){
 		var editer;
 		CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
 		$('@DBMS_header--select').innerHTML = 
+	// 	'<span>'+
+	// 	'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+当前城市+'</p>'+
+	//  '</span>'+
+	//  '<span>'+
+	// 		'<ul>'
+	// 			'<li>'+LocationSessioin.getItem('A')+'</li>'
+	// 		+'<li>'+LocationSessioin.getItem('B')+'</li>'
+	// 		+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
+	// 	+'</ul>'+
+	// 	'</span>';
 		`<span>
 			<p><i class="fa fa-location-arrow"></i>当前城市</p>
 		 </span>
@@ -95,6 +105,7 @@ $('@product--warp') && function(Courier){
 		// 	x.style.display ='inline-block';
 		// }
 	// })
+	console.log(x);
 	Business.value == 0 ? function(){
 		x.style.display ='none';
 		Business.addEventListener('change',function(){
@@ -622,3 +633,15 @@ $('#loanType') && function(){
 		})(i);
 	};
 }();
+// 时间
+var time = document.getElementById("nav-data-span1");
+function showTime(){
+	nowtime=new Date();
+	year=nowtime.getFullYear();
+	month=nowtime.getMonth()+1;
+	date=nowtime.getDate();
+	time.innerText=year+"年"+month+"月"+date+"日"+" "+nowtime.toLocaleTimeString();
+  }
+  if(time != null){
+	setInterval("showTime()",1000);
+  }
