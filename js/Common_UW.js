@@ -143,7 +143,6 @@ function Dialog(Courier){
 	Div.onclick = Disapper;
 };
 //城市选择函数
-console.log(provinceList);
 function CitySelector(ACourier,BCourier,CCourier){
   if(arguments[3] == 'head'){
   var StatusReporter = new Promise(function(resolve,reject){

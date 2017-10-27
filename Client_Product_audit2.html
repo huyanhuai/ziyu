@@ -76,7 +76,7 @@
                         <div class="cusFir">
                             <span class="cusFir_span">客户初审</span>
                             <div id="cusFir_btn" class="clear">
-                                <button id="Success">成功</button> <button>补件</button> <button id="lose">失败</button> <button>图片信息</button>
+                                <button id="Success">成功</button> <button>补件</button> <button id="lose">失败</button> <button id="PictureMes" onclick="onTop()">图片信息</button>
                             </div>
                         </div>
                         <table border="1" cellspacing="0" cellpadding="0">
@@ -281,8 +281,10 @@
                             </tr>
                         </table>
                         <div id="picture" class="clear">
-                            <div class="pictureOne"><img src="t018d359947506be72c.jpg" alt=""></div>
-                            <div class="pictureOne"><img src="#" alt=""></div>
+                            <div>
+                                <div class="pictureOne"><img src="t018d359947506be72c.jpg" alt=""></div>
+                                <div class="pictureOne"><img src="#" alt=""></div>
+                            </div>
                         </div>
                    </span>
             </div>
@@ -309,18 +311,10 @@
     </div>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-       var success = document.getElementById('Success');
-       var box = document.getElementById('box');
-       var cancel = document.getElementById('cancel');
-       var times = document.getElementById('AuditPushTwo')
-       success.onclick = function(){
-        box.style.display = 'block';
+       var picture = document.getElementById("picture");
+       function onTop(){
+        picture.scrollIntoView(true);
        }
-       var close = function(){
-           box.style.display = 'none';
-       }
-       cancel.onclick = close;
-       times.onclick = close;
     </script>
 </body>
 </html>

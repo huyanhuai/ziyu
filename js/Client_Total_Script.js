@@ -37,16 +37,6 @@ window.onload = function(){
 		var editer;
 		CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
 		$('@DBMS_header--select').innerHTML = 
-	// 	'<span>'+
-	// 	'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+当前城市+'</p>'+
-	//  '</span>'+
-	//  '<span>'+
-	// 		'<ul>'
-	// 			'<li>'+LocationSessioin.getItem('A')+'</li>'
-	// 		+'<li>'+LocationSessioin.getItem('B')+'</li>'
-	// 		+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
-	// 	+'</ul>'+
-	// 	'</span>';
 		`<span>
 			<p><i class="fa fa-location-arrow"></i>当前城市</p>
 		 </span>
@@ -635,15 +625,17 @@ $('#loanType') && function(){
 }();
 // 时间
 var time = document.getElementById("nav-data-span1");
+var weekday = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
 function showTime(){
-	nowtime=new Date();
-	year=nowtime.getFullYear();
-	month=nowtime.getMonth()+1;
-	date=nowtime.getDate();
-	time.innerText=year+"年"+month+"月"+date+"日"+" "+nowtime.toLocaleTimeString();
+	nowtime = new Date();
+	year = nowtime.getFullYear();
+	month = nowtime.getMonth()+1;
+	date = nowtime.getDate();
+	day = nowtime.getDay();
+	time.innerHTML = year + "年" + month + "月" + date + "日" + "&nbsp;&nbsp;" + nowtime.toLocaleTimeString() + "&nbsp;&nbsp;" + weekday[day];
   }
   time != null ? setInterval("showTime()",1000) : false;
-
+// 子账号
   var sel = document.getElementById("sel");
   var sel_ul = document.getElementById("sel_ul");
   var checkxh = document.getElementsByClassName("checkxh");
@@ -663,10 +655,24 @@ function showTime(){
 					sel.innerHTML += ClassName[i].innerText + "&nbsp;";
 				};
 				if(checkxh[i].checked == false){
-					sel.innerText = [].join.call(sel.innerText.split(ClassName[i].innerText),'');
+					sel.innerText = [].join.call(sel.innerText.split(ClassName[i].innerText) ,'');
 				}
 			}
 		})(i)   
 	}
   }
   
+  var success = document.getElementById('Success');
+  var box = document.getElementById('box');
+  var cancel = document.getElementById('cancel');
+  var times = document.getElementById('AuditPushTwo')
+  success != null ? (function(){
+  success.onclick = function(){
+   box.style.display = 'block';
+  }
+  var close = function(){
+	  box.style.display = 'none';
+  }
+  cancel.onclick = close;
+  times.onclick = close;
+})() : false;

@@ -146,6 +146,10 @@ table tr .listTop{
     border-radius: 10px;
     behavior: url(PIE-1.0.0/PIE_uncompressed.htc);
 }
+#box{
+    width: 100px;
+    height: 500px;
+}
     </style>
 </head>
 <body>
@@ -280,6 +284,7 @@ table tr .listTop{
             </div>
         </div>
         <span id="mytime"></span>
+        <button id="aaa">111111</button>
         <table border="1" cellspacing="0" cellpadding="0" class="refund">
             <tr>
                 <th>放款单位</th> 
@@ -330,8 +335,36 @@ table tr .listTop{
                 <td class="listLeft">&nbsp;</td>
             </tr>
         </table>
-        <script src="js/jquery.min.js"></script>
+        <div id="box"></div>
+        <ul>
+                <li><a href="javascript:;" data-tab="eat">吃饭</a></li>
+                <li><a href="javascript:;" data-tab="sleep">睡觉</a></li>
+                <li><a href="javascript:;" data-tab="walk">逛街</a></li>
+             </ul>
+            <div >
+              <div data-tab="eat" style="background:cyan; height:500px;">
+                吃饭
+              </div>
+              <div data-tab="sleep" style="background:lightgreen;height:2000px;">
+                睡觉
+              </div>
+              <div data-tab="walk" style="background:LightSalmon;height:1000px;">
+                逛街
+              </div>
+            </div>
+            
     <script>
+        [].slice.call(document.querySelectorAll('a')).forEach(function(el){
+      el.addEventListener('click', function(){
+        var target = document.querySelector('div[data-tab=' + this.getAttribute('data-tab')+ ']' )
+        target.scrollIntoView(true);
+      })
+ })
+
+        document.getElementById("aaa").onclick = function(){
+            window.scrollTo(100,500);
+        // window.location.hash = "#box";
+       }
         var box = document.getElementById("Audit");
         var id = document.getElementById('confirm');
         id.onclick = function(){
@@ -340,14 +373,13 @@ table tr .listTop{
         function close(){
             box.style.display = 'none';
         }
-        // close();
-        function showTime(){
-    nowtime=new Date();
-    year=nowtime.getFullYear();
-    month=nowtime.getMonth()+1;
-    date=nowtime.getDate();
-    document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
-}
+    function showTime(){
+      nowtime=new Date();
+      year=nowtime.getFullYear();
+      month=nowtime.getMonth()+1;
+      date=nowtime.getDate();
+      document.getElementById("mytime").innerText=year+"年"+month+"月"+date+" "+nowtime.toLocaleTimeString();
+    }
 
 setInterval("showTime()",1000);
 $.ajax({

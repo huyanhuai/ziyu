@@ -1003,7 +1003,7 @@ table tr .listTop{
 }
 .per-que-nav p .house{
 	font-size: 20px;
-	color: rgb(88, 88, 88);
+	color: rgb(80, 80, 80);
 }
 #que-nav-data{
 	float: right;
@@ -1032,6 +1032,9 @@ table tr .listTop{
 	text-align: center;
 	background: #fff;
 	border: 1px solid rgb(197, 197, 197);
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
 }
 #per_con_form ul{
 	display: none;
