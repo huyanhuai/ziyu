@@ -642,6 +642,31 @@ function showTime(){
 	date=nowtime.getDate();
 	time.innerText=year+"年"+month+"月"+date+"日"+" "+nowtime.toLocaleTimeString();
   }
-  if(time != null){
-	setInterval("showTime()",1000);
+  time != null ? setInterval("showTime()",1000) : false;
+
+  var sel = document.getElementById("sel");
+  var sel_ul = document.getElementById("sel_ul");
+  var checkxh = document.getElementsByClassName("checkxh");
+  var ClassName = document.getElementsByClassName("ClassName");
+  sel != null ? ReviewPush() : false;
+  function ReviewPush(){
+	sel.onclick =function(){
+		sel_ul.style.display = 'block';
+	}
+	sel_ul.onmouseleave =function(){
+		sel_ul.style.display = 'none';
+	}
+	for (var i = 0; i < checkxh.length; i++) {
+		(function(i){
+			checkxh[i].onclick = function(){ 
+				if(checkxh[i].checked){
+					sel.innerHTML += ClassName[i].innerText + "&nbsp;";
+				};
+				if(checkxh[i].checked == false){
+					sel.innerText = [].join.call(sel.innerText.split(ClassName[i].innerText),'');
+				}
+			}
+		})(i)   
+	}
   }
+  

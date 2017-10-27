@@ -108,25 +108,5 @@
   </span>
 </div>
 <script src="js/Client_Total_Script.js"></script>
-<script>
-  var btn_edit = document.getElementsByClassName("product_edit--editor");
-  for (var i = 0; i < btn_edit.length; i++) {
-    (function(i){
-      btn_edit[i].onclick = function(){
-      location.href = 'Client_Product_Details.html?btn='+i+'';
-      sessionStorage.setItem("key", btn_edit[i].value);
-      };
-    })(i);
-  }
-  var name = sessionStorage.getItem("name");
-  console.log(name);
-  if(name != ' ' || name != null){
-    var tr = document.getElementsByTagName("td")[0].innerText = name;
-    console.log(tr);
-  }else{
-    console.log(tr);
-  }
-  
-</script>
 </body>
 </html>

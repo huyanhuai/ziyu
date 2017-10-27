@@ -42,6 +42,7 @@
             background: #68C56A;
             color: #fff;
             border-radius: 50%;
+            behavior: url(PIE-1.0.0/PIE_uncompressed.htc);
             font-size: 20px;
             line-height: 30px;
             text-align: center;
@@ -138,15 +139,23 @@ table tr .listOne{
 table tr .listTop{
 	border-top:0px;
 }
+.big{
+    width: 100px;
+    height: 100px;
+    background: #37CA34;
+    border-radius: 10px;
+    behavior: url(PIE-1.0.0/PIE_uncompressed.htc);
+}
     </style>
 </head>
 <body>
+    <div class="big"></div>
     <div id="Audit">
         <div class="AuditPush">
             <span class="AuditPushOne">审核推送</span> <span class="AuditPushTwo" onclick="close()">&times;</span> 
         </div>
         <div class="AuditSuccess">
-            <span class="fa fa-check Radic"></span> <span>审核成功</span>
+            <span class="fa fa-check Radic" id="btn"></span> <span>审核成功</span>
             <div class="AuditChoose">
                 <span class="">您选择推送银行</span> 
                 <select id="bank"><option value="0">南京银行</option> </select>
@@ -321,6 +330,7 @@ table tr .listTop{
                 <td class="listLeft">&nbsp;</td>
             </tr>
         </table>
+        <script src="js/jquery.min.js"></script>
     <script>
         var box = document.getElementById("Audit");
         var id = document.getElementById('confirm');
@@ -340,6 +350,30 @@ table tr .listTop{
 }
 
 setInterval("showTime()",1000);
+$.ajax({
+ success:function(result, status, xhr){
+ var originalDate = new Date(xhr.getResponseHeader("Date"));
+ var date = originalDate + (3600000 * 8);
+console.log(date);
+}
+});
+// var xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+// xmlhttp.open("GET", "http://bjtime.cn", false);
+// xmlhttp.setRequestHeader("If-Modified-Since", "bjtime");
+// xmlhttp.send();
+// var dateStr = xmlhttp.getResponseHeader("Date");
+// var date = new Date(dateStr);
+// var year = date.getFullYear();
+// var month = date.getMonth() + 1;
+// var date1 = date.getDate();
+// var hour = date.getHours();
+// var minutes = date.getMinutes();
+// var second = date.getSeconds();
+// alert(date + "  |  " + year + "年" + month + "月" + date1 + "日" + hour + "时" + minutes + "分" + second + "秒");
     </script>
 </body>
+<script type="text/javascript" src="PIE-1.0.0/PIE.js"></script> 
+<script type="text/javascript"> 
+// PIE.attach(document.getElementById("btn")); 
+</script> 
 </html>
