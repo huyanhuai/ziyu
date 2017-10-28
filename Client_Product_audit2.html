@@ -49,7 +49,7 @@
           </div>
           <div>
             <p><i class="fa fa-folder-open"></i>产品管理</p>
-            <div><a href="http://www.baidu.com"><button type="button" id="productManage">产品管理</button></a></div>
+            <div><button type="button" id="productManage">产品管理</button></div>
           </div>
           <div>
             <p><i class="fa fa-user-circle"></i>帐号管理</p>
@@ -76,7 +76,7 @@
                         <div class="cusFir">
                             <span class="cusFir_span">客户初审</span>
                             <div id="cusFir_btn" class="clear">
-                                <button id="Success">成功</button> <button>补件</button> <button id="lose">失败</button> <button id="PictureMes" onclick="onTop()">图片信息</button>
+                                <button id="Success">成功</button> <button id="RFE">补件</button> <button id="lose">失败</button> <button id="PictureMes" onclick="onTop()">图片信息</button>
                             </div>
                         </div>
                         <table border="1" cellspacing="0" cellpadding="0">
@@ -204,13 +204,11 @@
                                     <td class="listOne listTop"> &nbsp;</td> 
                                     <td class="listTop">推荐人姓名：  </td>
                                 </tr> 
-                        </table>
-                        <table border="1" cellspacing="0" cellpadding="0" >
-                                <tr>
-                                    <td class="listHouse">房屋套数： 套</td> 
-                                </tr>
                         </table>        
-                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th class="listHouse" colspan="4">房屋套数： 套</th> 
+                            </tr>
                             <tr>
                                 <td class="listRight">商品房信息：</td> 
                                 <td class="listCentre">是否出租：</td> 
@@ -229,13 +227,11 @@
                                 <td class="listCentre">&nbsp;</td> 
                                 <td class="listLeft">&nbsp;</td>
                             </tr>
-                        </table>
-                        <table border="1" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td class="listHouse">保单数量： 份</td> 
-                                </tr>
                         </table>        
-                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <th class="listHouse" colspan="4">保单数量： 份</th> 
+                            </tr>
                             <tr>
                                 <td class="listRight">投保人：</td> 
                                 <td class="listCentre">&nbsp;</td> 
@@ -255,14 +251,13 @@
                                 <td class="listLeft">&nbsp;</td>
                             </tr>
                         </table>
-                        <table border="1" cellspacing="0" cellpadding="0" >
-                                <tr>
-                                    <td class="listHouse">车辆数： </td> 
-                                </tr>
-                        </table>        
-                        <table border="1" cellspacing="0" cellpadding="0" style="margin-top: 0;">
+
+                        <table border="1" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td class="listRight">车辆信息：</td> 
+                                <th class="listHouse" colspan="4">车辆数： </th> 
+                            </tr>
+                            <tr>
+                                <td class="listRight" >车辆信息：</td> 
                                 <td class="listCentre">车辆状态：</td> 
                                 <td class="listCentre">车龄：&#8805; 月</td> 
                                 <td class="listLeft">购车价格：万元</td>
@@ -289,10 +284,10 @@
                    </span>
             </div>
             <!-- 审核推送 -->
-        <div id="box">
+        <div id="box1" class="box">
             <div class="Audit">
                     <div class="AuditPush">
-                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo">&times;</span> 
+                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo" class="AuditX">&times;</span> 
                     </div>
                     <div class="AuditSuccess">
                         <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
@@ -302,10 +297,27 @@
                         </div>
                     </div>
                     <div class="AuditEnter">
-                            <button id="cancel">取消</button>
-                            <button class="confirm">确定</button>
-                       </div>
+                        <button class="cancelX" id="cancel">取消</button>
+                        <button class="confirm">确定</button>
+                    </div>
             </div>
+        </div>
+        <div id="box2" class="box">
+            <div class="Audit">
+                    <div class="AuditPush">
+                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo2" class="AuditX" onclick="close2()">&times;</span> 
+                    </div>
+                    <div class="AuditSuccess">
+                        <div class="AuditSuccessOne"><span class="fa fa-exclamation Radic"></span> <span>您申请的贷款需要补件</span></div>
+                        <div class="AuditChoose">
+                            <span class="">尊敬的...</span> 
+                        </div>
+                    </div>
+                    <div class="AuditEnter">
+                        <button class="cancelX" id="cancel2" onclick="close2()">取消</button>
+                        <button class="confirm">确定</button>
+                    </div>
+             </div>
         </div>
         </span>
     </div>

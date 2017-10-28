@@ -66,6 +66,9 @@ window.onload = function(){
 						});
 					};
 				};
+			Button[i].id == 'refundManage' ? Button[i].onclick = function(){location.href = 'Client_Product_Refund.html';} :
+			Button[i].id == 'loanAudit' ? Button[i].onclick = function(){location.href = 'Client_Product_Audit.html';} :
+			Button[i].id == 'addAccount' ? Button[i].onclick = function(){location.href = 'Client_Product_ID.html';} : false;
 			}();
 		})(i);
 	};
@@ -95,7 +98,6 @@ $('@product--warp') && function(Courier){
 		// 	x.style.display ='inline-block';
 		// }
 	// })
-	console.log(x);
 	Business.value == 0 ? function(){
 		x.style.display ='none';
 		Business.addEventListener('change',function(){
@@ -663,16 +665,22 @@ function showTime(){
   }
   
   var success = document.getElementById('Success');
-  var box = document.getElementById('box');
+  var box1 = document.getElementById('box1');
   var cancel = document.getElementById('cancel');
   var times = document.getElementById('AuditPushTwo')
   success != null ? (function(){
   success.onclick = function(){
-   box.style.display = 'block';
+      box1.style.display = 'block';
   }
   var close = function(){
-	  box.style.display = 'none';
+	  box1.style.display = 'none';
   }
   cancel.onclick = close;
   times.onclick = close;
 })() : false;
+var RFE = document.getElementById("RFE");
+var box2 = document.getElementById("box2");
+RFE != null ? RFE.onclick = function(){box2.style.display = 'block';} : false;
+function close2(){
+	box2.style.display = 'none';
+}

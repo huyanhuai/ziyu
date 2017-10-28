@@ -17,6 +17,6 @@ $(function () {
             str+=$(this).parent($('li')).children('span').html()+'，';
         })
         str=str.substring(0,str.length-1);
-        $('#sel').html(str);
+        $('#sel').val(str);
     })
 })
