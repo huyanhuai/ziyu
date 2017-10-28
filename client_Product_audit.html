@@ -94,6 +94,23 @@
                     </p>
                     <p><a href="product_trial.do?image_id=${examines.image.image_id }"><button>查看详细</button></a></p>
                 </li>
+                <li class="clear">
+                    <img src="${examines.creit.product_bankImage }" alt="" >
+                    <p>申请贷款</p>
+                    <p>身份证号码：<span></span></p>
+                    <p>
+                        <span>姓名：姓名</span>
+                        <span class="cusPad">性别：
+                        <span>
+                            <c:if test="${examines.basicInformation.basicInformation_sex==0 }">男</c:if>
+                            <c:if test="${examines.basicInformation.basicInformation_sex==1 }">女</c:if>
+                        </span></span>
+                    </p>
+                    <p>
+                        电话号码：<span></span>
+                    </p>
+                    <p><a href="product_trial.do?image_id=${examines.image.image_id }"><button>查看详细</button></a></p>
+                </li>
               </c:forEach>
             </ul>
         

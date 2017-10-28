@@ -16,6 +16,9 @@ body,html{
 	height:auto;
 	min-width:1050px;
 }
+a{
+	text-decoration: none;
+}
 html{
 	font-size:10px;
 	background-color:#f1f1f1;
@@ -170,7 +173,7 @@ span.DBMS_header--select{
 	background-color:#1f262e;
 }
 .DBMS_funcArea>div{
-	padding:45px 0;
+	padding:40px 0;
 }
 .DBMS_funcArea i{
 	width:7%;
@@ -197,7 +200,7 @@ span.DBMS_header--select{
 	color:white;
 }
 .DBMS_funcArea button:hover{
-	background:#6cba42;
+	background: #6cba42;
 }
 /*后台内容显示区*/
 .DBMS_disArea{
@@ -746,8 +749,14 @@ ul,li{
 	float: left;
 	margin: 0 0 0 40px;
 }
+#cusFir_btn button:hover{
+	background: #00c4f1;
+}
 #cusFir_btn #lose{
 	background: #eb7070;
+}
+#cusFir_btn #lose:hover{
+    background: #fe676a;
 }
 table{
 	margin: 0 auto;
@@ -819,6 +828,15 @@ table tr .listTop{
 	-webkit-border-radius: 5px;
 	float: left;
 	margin: 5px 0 0 40px;
+}
+.refund_btn button:hover{
+	background: #00c4f1;
+}
+.refund_btn .amend{
+	background: #eb7070;
+}
+.refund_btn .amend:hover{
+	background: #fe676a;
 }
 /* AuditPush */
 .box{
@@ -905,7 +923,7 @@ table tr .listTop{
 	border: none;
 }
 .AuditEnter .confirm{
-	background: #37CA34;
+	background: #68C56A;
 	color: #fff;
 }
 .AuditEnter .cancelX{
