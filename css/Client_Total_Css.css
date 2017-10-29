@@ -846,7 +846,7 @@ table tr .listTop{
 	top: 0;
 	left: 0;
 	z-index: 50px;
-	display: none;
+	/* display: none; */
 }
 .Audit{
 	background: #F2F2F2;
@@ -909,6 +909,12 @@ table tr .listTop{
 	width: 400px;
 	font-size: 14px;
 	word-wrap: break-word;
+}
+.AuditSuccess .AuditChoose input{
+	width: 40px;
+}
+.AuditSuccess .AuditChoose textarea{
+	width: 250px;
 }
 #bank{
 	color: #398AF6;
