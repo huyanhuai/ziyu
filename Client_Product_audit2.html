@@ -293,7 +293,9 @@
                         <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
                         <div class="AuditChoose">
                             <span class="">您选择推送银行</span> 
-                            <select id="bank"><option value="0">南京银行</option> </select>
+                            <select id="bank">
+                                <option value="0">南京银行</option> 
+                            </select>
                         </div>
                     </div>
                     <div class="AuditEnter">
@@ -312,7 +314,7 @@
                     <div class="AuditChoose">
                        <p> 请与 <input type="text">年<input type="text">月<input type="text">日 </p> 
                        <p> 携带申请资料前往 <br>
-                           <input type="text" class="Pin"> 进行面签。</p>
+                           <input type="text" class="Pin"> 进行面签。</p>   
                     </div>
                 </div>
                 <div class="AuditEnter">
@@ -341,21 +343,21 @@
         </div>
         <!-- 失败 -->
         <div id="box4" class="box">
-                <div class="Audit">
-                    <div class="AuditPush">
-                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo4" class="AuditX" onclick="close2()">&times;</span> 
-                    </div>
-                    <div class="AuditSuccess">
-                        <div class="AuditSuccessOne"><span class="fa fa-exclamation Radic"></span> <span>您申请的贷款失败</span></div>
-                        <div class="AuditChoose">
-                        </div>
-                    </div>
-                    <div class="AuditEnter">
-                        <button class="cancelX" id="cancel4" onclick="close2()">取消</button>
-                        <button class="confirm" onclick="close2()">确定</button>
+            <div class="Audit">
+                <div class="AuditPush">
+                    <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo4" class="AuditX" onclick="close2()">&times;</span> 
+                </div>
+                <div class="AuditSuccess">
+                    <div class="AuditSuccessOne"><span class="fa fa-exclamation Radic"></span> <span>您申请的贷款失败</span></div>
+                    <div class="AuditChoose">
                     </div>
                 </div>
+                <div class="AuditEnter">
+                    <button class="cancelX" id="cancel4" onclick="close2()">取消</button>
+                    <button class="confirm" onclick="close2()">确定</button>
+                </div>
             </div>
+        </div>
         </span>
     </div>
     <script src="js/Client_Total_Script.js"></script>

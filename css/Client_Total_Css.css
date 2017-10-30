@@ -1089,7 +1089,7 @@ table tr .listTop{
 	display: none;
 	width: 300px;
 	background: #FFFFFF;
-	margin-left: 90px;
+	margin-left: 120px;
 	border: 1px solid rgb(197, 197, 197);
 }
 #per_con_form ul li{
@@ -1104,10 +1104,11 @@ table tr .listTop{
 	width: 15px;
 }
 #per_con_form p select{
-	width: 80px;
+	width: 300px;
 	height: 40px;
 	border: 1px solid rgb(197, 197, 197);
 	vertical-align: middle;
+	padding-left: 120px;
 }
 .per_btn{
 	width: 350px;
