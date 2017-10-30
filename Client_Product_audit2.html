@@ -287,7 +287,7 @@
         <div id="box1" class="box">
             <div class="Audit">
                     <div class="AuditPush">
-                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo" class="AuditX">&times;</span> 
+                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo" class="AuditX" onclick="close2()">&times;</span> 
                     </div>
                     <div class="AuditSuccess">
                         <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
@@ -297,9 +297,28 @@
                         </div>
                     </div>
                     <div class="AuditEnter">
-                        <button class="cancelX" id="cancel">取消</button>
-                        <button class="confirm">确定</button>
+                        <button class="cancelX" id="cancel" onclick="close2()">取消</button>
+                        <button class="confirm" onclick="close2()">确定</button>
                     </div>
+            </div>
+        </div>
+        <div id="box3" class="box">
+            <div class="Audit">
+                <div class="AuditPush">
+                    <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo3" class="AuditX">&times;</span> 
+                </div>
+                <div class="AuditSuccess">
+                    <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
+                    <div class="AuditChoose">
+                       <p> 请与 <input type="text">年<input type="text">月<input type="text">日 </p> 
+                       <p> 携带申请资料前往 <br>
+                           <input type="text" class="Pin"> 进行面签。</p>
+                    </div>
+                </div>
+                <div class="AuditEnter">
+                    <button class="cancelX" id="cancel3">取消</button>
+                    <button class="confirm">确定</button>
+                </div>
             </div>
         </div>
         <!-- 补件 -->
@@ -316,29 +335,28 @@
                     </div>
                     <div class="AuditEnter">
                         <button class="cancelX" id="cancel2" onclick="close2()">取消</button>
-                        <button class="confirm">确定</button>
+                        <button class="confirm" onclick="close2()">确定</button>
                     </div>
              </div>
         </div>
-        <!-- <div id="box3" class="box">
+        <!-- 失败 -->
+        <div id="box4" class="box">
                 <div class="Audit">
-                        <div class="AuditPush">
-                            <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo3" class="AuditX">&times;</span> 
+                    <div class="AuditPush">
+                        <span class="AuditPushOne">审核推送</span> <span id="AuditPushTwo4" class="AuditX" onclick="close2()">&times;</span> 
+                    </div>
+                    <div class="AuditSuccess">
+                        <div class="AuditSuccessOne"><span class="fa fa-exclamation Radic"></span> <span>您申请的贷款失败</span></div>
+                        <div class="AuditChoose">
                         </div>
-                        <div class="AuditSuccess">
-                            <div class="AuditSuccessOne"><span class="fa fa-check Radic"></span> <span>审核成功</span></div>
-                            <div class="AuditChoose">
-                               <span>请与</span> <input type="text">年<input type="text">月<input type="text">日 <br> <span line-height= "30px;"> 携带申请资料前往
-                               <textarea name="" id="" cols="2" rows="1"></textarea> 进行面签。</span>
-                            </div>
-                        </div>
-                        <div class="AuditEnter">
-                            <button class="cancelX" id="cancel3">取消</button>
-                            <button class="confirm">确定</button>
-                        </div>
+                    </div>
+                    <div class="AuditEnter">
+                        <button class="cancelX" id="cancel4" onclick="close2()">取消</button>
+                        <button class="confirm" onclick="close2()">确定</button>
+                    </div>
                 </div>
             </div>
-        </span> -->
+        </span>
     </div>
     <script src="js/Client_Total_Script.js"></script>
     <script>

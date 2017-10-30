@@ -672,15 +672,17 @@ function showTime(){
   success.onclick = function(){
       box1.style.display = 'block';
   }
-  var close = function(){
-	  box1.style.display = 'none';
-  }
-  cancel.onclick = close;
-  times.onclick = close;
 })() : false;
 var RFE = document.getElementById("RFE");
 var box2 = document.getElementById("box2");
+var box4 = document.getElementById("box4");
 RFE != null ? RFE.onclick = function(){box2.style.display = 'block';} : false;
 function close2(){
+	box1.style.display = 'none';
 	box2.style.display = 'none';
+	box4.style.display = 'none';
 }
+var lose = document.getElementById("lose");
+RFE != null ? lose.onclick = function(){
+	box4.style.display = 'block';
+} : false;

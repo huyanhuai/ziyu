@@ -846,7 +846,7 @@ table tr .listTop{
 	top: 0;
 	left: 0;
 	z-index: 50px;
-	/* display: none; */
+	display: none;
 }
 .Audit{
 	background: #F2F2F2;
@@ -883,7 +883,7 @@ table tr .listTop{
 	cursor:pointer;
 }
 .AuditSuccess{
-	height: 150px;
+	height: 155px;
 	border-bottom: 1px solid #E8E8E8;
 }
 .AuditSuccess .Radic{
@@ -910,11 +910,19 @@ table tr .listTop{
 	font-size: 14px;
 	word-wrap: break-word;
 }
+.AuditSuccess .AuditChoose p{
+	width: 260px;
+	margin: 0 auto;
+	text-align: left;
+}
 .AuditSuccess .AuditChoose input{
-	width: 40px;
+	width: 50px;
+}
+.AuditSuccess .AuditChoose .Pin{
+	width: 180px;
 }
 .AuditSuccess .AuditChoose textarea{
-	width: 250px;
+	width: 300px;
 }
 #bank{
 	color: #398AF6;
@@ -925,7 +933,7 @@ table tr .listTop{
 	float: right;
 	width: 60px;
 	height: 25px;
-	margin: 18px 10px;
+	margin: 13px 10px;
 	border: none;
 }
 .AuditEnter .confirm{
@@ -1047,6 +1055,11 @@ table tr .listTop{
 #per_con_form p{
 	height: 60px;
 	padding-top: 10px;
+	padding-left: 30px;
+}
+#per_con_form .head{
+	font-size: 40px;
+	color: #00b7ee;
 }
 #per_con_form p input{
 	width: 300px;
@@ -1094,6 +1107,7 @@ table tr .listTop{
 	width: 80px;
 	height: 40px;
 	border: 1px solid rgb(197, 197, 197);
+	vertical-align: middle;
 }
 .per_btn{
 	width: 350px;
@@ -1109,11 +1123,26 @@ table tr .listTop{
 	margin-right: 20px;
 }
 .per_btn .btn_2{
-	background: #F2F2F2;
+	background: #F0F3F6;
 	border: 1px rgb(207, 207, 207) solid;
 	color: #333;
 }
-.per_con_con{
-	width: 80%;
+.per_btn button:hover{
+	background: #00c4f1;
+}
+.per_btn .btn_2:hover{
+	background: #f4f8fd;
+}
+.per_que_con{
+	width: 480px;
+	background: #f8f9fa;
+	border: 1px #e0e3e6 solid;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	padding-bottom: 30px;
 	margin: 0 auto;
+}
+.per_con_con{
+	padding-top: 10px;
 }
