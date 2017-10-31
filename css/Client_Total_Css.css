@@ -695,7 +695,9 @@ ul,li{
 	width: 100%;
 	background: #fff;
 	margin: 9px auto 0; 
+	padding-bottom: 3px;
 }
+
 #cusCon li img{ 
 	width: 60px;
 	height: 60px;
@@ -724,7 +726,7 @@ ul,li{
 }
 #page{
 	margin-top: 10px;
-	font-size: 14px;
+	font-size: 16px;
 	color:#585858;
 }
 #page a{
@@ -781,6 +783,12 @@ table tr td{
 	font-size: 14px;
 	border: 1px solid rgba(50%,50%,50%,.4);
 	padding: 10px 0;
+	word-wrap: break-word;
+}
+.list td{
+	padding-left: 20px;
+	padding-right: 5px;
+	text-align: left;
 }
 table tr .listRight{
 	border-right: 0px;
@@ -804,12 +812,20 @@ table tr .listTop{
 	margin-top: 20px;
 }
 .pictureOne{
-	width: 50%;
+	width: 20%;
 	float: left;
 	vertical-align: middle;
+	overflow:hidden;
 }
 .pictureOne img{
-	height: auto;
+	width: 96%;
+	height: 22vw;
+}
+.pictureLeft{
+	float: left;
+} 
+.pictureRight{
+	float: right;
 }
 /* huankuan */
 .refund_btn{

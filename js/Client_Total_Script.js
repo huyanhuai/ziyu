@@ -675,11 +675,13 @@ function showTime(){
 })() : false;
 var RFE = document.getElementById("RFE");
 var box2 = document.getElementById("box2");
+var box3 = document.getElementById("box3");
 var box4 = document.getElementById("box4");
 RFE != null ? RFE.onclick = function(){box2.style.display = 'block';} : false;
 function close2(){
 	box1.style.display = 'none';
 	box2.style.display = 'none';
+	box3.style.display = 'none';
 	box4.style.display = 'none';
 }
 var lose = document.getElementById("lose");
