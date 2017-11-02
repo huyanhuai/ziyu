@@ -307,8 +307,15 @@ span.product_industry--warp::before{
 	font-size:18px;
 }
 /*征信要求*/
+#one{
+	width: 100%;
+	height: auto;
+}
+.creditRequire_query--reuse span{
+	float: left;
+}
+
 .product_creditRequire--warp span{
-	height:60px;
 	line-height:60px;
 	width:18%;
 }
@@ -323,9 +330,9 @@ span.product_industry--warp::before{
 	padding-left:0;
 }
 .product_creditRequire--warp button{
-	height:50px;
+	margin: 10px 0 15px 0;
 	width:70px;
-  border:1px solid rgba(50%,50%,50%,.4);
+    border:1px solid rgba(50%,50%,50%,.4);
 }
 .product_creditRequire--warp p{
 	width:70%;
@@ -354,9 +361,15 @@ div.creditRequire_child_head{
 	height:50%;
 	float:right;
 }
-[class=product_creditRequire--warp] input{
-	width:60px;
+.creditRequire_overduo--reuse span{
+	float: left;
 }
+.creditRequire_liability--reuse span{
+	float: left;
+}
+/* .product_creditRequire--warp input{
+	width:60px;
+} */
 button[class*=singleEnable]{
 	height:35px;
 	background:white;
@@ -369,6 +382,7 @@ div[class=creditRequire_child_foot]{
 	margin-top:10px;
 	width:100%;
 	height:50px;
+	margin: 0 auto;
 }
 .creditRequire_child_foot button{
 	margin:0 auto;
@@ -769,7 +783,7 @@ table{
 	border: 1px solid rgba(50%,50%,50%,.4);
 }
 table tr th{
-	width: 16.6667%;
+	width: 14.286%;
 	font-size: 15px;
 	line-height: 40px;
 	background: #4e606a;
@@ -779,7 +793,7 @@ table tr th{
 	/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3f6ff', endColorstr='#60c5fc',GradientType=0 );  */
 }
 table tr td{
-	width: 16.6667%;
+	width: 14.286%;
 	font-size: 14px;
 	border: 1px solid rgba(50%,50%,50%,.4);
 	padding: 10px 0;
@@ -939,6 +953,8 @@ table tr .listTop{
 }
 .AuditSuccess .AuditChoose textarea{
 	width: 300px;
+	text-align: left;
+	padding-left: 5px;
 }
 #bank{
 	color: #398AF6;

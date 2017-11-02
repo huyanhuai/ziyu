@@ -8,6 +8,8 @@ function GetFile(Courier){
 }
 var Status = 0;
 var DBMS_disArea = document.querySelector('.DBMS_disArea');
+// console.log(localStorage);
+// console.log(localStorage.length);
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -17,7 +19,7 @@ window.onload = function(){
 	var Prov = $('#province'),
 			City = $('#city'),
 			Town = $('#town');
-	if(LocationSessioin.length == 0){
+	if(LocationSessioin.length == 0 || LocationSessioin.length == null){
 		Dialog({
 			Background:DbmsBody,
 			Message:'请选择你的位置'
@@ -26,7 +28,7 @@ window.onload = function(){
 			.then(
 			function(){
 				var ProvName = Prov.value,
-						CityName = City.value;
+					CityName = City.value;
 				LocationSessioin.setItem('A',ProvName)+'-'+LocationSessioin.setItem('B',CityName);
 				Status = 1;
 				location.reload();
@@ -37,16 +39,16 @@ window.onload = function(){
 		var editer;
 		CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
 		$('@DBMS_header--select').innerHTML = 
-		`<span>
-			<p><i class="fa fa-location-arrow"></i>当前城市</p>
-		 </span>
-		 <span>
-				<ul>
-					<li>`+LocationSessioin.getItem('A')+'</li>'
+		'<span>'+
+			'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
+		 '</span>'+
+		 '<span>'+
+				'<ul>'+
+					'<li>'+LocationSessioin.getItem('A')+'</li>'
 				+'<li>'+LocationSessioin.getItem('B')+'</li>'
-				+'<li><input class="select_editer" type="button" value="修改" /></li>'
-			+`</ul>
-			</span>`;
+				+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
+			+'</ul>'+
+			'</span>';
 		editer = $('@select_editer');
 		editer.onclick = function(){
 			localStorage.clear();
@@ -98,6 +100,7 @@ $('@product--warp') && function(Courier){
 		// 	x.style.display ='inline-block';
 		// }
 	// })
+	if(Business != null){
 	Business.value == 0 ? function(){
 		x.style.display ='none';
 		Business.addEventListener('change',function(){
@@ -117,6 +120,7 @@ $('@product--warp') && function(Courier){
 			}
 		})
 	}() 
+}
 	AreaName.onclick = function(){
 		if(Status){
 			AreaSelect.style.display = 'block';
@@ -213,36 +217,36 @@ $('@product--warp') && function(Courier){
 	var QueryDymic = function(){
 		var ReuseModule = document.createElement('div');
 		ReuseModule.className = QueryReuse.className;
-		ReuseModule.innerHTML = `<span>
-                <input type="text" name="creditRequirement_months" />
-                <b>月内</b>
-              </span>
-              <span>
-                <select name="creditRequirement_loanStates">
-                  <option value="1">无</option>
-                  <option value="0">贷款</option>
-                </select>
-                <b>+</b>
-              </span>
-              <span>
-                <select name="creditRequirement_cardStates">
-                  <option value="1">无</option>
-                  <option value="0">信用卡</option>
-                </select>
-                <b>+</b>
-              </span>
-              <span>
-                <select name="creditRequirement_examinationStates">
-                  <option value="1">无</option>
-                  <option value="0">自查</option>
-                </select>
-                <b>&#8804;</b>
-              </span>
-              <span>
-                <input type="text" name="creditRequirement_numbers" />
-                <b>次</b>
-              </span>
-              <button type="button" class="creditRequire_query--singleEnable">此条失效</button>`;
+		ReuseModule.innerHTML = '<span>'+
+                '<input type="text" name="creditRequirement_months"/>'+
+               '<b>'+"月内"+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_loanStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'贷款'+'</option>'+
+               '</select>'+
+               '<b>'+'+'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_cardStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'信用卡'+'</option>'+
+                '</select>'+
+               '<b>'+'+'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_examinationStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'自查'+'</option>'+
+                '</select>'+
+               '<b>'+'&#8804;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<input type="text" name="creditRequirement_numbers" />'+
+               '<b>'+'次'+'</b>'+
+              '</span>'+
+              '<button type="button" class="creditRequire_query--singleEnable">'+'此条失效'+'</button>';
 		QueryBody.appendChild(ReuseModule);
 		var SingleEnable = $('button',QueryBody);
 		for (var i = 0; i < SingleEnable.length; i++) {
@@ -307,36 +311,36 @@ $('@product--warp') && function(Courier){
 		var OverduoSingleEnable;
 		var Son = document.createElement('div');
 		Son.className = OverduoReuse.className;
-		Son.innerHTML = `<span>
-                <input type="text" name="overdueCredit_months" />
-                <b>月内</b>
-              </span>
-              <span>
-                <select name="overdueCredit_cardStates">
-                  <option value="0">信用卡</option>
-                  <option value="1">无</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-                <select name="overdueCredit_loanStates">
-                  <option value="0">贷款</option>
-                  <option value="1">无</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-				<select name="overdueCredit_loanStates">
-				<option value="0">逾期</option>
-				<option value="1">连续逾期</option>
-			  </select>
-			  <b>&#8804;</b>
-              </span>
-              <span>
-                <input type="text" name="overdueCredit_continuityOverdues" />
-                <b>次</b>
-              </span>
-              <button type="button" class="creditRequire_overduo--singleEnable">此条失效</button>`;
+		Son.innerHTML = '<span>'+
+                '<input type="text" name="overdueCredit_months" />'+
+               ' <b>'+'月内'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="overdueCredit_cardStates">'+
+                  '<option value="0">'+'信用卡'+'</option>'+
+                  '<option value="1">'+'无'+'</option>'+
+                '</select>'+
+               '<b>'+'&#43;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="overdueCredit_loanStates">'+
+                  '<option value="0">'+'贷款'+'</option>'+
+                  '<option value="1">'+'无'+'</option>'+
+                '</select>'+
+               '<b>'+'&#43;'+'</b>'+
+              '</span>'+
+              '<span>'+
+				'<select name="overdueCredit_loanStates">'+
+				'<option value="0">'+'逾期'+'</option>'+
+				'<option value="1">'+'连续逾期'+'</option>'+
+			  '</select>'+
+			 '<b>'+'&#8804;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<input type="text" name="overdueCredit_continuityOverdues" />'+
+               '<b>'+'次'+'</b>'+
+              '</span>'+
+              '<button type="button" class="creditRequire_overduo--singleEnable">'+'此条失效'+'</button>';
 		OverduoBody.appendChild(Son);
 		OverduoSingleEnable = $('button',OverduoBody);
 		for (var i = 0; i < OverduoSingleEnable.length; i++) {
@@ -391,33 +395,33 @@ $('@product--warp') && function(Courier){
 		var LiabilitySingleEnable;
 		var Son = document.createElement('div');
 		Son.className = LiabilityReuse.className;
-		Son.innerHTML = `<span>
-                <input type="text" name="liabilityCredit_months" />
-                <b>月内</b>
-              </span>
-              <span>
-                <select>
-                  <option>信用卡</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-                <select>
-                  <option>信用卡</option>
-                </select>
-                <b>&#43;</b>
-              </span>
-              <span>
-                <select>
-                  <option>贷款</option>
-                </select>
-                <b>&#8804;</b>
-              </span>
-              <span>
-                <input type="text" name="liabilityCredit_numbers" />
-                <b>次</b>
-              </span>
-              <button type="button" class="creditRequire_liability--singleEnable">此条失效</button>`;
+		Son.innerHTML = '<span>'+
+                '<input type="text" name="liabilityCredit_months" />'+
+               '<b>'+'月内'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select>'+
+                  '<option>'+'信用卡'+'</option>'+
+                '</select>'+
+               '<b>'+'&#43;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select>'+
+                  '<option>'+'信用卡'+'</option>'+
+                '</select>'+
+               ' <b>'+'&#43;'+' </b>'+
+              '</span>'+
+              '<span>'+
+                '<select>'+
+                  '<option>'+'贷款'+'</option>'+
+                '</select>'+
+               '<b>'+'&#8804;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<input type="text" name="liabilityCredit_numbers" />'+
+               '<b>'+'次'+'</b>'+
+              '</span>'+
+              '<button type="button" class="creditRequire_liability--singleEnable">'+'此条失效'+'</button>';
 		LiabilityBody.appendChild(Son);
 		LiabilitySingleEnable = $('button',LiabilityBody);
 		for (var i = 0; i < LiabilitySingleEnable.length; i++) {
@@ -616,10 +620,12 @@ $('#loanType') && function(){
 			    loanTypeTwo[i].style.visibility = 'hidden';
 			  };
 	    	loanTypeButton[0].onclick = function(){
-				location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
+				location.href="22.html";
+				// location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 	    	};
 				loanTypeButton[1].onclick = function(){
-					location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
+					location.href="Client_Product_Details.html";
+					// location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 				};
 			};
 		})(i);

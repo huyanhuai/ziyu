@@ -41,7 +41,7 @@
     </div>
     <div>
       <p><i class="fa fa-file"></i>还款管理</p>
-      <div><button id="refundManage">还款管理</button></div>
+      <div><a href="Client_Product_Refund.html"><button id="refundManage">还款管理</button></a></div>
     </div>
     <div>
       <p><i class="fa fa-address-book"></i>贷款审核</p>
@@ -131,127 +131,115 @@
       </fieldset>
 
       <fieldset class="product_otherInfo--warp">
-        <legend>申请人及单位要求</legend>
-        <span>
-          <p>男性年龄(岁)</p>
-          <div>
-            <input type="text" name="product_maleInitialAge" />
-            <b>&#45;</b>
-            <input type="text" name="product_maleCutoffAge" />
-          </div>
-        </span>
-        <span>
-          <p>女性年龄(岁)</p>
-          <div>
-            <input type="text" name="product_femaleInitialAge" />
-            <b>&#45;</b>
-            <input type="text" name="product_femaleCutoffAge" />
-          </div>
-        </span>
-        <span>
-          <p>&#42;上牌时间月</p>
-          <div>
-            <input type="text" name="minVehicleLicenseTime" />
-            <b>&#45;</b>
-            <input type="text" name="maxVehicleLicenseTime" />
-          </div>
-        </span>
-        <span>
-          <p>营业执照要求</p>
-          <div>
-            <select class="require_businessLicense" name="businessLicense">
-              <option value="0">有无均可</option>
-              <option value="1">有</option>
-            </select>
-          </div>
-        </span>
-        <span class="require_registerTime">
-          <p>营业执照注册时间</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="registerTime" />
-            <b>月</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;购车价格</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleOnePrice" />
-            <b>万元</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;过户时间</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleTransferTime" />
-            <b>月</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;二手车购买价格</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleSecondPrice" />
-            <b>万元</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;总按揭期数</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleTerm" />
-            <b>月</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;已还期数</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleRepaidTerm" />
-            <b>月</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;按揭总金额</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleMoney" />
-            <b>元</b>
-          </div>
-        </span>
-        <span>
-          <p>&#42;月供金额</p>
-          <div>
-            <b>&#8805;</b>
-            <input type="text" name="vehicleMonthPay" />
-            <b>元</b>
-          </div>
-        </span>
-        <span>
-          <p>车辆类型</p>
-          <select name="vehicleType">
-            <option>全款车</option>
-            <option>本市全款</option>
-            <option>外市全款</option>
-          </select>
-        </span>
-        <span>
-          <p>白户是否可进件</p>
-          <select name="overdueCredit_whiteHouse">
-            <option value="1">可以</option>
-            <option value="0">不可以</option>
-          </select>
-        </span>
-        <span>
-          <p>呆账是否可进件</p>
-          <select name="overdueCredit_badDebt">
-            <option value="1">可以</option>
-            <option value="0">不可以</option>
-          </select>
-        </span>
-      </fieldset>
+            <legend>进件要求</legend>
+            <span>
+              <p>&#42;车辆品牌</p>
+              <div>
+                <input type="text" name="mortgageVehicleBrand" />
+              </div>
+            </span>
+            <span>
+              <p>&#42;车型</p>
+              <div>
+                  <select name="mortgageVehicleModels">
+                      <option>轿车</option>
+                      <option>商务车</option>
+                      <option>面包车</option>
+                      <option>越野车</option>
+                      <option>越野车(城市SUV)</option>
+                      <option>皮卡车</option>
+                      <option>跑车</option>
+                      <option>货车</option>
+                      <option>工程车</option>
+                      <option>客车</option>
+                  </select>
+              </div>
+            </span>
+            <span>
+              <p>&#42;裸车价(万元)</p>
+              <div>
+                <input type="text" name="minmortgageVehiclePrice" />
+                <b>&#45;</b>
+                <input type="text" name="maxmortgageVehiclePrice" />
+              </div>
+            </span>
+            <span>
+              <p>&#42;车龄</p>
+              <div>
+                <b>&#8804;</b>
+                <input type="text" name="mortgageVehicleLicenseTime" />
+                <b>月</b>
+              </div>
+            </span>
+            <span>
+              <p>&#42;公里数</p>
+              <div>
+                <b>&#8804;</b>
+                <input type="text" name="mortgageVehicleKilometer" />
+                <b>公里</b>
+              </div>
+            </span>
+            <span>
+              <p>&#42;全款车</p>
+              <div>
+               <select name="mortgageVehicleQuankuan">
+                       <option value="1">接受</option>
+                       <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span>
+              <p>&#42;全款车抵押折扣</p>
+              <div>
+                <input type="text" name="mortgageVehicleQuankuanDiscount" />
+              </div>
+            </span>
+            <span>
+              <p>&#42;按揭车</p>
+              <div>
+               <select name="mortgageVehicleAnjie">
+                       <option value="1">接受</option>
+                       <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span>
+              <p>&#42;按揭车抵押折扣</p>
+              <div>
+                <input type="text" name="mortgageVehicleAnjieDiscount" />
+              </div>
+            </span>
+            <span>
+              <p>&#42;已抵押车</p>
+              <div>
+               <select name="mortgageVehicleYidiya">
+                       <option value="1">接受</option>
+                       <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span>
+              <p>&#42;已抵押车折扣</p>
+              <div>
+                <input type="text" name="mortgageVehicleYidiyaDiscount" />
+              </div>
+            </span>
+            <span>
+              <p>&#42;车牌</p>
+              <div>
+                  <select name="mortgageVehiclePlate">
+                      
+                  </select>
+              </div>
+            </span>
+            <span>
+              <p>抵押方式</p>
+              <select name="vehicleType">
+                <option>押车</option>
+                <option>不押车</option>
+              </select>
+            </span>
+          </fieldset>
       
       <fieldset class="product_creditRequire--warp">
         <legend>征信要求</legend>
