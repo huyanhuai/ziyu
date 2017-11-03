@@ -4,7 +4,24 @@
  * uncanny workmanship v.1.0
  * writer by me.
  */
-console.log('\nUncanny Workmanship V 1.0\n\nDeveloper Test Page\n\n');
+console.log('\nUncanny Workmanship V 1.0\n\nDeveloper Test Page\n\n');  
+if(!document.getElementsByClassName){  
+	document.getElementsByClassName = function(className, element){  
+			var children = (element || document).getElementsByTagName('*');  
+			var elements = new Array();  
+			for (var i=0; i<children.length; i++){  
+					var child = children[i];  
+					var classNames = child.className.split(' ');  
+					for (var j=0; j<classNames.length; j++){  
+							if (classNames[j] == className){   
+									elements.push(child);  
+									break;  
+							}  
+					}  
+			}   
+			return elements;  
+	};  
+} 
 //dom选择器
 function $(symbol,parent) {
 	return (/\./).test(symbol)?
@@ -160,7 +177,7 @@ function CitySelector(ACourier,BCourier,CCourier){
   	    Child.innerText = Name;
   	    Father.appendChild(Child);
   	};
-  	ACourier.addEventListener("change",function(){
+  	ACourier.addEvent("change",function(){
   		BCourier.innerHTML = OptionText;
   	  //CCourier.innerHTML = OptionText;
   	  var Text = this.value;
@@ -177,7 +194,7 @@ function CitySelector(ACourier,BCourier,CCourier){
   	      })(i)
   	  };
   	});
-  	BCourier.addEventListener("change",function(){
+  	BCourier.addEvent("change",function(){
       resolve();
   	  var Text= this.value;
   	  for (var i = 0; i < ACtor.cityList.length; i++) {

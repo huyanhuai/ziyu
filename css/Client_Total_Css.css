@@ -38,6 +38,10 @@ ins:hover{
 button:hover{
 	cursor:pointer;
 }
+select::-ms-expand { 
+	border: 0;
+	
+}
 /* common style */
 .reset{
 	border:none;
@@ -60,7 +64,7 @@ button:hover{
 	height:70px;
 	line-height:70px;
 	background-image:linear-gradient(180deg,#161b1f 3%,#374754 6%,#252e37 9%, #28323b 83%,#28323a 86%, #2a3740 93%,#181f25 96%,#161b1f 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#161b1f', endColorstr='#161b1f',GradientType=0 ); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28323a', endColorstr='#161b1f',GradientType=0 ); 
 	position:relative;
 	color:white;
 }
@@ -88,7 +92,7 @@ span.DBMS_header--logout{
 	width:120px;
 	/* height:40px; */
 	line-height: 40px;
-	font-size:1.8rem;
+	font-size:18px;
 	background-color:transparent;
 	color:white;
 }
@@ -109,14 +113,14 @@ span.DBMS_header--title{
 .DBMS_header--title p{
 	height:60px;
 	line-height:60px;
-	font-size:2rem;
+	font-size:20px;
 }
 .DBMS_header--title i{
 	width:10%;
 	margin-right:10px;
 }
 .DBMS_header sup{
-	font-size:8px;
+	font-size:12px;
 	margin-left:6px;
 }
 span.DBMS_header--select{
@@ -131,7 +135,7 @@ span.DBMS_header--select{
 }
 .DBMS_header--select p{
 	height:100%;
-	font-size:1.6rem;
+	font-size:16px;
 }
 .DBMS_header--select i{
 	width:20%;
@@ -153,12 +157,13 @@ span.DBMS_header--select{
   width:30%;
   height:60%;
   list-style:none;
-  font-size:1.6rem;
+  font-size:16px;
 }
 .DBMS_header--select input{
   width:70%;
   height:70%;
   background:linear-gradient(90deg,#ea1e4c 50%,#dd0a20 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea1e4c', endColorstr='#dd0a20',GradientType=0 );
   color:white;
   cursor:pointer;
 }
@@ -181,10 +186,10 @@ span.DBMS_header--select{
 }
 .DBMS_funcArea p{
 	width:85%;
-	height:4.5rem;
+	height:54px;
 	text-align:left;
 	padding-left:15%;
-	font-size:1.9rem;
+	font-size:19px;
 	background-color:transparent;
 	color:#a4c6e5;
 }
@@ -194,9 +199,9 @@ span.DBMS_header--select{
 }
 .DBMS_funcArea button{
 	width:60%;
-	height:4.5rem;
+	height:54px;
 	background-color:transparent;
-	font-size:1.7rem;
+	font-size:17px;
 	color:white;
 }
 .DBMS_funcArea button:hover{
@@ -244,7 +249,7 @@ span.DBMS_header--select{
 	height:50px;
 	font-size:18px;
 	padding-left:30%;
-  border:1px solid rgba(50%,50%,50%,.4);
+    border:1px solid rgba(50%,50%,50%,.4);
 }
 .product--warp p{
 	width:200px;
@@ -427,12 +432,14 @@ div[class$=liability--warp]{
 /*表单处理*/
 div.disArea_product--handle{
 	width:100%;
-	height:8rem;
+	height:80px;
 }
 .disArea_product--handle button{
-	height:4rem;
-	width:10rem;
+	font-size: 16px;
+	height:48px;
+	width:120px;
 	background:linear-gradient(90deg,#ea1e4c 50%,#dd0a20 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea1e4c', endColorstr='#dd0a20',GradientType=0 );
 	color:white;
 }
 /*添加产品成功显示界面*/
@@ -470,34 +477,37 @@ div.disArea_product--handle{
 .disArea_loanType{
 	height:auto;
 	width:auto;
-	margin:2rem 2rem;
+	margin:20px 24px;
 }
 /*选择要添加产品类型详情*/
 .disArea_loanType--details{
 	width:100%;
 	height:auto;
 	background:white;
-	margin-top:2rem;
+	margin-top:20px;
 	text-align:left;
 	box-shadow:0 0 6px 0px gray;
 }
 .disArea_loanType--details>div{
-	height:3rem;
-	line-height:3rem;
+	height:36px;
+	line-height: 36px;
 	background:#e3e6eb;
 }
 .disArea_loanType--details h2{
-	font-size:2rem;
+	font-size:20px;
 	text-align:left;
-	padding-left:2rem;
+	padding-left:20px;
 }
 .disArea_loanType--details span{
 	position:relative;
-	height:10rem;
-	width:10rem;
-	margin:2rem 2rem;
+	height:120px;
+	width:120px;
+	margin: 22px 22px;
 	background:#0c5fa1;
 	color:white;
+}
+.disArea_loanType--details p{
+	font-size: 12px;
 }
 /*选择要添加产品类型详情-1*/
 div.disArea_loanType--one{
@@ -960,6 +970,7 @@ table tr .listTop{
 	color: #398AF6;
 	width: 100px;
 	text-align: center;
+	border: 1px solid rgb(206, 206, 206);
 }
 .AuditEnter button{
 	float: right;
