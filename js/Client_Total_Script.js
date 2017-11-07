@@ -57,7 +57,7 @@ window.onload = function(){
 	for (var i = 0; i < Button.length; i++) {
 		(function(i){
 			Button[i].id == 'loan' ? Button[i].onclick = function(){
-				location.href = 'Client_Product.html';
+				location.href = '1.html';
 			} : function(){
 				if (Button[i].id !== 'productManage') {
 					Button[i].onclick = function(){
@@ -619,12 +619,10 @@ $('#loanType') && function(){
 			    loanTypeTwo[i].style.visibility = 'hidden';
 			  };
 	    	loanTypeButton[0].onclick = function(){
-				location.href="22.html";
-				// location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
+				location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 	    	};
 				loanTypeButton[1].onclick = function(){
-					location.href="Client_Product_Details.html";
-					// location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
+				location.href="http://192.168.0.188/daikuan2/product_condition.do?product_identity="+this.name+"&product_type="+loanTypeOne[i].getAttribute('data-name');
 				};
 			};
 		})(i);
@@ -693,3 +691,73 @@ var lose = document.getElementById("lose");
 RFE != null ? lose.onclick = function(){
 	box4.style.display = 'block';
 } : false;
+// 表格删除
+var del = document.getElementsByClassName('del');
+var checklist = document.getElementsByName ("selected");
+var tc = document.getElementById("tc");
+  for(var i=0; i<checklist.length; i++){
+	  del[i].onclick = function(){
+		  for(var j=0; j<checklist.length; j++){
+			if(checklist[j].checked){
+				tc.removeChild(this.parentNode.parentNode);
+			}
+		  }
+		
+	  }
+  }
+function dell() {
+	var tb = document.getElementById("td");
+	if (tb.rows.length < 2) {
+		return;
+	}
+	var row;
+	var cell;
+	var chk;
+	for (var i = tb.rows.length - 3; i > 0; i--) {
+		row = tb.rows[i];
+		cell = row.cells[0];
+		chk = cell.getElementsByTagName("input")[0];
+		if (chk.checked) {
+			tb.deleteRow(i);
+			}
+		}
+	}
+function selectAll(){
+ if(document.getElementById("controlAll").checked)
+ {
+ for(var i=0;i<checklist.length;i++)
+ {
+	checklist[i].checked = true;
+ } 
+}else{
+for(var j=0;j<checklist.length;j++)
+{
+   checklist[j].checked = false;
+}
+}
+}
+// 返回顶部
+var oTop = document.getElementById('backTop');
+var ct = document.getElementsByClassName('DBMS_disArea')[0].scrollTop; 
+ window.onscroll = function(){ 
+ var t = document.documentElement.scrollTop || document.body.scrollTop; 
+ if( t >= 300 || ct >= 200 ) { 
+	 oTop.style.bottom = '15%';
+ } else { 
+	 oTop.style.bottom='-100px';
+ } 
+} 
+var timer=null;
+oTop.onclick = function(){
+ cancelAnimationFrame(timer);
+ timer = requestAnimationFrame(function fn(){
+ var Top = document.body.scrollTop || document.documentElement.scrollTop;
+ if(Top > 0){
+ document.body.scrollTop = document.documentElement.scrollTop = Top - 50;
+ document.getElementsByClassName('DBMS_disArea')[0].scrollTop = Top - 50;
+ timer = requestAnimationFrame(fn);
+ }else{
+ cancelAnimationFrame(timer);
+ } 
+ });
+}

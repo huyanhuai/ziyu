@@ -72,6 +72,7 @@ select::-ms-expand {
 	height:1200px;
 	overflow:hidden;
 	background-color:#333333;
+	border: none;
 }
 /*后台系统头部*/
 .DBMS_header span{
@@ -589,6 +590,7 @@ div.disArea_loanType--two{
 	height:25px;
 	background: #07c6c4;
 	color:white;
+	margin-left: 5px;
 }
 .table_tbody--warp tr{
 	background:#fff;
@@ -798,9 +800,6 @@ table tr th{
 	line-height: 40px;
 	background: #4e606a;
 	color: #fff;
-	/* border: 1px solid #7ccefd; */
-	/* background-image: linear-gradient(to bottom, #e3f6ff, #60c5fc); */
-	/* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3f6ff', endColorstr='#60c5fc',GradientType=0 );  */
 }
 table tr td{
 	width: 14.286%;
@@ -836,14 +835,18 @@ table tr .listTop{
 	margin-top: 20px;
 }
 .pictureOne{
-	width: 20%;
+	width: 25%;
 	float: left;
 	vertical-align: middle;
 	overflow:hidden;
+	margin-bottom: 8px;
+}
+.pictureOne p{
+	font-size:14px;
 }
 .pictureOne img{
 	width: 96%;
-	height: 22vw;
+	height: 25vw;
 }
 .pictureLeft{
 	float: left;
@@ -923,7 +926,7 @@ table tr .listTop{
 	cursor:pointer;
 }
 .AuditSuccess{
-	height: 155px;
+	height: 160px;
 	border-bottom: 1px solid #E8E8E8;
 }
 .AuditSuccess .Radic{
@@ -959,7 +962,8 @@ table tr .listTop{
 	width: 50px;
 }
 .AuditSuccess .AuditChoose .Pin{
-	width: 180px;
+	width: 300px;
+	text-align: left;
 }
 .AuditSuccess .AuditChoose textarea{
 	width: 300px;
@@ -976,7 +980,7 @@ table tr .listTop{
 	float: right;
 	width: 60px;
 	height: 25px;
-	margin: 13px 10px;
+	margin: 12px 10px;
 	border: none;
 }
 .AuditEnter .confirm{
@@ -1189,4 +1193,47 @@ table tr .listTop{
 }
 .per_con_con{
 	padding-top: 10px;
+}
+/* 返回顶部 */
+#backTop{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	color: #fff;
+	line-height: 20px;
+	font-size: 14px;
+	background: rgba(0, 0, 0, .5);
+	position: fixed;
+	right: 5%;
+	bottom: -15%;
+	cursor: pointer;
+}
+#backTop p{
+	margin-top: 5px;
+}
+#backTop .fa-arrow-up{
+	font-weight: bold;
+	font-size: 20px;
+}
+#backTop:hover{
+	background: rgba(0,0,0,.6);
+}
+.table_tbody--warp input{
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+.checkAll span{
+	width: 25%;
+	height: 20px;
+	float: left;
+	text-align: left;
+}
+.checkAll span input{
+	margin-right: 15px;
+}
+.checkAll div{
+	width: 75%;
 }

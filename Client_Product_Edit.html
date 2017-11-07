@@ -22,9 +22,6 @@
       <select name="city" id="city">
         <option value="请选择">请选择</option>
       </select>
-      <!-- <select name="town" id="town">
-        <option value="请选择">请选择</option>
-      </select> -->
     </span>
   </span>
   <span class="DBMS_header--logout">
@@ -60,7 +57,7 @@
   </span>
   <span class="DBMS_disArea">
     <div class="product_edit">
-      <table class="product_edit--body">
+      <table class="product_edit--body" id="td">
         <thead>
           <tr>
             <th>产品名称</th>
@@ -69,24 +66,33 @@
             <th>操作</th>
           </tr>
         </thead>
-        <tbody class="table_tbody--warp">
-          <tr>
-            <td>裸贷</td>
+        <tbody class="table_tbody--warp" id="tc">
+          <tr class="tbody-tr">
+            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
             <td>5555</td>
             <td>555</td>
-            <td><button class="product_edit--editor" value="1">编辑</button></td>
+            <td><button class="product_edit--editor" value="1">编辑</button><button class="product_edit--editor del" value="0">删除</button></td>
+          </tr>
+          <tr class="tbody-tr">
+            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
+            <td>5555</td>
+            <td>544</td> 
+            <td><button class="product_edit--editor" value="2">编辑</button><button class="product_edit--editor del" value="1">删除</button></td>
+          </tr>
+          <tr class="tbody-tr">
+            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
+            <td>5555</td>
+            <td>544</td> 
+            <td><button class="product_edit--editor" value="2">编辑</button><button class="product_edit--editor del" value="2">删除</button></td>
+          </tr>
+          <tr class="tbody-tr">
+            <td><input type="checkbox" name="selected" id="">裸贷</td>
+            <td>5555</td>
+            <td>555</td>
+            <td><button class="product_edit--editor" value="3">编辑</button><button class="product_edit--editor del" value="3">删除</button></td>
           </tr>
           <tr>
-            <td>裸贷</td>
-            <td>5555</td>
-            <td>555</td>
-            <td><button class="product_edit--editor" value="2">编辑</button></td>
-          </tr>
-          <tr>
-            <td>裸贷</td>
-            <td>5555</td>
-            <td>555</td>
-            <td><button class="product_edit--editor" value="3">编辑</button></td>
+            <td class="checkAll" colspan="4"><span><input type="checkbox" name="controlAll" id="controlAll" onclick="selectAll();">全选</span><div><button class="product_edit--editor" value="3">编辑</button><button class="product_edit--editor" value="1" onclick="dell()">删除</button></div> </td>
           </tr>
         </tbody>
         <tfoot class="table_tfoot--warp">
@@ -107,7 +113,56 @@
     </div>
   </span>
 </div>
+<div id="backTop" >
+    <p class="fa fa-arrow-up"></p> 
+    <p>TOP</p>
+</div>
 <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
 <script src="js/Client_Total_Script.js"></script>
+<script>
+
+  // var del = document.getElementsByClassName('del');
+  // var checklist = document.getElementsByName ("selected");
+  //   for(var i=0; i<del.length; i++){
+  //     (function(i){
+  //       del[i].onclick = function(){
+  //         if(checklist[i].checked){
+  //           td.deleteRow(i+1);
+  //         }
+  //       }
+  //     })(i)
+  //   }
+  // function dell() {
+  //     var tb = document.getElementById("td");
+  //     if (tb.rows.length < 2) {
+  //         return;
+  //     }
+  //     var row;
+  //     var cell;
+  //     var chk;
+  //     for (var i = tb.rows.length - 3; i > 0; i--) {
+  //         row = tb.rows[i];
+  //         cell = row.cells[0];
+  //         chk = cell.getElementsByTagName("input")[0];
+  //         if (chk.checked) {
+  //             tb.deleteRow(i);
+  //             }
+  //         }
+  //     }
+  // function selectAll(){
+  //  if(document.getElementById("controlAll").checked)
+  //  {
+  //  for(var i=0;i<checklist.length;i++)
+  //  {
+  //     checklist[i].checked = true;
+  //  } 
+  // }else{
+  // for(var j=0;j<checklist.length;j++)
+  // {
+  //    checklist[j].checked = false;
+  // }
+  // }
+  // }
+</script>
 </body>
 </html>

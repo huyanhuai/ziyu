@@ -151,6 +151,29 @@ table tr .listTop{
     width: 100px;
     height: 500px;
 }
+#backTop{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	color: #fff;
+	line-height: 20px;
+	font-size: 14px;
+	background: rgba(0, 0, 0, .5);
+	position: fixed;
+	right: 5%;
+	bottom: -100px;
+	cursor: pointer;
+}
+#backTop p{
+	margin-top: 5px;
+}
+#backTop .fa-arrow-up{
+	font-weight: bold;
+	font-size: 20px;
+}
+#backTop:hover{
+	background: rgba(0,0,0,.6);
+}
     </style>
 </head>
 <body>
@@ -290,7 +313,7 @@ table tr .listTop{
             </div>
         </div>
         <span id="mytime"></span>
-        <button id="aaa">111111</button>
+        <button id="aaa" >111111</button>
         <table border="1" cellspacing="0" cellpadding="0" class="refund">
             <tr>
                 <th>放款单位</th> 
@@ -341,9 +364,9 @@ table tr .listTop{
                 <td class="listLeft">&nbsp;</td>
             </tr>
         </table>
-        <div id="box"></div>
+        <div id="box" ></div>
         <ul>
-                <li><a href="javascript:history.back(-1);" data-tab="eat">吃饭</a></li>
+                <li><a href="javascript:history.go(-1);" data-tab="eat">吃饭</a></li>
                 <li><a href="javascript:;" data-tab="sleep">睡觉</a></li>
                 <li><a href="javascript:;" data-tab="walk">逛街</a></li>
              </ul>
@@ -358,9 +381,35 @@ table tr .listTop{
                 逛街
               </div>
             </div>
+            <div id="backTop" >
+                    <p class="fa fa-arrow-up"></p> 
+                     <p>TOP</p>
+                 </div>
             
     <script>
-        console.log(localStorage.getItem('A'));
+   var oTop = document.getElementById('backTop');
+       window.onscroll = function(){ 
+        var t = document.documentElement.scrollTop || document.body.scrollTop;  
+        if( t >= 300 ) { 
+            oTop.style.bottom = '15%';
+        } else { 
+            oTop.style.bottom='-100px';
+        } 
+   } 
+   var timer=null;
+   oTop.onclick = function(){ 
+        timer=setInterval(function(){ 
+        var ct = document.documentElement.scrollTop || document.body.scrollTop; 
+        ct-=10;
+        if(ct>0){
+             window.scrollTo(0,ct);
+        }
+        else{
+             window.scrollTo(0,0);
+             clearInterval(timer);
+        }
+    },10);
+}
 //    if(typeof(localStorage)=='undefined'){
 //        var  box = document.body || document.getElementsByTagName("head")[0] || document.documentElement,
 //       userdataobj = document.createElement('input');
@@ -479,7 +528,7 @@ setInterval("showTime()",1000);
 
     </script>
 </body>
-<script type="text/javascript" src="PIE-1.0.0/PIE.js"></script> 
+<!-- <script type="text/javascript" src="PIE-1.0.0/PIE.js"></script>  -->
 <script type="text/javascript"> 
 // PIE.attach(document.getElementById("btn")); 
 </script> 

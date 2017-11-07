@@ -152,6 +152,7 @@ function Dialog(Courier){
 	}:function(){
     Courier.Background && function(){
 			Courier.Background.style.filter = 'blur(3px)';
+			Courier.Background.style.filter = 'progid:DXImageTransform.Microsoft.Blur()';
 		}();
 		document.body.appendChild(BigDiv);
 		Courier.Type && Courier.Type == 'img' ?
@@ -160,87 +161,88 @@ function Dialog(Courier){
 	Div.onclick = Disapper;
 };
 //城市选择函数
-function CitySelector(ACourier,BCourier,CCourier){
-  if(arguments[3] == 'head'){
-  var StatusReporter = new Promise(function(resolve,reject){
-  	var ACtor,BCtor;
-  	var OptionText = '<option>请选择</option>';;
-  	for(var i = 0; i < provinceList.length; i++){
-  	    (function(i){
-  	        Add(ACourier,provinceList[i]);
-  	    })(i);
-  	};
-  	function Add(Father,Brother){
-  	    var Child = document.createElement('option'),
-  	        Name = Brother.name||Brother;
-  	    Child.value = Name;
-  	    Child.innerText = Name;
-  	    Father.appendChild(Child);
-  	};
-  	ACourier.addEvent("change",function(){
-  		BCourier.innerHTML = OptionText;
-  	  //CCourier.innerHTML = OptionText;
-  	  var Text = this.value;
-  	  for (var i = 0; i < provinceList.length; i++) {
-  	      (function(){
-  	          if(Text == provinceList[i].name){
-  	              ACtor = provinceList[i];
-  	            };
-  	      })(i);
-  	  };
-  	  for (var i = 0; i < ACtor.cityList.length; i++) {
-  	      (function(i){
-  	          Add(BCourier,ACtor.cityList[i]);
-  	      })(i)
-  	  };
-  	});
-  	BCourier.addEvent("change",function(){
-      resolve();
-  	  var Text= this.value;
-  	  for (var i = 0; i < ACtor.cityList.length; i++) {
-        (function(){
-            if(Text == ACtor.cityList[i].name){
-                BCtor = ACtor.cityList[i];
-            };
-        })(i);
-  	  };
-  	  /*for (var i = 0; i < BCtor.areaList.length; i++) {
-        (function(i){
-            OtherAdd(CCourier,BCtor.areaList[i],i);
-        })(i);
-  	  };*/
-  	});
-  });
-  return StatusReporter;
-}else if(arguments[3] == 'town'){
-  for (var i = 0; i < provinceList.length; i++) {
-    if (provinceList[i].name == ACourier) {
-      var Now = provinceList[i].cityList;
-      for(var j = 0; j < Now.length; j++){
-        if (Now[j].name == BCourier) {
-          var NowName = Now[j].areaList;
-          for(var k = 0; k < NowName.length; k++){
-            var Child = document.createElement('div'),
-                name = NowName[k],
-                q = 'town'+k;
-            Child.value = name;
-            Child.innerHTML = '<label for='+'"'+q+'"'+'>'+name+'</label><input name="product_deptRegion"'+'id='+'"'+q+'"'+'value='+'"'+name+'"'+'type="checkbox" />';
-            CCourier && CCourier.appendChild(Child);
-          }
-        }
-      }
-    }
-  };
-  }else{
-    for (var v = 0; v < CCourier.length; v++) {
-    var x = 'nation'+v
-    var Child = document.createElement('div');
-    Child.value = CCourier[v];
-    Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox" />';
-    ACourier.appendChild(Child);
-    };
-  };
-};
+	function CitySelector(ACourier,BCourier,CCourier){
+		if(arguments[3] == 'head'){
+		var StatusReporter = new Promise(function(resolve,reject){
+			var ACtor,BCtor;
+			var OptionText = '<option>请选择</option>';;
+			for(var i = 0; i < provinceList.length; i++){
+					(function(i){
+							Add(ACourier,provinceList[i]);
+					})(i);
+			};
+			function Add(Father,Brother){
+					var Child = document.createElement('option'),
+							Name = Brother.name||Brother;
+					Child.value = Name;
+					Child.innerText = Name;
+					Father.appendChild(Child);
+			};
+			ACourier.addEventListener("change",function(){
+				BCourier.innerHTML = OptionText;
+				//CCourier.innerHTML = OptionText;
+				var Text = this.value;
+				for (var i = 0; i < provinceList.length; i++) {
+						(function(){
+								if(Text == provinceList[i].name){
+										ACtor = provinceList[i];
+									};
+						})(i);
+				};
+				for (var i = 0; i < ACtor.cityList.length; i++) {
+						(function(i){
+								Add(BCourier,ACtor.cityList[i]);
+						})(i)
+				};
+			});
+			BCourier.addEventListener("change",function(){
+				resolve();
+				var Text= this.value;
+				for (var i = 0; i < ACtor.cityList.length; i++) {
+					(function(){
+							if(Text == ACtor.cityList[i].name){
+									BCtor = ACtor.cityList[i];
+							};
+					})(i);
+				};
+				/*for (var i = 0; i < BCtor.areaList.length; i++) {
+					(function(i){
+							OtherAdd(CCourier,BCtor.areaList[i],i);
+					})(i);
+				};*/
+			});
+		});
+		return StatusReporter;
+	}else if(arguments[3] == 'town'){
+		for (var i = 0; i < provinceList.length; i++) {
+			if (provinceList[i].name == ACourier) {
+				var Now = provinceList[i].cityList;
+				for(var j = 0; j < Now.length; j++){
+					if (Now[j].name == BCourier) {
+						var NowName = Now[j].areaList;
+						for(var k = 0; k < NowName.length; k++){
+							var Child = document.createElement('div'),
+									name = NowName[k],
+									q = 'town'+k;
+							Child.value = name;
+							Child.innerHTML = '<label for='+'"'+q+'"'+'>'+name+'</label><input name="product_deptRegion"'+'id='+'"'+q+'"'+'value='+'"'+name+'"'+'type="checkbox" />';
+							CCourier && CCourier.appendChild(Child);
+						}
+					}
+				}
+			}
+		};
+		}else{
+			for (var v = 0; v < CCourier.length; v++) {
+			var x = 'nation'+v
+			var Child = document.createElement('div');
+			Child.value = CCourier[v];
+			Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox" />';
+			ACourier.appendChild(Child);
+			};
+		};
+	};
+
 //MD5
 function MD5(Str){
 	var hexcase = 0;

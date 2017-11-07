@@ -277,8 +277,8 @@
                         </table>
                     <div id="picture" class="clear">
                         <div class="clear">
-                            <div class="pictureOne"><img src="t018d359947506be72c.jpg" alt="" class="pictureLeft"></div>
-                            <div class="pictureOne"><img src="#" alt=""></div>
+                            <div class="pictureOne"><img src="#" alt="" class="pictureLeft">
+                            <p>aaa</p></div>
                             <div class="pictureOne"><img src="#" alt=""></div>
                             <div class="pictureOne"><img src="#" alt=""></div>
                             <div class="pictureOne"><img src="#" alt="" class="pictureRight"></div>
@@ -361,6 +361,10 @@
                 </div>
             </div>
         </div>
+        <div id="backTop" >
+           <p class="fa fa-arrow-up"></p> 
+           <p>TOP</p>
+        </div>
         </span>
     </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
@@ -370,6 +374,42 @@
        function onTop(){
         picture.scrollIntoView(true);
        }
+       
+       var oTop = document.getElementById('backTop');
+       var c = document.getElementById("a");
+       var ct = document.getElementsByClassName('DBMS_disArea')[0].scrollTop; 
+       c.onscroll = function(){
+        if( ct >= 200 ) { 
+            oTop.style.bottom = '15%';
+        } else { 
+            oTop.style.bottom='-100px';
+        } 
+       }
+        window.onscroll = function(){ 
+        var t = document.documentElement.scrollTop || document.body.scrollTop; 
+        
+        if( t >= 300 || ct >= 200 ) { 
+            oTop.style.bottom = '15%';
+        } else { 
+            oTop.style.bottom='-100px';
+        } 
+       } 
+       
+      var timer=null;
+      oTop.onclick = function(){
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn(){
+        var Top = document.body.scrollTop || document.documentElement.scrollTop;
+        if(Top > 0){
+        document.body.scrollTop = document.documentElement.scrollTop = Top - 50;
+        document.getElementsByClassName('DBMS_disArea')[0].scrollTop = Top - 50;
+        timer = requestAnimationFrame(fn);
+        }else{
+        cancelAnimationFrame(timer);
+        } 
+        });
+      }
+          
     </script>
 </body>
 </html>
