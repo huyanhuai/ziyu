@@ -103,6 +103,7 @@ window.onload = function(){
 	};
 	show1();
 	show2();
+	
 };
 // 产品发布	
 $('@product--warp') && function(Courier){
@@ -144,11 +145,12 @@ $('@product--warp') && function(Courier){
 		})
 	}() 
 }
+
 	AreaName.onclick = function(){
 		if(Status){
 			AreaSelect.style.display = 'block';
 			var Town = $('input',AreaSelect);
-			for (var i = 0; i < Town.length; i++) {
+			for (var i = 1; i < Town.length; i++) {
 				if(!AreaStatus){
 					Town[i].setAttribute('data-status','on');
 				};
@@ -169,6 +171,23 @@ $('@product--warp') && function(Courier){
 					};
 				})(i);
 			};
+			Town[0].onclick = function(){
+				var checklist2 = document.getElementsByName("product_deptRegion");
+				console.log(checklist2[0]);
+				if(Town[0].checked){
+				for(var i=0;i<checklist2.length;i++){
+				   checklist2[i].checked = true;
+				   AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>');
+				   AreaName.innerText +=  checklist2[i].value;
+				} 
+			   }else{
+				for(var j=0;j<checklist2.length;j++){
+				  checklist2[j].checked = false;
+				  var text = AreaName.innerText;
+				  AreaName.innerText = [].join.call(text.split(checklist2[j].value),'');
+			   }
+			   }
+			   }
 			AreaSelect.onmouseleave = function(){
 				if (AreaName.innerText.length == 5){
 					AreaName.innerText = ('请选择');
@@ -800,15 +819,22 @@ for(var j=0;j<checklist.length;j++)
 }
 // 返回顶部
 var oTop = document.getElementById('backTop');
-var ct = document.getElementsByClassName('DBMS_disArea')[0].scrollTop; 
+var ct = document.getElementsByClassName('DBMS_disArea')[0]; 
 oTop != null ? window.onscroll = function(){ 
  var t = document.documentElement.scrollTop || document.body.scrollTop; 
- if( t >= 300 || ct >= 200 ) { 
+ if( t >= 200 ) { 
 	 oTop.style.bottom = '12%';
  } else { 
 	 oTop.style.bottom = '-100px';
  } 
 } : false;
+ct.onscroll = function(){
+	if( ct.scrollTop >= 200 ) { 
+		oTop.style.bottom = '12%';
+	} else { 
+		oTop.style.bottom = '-100px';
+	} 
+}
 var timer = null;
 oTop != null ? oTop.onclick = function(){
  cancelAnimationFrame(timer);

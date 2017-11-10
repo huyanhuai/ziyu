@@ -368,7 +368,15 @@
         </div>
         </span>
     </div>
-    <div id="BigPicture"  onclick="dropImage1();"><img src="#" alt="" name="image1"></div>
+    <div id="BigPicture" onclick="dropImage1();">
+            <table width="100%" height="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center">
+                        <img src="#" alt="" class="dragAble" id="block1" name="images1" onmousewheel="return bbimg(this)">
+                    </td>
+                </tr>
+            </table>
+        </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
@@ -381,11 +389,74 @@
         function enlargeImage1(src){
             var srcto = src;
             BigPicture.style.display = 'block';
-            image1.src= srcto;
+            images1.src= srcto;
         }
          function dropImage1(){
             BigPicture.style.display = 'none';
         } 
+        function bbimg(o){ 
+            var zoom = parseInt(o.style.zoom, 10)||100;
+            zoom += event.wheelDelta/12;
+            if (zoom > 0) o.style.zoom = zoom + '%';
+            return false;
+            }
+
+        var ie = document.all;
+        var nn6 = document.getElementById && !document.all;
+        var isdrag = false;
+        var y, x;
+        var oDragObj;
+        function moveMouse(e) {
+            if (isdrag) {
+                oDragObj.style.top = (nn6 ? nTY + e.clientY - y : nTY + event.clientY - y) + "px";
+                oDragObj.style.left = (nn6 ? nTX + e.clientX - x : nTX + event.clientX - x) + "px";
+                return false;
+            }
+        }
+
+        function initDrag(e) {
+            var oDragHandle = nn6 ? e.target : event.srcElement;
+            var topElement = "HTML";
+            while (oDragHandle.tagName != topElement && oDragHandle.className != "dragAble") {
+                oDragHandle = nn6 ? oDragHandle.parentNode : oDragHandle.parentElement;
+            }
+            if (oDragHandle.className == "dragAble") {
+                isdrag = true;
+                oDragObj = oDragHandle;
+                nTY = parseInt(oDragObj.style.top + 0);
+                y = nn6 ? e.clientY : event.clientY;
+                nTX = parseInt(oDragObj.style.left + 0);
+                x = nn6 ? e.clientX : event.clientX;
+                document.onmousemove = moveMouse;
+                return false;
+            }
+        }
+        document.onmousedown = initDrag;
+        document.onmouseup = new Function("isdrag=false");
+
+        function featsize() {
+            var width1 = images2.width;
+            var height1 = images2.height;
+            var width2 = 701;
+            var height2 = 576;
+            var h = height1 / height2;
+            var w = width1 / width2;
+            if (height1 < height2 && width1 < width2) {
+                images1.height = height1;
+                images1.width = width1;
+            } else {
+                if (h > w) {
+                    images1.height = height2;
+                    images1.width = width1 * height2 / height1;
+                } else {
+                    images1.width = width2;
+                    images1.height = height1 * width2 / width1;
+                }
+            }
+            block1.style.left = 0;
+            block1.style.top = 0;
+        }
+
     </script>
 </body>
 </html>

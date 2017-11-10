@@ -57,6 +57,18 @@
     </div>
   </span>
   <span class="DBMS_disArea">
+      <div id="nav">
+          <div class="per-que-nav clear">
+              <p class="que-nav-cur">
+                  <span class="fa fa-home house"></span>
+                  <h7>您当前的位置：</h7>
+                  <span><a href="#">贷款</a> &gt; 贷款类型</span>
+              </p>
+              <p id="que-nav-data">
+                  <span id="nav-data-span1"></span>
+              </p>
+          </div>
+        </div>
     <form id="warp" name="" class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post" >
       <fieldset class="product_basicInfo--warp">
         <legend>产品基本信息</legend>
@@ -114,14 +126,20 @@
           <p>可做区域限制</p>
           <div>
             <p class="module_select--title">请选择</p>
-            <div class="module_select" id="town"></div>
+            <div class="module_select" id="town">
+                <div>
+                    <label for="">全选</label>
+                    <input type="checkbox" name="" id="moduleAll" >
+                  </div>
+            </div>
           </div>
         </span>
         <span>
           <p>民族限制</p>
           <div>
             <p class="module_nation--title">请选择</p>
-            <div class="module_nation" id="nation"></div>
+            <div class="module_nation" id="nation">
+            </div>
           </div>
         </span>
         <span>

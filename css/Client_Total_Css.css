@@ -27,7 +27,7 @@ span{
 	display:inline-block;
 }
 img{
-	max-height:100%;
+	height: auto;
 }
 ins{
 	cursor:pointer;
@@ -1212,6 +1212,8 @@ table tr .listTop{
 	cursor: pointer;
 }
 #backTop p{
+	width: 60px;
+	height: 21px;
 	font-weight: bold;
 }
 #backTop .fa-arrow-up{
@@ -1292,6 +1294,7 @@ table tr .listTop{
 	-moz-border-radius:  0 4px 4px 0;
 	-webkit-border-radius:  0 4px 4px 0;
 }
+/* loan弹窗 */
 .AuditChoose .dialog{
 	width: 300px;
 	height: 35px;
@@ -1318,20 +1321,34 @@ table tr .listTop{
 .LoanAuditChoose{
 	margin: 0 auto;
 }
+/* 图片放大 */
 #BigPicture{
 	width: 35%;
 	height: 90%;
+	display: table-cell; 
+    vertical-align: middle;
+	text-align: center;
 	position: fixed;
 	left: 50%;
 	bottom: 5%;
 	margin-left: -17.5%;
-	z-index: 50;
 	background: rgba(0, 0, 0, .5);
+	z-index: 50;
 	display: none;
 	cursor: pointer;
+	overflow: hidden;
+}
+#BigPicture table{
+	background: rgba(0, 0, 0, .5);
+	border: 0;
+	position: relative;
 }
 #BigPicture img{
-	width: 80%;
-	height: 90%;
-	margin-top: 5%;
+	width: 450px;
+	height: 700px;
+	position: absolute; 
+	top:50%;
+	left: 50%;
+	margin-top: -350px;
+	margin-left: -225px;
 }
