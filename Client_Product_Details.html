@@ -57,10 +57,10 @@
     </div>
   </span>
   <span class="DBMS_disArea">
-    <form class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post">
+    <form id="warp" name="" class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post" >
       <fieldset class="product_basicInfo--warp">
         <legend>产品基本信息</legend>
-          <input type="hidden" value="1" name="a_id" />
+          <input type="hidden" value="1" name="a_id"/>
           <span>
             <p>产品名称</p>
             <input type="text" name="product_productName" placeholder="按揭车贷" id="productName"/>
@@ -444,6 +444,10 @@
       </div>
     </form>
   </span>
+</div>
+<div id="backTop" >
+  <p class="fa fa-arrow-up"></p> 
+  <p>TOP</p>
 </div>
 <script src="js/Client_Total_Script.js"></script>
 <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>

@@ -225,7 +225,7 @@ function Dialog(Courier){
 									name = NowName[k],
 									q = 'town'+k;
 							Child.value = name;
-							Child.innerHTML = '<label for='+'"'+q+'"'+'>'+name+'</label><input name="product_deptRegion"'+'id='+'"'+q+'"'+'value='+'"'+name+'"'+'type="checkbox" />';
+							Child.innerHTML = '<label for='+'"'+q+'"'+'>'+name+'</label><input name="product_deptRegion"'+'id='+'"'+q+'"'+'value='+'"'+name+'"'+'type="checkbox"/>';
 							CCourier && CCourier.appendChild(Child);
 						}
 					}
@@ -237,7 +237,7 @@ function Dialog(Courier){
 			var x = 'nation'+v
 			var Child = document.createElement('div');
 			Child.value = CCourier[v];
-			Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox" />';
+			Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox"/>';
 			ACourier.appendChild(Child);
 			};
 		};

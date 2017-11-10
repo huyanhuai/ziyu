@@ -57,10 +57,11 @@
   </span>
   <span class="DBMS_disArea">
     <div class="product_edit">
+      <!-- <form action="http://192.168.0.188/daikuan2/product_delete.do" method="post"> -->
       <table class="product_edit--body" id="td">
         <thead>
           <tr>
-            <th>产品名称</th>
+            <th><input type="checkbox" name="controlAll" id="controlAll" onclick="selectAll();"><span>产品名称</span> </th>
             <th>利息区间</th>
             <th>额度区间</th>
             <th>操作</th>
@@ -68,31 +69,38 @@
         </thead>
         <tbody class="table_tbody--warp" id="tc">
           <tr class="tbody-tr">
-            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
+            <td id="11"><input type="checkbox" name="selected" id="" value="11"><span>裸贷</span></td>
             <td>5555</td>
             <td>555</td>
             <td><button class="product_edit--editor" value="1">编辑</button><button class="product_edit--editor del" value="0">删除</button></td>
           </tr>
           <tr class="tbody-tr">
-            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
+            <td id="22"><input type="checkbox" name="selected" id="" value="22"> <span>裸贷</span></td>
             <td>5555</td>
             <td>544</td> 
             <td><button class="product_edit--editor" value="2">编辑</button><button class="product_edit--editor del" value="1">删除</button></td>
           </tr>
           <tr class="tbody-tr">
-            <td><input type="checkbox" name="selected" id=""> 裸贷</td>
+            <td id="33"><input type="checkbox" name="selected" id=""> <span>裸贷</span></td>
             <td>5555</td>
             <td>544</td> 
             <td><button class="product_edit--editor" value="2">编辑</button><button class="product_edit--editor del" value="2">删除</button></td>
           </tr>
           <tr class="tbody-tr">
-            <td><input type="checkbox" name="selected" id="">裸贷</td>
+            <td id="44"><input type="checkbox" name="selected" id=""><span>裸贷</span></td>
+            <td>5555</td>
+            <td>555</td>
+            <td><button class="product_edit--editor" value="3">编辑</button><button class="product_edit--editor del" value="3">删除</button></td>
+          </tr>
+          <tr class="tbody-tr">
+            <td id="55"><input type="checkbox" name="selected" id=""><span>裸贷</span></td>
             <td>5555</td>
             <td>555</td>
             <td><button class="product_edit--editor" value="3">编辑</button><button class="product_edit--editor del" value="3">删除</button></td>
           </tr>
           <tr>
-            <td class="checkAll" colspan="4"><span><input type="checkbox" name="controlAll" id="controlAll" onclick="selectAll();">全选</span><div><button class="product_edit--editor" value="3">编辑</button><button class="product_edit--editor" value="1" onclick="dell()">删除</button></div> </td>
+            <td class="checkAll" colspan="4"> <button class="product_edit--editor" value="1" onclick="dell()">删除</button><button class="product_edit--editor" value="3">下架</button>
+            </td>
           </tr>
         </tbody>
         <tfoot class="table_tfoot--warp">
@@ -110,6 +118,7 @@
           </tr>
         </tfoot>
       </table>
+    <!-- </form> -->
     </div>
   </span>
 </div>
@@ -123,15 +132,6 @@
 
   // var del = document.getElementsByClassName('del');
   // var checklist = document.getElementsByName ("selected");
-  //   for(var i=0; i<del.length; i++){
-  //     (function(i){
-  //       del[i].onclick = function(){
-  //         if(checklist[i].checked){
-  //           td.deleteRow(i+1);
-  //         }
-  //       }
-  //     })(i)
-  //   }
   // function dell() {
   //     var tb = document.getElementById("td");
   //     if (tb.rows.length < 2) {

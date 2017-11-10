@@ -9,245 +9,56 @@
 </head>
 
 <body>
+    <SCRIPT LANGUAGE="JavaScript">
 
-    <table class="product_edit--body" id="td">
-        <thead>
-            <tr>
-                <th> <span>
-                        <input type="checkbox" name="controlAll" id="controlAll" onclick="selectAll();">全选</span>产品名称</th>
-                <th>利息区间</th>
-                <th>额度区间</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody class="table_tbody--warp">
-            <tr class="tbody-tr">
-                <td>
-                    <input type="checkbox" name="selected" id=""> 裸贷</td>
-                <td>5555</td>
-                <td>555</td>
-                <td>
-                    <button class="product_edit--editor" value="1">编辑</button>
-                    <button class="product_edit--editor del" value="1" onclick="move(1)">删除</button>
-                </td>
-            </tr>
-            <tr class="tbody-tr">
-                <td>
-                    <input type="checkbox" name="selected" id=""> 裸贷</td>
-                <td>5555</td>
-                <td>544</td>
-                <td>
-                    <button class="product_edit--editor" value="2">编辑</button>
-                    <button class="product_edit--editor del" value="2" onclick="move(2)">删除</button>
-                </td>
-            </tr>
-            <tr class="tbody-tr">
-                <td>
-                    <input type="checkbox" name="selected" id=""> 裸贷</td>
-                <td>5555</td>
-                <td>544</td>
-                <td>
-                    <button class="product_edit--editor" value="2">编辑</button>
-                    <button class="product_edit--editor del" value="3" onclick="move(3)">删除</button>
-                </td>
-            </tr>
-            <tr class="tbody-tr">
-                <td>
-                    <input type="checkbox" name="selected" id="">裸贷</td>
-                <td>5555</td>
-                <td>555</td>
-                <td>
-                    <button class="product_edit--editor" value="3">编辑</button>
-                    <button class="product_edit--editor del" value="4" onclick="move(4)">删除</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="checkAll" colspan="4">
-                   
-                    <div>
-                        <button class="product_edit--editor" value="3">编辑</button>
-                        <button class="product_edit--editor" value="1" onclick="dell()">删除</button>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot class="table_tfoot--warp">
-            <tr class="table_tfoot">
-                <td colspan="4">
-                    <button>首页</button>
-                    <button>上一页</button>
-                    <button>下一页</button>
-                    <button>尾页</button>
-                    <input type="text" name="" placeholder="页数">
-                    <button>跳转</button>
-                    <span>
-                        <p>当前/页</p>
-                    </span>
-                    <span>
-                        <p>共/页</p>
-                    </span>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-
-    <script type="text/javascript">
-        var del = document.getElementsByClassName('del');
-        var checklist = document.getElementsByName("selected");
-
-        function move(i) {
-            if (checklist[i - 1].checked) {
-                td.deleteRow(i);
-            }
+        function enlargeImage1(){
+           image1.height="300"
         }
-          for(var i=0; i<checklist.length; i++){
-        	(function(i){
-        	  del[i].onclick = function(){
-        		if(checklist[i].checked){
-        		  td.deleteRow(i+1);
-        		}
-        	  }
-        	})(i)
-          }
-        function dell() {
-            var td = document.getElementById("td");
-            if (td.rows.length < 2) {
-                return;
-            }
-            var row;
-            var cell;
-            var chk;
-            for (var i = td.rows.length - 3; i > 0; i--) {
-                row = td.rows[i];
-                cell = row.cells[0];
-                chk = cell.getElementsByTagName("input")[0];
-                if (chk.checked) {
-                    td.deleteRow(i);
-                }
-            }
+        function dropImage1(){
+           image1.height="150"
         }
-
-        function selectAll() {
-            if (document.getElementById("controlAll").checked) {
-                for (var i = 0; i < checklist.length; i++) {
-                    checklist[i].checked = true;
-                }
-            } else {
-                for (var j = 0; j < checklist.length; j++) {
-                    checklist[j].checked = false;
-                }
-            }
-        }
-
-        function del() {
-            var tb = document.getElementById("tb");
-            if (tb.rows.length < 2) {
-                return;
-            }
-            var row;
-            var cell;
-            var chk;
-            //倒着迭代可以少做一些处理
-            for (var i = tb.rows.length - 1; i > 0; i--) { //如果要迭代第一行(i > -1)即可
-                row = tb.rows[i]; //迭代当前行
-                cell = row.cells[0]; //复选框所在的单元格
-                chk = cell.getElementsByTagName("input")[0]; //为单元格中第几个input元素
-                if (chk.checked) { //如果选中
-                    tb.deleteRow(i); //删除改行
-                }
-            }
-        }
-        //  var html;
-        //  function reTB() {
-        //  document.getElementById("contentDiv").innerHTML = html;
-        //  }
-        //  window.onload = function () {
-        //  html = document.getElementById("contentDiv").innerHTML;
-        //  }
-    </script>
-    <input type="button" value="删除选中行" onclick="del()" />
-    <input type="button" value="刷新" onclick="reTB()" />
-    <!-- <div id="contentDiv">
-        <table id="tb" width="250px" border="1px">
-            <tr>
-                <td style="width:20%">
-                    <input type="checkbox" />
-                </td>
-                <td style="width:40%">姓名</td>
-                <td>分数</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>aa</td>
-                <td>60</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>bb</td>
-                <td>67</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>cc</td>
-                <td>59</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>dd</td>
-                <td>70</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>ee</td>
-                <td>80</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>ff</td>
-                <td>90</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>gg</td>
-                <td>hh</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>ii</td>
-                <td>98</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>jj</td>
-                <td>99</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="checkbox" />
-                </td>
-                <td>kk</td>
-                <td>100</td>
-            </tr>
+        </script>
+        <table>
+        <tr><td align="center">
+        <img src="/images/3.jpg" height="150" name="image1" ondblclick="enlargeImage1()" onclick="dropImage1()" style="cursor:pointer;"/>
+        </td></tr>
         </table>
-    </div> -->
+        <script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+        <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="1" />
+                            <label>幻觉</label>
+          
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="2" />
+                            <label>交流困难</label>
+          
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="3" />
+                            <label>猜疑</label>
+          
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="4" />
+                            <label>喜怒无常</label>
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="5" />
+                            行为怪异
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="6" />
+                            兴奋话多
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="7" />
+                            <label>伤人毁物</label>
+                            <br />
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="8" />
+                            <label>悲观厌世</label>
+          
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="9" />
+                            <label>无故外走</label>
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="10" />
+                            <label>自言自语</label>
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="11" />
+                            孤僻懒散
+                            <input name="Jszzdm1" id="Jszzdm1" type="checkbox" value="12" />其他
+                            <input type="hidden" name="Jszzdm" id="Jszzdm" value="@Model.Jszzdm" />
+        <script>
+          $('input[type=checkbox]').change(function(){
+            $('#Jszzdm').val($('input[type=checkbox]:checked').map(function(){return this.value}).get().join(','))
+          })
+        </script>
+        <input type="button" value="GET" onclick="alert($('#Jszzdm').val())"/>
 </body>
 
 </html>

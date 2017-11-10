@@ -57,94 +57,80 @@
           </div>
         </span>
         <span class="DBMS_disArea">
-            <div id="nav">
-                <div class="per-que-nav clear">
-                    <p class="que-nav-cur">
-                        <span class="fa fa-home house"></span>
-                        <h7>您当前的位置：</h7>
-                        <span><a href="#">首页</a> &gt; 放款通知</span>
-                    </p>
-                    <p id="que-nav-data">
-                        <span id="nav-data-span1"></span>
-                        <span id="nav-data-span2"></span>
-                        <span id="nav-data-span3"></span>
-                    </p>
-                </div>
+          <div id="nav">
+              <div class="per-que-nav clear">
+                  <p class="que-nav-cur">
+                      <span class="fa fa-home house"></span>
+                      <h7>您当前的位置：</h7>
+                      <span><a href="#">首页</a> &gt; 放款管理</span>
+                  </p>
+                  <p id="que-nav-data">
+                      <span id="nav-data-span1"></span>
+                  </p>
+              </div>
             </div>
           <span id="rightBox">
-                <div class="cusFir">
-                    <h1 class="cusFir_span">放款通知</h1>
-                </div>
-                    <div class="WorkOrder">
-                         <div class="">
-                             <p>工单号：</p> <p class="WorkOrder_Message">11111</p>
-                             <p>当前状态：</p> <p class="WorkOrder_Message">11111</p>
-                         </div>
-                         <div class="WorkName">
-                            <p>提单人：</p> <p class="WorkOrder_Message">11111</p>
-                            <p>联系方式：</p> <p class="WorkOrder_Message">11111</p>
-                            <p>星级：</p><p class="WorkOrder_Message">11111</p>
-                         </div>
-                    </div>
-                    <div class="cusFir">
-                        <h1 class="cusFir_span">处理进度</h1>
-                    </div>
-                    <div class="WorkOrder WorkOrderTwo">
-                        <span class="fa fa-check WorkOrder_Radic"></span><span>提交资料</span>
-                        <span class="fa fa-check WorkOrder_Radic"></span><span>子育初审</span>
-                        <span class="fa fa-check WorkOrder_Radic"></span><span>银行终审</span>
-                        <span class="fa fa-check WorkOrder_Radic"></span><span>确认放款</span>
-                        <span class="fa fa-check WorkOrder_Radic WorkOrder_Radic_Gray"></span><span>已评价</span>
-                    </div>
-                    <div class="cusFir">
-                        <h1 class="cusFir_span">沟通记录</h1>
-                    </div>
-                    <div class="Question">
-                        <div class="QuestionOne clear"> 
-                            <span style="font-size: 30px;width: 40px;">&bull;</span> <p>问题描述</p>
-                        </div>
-                        <div class="QuestionOne clear">
-                            <p class="QuestionOne_1">身份证照片</p> <p class="QuestionOne_2">时间</p>
-                        </div>
-                        <!-- ... -->
-                        <div class="QuestionOne clear">
-                            <span style="font-size: 30px;width: 40px;">&bull;</span> <p>子育审核</p>
-                        </div>
-                        <div class="QuestionOne clear">
-                            <p class="QuestionOne_1">请重新提交身份证照片</p> <p class="QuestionOne_2">时间</p>
-                        </div>
-                        
-                        <div class="QuestionOne clear">
-                            <span style="font-size: 30px;width: 40px;">&bull;</span><p class="QuestionOne_3">已重新提交</p> <p class="QuestionOne_2">时间</p>
-                        </div>
-                    </div>
-                    <div class="Question">
-                            <div class="QuestionOne clear">
-                                <span style="font-size: 30px;width: 40px;">&bull;</span> <p>问题描述</p>
-                            </div>
-                            <div class="QuestionOne clear">
-                                <p class="QuestionOne_1">身份证照片</p> <p class="QuestionOne_2">时间</p>
-                            </div>
-                            <!-- ... -->
-                            <div class="QuestionOne clear">
-                                <span style="font-size: 30px;width: 40px;">&bull;</span> <p>子育审核</p>
-                            </div>
-                            <div class="QuestionOne clear">
-                                <p class="QuestionOne_1">请重新提交身份证照片</p> <p class="QuestionOne_2">时间</p>
-                            </div>
-                            
-                            <div class="QuestionOne clear">
-                                <span style="font-size: 30px;width: 40px;">&bull;</span><p class="QuestionOne_3">已重新提交</p> <p class="QuestionOne_2">时间</p>
-                            </div>
-                    </div>
+            <table border="1" class="refund">
+                <tr>
+                    <th>产品</th> 
+                    <th>用户名</th> 
+                    <th>面签时间</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>${examines.creit.product_productName }</td> 
+                    <td>${examines.personalAccount.account_name }</td> 
+                    <td>&nbsp;</td>
+                    <td><button class="product_edit--editor" onclick="loanOpen1(156)">添加</button>
+                        <button class="product_edit--editor" onclick="loanOpen2(133)">失败</button>
+                    </td>
+                </tr>
+            </table>
           </span>
         </span>
     </div>
-    <div id="backTop" >
-            <p class="fa fa-arrow-up"></p> 
-             <p>TOP</p>
-         </div>
-    <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
-    <script src="js/Client_Total_Script.js"></script>
+    <!-- 弹窗 -->
+    <form id="loanForm" action="" method="post">
+    <div id="LoanBox" class="box">
+        <div class="Audit LoanAudit">
+            <div class="AuditPush">
+                <span class="AuditPushOne"></span> <span class="AuditX" onclick="close3()">&times;</span> 
+            </div>
+            <div class="AuditSuccess LoanSuccessChoose">
+                <div class="AuditChoose LoanAuditChoose">
+                    <p class="dialog"><span>金额：</span> <input type="text">&nbsp;元</p>
+                    <p class="dialog"><span>期限：</span> <input type="text">&nbsp;期</p>
+                    <p class="dialog"> <span>利息:</span> <input type="text">&nbsp;%</p>
+                    <p class="dialog"><span>还款方式：</span> <input type="text"></p>
+                    <p class="dialog"><span>还款时间：</span> <input type="date" name="" id=""></p>
+                </div>
+            </div>
+            <div class="AuditEnter">
+                <input id="ID1_value" type="text" value="" style="width:50px;visibility: hidden;">
+                <button class="cancelX" onclick="close3()">取消</button>
+                <button class="confirm" onclick="">确定</button>
+            </div>
+        </div>
+    </div>
+    </form>
+    <div id="LoanFailure" class="box">
+        <div class="Audit">
+            <div class="AuditPush">
+                <span class="AuditPushOne"></span> <span class="AuditX" onclick="close3()">&times;</span> 
+            </div>
+            <div class="AuditSuccess">
+                <div class="AuditSuccessOne"><span class="fa fa-exclamation Radic"></span> <span>放款失败</span></div>
+                <div class="AuditChoose">
+                </div>
+            </div>
+            <div class="AuditEnter">
+                <input id="ID2_value" type="text" value="" style="width:50px;visibility: hidden;">
+                <button class="cancelX" onclick="close3()">取消</button>
+                <button class="confirm" >确定</button>
+            </div>
+        </div>
+    </div>
+<script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
+<script src="js/Client_Total_Script.js"></script>
 </body>
 </html>

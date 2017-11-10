@@ -9,6 +9,28 @@ function GetFile(Courier){
 var Status = 0;
 var DBMS_disArea = document.querySelector('.DBMS_disArea');
 
+function show1(){
+	var AreaSelect = $('@module_select');
+	var AreaName = $('@module_select--title');
+	var Town = $('input',AreaSelect);
+	for (var i = 0; i < Town.length; i++) {
+		if(Town[i].checked){
+			AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>')
+			AreaName.innerText += Town[i].value;
+		}
+	};
+}
+function show2(){
+	var NationSelect = $('@module_nation');
+	var NationName = $('@module_nation--title');
+	var Nation = $('input',NationSelect);
+	for (var i = 0; i < Nation.length; i++) {
+		if(Nation[i].checked){
+			NationName.innerText = NationName.innerText.replace('请选择','已选择>>')
+			NationName.innerText += Nation[i].value;
+		}
+	};
+}
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -79,6 +101,8 @@ window.onload = function(){
 	LogInOrOut[1].onclick = function(){
 		location.href = 'http://192.168.0.188/daikuan2/Home_Page.jsp';
 	};
+	show1();
+	show2();
 };
 // 产品发布	
 $('@product--warp') && function(Courier){
@@ -134,7 +158,7 @@ $('@product--warp') && function(Courier){
 						if (AreaName.innerText.length == 3) {
 							AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>')
 						};
-						if(Town[i].getAttribute('data-status') == 'on'){
+						if(Town[i].getAttribute('data-status') == 'on'&& Town[i].checked){
 							Town[i].setAttribute('data-status','off');
 							AreaName.innerText += this.value;
 						}else{
@@ -158,6 +182,7 @@ $('@product--warp') && function(Courier){
 			});
 		};
 	};
+	
 	NationName.onclick = function(){
 		NationSelect.style.display = 'block';
 		var Nation = $('input',NationSelect);
@@ -171,7 +196,7 @@ $('@product--warp') && function(Courier){
 					if (NationName.innerText.length == 3) {
 						NationName.innerText =NationName.innerText.replace('请选择','已选择>>')
 					};
-					if(Nation[i].getAttribute('data-status') == 'on'){
+					if(Nation[i].getAttribute('data-status') == 'on'&& Nation[i].checked){
 						Nation[i].setAttribute('data-status','off');
 						NationName.innerText += this.value;
 					}else{
@@ -390,7 +415,7 @@ $('@product--warp') && function(Courier){
 	var LiabilityEnable = $('@creditRequire_liability--wholeEnable');
 	var LiabilityButton = $('button',LiabilityWarp);
 	var LiabilitySingleEnable = $('@creditRequire_liability--singleEnable');
-	var LiabilityDymic = function(){
+	var LiabilityDymic = function LiabilityDymic(){
 		var LiabilitySingleEnable;
 		var Son = document.createElement('div');
 		Son.className = LiabilityReuse.className;
@@ -464,7 +489,6 @@ $('@product--warp') && function(Courier){
 	// LiabilitySingleEnable.onclick = function(){
 	// 	LiabilityBody.removeChild(this.parentNode);
 	// };
-
 	// 初级数据检测函数				
 	function JuniorInspector(Courier){
 		return [].every.call(Courier,function(Ctor){
@@ -590,6 +614,7 @@ $('@product--warp') && function(Courier){
 			}();
 		})){
 			if(JuniorInspector(ValueRegion)){
+				document.getElementById("warp").action = 'http://192.168.0.188/daikuan2/product_add.do';
 				$('#dataHandle').form.submit();
 			}else{
 				Dialog({
@@ -599,7 +624,9 @@ $('@product--warp') && function(Courier){
 			};
 		};
 	};
+	
 }($('@product--warp'));
+
 
 //产品类型
 $('#loanType') && function(){
@@ -670,7 +697,7 @@ function showTime(){
   var success = document.getElementById('Success');
   var box1 = document.getElementById('box1');
   var cancel = document.getElementById('cancel');
-  var times = document.getElementById('AuditPushTwo')
+  var times = document.getElementById('AuditPushTwo');
   success != null ? (function(){
   success.onclick = function(){
       box1.style.display = 'block';
@@ -680,32 +707,67 @@ var RFE = document.getElementById("RFE");
 var box2 = document.getElementById("box2");
 var box3 = document.getElementById("box3");
 var box4 = document.getElementById("box4");
-RFE != null ? RFE.onclick = function(){box2.style.display = 'block';} : false;
+RFE != null ? RFE.onclick = function(){ box2.style.display = 'block';} : false;
 function close2(){
 	box1.style.display = 'none';
 	box2.style.display = 'none';
 	box3.style.display = 'none';
 	box4.style.display = 'none';
 }
+var loanbox = document.getElementById("LoanBox");
+var loanlose = document.getElementById("LoanFailure");
+var str1_val = document.getElementById("ID1_value");
+var str2_val = document.getElementById("ID2_value");
+function loanOpen1(str1){
+	var atr1 = str1;
+	str1_val.value = atr1;
+	loanbox.style.display = 'block';
+};
+function loanOpen2(str2){
+	var atr2 = str2;
+	str2_val.value = atr2;
+	loanlose.style.display = 'block';
+}
+function close3(){
+	loanbox.style.display = 'none';
+	loanlose.style.display = 'none';
+}
+
 var lose = document.getElementById("lose");
 RFE != null ? lose.onclick = function(){
 	box4.style.display = 'block';
 } : false;
 // 表格删除
 var del = document.getElementsByClassName('del');
-var checklist = document.getElementsByName ("selected");
-var tc = document.getElementById("tc");
-  for(var i=0; i<checklist.length; i++){
-	  del[i].onclick = function(){
-		  for(var j=0; j<checklist.length; j++){
-			if(checklist[j].checked){
-				tc.removeChild(this.parentNode.parentNode);
-			}
-		  }
+//   for(var i=0; i<checklist.length; i++){
+// 	  del[i].onclick = function(){
+// 		  for(var j=0; j<checklist.length; j++){
+// 			if(checklist[j].checked){
+// 				tc.removeChild(this.parentNode.parentNode);
+// 			}
+// 		  }
 		
-	  }
+// 	  }
+//   }
+  
+  var arg = document.getElementsByClassName('arg')[0];
+  var checklist = document.getElementsByName ("selected");
+  var tc = document.getElementById("tc");
+  var arr = [];
+  function dow(){
+	for(var i = 0; i<tc.rows.length-1; i++){
+		if(tc.rows[i].cells[0].getElementsByTagName("input")[0].checked){
+		  arr.push(tc.rows[i].cells[0].id);
+		}
+		arg.value = arr;
+	}
   }
 function dell() {
+	dow();
+	if(arr.length > 0 && arr != null){
+		// document.form.action="http://192.168.0.188/daikuan2/product_delete.do";
+		// document.form.submit();
+	}
 	var tb = document.getElementById("td");
 	if (tb.rows.length < 2) {
 		return;
@@ -739,16 +801,16 @@ for(var j=0;j<checklist.length;j++)
 // 返回顶部
 var oTop = document.getElementById('backTop');
 var ct = document.getElementsByClassName('DBMS_disArea')[0].scrollTop; 
- window.onscroll = function(){ 
+oTop != null ? window.onscroll = function(){ 
  var t = document.documentElement.scrollTop || document.body.scrollTop; 
  if( t >= 300 || ct >= 200 ) { 
-	 oTop.style.bottom = '15%';
+	 oTop.style.bottom = '12%';
  } else { 
-	 oTop.style.bottom='-100px';
+	 oTop.style.bottom = '-100px';
  } 
-} 
-var timer=null;
-oTop.onclick = function(){
+} : false;
+var timer = null;
+oTop != null ? oTop.onclick = function(){
  cancelAnimationFrame(timer);
  timer = requestAnimationFrame(function fn(){
  var Top = document.body.scrollTop || document.documentElement.scrollTop;
@@ -760,4 +822,4 @@ oTop.onclick = function(){
  cancelAnimationFrame(timer);
  } 
  });
-}
+}: false;
