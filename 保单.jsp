@@ -25,8 +25,14 @@
         <span>
           <p>&#42;投保公司限制</p>
           <div>
-            <input type="text" name="policyCompany" value="${productPolicy.policyCompany }"/>
-          </div>
+              <p class="module_select--title">请选择</p>
+              <div class="module_select" id="town">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="moduleAll" >
+                    </div>
+              </div>
+            </div>
         </span>
         <span>
           <p>&#42;投保生效时间</p>

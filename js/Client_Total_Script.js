@@ -31,6 +31,46 @@ function show2(){
 		}
 	};
 }
+function show3(list,name){
+	for(var i = 0; i<list.length; i++){
+		if(list[i].checked){
+			name.innerText = name.innerText.replace('请选择','已选择>>')
+			name.innerText += list[i].value;
+		}
+	}
+}
+// 投保公司限制
+var InsureSelect2 = document.getElementById("module_insure_two");
+var InsureName2 = document.getElementsByClassName("module_insure2--title")[0];
+var InsureBox2= $('input',InsureSelect2);
+
+var InsureTypeName2 = document.getElementsByClassName("module_type2--title")[0];
+var TypeSelect2 = document.getElementById("insure_type_two");
+var TypeBox2 = $('input',TypeSelect2);
+//投保公司限制
+var InsureName = document.getElementsByClassName("module_insure--title")[0];
+var InsureSelect = document.getElementById("module_insure");
+var InsureBox= $('input',InsureSelect);
+
+var InsureTypeName = document.getElementsByClassName("module_type--title")[0];
+var TypeSelect = document.getElementById("insure_type");
+var TypeBox = $('input',TypeSelect);
+
+var InsurePayName = document.getElementsByClassName("module_pay--title")[0];
+var PaySelect = document.getElementById("insure_pay");
+var PayBox = $('input',PaySelect);
+
+var IndustryName = document.getElementsByClassName("module_industry--title")[0];
+var IndustrySelect = document.getElementById("industry");
+var industry = $('input',IndustrySelect);
+//学历
+var EducationName = document.getElementsByClassName("module_education--title")[0];
+var EducationSelect = document.getElementById("education");
+var education = $('input',EducationSelect);
+// 职位
+var PositionName = document.getElementsByClassName("module_position--title")[0];
+var PositionSelect = document.getElementById("position");
+var position = $('input',PositionSelect);
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -76,6 +116,10 @@ window.onload = function(){
 			location.reload();
 		};
 	};
+	if(LocationSessioin.length > 0 && document.getElementById("CityName") != null){
+	   document.getElementById("CityName").value = LocationSessioin.getItem('B');
+	};
+	
 	for (var i = 0; i < Button.length; i++) {
 		(function(i){
 			Button[i].id == 'loan' ? Button[i].onclick = function(){
@@ -103,7 +147,18 @@ window.onload = function(){
 	};
 	show1();
 	show2();
-	
+	show3(industry,IndustryName);
+	if(EducationName != null || PositionName != null){
+		show3(education,EducationName);
+		show3(position,PositionName)
+	}
+	if(InsureName != null){
+		show3(InsureBox,InsureName);
+		show3(InsureBox2,InsureName2);
+		show3(TypeBox,InsureTypeName);
+		show3(PayBox,InsurePayName);
+		show3(TypeBox2,InsureTypeName2);
+	}
 };
 // 产品发布	
 $('@product--warp') && function(Courier){
@@ -116,14 +171,7 @@ $('@product--warp') && function(Courier){
 	var AreaStatus = 0;
 	var NationStatus = 0;
 	CitySelector(NationSelect,NationName,nationList,'nation');
-	// Business.addEventListener('change',function(){
-		var x = $('@require_registerTime');
-		// if (this.value == 0) {
-		// 	x.style.display ='none';
-		// }else{
-		// 	x.style.display ='inline-block';
-		// }
-	// })
+	var x = $('@require_registerTime');
 	if(Business != null){
 	Business.value == 0 ? function(){
 		x.style.display ='none';
@@ -146,6 +194,146 @@ $('@product--warp') && function(Courier){
 	}() 
 }
 
+var insurance = ["中国人寿","平安人寿","太保人寿","和谐健康人寿","人保寿险","富德生命人寿","新华人寿","安邦人寿","太平人寿","泰康人寿",
+	"建信人寿","华夏人寿","阳光人寿","工银安盛人寿","中邮人寿","天安人寿","人保健康人寿","国华人寿","农银人寿","合众人寿","前海人寿",
+	"百年人寿","幸福人寿","平安养老保险","珠江人寿","上海人寿","友邦保险","利安人寿","民生人寿","交银康联人寿","招商信诺人寿","中意人寿",
+	"国寿存续保险","长城人寿","渤海人寿","信诚人寿","中美联泰大都会人寿","中英人寿","恒大人寿","中宏人寿","君康人寿","太平养老人寿","泰康养老人寿",
+	"光大永明人寿","吉祥人寿","华泰人寿","中银三星人寿","中德安联人寿","中荷人寿","信泰人寿","英大人寿","长生人寿","国联人寿","同方全球人寿",
+	"恒安标准人寿","弘康人寿","北大方正人寿","华汇人寿","汇丰人寿","东吴人寿","平安健康人寿","陆家嘴国泰人寿","君龙人寿","中韩人寿",
+	"瑞泰人寿","昆仑健康人寿","德华安顾人寿","新光海航人寿","复星保德信人寿","中法人寿","太保安联健康人寿","中华人寿","中融人寿","安邦养老人寿",
+	"国寿养老人寿","长江养老人寿"];
+InsureSelect != null ? insure(InsureSelect,'insure_name'): false;
+function insure(obj,name){
+	for (var v = 0; v < insurance.length; v++) {
+		var Child = document.createElement('div');
+		Child.value = insurance[v];
+		Child.innerHTML = '<label for='+'"'+x+'"'+' title='+'"'+insurance[v]+'"'+''+'>'+insurance[v]+'</label><input name='+'"'+name+'"'+''+'value='+'"'+insurance[v]+'"'+'type="checkbox" checked/>';
+		obj.appendChild(Child);
+		};
+}
+    InsureName != null ? lisBox(InsureName,InsureSelect,InsureBox): false;
+
+    InsureSelect2 != null ? insure(InsureSelect2,'insure_name2'): false;
+    InsureName2 != null ? lisBox(InsureName2,InsureSelect2,InsureBox2): false;
+
+    InsureTypeName2 != null ? lisBox(InsureTypeName2,TypeSelect2,TypeBox2): false;
+
+	InsureTypeName != null ? lisBox(InsureTypeName,TypeSelect,TypeBox): false;
+
+	InsurePayName != null ? lisBox(InsurePayName,PaySelect,PayBox): false;
+
+	IndustryName != null ? lisBox(IndustryName,IndustrySelect,industry): false;
+
+	EducationName != null ? lisBox(EducationName,EducationSelect,education): false;
+
+	PositionName != null ? lisBox(PositionName,PositionSelect,position): false;
+
+	function lisBox(name,select,box,list){
+		name.onclick = function(){
+			select.style.display = 'block';
+			for(var i = 1; i<box.length; i++){
+				if(!AreaStatus){
+					box[i].setAttribute('data-status','on');
+				};
+				(function(i){
+					box[i].onclick = function(){
+						AreaStatus = 1;
+						if (name.innerText.length == 3) {
+							name.innerText = name.innerText.replace('请选择','已选择>>')
+						};
+						if(box[i].checked){
+							InsureBox[i].setAttribute('data-status','off');
+							name.innerText += this.value;
+						}else{
+							var text = name.innerText;
+							box[i].setAttribute('data-status','on');
+							name.innerText = [].join.call(text.split(this.value),'');
+						};
+					};
+				})(i);
+			}
+			box[0].onclick = function(){
+				if(box[0].checked){
+				for(var i=0;i<box.length;i++){
+				   if(box[i].checked == false){
+					box[i].checked = true;
+					name.innerText = name.innerText.replace('请选择','已选择>>');
+					name.innerText +=  box[i].value;
+				}
+				} 
+			   }else{
+				for(var j=0;j<box.length;j++){
+					box[j].checked = false;
+				  var text = name.innerText;
+				  name.innerText = [].join.call(text.split(box[j].value),'');
+			   }
+			   }
+			   }
+			   name.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			   }
+			   select.onmouseenter = function(){
+				select.style.display = 'block';
+			   }
+			   select.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			};
+	
+		}
+	}
+var InsureRequest = document.getElementsByClassName("insure_request")[0];
+var request = document.getElementsByClassName("request");
+showHide(InsureRequest,request);
+var TypeRequest = document.getElementsByClassName("type_request")[0];
+var TypeTime = document.getElementsByClassName("type_time");
+showHide(TypeRequest,TypeTime);
+var SocialSecurity = document.getElementsByClassName("social_security")[0];
+var social = document.getElementsByClassName("social");
+var ProvidentFund = document.getElementsByClassName("provident_fund")[0];
+var provident = document.getElementsByClassName("provident");
+showHide(SocialSecurity,social);
+showHide(ProvidentFund,provident);
+var UsedCar = document.getElementsByClassName("used_car")[0];
+var UsedCarList = document.getElementsByClassName("used_car_list");
+showHide(UsedCar,UsedCarList);
+
+function showHide(obj1,obj2){
+	if(obj1 != null){
+		obj1.value == 0 ? function(){
+			obj2[0].style.display ='none';
+			obj2[1].style.display ='none';
+			obj1.addEventListener('change',function(){
+				if (this.value == 0) {
+					obj2[0].style.display ='none';
+					obj2[1].style.display ='none';
+				}else{
+					obj2[0].style.display ='inline-block';
+					obj2[1].style.display ='inline-block';
+					console.log(obj2[1].style.display);
+				}
+			})
+		}(): function(){
+			obj2[0].style.display ='inline-block';
+			obj2[1].style.display ='inline-block';
+			obj1.addEventListener('change',function(){
+				if (this.value == 0) {
+					obj2[0].style.display ='none';
+					obj2[1].style.display ='none';
+				}else{
+					obj2[0].style.display ='inline-block';
+					obj2[1].style.display ='inline-block';
+				}
+			})
+		}() 
+	}
+}
+    
 	AreaName.onclick = function(){
 		if(Status){
 			AreaSelect.style.display = 'block';
@@ -173,12 +361,13 @@ $('@product--warp') && function(Courier){
 			};
 			Town[0].onclick = function(){
 				var checklist2 = document.getElementsByName("product_deptRegion");
-				console.log(checklist2[0]);
 				if(Town[0].checked){
 				for(var i=0;i<checklist2.length;i++){
+					if(checklist2[i].checked == false){
 				   checklist2[i].checked = true;
 				   AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>');
 				   AreaName.innerText +=  checklist2[i].value;
+				}
 				} 
 			   }else{
 				for(var j=0;j<checklist2.length;j++){
@@ -593,7 +782,6 @@ $('@product--warp') && function(Courier){
 					],
 					StringExcp = [
 						'product_place',
-						'product_industry',
 						'product_company',
 						'policyCompany',
 						'policyRestrictType',
@@ -778,7 +966,7 @@ var del = document.getElementsByClassName('del');
 		if(tc.rows[i].cells[0].getElementsByTagName("input")[0].checked){
 		  arr.push(tc.rows[i].cells[0].id);
 		}
-		arg.value = arr;
+		// arg.value = arr;
 	}
   }
 function dell() {
@@ -803,6 +991,31 @@ function dell() {
 			}
 		}
 	}
+	for(var i=0;i<checklist.length;i++){
+			if(checklist[i].checked == false){
+				(function(i){
+					checklist[i].onclick = function(){
+						document.getElementById("con").removeAttribute('disabled');
+					}
+				})(i) 
+			}else if(checklist[i].checked){
+				(function(i){
+					checklist[i].onclick = function(){
+					    document.getElementById("con").setAttribute('disabled','disabled');
+					}
+				})(i) 
+			}
+				document.getElementById("con").setAttribute('disabled','disabled');
+			
+			// checklist[1].onclick = function(){
+			// 	document.getElementById("con").setAttribute('disabled','disabled');
+				
+			// }
+		}
+		// document.getElementById("con").onclick = function(){
+		// 	document.getElementById("con").removeAttribute('disabled');
+		// }
+	 
 function selectAll(){
  if(document.getElementById("controlAll").checked)
  {
@@ -822,14 +1035,14 @@ var oTop = document.getElementById('backTop');
 var ct = document.getElementsByClassName('DBMS_disArea')[0]; 
 oTop != null ? window.onscroll = function(){ 
  var t = document.documentElement.scrollTop || document.body.scrollTop; 
- if( t >= 200 ) { 
+ if( t >= 0 ) { 
 	 oTop.style.bottom = '12%';
  } else { 
 	 oTop.style.bottom = '-100px';
  } 
 } : false;
 ct.onscroll = function(){
-	if( ct.scrollTop >= 200 ) { 
+	if( ct.scrollTop >= 0 ) { 
 		oTop.style.bottom = '12%';
 	} else { 
 		oTop.style.bottom = '-100px';

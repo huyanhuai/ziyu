@@ -69,9 +69,9 @@ select::-ms-expand {
 	color:white;
 }
 .DBMS_body{
-	height:1200px;
+	/* height:1200px; */
 	overflow:hidden;
-	background-color:#333333;
+	background-color:#1f262e;
 	border: none;
 }
 /*后台系统头部*/
@@ -85,7 +85,7 @@ span.DBMS_header--logout{
 	width:240px;
 	height:40px;
 	float:right;
-	margin-top:20px;
+	margin-top:15px;
 	margin-right:2%;
 }
 .DBMS_header--logout button{
@@ -111,7 +111,7 @@ span.DBMS_header--title{
 	float: left;
 	width:280px;
 }
-.DBMS_header--title p{
+/* .DBMS_header--title p{
 	height:60px;
 	line-height:60px;
 	font-size:20px;
@@ -123,7 +123,7 @@ span.DBMS_header--title{
 .DBMS_header sup{
 	font-size:12px;
 	margin-left:6px;
-}
+} */
 span.DBMS_header--select{
 	float: left;
 	width:380px;
@@ -170,7 +170,8 @@ span.DBMS_header--select{
 }
 /*后台系统功能区*/
 .DBMS_body>span{
-	height:1200px;
+	/* height:1200px; */
+	min-height: 1200px;
 	float:left;
 	overflow-x:hidden;
 }
@@ -303,6 +304,7 @@ span.product_industry--warp::before{
 }
 /*申请人及单位要求*/
 .product_otherInfo--warp span{
+	float: left;
 	width:200px;
 	height:150px;
 	margin-left:40px;
@@ -635,10 +637,32 @@ tr.table_tfoot{
 	width:100%;
 	font-size:15px;
 }
+#module_insure input{
+	width: 20px;
+}
+#module_insure label{
+	width: 70%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#module_insure_two input{
+	width: 20px;
+}
+#module_insure_two label{
+	width: 70%;
+}
+#position input{
+	width: 20px;
+}
+#position label{
+	width: 75%;
+	font-size: 16px;
+}
 /* 模块库 */
 div[class*=module]{
   display:none;
-  position:relative;
+  position: absolute;
   width:200px;
   height:200px;
   background:#fff;
@@ -666,11 +690,14 @@ p[class*=module]{
   display:inline-block;
   vertical-align:top;
   width:60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 [class*=module] input{
  display:inline-block;
  margin-left:2%;
-vertical-align:middle;
+ vertical-align:middle;
  width:20px;
  height:20px;
 }
@@ -1089,7 +1116,7 @@ table tr .listTop{
 	display: inline;
 }
 .per-que-nav p{
-	width: 260px;
+	width: 60%;
 	text-align: left;
 	padding-left: 5px;
 	float: left;
@@ -1099,6 +1126,7 @@ table tr .listTop{
 	color: rgb(80, 80, 80);
 }
 #que-nav-data{
+	width: 260px;
 	float: right;
 }
 #per_con_form p{
@@ -1207,9 +1235,12 @@ table tr .listTop{
 	background: rgba(0, 0, 0, .5);
 	position: fixed;
 	right: 5%;
-	bottom: -15%;
+	bottom: 15%;
 	z-index: 50;
 	cursor: pointer;
+}
+#backTop a{
+	color: #fff;
 }
 #backTop p{
 	width: 60px;

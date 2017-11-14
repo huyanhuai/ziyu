@@ -13,7 +13,7 @@
 </head>
 <body>
 <header class="DBMS_header">
-  <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+  <span class="DBMS_header--title"><p><img src="#" alt="" style="width: 60px; height: 60px;"></p></span>
   <span class="DBMS_header--select">
     <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
     <span>
@@ -62,7 +62,7 @@
               <p class="que-nav-cur">
                   <span class="fa fa-home house"></span>
                   <h7>您当前的位置：</h7>
-                  <span><a href="#">贷款</a> &gt; 贷款类型</span>
+                  <span><a href="#">贷款</a> &gt; 贷款类型   贷款类型贷款类型贷款类型</span>
               </p>
               <p id="que-nav-data">
                   <span id="nav-data-span1"></span>
@@ -72,6 +72,7 @@
     <form id="warp" name="" class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post" >
       <fieldset class="product_basicInfo--warp">
         <legend>产品基本信息</legend>
+          <input type="hidden" value="" id="CityName">
           <input type="hidden" value="1" name="a_id"/>
           <span>
             <p>产品名称</p>
@@ -88,9 +89,9 @@
         <span>
           <p>利息区间</p>
           <div>
-            <input type="text" name="product_minimumInterest" />
+            <input type="text" name="product_minimumInterest" placeholder="1.0"/>
             <b>&#45;</b>
-            <input type="text" name="product_maximumInterest" />
+            <input type="text" name="product_maximumInterest" placeholder="2.0"/>
           </div>
         </span>
         <span>
@@ -107,7 +108,119 @@
         </span>
         <span>
           <p>行业限制</p>
-          <input type="text"  name="product_industry" />
+          <div>
+            <p class="module_industry--title">请选择</p>
+          <div class="module_industry" id="industry">
+            <div>
+                <label for="">全选</label>
+                <input type="checkbox" name="" id="industryAll" >
+            </div>
+            <div>
+              <label for="">政府部门</label>
+              <input type="checkbox" name="industry_name" value="政府部门">
+            </div>
+            <div>
+              <label for="">科教文卫</label>
+              <input type="checkbox" name="industry_name" value="科教文卫">
+            </div>
+            <div>
+              <label for="">邮电通讯</label>
+              <input type="checkbox" name="industry_name" value="邮电通讯">
+            </div>
+            <div>
+              <label for="">部队</label>
+              <input type="checkbox" name="industry_name" value="部队">
+            </div>
+            <div>
+              <label for="">IT</label>
+              <input type="checkbox" name="industry_name" value="IT">
+            </div>
+            <div>
+              <label for="">网络</label>
+              <input type="checkbox" name="industry_name" value="网络">
+            </div>
+            <div>
+              <label for="">计算机</label>
+              <input type="checkbox" name="industry_name" value="计算机">
+            </div>
+            <div>
+              <label for="">商业</label>
+              <input type="checkbox" name="industry_name" value="商业">
+            </div>
+            <div>
+              <label for="">贸易</label>
+              <input type="checkbox" name="industry_name" value="贸易">
+            </div>
+            <div>
+              <label for="">银行</label>
+              <input type="checkbox" name="industry_name" value="银行">
+            </div>
+            <div>
+              <label for="">证券</label>
+              <input type="checkbox" name="industry_name" value="证券">
+            </div>
+            <div>
+              <label for="">投资</label>
+              <input type="checkbox" name="industry_name" value="投资">
+            </div>
+            <div>
+              <label for="">保险</label>
+              <input type="checkbox" name="industry_name" value="保险">
+            </div>
+            <div>
+              <label for="">制造业</label>
+              <input type="checkbox" name="industry_name" value="制造业">
+            </div>
+            <div>
+              <label for="">农林畜牧</label>
+              <input type="checkbox" name="industry_name" value="农林畜牧">
+            </div>
+            <div>
+              <label for="">广告</label>
+              <input type="checkbox" name="industry_name" value="广告">
+            </div>
+            <div>
+              <label for="">旅游</label>
+              <input type="checkbox" name="industry_name" value="旅游">
+            </div>
+            <div>
+              <label for="">餐饮</label>
+              <input type="checkbox" name="industry_name" value="餐饮">
+            </div>
+            <div>
+              <label for="">娱乐</label>
+              <input type="checkbox" name="industry_name" value="娱乐">
+            </div>
+            <div>
+              <label for="">交通运输</label>
+              <input type="checkbox" name="industry_name" value="交通运输">
+            </div>
+            <div>
+              <label for="">会计</label>
+              <input type="checkbox" name="industry_name" value="会计">
+            </div>
+            <div>
+              <label for="">律师</label>
+              <input type="checkbox" name="industry_name" value="律师">
+            </div>
+            <div>
+              <label for="">房地产</label>
+              <input type="checkbox" name="industry_name" value="房地产">
+            </div>
+            <div>
+              <label for="">建筑</label>
+              <input type="checkbox" name="industry_name" value="建筑">
+            </div>
+            <div>
+              <label for="">装饰</label>
+              <input type="checkbox" name="industry_name" value="装饰">
+            </div>
+            <div>
+              <label for="">其他</label>
+              <input type="checkbox" name="industry_name" value="其他">
+            </div>
+        </div>
+        </div>
         </span>
         <span>
           <p>单位限制</p>
@@ -146,8 +259,471 @@
           <p>户籍限制</p>
           <input name="product_place" />
         </span>
+        <span>
+          <p>学历要求</p>
+          <div>
+              <p class="module_education--title">请选择</p>
+              <div class="module_education" id="education">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
+                  <div>
+                      <label for="">研究生</label>
+                      <input type="checkbox" name="" value="研究生" >
+                  </div>
+                  <div>
+                      <label for="">本科</label>
+                      <input type="checkbox" name="" value="本科" >
+                  </div>
+                  <div>
+                      <label for="">大专</label>
+                      <input type="checkbox" name="" value="大专" >
+                  </div>
+                  <div>
+                      <label for="">中专/高中</label>
+                      <input type="checkbox" name="" value="中专/高中" >
+                  </div>
+                  <div>
+                      <label for="">初中</label>
+                      <input type="checkbox" name="" value="初中" >
+                  </div>
+                  <div>
+                      <label for="">小学及以下</label>
+                      <input type="checkbox" name="" value="小学及以下" >
+                  </div>
+              </div>
+          </div>
+        </span>
+        <span>
+          <p>职位要求</p>
+          <div>
+              <p class="module_position--title">请选择</p>
+              <div class="module_position" id="position">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
+                  <div>
+                      <label for="" title="单位公司主管/局级以上">单位公司主管/局级以上</label>
+                      <input type="checkbox" name="" value="单位公司主管/局级以上" >
+                  </div>
+                  <div>
+                      <label for="">部门主管/处级</label>
+                      <input type="checkbox" name="" value="部门主管/处级" >
+                  </div>
+                  <div>
+                      <label for="">科室经理</label>
+                      <input type="checkbox" name="" value="科室经理" >
+                  </div>
+                  <div>
+                      <label for="">员工</label>
+                      <input type="checkbox" name="" value="员工" >
+                  </div>
+                  <div>
+                    <label for="">法人代表</label>
+                    <input type="checkbox" name="" value="法人代表" >
+                </div>
+                <div>
+                    <label for="">股东/合伙人</label>
+                    <input type="checkbox" name="" value="股东/合伙人" >
+                </div>
+              </div>
+          </div>
+        </span>
+      </fieldset>
+      <fieldset class="product_otherInfo--warp">
+          <legend>进件要求</legend>
+          <c:choose>
+            <c:when test="${creit.product_identity==1 }">
+              <span>
+                <p>现单位工作时间</p>
+                <div>
+                  <b>&#8805;</b>
+                  <input type="text" name="workShift" />
+                  <b>月</b>
+                </div>
+              </span>
+              <span>
+                <p>工作时间</p>
+                <div>
+                  <b>&#8805;</b>
+                  <input type="text" name="workTime" />
+                  <b>月</b>
+                </div>
+              </span>
+            </c:when>
+            <c:otherwise>
+               <span>
+                <p>营业执照要求</p>
+                <div>
+                  <select class="require_businessLicense" name="businessLicense">
+                    <option value="1">有</option>
+                    <option value="0">有无均可</option>
+                  </select>
+                </div>
+              </span>
+              <span class="require_registerTime">
+                <p>营业执照注册时间</p>
+                <div>
+                  <b>&#8805;</b>
+                  <input type="text" name="registerTime" />
+                  <b>月</b>
+                </div>
+              </span>
+              <span>
+                <p>经营时间</p>
+                <div>
+                  <b>&#8805;</b>
+                  <input type="text" name="managementTime" />
+                  <b>月</b>
+                </div>
+              </span>
+            </c:otherwise>
+          </c:choose>
+           <span>
+            <p>&#42;上牌时间(月)</p>
+            <div>
+              <input type="text" name="minVehicleLicenseTime" />
+              <b>&#45;</b>
+              <input type="text" name="maxVehicleLicenseTime" />
+            </div>
+          </span>
+          <span>
+            <p>&#42;购车价格</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="vehicleOnePrice" />
+              <b>万元</b>
+            </div>
+          </span>
+
+          <span>
+              <p>二手车</p>
+              <div>
+                <select class="used_car" name="">
+                  <option value="1">可进件</option>
+                  <option value="0">不可进件</option>
+                </select>
+              </div>
+          </span>
+          <span class="used_car_list">
+            <p>&#42;过户时间</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="vehicleTransferTime" />
+              <b>月</b>
+            </div>
+          </span>
+          <span class="used_car_list">
+            <p>&#42;二手车购买价格</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="vehicleSecondPrice" />
+              <b>万元</b>
+            </div>
+          </span>
+          <span>
+            <p>车辆类型</p>
+            <select name="vehicleType">
+              <option>全款车</option>
+              <option>本市全款</option>
+              <option>外市全款</option>
+            </select>
+          </span>
       </fieldset>
 
+      <fieldset class="product_otherInfo--warp">
+          <legend>进件要求</legend>
+          <span>
+            <p>&#42;投保公司限制</p>
+            <div>
+                <p class="module_insure--title">请选择</p>
+                <div class="module_insure" id="module_insure">
+                    <div>
+                        <label for="">全选</label>
+                        <input type="checkbox" name="" id="insureAll" >
+                      </div>
+                </div>
+            </div>
+          </span>
+          <span>
+            <p>&#42;投保生效时间</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyEffectTime" value="${productPolicy.policyEffectTime }"/>
+              <b>月</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;总保额</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyPrice" value="${productPolicy.policyPrice }"/>
+              <b>万元</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;限制保险类型</p>
+            <div>
+                <p class="module_type--title">请选择</p>
+                <div class="module_type" id="insure_type">
+                    <div>
+                        <label for="">全选</label>
+                        <input type="checkbox" name="type_name" id="" >
+                    </div>
+                    <div>
+                        <label for="">分红型</label>
+                        <input type="checkbox" name="type_name" value="分红型" >
+                    </div>
+                    <div>
+                        <label for="">传统型</label>
+                        <input type="checkbox" name="type_name" value="传统型" >
+                    </div>
+                    <div>
+                        <label for="">万能型</label>
+                        <input type="checkbox" name="type_name" value="万能型" >
+                    </div>
+                    <div>
+                        <label for="">两全型</label>
+                        <input type="checkbox" name="type_name" value="两全型" >
+                    </div>
+                </div>
+            </div>
+          </span>
+          <span>
+            <p>&#42;限制缴费方式</p>
+            <div>
+                <p class="module_pay--title">请选择</p>
+                <div class="module_pay" id="insure_pay">
+                    <div>
+                        <label for="">全选</label>
+                        <input type="checkbox" name="pay_name" id="" >
+                    </div>
+                    <div>
+                        <label for="">月缴</label>
+                        <input type="checkbox" name="pay_name" value="月缴" >
+                    </div>
+                    <div>
+                        <label for="">季缴</label>
+                        <input type="checkbox" name="pay_name" value="季缴" >
+                    </div>
+                    <div>
+                        <label for="">半年缴</label>
+                        <input type="checkbox" name="pay_name" value="半年缴" >
+                    </div>
+                    <div>
+                        <label for="">年缴</label>
+                        <input type="checkbox" name="pay_name" value="年缴" >
+                    </div>
+                    <div>
+                        <label for="">趸缴</label>
+                        <input type="checkbox" name="pay_name" value="趸缴" >
+                    </div>
+                </div>
+            </div>
+          </span>
+          <span>
+            <p>&#42;月缴金额</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyMonthlyPayment" value="${productPolicy.policyMonthlyPayment }"/>
+              <b>元</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;年缴金额</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyYearPayment" value="${productPolicy.policyYearPayment }"/>
+              <b>元</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;投保人</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyHholder" value="${productPolicy.policyHholder }"/>
+            </div>
+          </span>
+          <span>
+            <p>&#42;保单总期限</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policyTotalTime" value="${productPolicy.policyTotalTime }"/>
+              <b>月</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;保单剩余时间</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policySurplusTime" value="${productPolicy.policySurplusTime }"/>
+              <b>月</b>
+            </div>
+          </span>
+           <span>
+            <p>&#42;万能险投保生效时间</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="policySurplusTime" value="${productPolicy.policySurplusTime }"/>
+              <b>月</b>
+            </div>
+          </span>
+          <br>
+          <span style="clear:both;">
+              <p>投保公司要求</p>
+              <div>
+                <select class="insure_request" name="">
+                  <option value="1">有</option>
+                  <option value="0">无</option>
+                </select>
+              </div>
+          </span>
+          <span class="request">
+                  <p>&#42;投保公司限制</p>
+                  <div>
+                      <p class="module_insure2--title">请选择</p>
+                      <div class="module_insure" id="module_insure_two">
+                          <div>
+                              <label for="">全选</label>
+                              <input type="checkbox" name="" id="" >
+                            </div>
+                      </div>
+                  </div>
+          </span>
+          <span class="request">
+            <p>&#42;保单生效时间</p>
+            <input name="" />
+          </span>
+          <br>
+          <span style="clear:both;">
+              <p>保单类型要求</p>
+              <div>
+                <select class="type_request" name="">
+                  <option value="1">有</option>
+                  <option value="0">无</option>
+                </select>
+              </div>
+          </span>
+          <span class="type_time">
+              <p>&#42;限制保险类型</p>
+              <div>
+                  <p class="module_type2--title">请选择</p>
+                  <div class="module_type" id="insure_type_two">
+                      <div>
+                          <label for="">全选</label>
+                          <input type="checkbox" name="type_name" id="" >
+                      </div>
+                      <div>
+                          <label for="">分红型</label>
+                          <input type="checkbox" name="type_name" value="分红型" checked>
+                      </div>
+                      <div>
+                          <label for="">传统型</label>
+                          <input type="checkbox" name="type_name" value="传统型" >
+                      </div>
+                      <div>
+                          <label for="">万能型</label>
+                          <input type="checkbox" name="type_name" value="万能型" checked>
+                      </div>
+                      <div>
+                          <label for="">两全型</label>
+                          <input type="checkbox" name="type_name" value="两全型" >
+                      </div>
+                  </div>
+              </div>
+          </span>
+          <span class="type_time">
+              <p>&#42;保单生效时间</p>
+              <input name="" />
+            </span>
+      </fieldset>
+
+      <fieldset class="product_otherInfo--warp">
+          <legend>进件要求2</legend>
+           <span>
+            <p>&#42;连续打卡工资次数</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="salaryNumber" value="${commutersConsumption.salaryNumber }"/>
+            </div>
+          </span>
+          <span>
+            <p>&#42;打卡工资</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="salary" value="${commutersConsumption.salary }"/>
+              <b>元</b>
+            </div>
+          </span>
+          <span>
+              <p>社保要求</p>
+              <div>
+                <select class="social_security" name="">
+                  <option value="1">有</option>
+                  <option value="0">无</option>
+                </select>
+              </div>
+          </span>
+          <span class="social">
+            <p>&#42;社保</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="sociaNumber" value="${commutersConsumption.sociaNumber }"/>
+              <b>月</b>
+            </div>
+          </span>
+          <span class="social">
+            <p>&#42;社保基数</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="social" value="${commutersConsumption.social }"/>
+            </div>
+          </span>
+          <span>
+              <p>公积金要求</p>
+              <div>
+                <select class="provident_fund" name="">
+                  <option value="1">有</option>
+                  <option value="0">无</option>
+                </select>
+              </div>
+          </span>
+          <span class="provident">
+            <p>&#42;公积金</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="fundNumber" value="${commutersConsumption.fundNumber }"/>
+              <b>月</b>
+            </div>
+          </span>
+          <span class="provident">
+            <p>&#42;公积金单边缴纳</p>
+            <div>
+              <b>&#8805;</b>
+              <input type="text" name="fund" value="${commutersConsumption.fund }"/>
+              <b>元</b>
+            </div>
+          </span>
+          <span>
+            <p>&#42;商品房要求</p>
+            <div>
+              <select name="houseRequirement">
+                <option ${commutersConsumption.houseRequirement=='有商品房'?'selected':'' }>有商品房</option>
+                <option ${commutersConsumption.houseRequirement=='本市房产'?'selected':'' }>本市房产</option>
+                <option ${commutersConsumption.houseRequirement=='外市房产'?'selected':'' }>外市房产</option>
+                <option ${commutersConsumption.houseRequirement=='本市全款'?'selected':'' }>本市全款</option>
+                <option ${commutersConsumption.houseRequirement=='外市全款'?'selected':'' }>外市全款</option>
+                <option ${commutersConsumption.houseRequirement=='本市按揭'?'selected':'' }>本市按揭</option>
+                <option ${commutersConsumption.houseRequirement=='外市按揭'?'selected':'' }>外市按揭</option>
+                <option ${commutersConsumption.houseRequirement=='本市抵押'?'selected':'' }>本市抵押</option>
+                <option ${commutersConsumption.houseRequirement=='外市抵押'?'selected':'' }>外市抵押</option>
+                <option ${commutersConsumption.houseRequirement=='无要求'?'selected':'' }>无要求</option>
+              </select>
+            </div>
+          </span>
+        </fieldset>
       <fieldset class="product_otherInfo--warp">
         <legend>申请人及单位要求</legend>
         <span>
