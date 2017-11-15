@@ -80,40 +80,38 @@
                                 <div class="fa fa-user-circle head"></div>
                                 <p>
                                     <span>账号</span>
-                                    <input type="text" placeholder="请输入账号" name="account_name">
+                                    <input type="text" placeholder="请输入账号" name="account_name" oninput="checkUser1(this.value)" onporpertychange="checkUser1(this.value)">
                                 </p>
+                                <div class="hint"><span id="user_ID" class="verification"></span></div> 
                                 <p>
                                     <span>用户名</span>
-                                    <input type="text" placeholder="请输入用户名" name="account_bankName">
+                                    <input type="text" placeholder="例如：平安普惠" name="account_bankName" oninput="checkUser(this.value)" onporpertychange="checkUser(this.value)">
                                 </p>
+                                <div class="hint"><span id="user" class="verification"></span></div>
                                 <p>
                                     <span>密码</span>
-                                    <input type="text" placeholder="密码最小长度为6位" name="account_pass">
+                                    <input type="password" placeholder="密码最小长度为6位" name="account_pass" oninput="checkpwd(this.value)" onporpertychange="checkpwd(this.value)" id="quepwd">
                                 </p>
+                                <div class="hint"><span id="pwd" class="verification"></span></div>
                                 <p>
                                     <span>确认密码</span>
-                                    <input type="text" placeholder="请重复密码">
+                                    <input type="password" placeholder="请重复密码" oninput="checkRpwd(this.value)" onporpertychange="checkRpwd(this.value)">
                                 </p>
-
+                                <div class="hint"><span id="rpwd" class="verification"></span></div>
+                                <div id="pictureTop">
+                                    <p>
+                                        <span>上传图片</span>
+                                        <input type="file" name="file" id="files-upload" style="border:0;width:200px;height:30px;"/>
+                                    </p>
+                                    <div id="pic">
+                                    </div>
+                                </div>
+                                
                                 <div class="clear">
-                                <p>
+                                    
+                                <!-- <p>
                                     <span>权限</span>
-                                    <!--<li>
-                                        <div>可授权权限</div>
-                                        <select multiple>
-                                            <option value="0">产品管理</option>
-                                            <option value="1">子账号管理</option>
-                                            <option value="2">客户</option>
-                                            <option value="3">产品管理</option>
-                                            <option value="4">产品管理</option>
-                                        </select>
-                                    </li>
-                                    <li class="li_2">
-                                        <div>已授权权限</div>
-                                        <select multiple></select>
-                                    </li>-->
                                     <span id="sel"></span>
-                                    <!-- <input type="text" id="sel"> -->
                                 </p>
                                     <ul id="sel_ul">
                                         <li>
@@ -136,7 +134,7 @@
                                             <input type="checkbox" value="4" name="account_power" class="checkxh">
                                             <span class="ClassName">账号管理</span>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                                 <p>
                                     <span>状态</span>
@@ -147,7 +145,7 @@
                                 </p>
                                 <br>
                                 <div class="per_btn">
-                                    <button>保存</button>
+                                    <button id="btn_1" disabled>保存</button>
                                     <button class="btn_2">取消</button>
                                 </div>
                             </form>
@@ -162,5 +160,8 @@
     </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
+    <script>
+       
+    </script>
 </body>
 </html>

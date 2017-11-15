@@ -1,96 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>html5 图片上传预览</title>
+  <style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        .img_wrap {
-            width: 400px;
-            height: 300px;
-            border: 1px dashed #ccc;
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-        }
-
-        #a {
-            background: #fff000;
-            width: 500px;
-            height: 500px;
-            overflow: hidden;
-            text-align: center;
-        }
-    </style>
-    <script language="javascript">
-        var count = 10;
-
-        function Picture() {
-            count = Counting(count);
-            Resize(count);
-            return false;
-        }
-
-        function Counting(count) {
-            if (event.wheelDelta >= 120)
-                count++;
-            else if (event.wheelDelta <= -120)
-                count--;
-            return count;
-        }
-
-        function Resize(count) {
-
-            oImage.style.zoom = count + '0%';
-            oCounter.innerText = count + '0%';
-        }
-
-        function bbimg(o) {
-            var zoom = parseInt(o.style.zoom, 10) || 100;
-            zoom += event.wheelDelta / 12;
-            if (zoom > 0) o.style.zoom = zoom + '%';
-            return false;
-        }
-    </script>
+    #div1 {
+        width : 200px;
+        height: 200px;
+        position: absolute;
+        background: #99dd33;
+        cursor: move;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="a">
-
-        <table width="100%" height="100%">
-
-            <tr>
-
-                <td align="center">
-
-                    <img src="skin/images/top/logo.jpg" />
-
-                </td>
-
-            </tr>
-
-        </table>
-
-    </div>
-    <div class="img_wrap">
+        <div id="div1"></div>
     
-        <img src="img/Step_Four.png">
-    </div>
-    <img src="divcss5-logo-201305.gif" alt="" title="" onmousewheel="return bbimg(this)" width="165" height="60" style="cursor: pointer;"
-        border="0" />
-    <h1>onmousewheel event</h1>
-    <p></p>
-    <span style="font-weight:bold">Size =
-        <span id="oCounter" style="color:red;">100%</span>
-    </span>
-    <br>
-    <img id="oImage" src="http://hiphotos.baidu.com/xieqingx/pic/item/ebb8dd95e82bd84cd1135e9e.jpg" onmousewheel="return Picture();">
-
-    <br>
-    <br>
-    <br>
 </body>
-
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript">
+ window.onload = function() {
+    var disX = disY = 0;                         // 鼠标距离div的左距离和上距离
+    var div1 = document.getElementById("div1");  // 得到div1对象
+    
+    // 鼠标按下div1时
+    div1.onmousedown = function(e) {
+        var evnt = e || event;                   // 得到鼠标事件
+        disX = evnt.clientX - div1.offsetLeft;   // 鼠标横坐标 - div1的left
+        disY = evnt.clientY - div1.offsetTop;    // 鼠标纵坐标 - div1的top
+        
+        // 鼠标移动时
+        document.onmousemove = function(e) {
+            var evnt = e || event;
+            var x = evnt.clientX - disX;
+            var y = evnt.clientY - disY;
+            var window_width  = document.documentElement.clientWidth  - div1.offsetWidth;
+            var window_height = document.documentElement.clientHeight - div1.offsetHeight;
+            
+            x = ( x < 0 ) ? 0 : x;                          // 当div1到窗口最左边时
+            x = ( x > window_width ) ? window_width : x;    // 当div1到窗口最右边时
+            y = ( y < 0 ) ? 0 : y;                          // 当div1到窗口最上边时
+            y = ( y > window_height ) ? window_height : y;  // 当div1到窗口最下边时
+            
+            div1.style.left = x + "px";
+            div1.style.top  = y + "px";
+        };
+        
+        // 鼠标抬起时
+        document.onmouseup = function() {
+            document.onmousemove =null;
+            document.onmouup = null;
+        };
+        
+        return false;
+    };
+};
+</script>
 </html>

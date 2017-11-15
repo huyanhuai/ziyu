@@ -119,7 +119,7 @@ window.onload = function(){
 	if(LocationSessioin.length > 0 && document.getElementById("CityName") != null){
 	   document.getElementById("CityName").value = LocationSessioin.getItem('B');
 	};
-	
+
 	for (var i = 0; i < Button.length; i++) {
 		(function(i){
 			Button[i].id == 'loan' ? Button[i].onclick = function(){
@@ -914,7 +914,7 @@ var RFE = document.getElementById("RFE");
 var box2 = document.getElementById("box2");
 var box3 = document.getElementById("box3");
 var box4 = document.getElementById("box4");
-RFE != null ? RFE.onclick = function(){ box2.style.display = 'block';} : false;
+RFE != null ? RFE.onclick = function(){ box2.style.display = 'block';console.log(document.getElementById("pic_information").value);} : false;
 function close2(){
 	box1.style.display = 'none';
 	box2.style.display = 'none';
@@ -929,6 +929,7 @@ function loanOpen1(str1){
 	var atr1 = str1;
 	str1_val.value = atr1;
 	loanbox.style.display = 'block';
+	console.log(str1_val.value)
 };
 function loanOpen2(str2){
 	var atr2 = str2;
@@ -1062,3 +1063,126 @@ oTop != null ? oTop.onclick = function(){
  } 
  });
 }: false;
+// 子账号
+var picBox = document.getElementById("pictureTop");
+var picBtn = document.getElementById("btn_1");
+picBox == null ? vanish(): false;
+function vanish(){
+	picBtn != null ? picBtn.removeAttribute('disabled'): false;
+}
+var fileList = document.getElementById("pic");
+fileList != null ? (function() {
+	var filesUpload = document.getElementById("files-upload");                      
+		function uploadFile(file) {
+		var span = document.createElement("span"),
+			img,
+			reader,
+			xhr,
+			fileInfo;  
+			span.innerText = "文件格式错误" ;          
+		if (typeof FileReader !== "undefined" && (/image/i).test(file.type)) {
+				img = document.createElement("img");
+				img.style.width = '150px';
+				img.style.height = '120px';
+				reader = new FileReader();
+				reader.onload = (function (theImg) {
+				return function (evt) {
+						theImg.src = evt.target.result;
+					};
+				}(img));
+					reader.readAsDataURL(file);
+				}          
+				if(img != null){
+					fileList.appendChild(img);
+					document.getElementById("btn_1").removeAttribute('disabled');
+				} else{
+					fileList.appendChild(span);
+					document.getElementById("btn_1").setAttribute("disabled","disabled");
+				}                          
+				}             
+			function traverseFiles (files) {
+					if (typeof files !== "undefined") {
+						 for (var i=0, l=files.length; i<l; i++) {
+							uploadFile(files[i]);
+						}
+					}
+					else {
+							fileList.innerHTML = "No support for the File API in this web browser";
+						}   
+					}
+			filesUpload.addEventListener("change", function () {
+				fileList.innerHTML = '';
+				traverseFiles(this.files);
+			}, false);                                    
+	})(): false;
+	function checkUser1(va){
+		if(va==""){
+			document.getElementById("user_ID").innerHTML="帐号不能为空";
+			}else{
+				document.getElementById("user_ID").innerHTML="";
+			}           
+	}
+	function checkUser(va){
+		if(va==""){
+			document.getElementById("user").innerHTML="用户名不能为空";
+			}else{
+				document.getElementById("user").innerHTML="";
+				}           
+	}
+	function checkpwd(va){
+	   if(va==""){
+			document.getElementById("pwd").innerHTML="密码不能为空";
+	   }else{
+			document.getElementById("pwd").innerHTML="";
+		}                       
+	}
+function checkRpwd(va){
+	var pwd=document.getElementById("quepwd").value;
+	if(va==""){
+		document.getElementById("rpwd").innerHTML="密码不能为空";
+	}else{
+		document.getElementById("rpwd").innerHTML="";
+		}   
+	if(va!=pwd){
+		document.getElementById("rpwd").innerHTML="两个密码不同";
+	}else{
+		document.getElementById("rpwd").innerHTML="";
+		}   
+}
+//拖动
+    var disX = disY = 0;                         
+    var div1 = document.getElementById("block1");  
+    
+    div1 != null ? div1.onmousedown = function(e) {
+        var evnt = e || event;                  
+        disX = evnt.clientX - div1.offsetLeft;   
+        disY = evnt.clientY - div1.offsetTop;    
+
+        document.onmousemove = function(e) {
+            var evnt = e || event;
+            var x = evnt.clientX - disX;
+            var y = evnt.clientY - disY;
+            var window_width  = document.documentElement.clientWidth  - div1.offsetWidth;
+            var window_height = document.documentElement.clientHeight - div1.offsetHeight;
+            div1.style.left = x + 225 + "px";
+            div1.style.top  = y + 350 + "px";
+        };
+ 
+        document.onmouseup = function() {
+            document.onmousemove =null;
+            document.onmouup = null;
+        };
+        return false;
+    }: false;
+
+var picCheck = document.getElementsByClassName("picCheck");
+for (var i = 0; i < picCheck.length; i++) {
+	picCheck != null ? picCheck[i].onclick = function(){
+		if(this.checked){
+			document.getElementById("pic_information").value += this.value;
+		}else{
+			var text = document.getElementById("pic_information").value;
+			document.getElementById("pic_information").value = [].join.call(text.split(this.value),'');
+		}
+	}: false;
+}

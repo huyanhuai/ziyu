@@ -110,8 +110,11 @@ span.DBMS_header--logout{
 span.DBMS_header--title{
 	float: left;
 	width:280px;
+	height: 62px;
+	/* background: #fff;
+	color: #000; */
 }
-/* .DBMS_header--title p{
+.DBMS_header--title p{
 	height:60px;
 	line-height:60px;
 	font-size:20px;
@@ -123,7 +126,7 @@ span.DBMS_header--title{
 .DBMS_header sup{
 	font-size:12px;
 	margin-left:6px;
-} */
+}
 span.DBMS_header--select{
 	float: left;
 	width:380px;
@@ -676,6 +679,7 @@ p[class*=module]{
   background:#fff;
   border:1px solid rgba(50%,50%,50%,.4);
   overflow:hidden;
+  cursor: pointer;
 }
 [class*=module] div{
   width:100%;
@@ -868,6 +872,7 @@ table tr .listTop{
 	vertical-align: middle;
 	overflow:hidden;
 	margin-bottom: 8px;
+	position: relative;
 }
 .pictureOne p{
 	font-size:14px;
@@ -1146,9 +1151,9 @@ table tr .listTop{
 #per_con_form p span{
 	display: inline-block;
 	font-size: 14px;
-	width: 90px;
+	width: 80px;
 	line-height: 40px;
-	float: left;
+	/* float: left; */
 	margin-bottom: 10px;
 	text-align: left;
 }
@@ -1382,4 +1387,39 @@ table tr .listTop{
 	left: 50%;
 	margin-top: -350px;
 	margin-left: -225px;
+} 
+#BigPicture .closeX{
+	width: 50px;
+	height: 50px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #FFF;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 3;
+}
+#pic{
+	padding: 0;
+	width: 150px;
+	height: 120px;
+	border: 1px solid rgb(187, 187, 187);
+	margin-left: 115px;
+	overflow: hidden;
+}
+#per_con_form .verification{
+	display: inline;
+	color: #EA1E4C;
+	word-wrap:break-word;
+}
+.hint{
+	width: 300px;
+	margin-left: 115px;
+}
+.picCheck{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top:2%;
+	left: 4%;
 }
