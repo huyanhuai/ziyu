@@ -914,7 +914,12 @@ var RFE = document.getElementById("RFE");
 var box2 = document.getElementById("box2");
 var box3 = document.getElementById("box3");
 var box4 = document.getElementById("box4");
-RFE != null ? RFE.onclick = function(){ box2.style.display = 'block';console.log(document.getElementById("pic_information").value);} : false;
+RFE != null ? RFE.onclick = function(){ 
+	box2.style.display = 'block';
+    var str = document.getElementById("pic_information").value;
+    str = (str .substring(str .length - 1) == ',') ? str .substring(0, str .length - 1) : str ;
+	document.getElementById("pic_information").value = str;
+    console.log(document.getElementById("pic_information").value);} : false;
 function close2(){
 	box1.style.display = 'none';
 	box2.style.display = 'none';
@@ -929,7 +934,7 @@ function loanOpen1(str1){
 	var atr1 = str1;
 	str1_val.value = atr1;
 	loanbox.style.display = 'block';
-	console.log(str1_val.value)
+	console.log(str1_val.value);
 };
 function loanOpen2(str2){
 	var atr2 = str2;
@@ -1179,10 +1184,10 @@ var picCheck = document.getElementsByClassName("picCheck");
 for (var i = 0; i < picCheck.length; i++) {
 	picCheck != null ? picCheck[i].onclick = function(){
 		if(this.checked){
-			document.getElementById("pic_information").value += this.value;
+			document.getElementById("pic_information").value += this.value + ',';
 		}else{
 			var text = document.getElementById("pic_information").value;
-			document.getElementById("pic_information").value = [].join.call(text.split(this.value),'');
+			document.getElementById("pic_information").value = [].join.call(text.split(this.value + ','),'');
 		}
 	}: false;
 }
