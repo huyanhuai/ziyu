@@ -1139,7 +1139,12 @@ fileList != null ? (function() {
 			document.getElementById("pwd").innerHTML="密码不能为空";
 	   }else{
 			document.getElementById("pwd").innerHTML="";
-		}                       
+		}  
+		// if(va.length < 5 && va.length > 0){
+		// 	document.getElementById("pwd").innerHTML="密码不能少于6位";
+		// }else{
+		// 	document.getElementById("pwd").innerHTML="";
+		// 	}                     
 	}
 function checkRpwd(va){
 	var pwd=document.getElementById("quepwd").value;
@@ -1147,7 +1152,7 @@ function checkRpwd(va){
 		document.getElementById("rpwd").innerHTML="密码不能为空";
 	}else{
 		document.getElementById("rpwd").innerHTML="";
-		}   
+		}    
 	if(va!=pwd){
 		document.getElementById("rpwd").innerHTML="两个密码不同";
 	}else{

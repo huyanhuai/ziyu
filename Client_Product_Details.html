@@ -27,12 +27,25 @@
     display: table-cell;
     vertical-align:middle;
   }
+  #ccc{
+    width: 150px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  #ptc{
+    position: absolute;
+    top: 2px;
+    left: 0;
+    z-index: 1;
+  }
   </style>
 </head>
 <body>
+    <!-- <div id="ptc"><img src="#" alt="" style="width: 120px; height: 90px;"></div> -->
     <!-- <div id="logoTop"><p><img id="logopic" src="#" alt="" style="width: 120px; height: 90px;float:left;"><span style="width:140px;text-align: left;">平安信贷</span></p></div> -->
-<header class="DBMS_header">
-  <span class="DBMS_header--title"><p><img src="#" alt="" style="width: 90px; height: 60px;float:left;margin-left:12.5%;"><span style="padding-left:10px;width:140px;text-align: left;">平安信贷</span></p></span>
+<header class="DBMS_header"> 
+  <span class="DBMS_header--title"><p><img src="#" alt="" style="width: 90px; height: 60px;float:left;margin-left:12%;"><span id="ccc" style="padding-left:10px;text-align: left;" title="平安信贷平安信贷" >平安信贷平安信贷</span></p></span>
   <span class="DBMS_header--select">
     <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
     <span>

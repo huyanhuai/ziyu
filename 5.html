@@ -12,18 +12,27 @@
         background: #99dd33;
         cursor: move;
     }
+    h1 {
+        color:rgba(250,100,100,0.7);
+        height:40px;
+        line-height: 40px;
+        width:500px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        }
   </style>
 </head>
 <body>
         <div id="div1" onclick="dakai()"></div>
         <a href="22.html" target="_blank">链接</a>
         <a href="22.html" target="_blank">链接</a>
-    
+        <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
 function dakai(){
-    window.open("http://www.jb51.net"); 
+    window.open("http://www.jb51.net");
 }
  window.onload = function() {
     var disX = disY = 0;                         // 鼠标距离div的左距离和上距离
