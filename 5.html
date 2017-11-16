@@ -2,7 +2,7 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>html5 图片上传预览</title>
+  <title>html5 图片</title>
   <style>
 
     #div1 {
@@ -15,11 +15,15 @@
   </style>
 </head>
 <body>
-        <div id="div1"></div>
+        <div id="div1" onclick="dakai()"></div>
+        <a href="22.html" target="_blank">链接</a>
     
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
+function dakai(){
+    window.open("http://www.jb51.net"); 
+}
  window.onload = function() {
     var disX = disY = 0;                         // 鼠标距离div的左距离和上距离
     var div1 = document.getElementById("div1");  // 得到div1对象
