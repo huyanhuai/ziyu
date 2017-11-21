@@ -1,74 +1,85 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-  <meta charset="utf-8">
-  <title>html5 图片</title>
-  <style>
 
-    #div1 {
-        width : 200px;
-        height: 200px;
-        position: absolute;
-        background: #99dd33;
-        cursor: move;
-    }
-    h1 {
-        color:rgba(250,100,100,0.7);
-        height:40px;
-        line-height: 40px;
-        width:500px;
-        overflow:hidden;
-        text-overflow:ellipsis;
-        white-space:nowrap;
+<head>
+    <meta charset="utf-8">
+    <title>html5 图片</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #99dd33;
+            cursor: move;
         }
-  </style>
+
+        h1 {
+            color: rgba(250, 100, 100, 0.7);
+            height: 40px;
+            line-height: 40px;
+            width: 500px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
 </head>
+
 <body>
-        <div id="div1" onclick="dakai()"></div>
-        <a href="22.html" target="_blank">链接</a>
-        <a href="22.html" target="_blank">链接</a>
-        <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1>
+    <div id="div1" onclick="dakai()"></div>
+    <a href="22.html" target="_blank">链接</a>
+    <a href="22.html" target="_blank">链接</a>
+    <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1>
 </body>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
-function dakai(){
-    window.open("http://www.jb51.net");
-}
- window.onload = function() {
-    var disX = disY = 0;                         // 鼠标距离div的左距离和上距离
-    var div1 = document.getElementById("div1");  // 得到div1对象
-    
-    // 鼠标按下div1时
-    div1.onmousedown = function(e) {
-        var evnt = e || event;                   // 得到鼠标事件
-        disX = evnt.clientX - div1.offsetLeft;   // 鼠标横坐标 - div1的left
-        disY = evnt.clientY - div1.offsetTop;    // 鼠标纵坐标 - div1的top
-        
-        // 鼠标移动时
-        document.onmousemove = function(e) {
-            var evnt = e || event;
-            var x = evnt.clientX - disX;
-            var y = evnt.clientY - disY;
-            var window_width  = document.documentElement.clientWidth  - div1.offsetWidth;
-            var window_height = document.documentElement.clientHeight - div1.offsetHeight;
-            
-            x = ( x < 0 ) ? 0 : x;                          // 当div1到窗口最左边时
-            x = ( x > window_width ) ? window_width : x;    // 当div1到窗口最右边时
-            y = ( y < 0 ) ? 0 : y;                          // 当div1到窗口最上边时
-            y = ( y > window_height ) ? window_height : y;  // 当div1到窗口最下边时
-            
-            div1.style.left = x + "px";
-            div1.style.top  = y + "px";
+    function dakai() {
+        window.open("http://www.jb51.net");
+    }
+    window.onload = function () {
+        var disX = disY = 0; // 鼠标距离div的左距离和上距离
+        var div1 = document.getElementById("div1"); // 得到div1对象
+
+        // 鼠标按下div1时
+        div1.onmousedown = function (e) {
+            var evnt = e || event; // 得到鼠标事件
+            disX = evnt.clientX - div1.offsetLeft; // 鼠标横坐标 - div1的left
+            disY = evnt.clientY - div1.offsetTop; // 鼠标纵坐标 - div1的top
+
+            // 鼠标移动时
+            document.onmousemove = function (e) {
+                var evnt = e || event;
+                var x = evnt.clientX - disX;
+                var y = evnt.clientY - disY;
+                var window_width = document.documentElement.clientWidth - div1.offsetWidth;
+                var window_height = document.documentElement.clientHeight - div1.offsetHeight;
+
+                x = (x < 0) ? 0 : x; // 当div1到窗口最左边时
+                x = (x > window_width) ? window_width : x; // 当div1到窗口最右边时
+                y = (y < 0) ? 0 : y; // 当div1到窗口最上边时
+                y = (y > window_height) ? window_height : y; // 当div1到窗口最下边时
+
+                div1.style.left = x + "px";
+                div1.style.top = y + "px";
+            };
+
+            // 鼠标抬起时
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouup = null;
+            };
+
+            return false;
         };
-        
-        // 鼠标抬起时
-        document.onmouseup = function() {
-            document.onmousemove =null;
-            document.onmouup = null;
-        };
-        
-        return false;
     };
-};
+var str = 'a11122222222222222223';
+var a = /^[a-zA-z]{1}\w{4,20}$/;
+    console.log(a.test(str));
+    var str = "/asdasf/asfaewf/agaegr/trer/rhh";
+
+var index = str .lastIndexOf("\/");  
+str  = str .substring(index + 1, str .length);
+alert(str );
 </script>
+
 </html>

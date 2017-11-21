@@ -1,137 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-        <form name="myform">
-                <div><label for="cookie_name">名称</label><input type="text" name="cookie_name" /></div>
-                <div><label for="cookie_value">值</lable><input type="text" name="cookie_value" /></div>
-                <div><label for="cookie_expireHours">多少个小时过期</lable><input type="text" name="cookie_expiresHours" /></div>
-                <div>
-                <input type="button" value="添加该cookie" onclick="add_()" />
-                <input type="button" value="读取所有cookie" onclick="allCookie()" />
-                <input type="button" value="读取该名称cookie" onclick="get_()" />
-                <input type="button" value="删除该名称cookie" onclick="del_()" />
-                </div>
-                </form>
-                <div id="asd"></div>
-</body>
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<title>js字符串操作</title>  
+<script type="text/javascript" src="js/jquery.min.js"></script>  
+<!-- <script type="text/javascript" src="js/stringOperate.js"></script>   -->
+<script type="text/javascript">  
+//StringOperate.baforeInsert = true;  
+//StringOperate.isRepeat= true;  
+//StringOperate.isDeleteAll = false;  
+    function add(){  
+        var val = StringOperate.add($("input[name='inputResult']").val(),$("input[name='inputString']").val());  
+        $("input[name='inputResult']").val(val);  
+    }  
+    function del(){  
+        var val = StringOperate.remove($("input[name='inputResult']").val(),$("input[name='inputString']").val());  
+        $("input[name='inputResult']").val(val);  
+    }  
+</script>  
+</head>  
+<body>  
+  
+<input type="text" name="inputString" ><br>  
+<input type="button" value="添加" onclick="add()">  
+<input type="button" value="删除" onclick="del()">  
+<br>  
+<input type="text" name="inputResult" readonly="readonly" style="width:400px;">  
+</body>  
 <script>
-    console.log(localstorage);
-    var localstorage = localStorage||new function(){
-  var that=this,prefix="localStorage";
-  //创建并初始化用于存储元素
-  var element=document.createElement(prefix);
-  element.addBehavior("#default#userData");
-  var head=document.documentElement.children[0];
-  head.insertBefore(element,head.firstChild);
-  //加载储存的键名
-  element.load(prefix);
-  var map={},keys=element.getAttribute("data-value");
-  keys=new Function("return "+keys+"||[];")();
-  for(var i=0;i<keys.length;i++)map[keys[i]]=0;
-  this.length=i;
-  //添加接口方法
-  this.getItem=function(key){
-    if(!(key in map))return null;
-    element.load(prefix+"-"+key);
-    return element.getAttribute("data-value");
-  };
-  this.setItem=function(key,value){
-    element.setAttribute("data-value",value||"");
-    element.save(prefix+"-"+key);
-    key in map||updateKeys(map[key]=0);
-  };
-  this.removeItem=function(key){
-    element.setAttribute("data-value","");
-    element.save(prefix+"-"+key);
-    key in map&&updateKeys(delete map[key]);
-  };
-  this.clear=function(key,value){
-    for(var i in map)this.setItem(i,"");
-    updateKeys(map={});
-  };
-  this.key=function(i){ return keys[i]; };
-  //当键名列表改变时储存更新
-  function updateKeys(){
-    var result=[],key;
-    keys=[];
-    for(key in map)result.push(
-      '"'+key.replace(/[^a-z0-9 ]/ig,function(e){
-        var e=e.charCodeAt(0).toString(16);
-        if(e.length%2)e="0"+e;
-        return (e.length>2?"\\u":"\\x")+e;
-      })+'"'
-    ),keys.push(key);
-    that.length=keys.length;
-    element.setAttribute("data-value","["+result+"]");
-    element.save(prefix);
-  };
-};
-// if(window.sessionStorage){     alert("浏览支持localStorage"); }else{    alert("浏览暂不支持localStorage");  } 
-// var asd = document.getElementById("asd");
-    asd.innerHTML = document.cookie;
-
-    function addCookie(objName,objValue,objHours){//添加cookie
-    var str = objName + "=" + escape(objValue);
-    if(objHours > 0){//为0时不设定过期时间，浏览器关闭时cookie自动消失
-    var date = new Date();
-    var ms = objHours*3600*1000;
-    date.setTime(date.getTime() + ms);
-    str += "; expires=" + date.toGMTString();
-    }
-    document.cookie = str;
-    alert("添加cookie成功");
-    }
-    
-    function getCookie(objName){//获取指定名称的cookie的值
-    var arrStr = document.cookie.split("; ");
-    for(var i = 0;i < arrStr.length;i ++){
-    var temp = arrStr[i].split("=");
-    if(temp[0] == objName) return unescape(temp[1]);
-    } 
-    }
-    
-    function delCookie(name){//为了删除指定名称的cookie，可以将其过期时间设定为一个过去的时间
-    var date = new Date();
-    date.setTime(date.getTime() - 10000);
-    document.cookie = name + "=a; expires=" + date.toGMTString();
-    }
-    
-    function allCookie(){//读取所有保存的cookie字符串
-    var str = document.cookie;
-    if(str == ""){
-    str = "没有保存任何cookie";
-    }
-    alert(str);
-    }
-    
-    function $(m,n){
-    return document.forms[m].elements[n].value;
-    }
-    
-    function add_(){
-    var cookie_name = $("myform","cookie_name");
-    var cookie_value = $("myform","cookie_value");
-    var cookie_expireHours = $("myform","cookie_expiresHours");
-    addCookie(cookie_name,cookie_value,cookie_expireHours);
-    }
-    
-    function get_(){
-    var cookie_name = $("myform","cookie_name");
-    var cookie_value = getCookie(cookie_name);
-    alert(cookie_value);
-    }
-    
-    function del_(){
-    var cookie_name = $("myform","cookie_name");
-    delCookie(cookie_name);
-    alert("删除成功");
-    }
-    </script>
-    
-</html>
+  var StringOperate ={  
+        separator    : ",",//字符串分隔符  
+        baforeInsert : false,//字符串追加方式，默认false是在后面添加，true在追加到前面  
+        isRepeat     : false,//追加的字符串是否可重复添加  
+        isDeleteAll  : true,//删除所有匹配的字符串  
+          
+        //左边添加分隔符  
+        lInsertSeparator : function(operateString){  
+            if(operateString.indexOf(this.separator)  == 0)  
+                return operateString;  
+            return this.separator + operateString;  
+        },  
+        //右边添加分隔符  
+        rInsertSeparator : function(operateString){  
+            if(operateString.lastIndexOf(this.separator)  == (operateString.length - this.separator.length))  
+                return operateString;  
+            return operateString + this.separator;   
+        },  
+        //去除左边分隔符  
+        lSeparatorTrim   : function(operateString){  
+            if(operateString.indexOf(this.separator)  == 0)  
+                return operateString.substring(1);  
+            return operateString;  
+        },  
+        //去除右边的分隔符  
+        rSeparatorTrim   : function(operateString){  
+            if(operateString.lastIndexOf(this.separator)  == (operateString.length - this.separator.length))  
+                return operateString.substring(0,operateString.length-1);  
+            return operateString;  
+        },  
+        //追加字符串，将str字符串 追加到operateString中  
+        add : function(operateString, str){  
+            if( str  && str != ""){  
+                if(this.isRepeat){//重复追加  
+                    if(this.baforeInsert){//追加在开头  
+                         return this.rSeparatorTrim(this.lSeparatorTrim(str + this.separator + operateString));  
+                    }  
+                    return this.rSeparatorTrim(this.lSeparatorTrim(operateString + this.separator + str));  
+                }else{  
+                    //开头和结尾都添加分隔符  
+                    operateString = this.lInsertSeparator(this.rInsertSeparator(operateString));  
+                    if(operateString.indexOf(this.separator + str + this.separator) == -1){  
+                        if(this.baforeInsert){  
+                            return this.rSeparatorTrim(this.lSeparatorTrim(str + operateString));  
+                        }else{  
+                            return this.rSeparatorTrim(this.lSeparatorTrim(operateString + str));  
+                        }  
+                    }  
+                    return this.rSeparatorTrim(this.lSeparatorTrim(operateString));  
+                }  
+            }  
+        },  
+        //删除指定字符串  
+        remove : function(operateString, str){  
+            if(operateString && str && operateString != "" && str != ""){  
+                //开头和结尾都添加分隔符  
+                operateString = this.lInsertSeparator(this.rInsertSeparator(operateString));  
+                if(this.isDeleteAll){  
+                    operateString = operateString.replace(new RegExp(this.separator,"g"),this.separator + this.separator);  
+                    //删除所有匹配的字符串  
+                    operateString =  operateString.replace(new RegExp(this.separator + str +this.separator,"g"),this.separator);  
+                    operateString = operateString.replace(new RegExp(this.separator+"{2,}","g"),this.separator);  
+                }else{  
+                    operateString =  operateString.replace(new RegExp(this.separator + str + this.separator),this.separator);  
+                }  
+                return this.rSeparatorTrim(this.lSeparatorTrim(operateString));  
+            }  
+        }  
+          
+          
+};  
+</script>
+</html>  

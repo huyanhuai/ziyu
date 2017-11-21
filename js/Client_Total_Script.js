@@ -71,6 +71,10 @@ var education = $('input',EducationSelect);
 var PositionName = document.getElementsByClassName("module_position--title")[0];
 var PositionSelect = document.getElementById("position");
 var position = $('input',PositionSelect);
+//限制收租
+var RentsName = document.getElementsByClassName("module_rents--title")[0];
+var RentsSelect = document.getElementById("rents");
+var rents = $('input',RentsSelect);
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -159,6 +163,7 @@ window.onload = function(){
 		show3(PayBox,InsurePayName);
 		show3(TypeBox2,InsureTypeName2);
 	}
+	RentsName != null ? show3(rents,RentsName): false;
 };
 // 产品发布	
 $('@product--warp') && function(Courier){
@@ -228,6 +233,8 @@ function insure(obj,name){
 
 	PositionName != null ? lisBox(PositionName,PositionSelect,position): false;
 
+	RentsName != null ? lisBox(RentsName,RentsSelect,rents): false;
+
 	function lisBox(name,select,box,list){
 		name.onclick = function(){
 			select.style.display = 'block';
@@ -242,12 +249,26 @@ function insure(obj,name){
 							name.innerText = name.innerText.replace('请选择','已选择>>')
 						};
 						if(box[i].checked){
-							InsureBox[i].setAttribute('data-status','off');
-							name.innerText += this.value;
+							if(name.innerText.length == 5){
+								InsureBox[i].setAttribute('data-status','off');
+								name.innerText += this.value;
+							}else{
+								InsureBox[i].setAttribute('data-status','off');
+								name.innerText += "," + this.value;
+							}
+							// InsureBox[i].setAttribute('data-status','off');
+							// name.innerText += "," + this.value;
 						}else{
 							var text = name.innerText;
 							box[i].setAttribute('data-status','on');
-							name.innerText = [].join.call(text.split(this.value),'');
+							if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\,") + 1,name.innerText.length)){
+								name.innerText = [].join.call(text.split("," + this.value),'');
+							}else{
+								name.innerText = [].join.call(text.split(this.value + ","),'');
+							}
+							if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\>") + 1,name.innerText.length)){
+								name.innerText = [].join.call(text.split(this.value),'');
+							}
 						};
 					};
 				})(i);
@@ -950,7 +971,7 @@ var lose = document.getElementById("lose");
 RFE != null ? lose.onclick = function(){
 	box4.style.display = 'block';
 } : false;
-// 表格删除
+// 表格删除 
 var del = document.getElementsByClassName('del');
 //   for(var i=0; i<checklist.length; i++){
 // 	  del[i].onclick = function(){
@@ -1022,20 +1043,17 @@ function dell() {
 		// 	document.getElementById("con").removeAttribute('disabled');
 		// }
 	 
-function selectAll(){
- if(document.getElementById("controlAll").checked)
- {
- for(var i=0;i<checklist.length;i++)
- {
-	checklist[i].checked = true;
- } 
-}else{
-for(var j=0;j<checklist.length;j++)
-{
-   checklist[j].checked = false;
-}
-}
-}
+		function selectAll() {
+			if (document.getElementById("controlAll").checked) {
+				for (var i = 0; i < checklist.length; i++) {
+					checklist[i].checked = true;
+				}
+			} else {
+				for (var j = 0; j < checklist.length; j++) {
+					checklist[j].checked = false;
+				}
+			}
+		}
 // 返回顶部
 var oTop = document.getElementById('backTop');
 var ct = document.getElementsByClassName('DBMS_disArea')[0]; 
@@ -1120,45 +1138,49 @@ fileList != null ? (function() {
 				traverseFiles(this.files);
 			}, false);                                    
 	})(): false;
-	function checkUser1(va){
-		if(va==""){
-			document.getElementById("user_ID").innerHTML="帐号不能为空";
-			}else{
-				document.getElementById("user_ID").innerHTML="";
-			}           
-	}
-	function checkUser(va){
-		if(va==""){
-			document.getElementById("user").innerHTML="用户名不能为空";
-			}else{
-				document.getElementById("user").innerHTML="";
-				}           
-	}
-	function checkpwd(va){
-	   if(va==""){
-			document.getElementById("pwd").innerHTML="密码不能为空";
-	   }else{
-			document.getElementById("pwd").innerHTML="";
-		}  
-		// if(va.length < 5 && va.length > 0){
-		// 	document.getElementById("pwd").innerHTML="密码不能少于6位";
-		// }else{
-		// 	document.getElementById("pwd").innerHTML="";
-		// 	}                     
-	}
-function checkRpwd(va){
-	var pwd=document.getElementById("quepwd").value;
-	if(va==""){
-		document.getElementById("rpwd").innerHTML="密码不能为空";
-	}else{
-		document.getElementById("rpwd").innerHTML="";
-		}    
-	if(va!=pwd){
-		document.getElementById("rpwd").innerHTML="两个密码不同";
-	}else{
-		document.getElementById("rpwd").innerHTML="";
-		}   
-}
+	//子账号验证
+	function checkUser1(va) {
+        if (va == "") {
+            document.getElementById("user_ID").innerHTML = "帐号不能为空";
+        } else {
+            document.getElementById("user_ID").innerHTML = "";
+        }
+    }
+
+    function checkUser(va) {
+        if (va == "") {
+            document.getElementById("user").innerHTML = "用户名不能为空";
+        } else {
+            document.getElementById("user").innerHTML = "";
+        }
+    }
+
+    function checkpwd(va) {
+        if (va == "") {
+            document.getElementById("pwd").innerHTML = "密码不能为空";
+        } else {
+            document.getElementById("pwd").innerHTML = "";
+        }
+        // if(va.length < 5 && va.length > 0){
+        // 	document.getElementById("pwd").innerHTML="密码不能少于6位";
+        // }else{
+        // 	document.getElementById("pwd").innerHTML="";
+        // 	}                     
+    }
+
+    function checkRpwd(va) {
+        var pwd = document.getElementById("quepwd").value;
+        if (va == "") {
+            document.getElementById("rpwd").innerHTML = "密码不能为空";
+        } else {
+            document.getElementById("rpwd").innerHTML = "";
+        }
+        if (va != pwd) {
+            document.getElementById("rpwd").innerHTML = "两个密码不同";
+        } else {
+            document.getElementById("rpwd").innerHTML = "";
+        }
+    }
 //拖动
     var disX = disY = 0;                         
     var div1 = document.getElementById("block1");  

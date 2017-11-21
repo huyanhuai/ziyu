@@ -363,6 +363,35 @@
               </div>
           </div>
         </span>
+        <span>
+          <p>&#42;限制收租方式</p>
+          <div>
+              <p class="module_rents--title">请选择</p>
+              <div class="module_rents" id="rents">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="pay_name" id="" >
+                  </div>
+                  <div>
+                      <label for="">月收</label>
+                      <input type="checkbox" name="policyRestrictMode" value="月收" ${fn:contains(productPolicy.policyRestrictMode, '月缴')?'checked':'' } >
+                  </div>
+                  <div>
+                      <label for="">季收</label>
+                      <input type="checkbox" name="policyRestrictMode" value="季收" ${fn:contains(productPolicy.policyRestrictMode, '季缴')?'checked':'' }>
+                  </div>
+                  <div>
+                      <label for="">半年收</label>
+                      <input type="checkbox" name="policyRestrictMode" value="半年收" ${fn:contains(productPolicy.policyRestrictMode, '半年缴')?'checked':'' }>
+                  </div>
+                  <div>
+                      <label for="">年收</label>
+                      <input type="checkbox" name="policyRestrictMode" value="年收" ${fn:contains(productPolicy.policyRestrictMode, '年缴')?'checked':'' }>
+                  </div>
+              </div>
+          </div>
+      </span>
+
       </fieldset>
       <fieldset class="product_otherInfo--warp">
           <legend>进件要求</legend>
