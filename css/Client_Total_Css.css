@@ -3,7 +3,7 @@
 /*initial style */
 *{
 	box-sizing:border-box;
-	/* width:100%; */
+	width:100%;
 	padding:1px 0 0 0;
 	margin:0px;
 	border:none;
@@ -239,10 +239,10 @@ span.DBMS_header--select{
 	font-weight:600;
 	text-align:left;
 }
-.product--warp div{
+/* .product--warp div{
 	width:200px;
 	height:50px;
-}
+} */
 .product--warp input{
   border:1px solid rgba(50%,50%,50%,.4);
 }
@@ -252,6 +252,7 @@ span.DBMS_header--select{
 .product--warp select{
 	width:200px;
 	height:50px;
+	line-height: 50px;
 	font-size:18px;
 	padding-left:30%;
     border:1px solid rgba(50%,50%,50%,.4);
@@ -399,6 +400,54 @@ div[class=creditRequire_child_foot]{
 	margin:0 auto;
 	height:35px;
 	background:white;
+}
+/* .. */
+.creditRequire_query--reuse2 span{
+	width: 15%;
+	float: left;
+}
+div.creditRequire_child_head2{
+	width:100%;
+	height:auto;
+	border-bottom:2px solid yellow;
+	overflow:hidden;
+}
+.creditRequire_child_head2 span{
+	float:left;
+	height:50px;
+	width:50%;
+}
+.creditRequire_child_head2 select{
+	margin-top:10px;
+	margin-right:10%;
+	width:15%;
+	height:50%;
+	float:right;
+}
+button[class*=singleEnable2]{
+	height:35px;
+	background:white;
+}
+div[class*=creditRequire2]{
+	width:100%;
+	height:auto;
+}
+div[class=creditRequire_child_foot2]{
+	margin-top:10px;
+	width:100%;
+	height:50px;
+	margin: 0 auto;
+}
+.creditRequire_child_foot2 button{
+	margin:0 auto;
+	height:35px;
+	background:white;
+}
+div[class$=query--warp2]{
+	margin:20px auto;
+	width:96%;
+	background:white;
+	border:1px solid rgba(50%,50%,50%,.5);
 }
 /*征信查询次数样式*/
 div[class$=overduo--warp]{
@@ -692,6 +741,7 @@ p[class*=module]{
 }
 [class*=module] label{
   display:inline-block;
+  float: left;
   vertical-align:top;
   width:60%;
   overflow: hidden;
@@ -699,7 +749,7 @@ p[class*=module]{
   white-space: nowrap;
 }
 [class*=module] input{
- display:inline-block;
+ /* display:inline-block; */
  margin-left:2%;
  vertical-align:middle;
  width:20px;
@@ -1302,13 +1352,16 @@ table tr .listTop{
 	float: left;
 }
 .cusFir .search{
-	width: 300px;
-	line-height: 45px;
+	width: 355px;
+	height: 33px;
+	line-height: 33px;
+	margin-top: 5px;
 	float: left;
-	margin-left: 50px;
+	margin-left: 20px;
 }
 .cusFir input{
-	width: 240px;
+	width: 290px;
+	height: 33px;
 	line-height: 30px;
 	padding-left: 8px;
 	text-align: left;
@@ -1318,14 +1371,13 @@ table tr .listTop{
 	-webkit-border-radius:  4px 0 0 4px;
 }
 .cusFir .search button{
-	width: 60px;
-	line-height: 30px;
+	width: 65px;
+	height: 33px;
 	font-size: 15px;
 	float: right;
 	color: #FFF;
 	background: rgb(11, 161, 253);
 	border: 1px solid #009CFF;
-	margin-top: 5px;
 	border-radius: 0 4px 4px 0;
 	-moz-border-radius:  0 4px 4px 0;
 	-webkit-border-radius:  0 4px 4px 0;
@@ -1422,4 +1474,37 @@ table tr .listTop{
 	position: absolute;
 	top:2%;
 	left: 4%;
+}
+/* 翻页 */
+.tfoot{
+	margin-top:20px;
+	height:120px;
+}
+.tfoot button{
+	height:40px;
+	width:60px;
+	background:#fff;
+	font-size:14px;
+	border: 1px solid rgba(50%,50%,50%,.4);
+}
+.tfoot button:hover{
+	background:#07c6c4;
+	color: white;
+}
+.tfoot input{
+	height:40px;
+	width:60px;
+	background:#fff;
+	font-size:15px;
+	border: 1px solid rgba(50%,50%,50%,.4);
+}
+.tfoot span{
+	height:40px;
+	width:60px;
+}
+.tfoot p{
+	line-height: 40px;
+	height:100%;
+	width:100%;
+	font-size:15px;
 }

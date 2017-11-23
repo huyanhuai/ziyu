@@ -39,6 +39,78 @@
     left: 0;
     z-index: 1;
   }
+  .plate-title{
+    width:200px;
+    height:50px;
+    background:#fff;
+    border:1px solid rgba(50%,50%,50%,.4);
+    overflow:hidden;
+    cursor: pointer;
+  }
+  #plate{
+    display:none;
+    position: absolute;
+    width:500px;
+    height:250px;
+    font-size: 16px;
+    background:#fff;
+    overflow-y:scroll;
+    border:1px solid rgba(50%,50%,50%,.4);
+    z-index:3;
+  }
+  #plate .all-plate{
+    height: 30px;
+    text-align: left;
+    padding-left: 8px;
+  }
+  #plate .city1{
+    width: 500px;
+    clear: both;
+  }
+  .CityList-1{
+    width: 80px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    text-align: left;
+    float: left;
+  }
+  .CityList-2{
+    width: 410px;
+    float: left;
+  }
+  .CityList-2 div{
+    width: 52px;
+  }
+  .city-plate{
+    margin-right: 8px;
+    margin-bottom: 2px;
+    float: left;
+  }
+  #plate input{
+    margin-left:2%;
+    vertical-align:middle;
+    width: 15px;
+    height: 15px;
+    border: none;
+  }
+  /* #plate label{
+    display:inline-block;
+    vertical-align:top;
+    width:60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+  }
+  #plate-list div{
+    width:100%;
+    height:30px;
+    font-size:18px;
+  }
+  #plate-list div:hover{
+    background:#07c6c4;
+    color:white;
+  } */
   </style>
 </head>
 <body>
@@ -391,7 +463,208 @@
               </div>
           </div>
       </span>
+      <span >
+          <p>省份选择</p>
+          <select id="prov" name="" onchange="showCity(this)" >
+              <option>请选择省份</option>
+          </select>
+          <!-- <div>
+              <p class="plate-title">请选择</p>
+              <div class="plate" id="plate">
+                  <div class="all-plate">
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
+              </div>
+          </div> -->
+      </span>
+      <span>
+          <p>&#42;车牌</p>
+          <div>
+              <p class="plate-title">请选择</p>
+              <div class="plate" id="plate">
+                  <div class="all-plate">
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
 
+              </div>
+          </div>
+      </span>
+      <span>
+          <p>&#42;房屋性质要求</p>
+          <div>
+              <p class="module_house--title">请选择</p>
+              <div class="module_house" id="house">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
+                  <div>
+                      <label for="" title="住宅">住宅</label>
+                      <input type="checkbox" name="" value="住宅" >
+                  </div>
+                  <div>
+                      <label for="">厂房</label>
+                      <input type="checkbox" name="" value="厂房" >
+                  </div>
+                  <div>
+                      <label for="">别墅/排屋</label>
+                      <input type="checkbox" name="" value="别墅/排屋" >
+                  </div>
+                  <div>
+                      <label for="">经济适用房</label>
+                      <input type="checkbox" name="" value="经济适用房" >
+                  </div>
+                  <div>
+                    <label for="">房改房</label>
+                    <input type="checkbox" name="" value="房改房" >
+                </div>
+                <div>
+                    <label for="">商住两用房</label>
+                    <input type="checkbox" name="" value="商住两用房" >
+                </div>
+                <div>
+                    <label for="">写字楼</label>
+                    <input type="checkbox" name="" value="写字楼" >
+                </div>
+                <div>
+                    <label for="">商铺</label>
+                    <input type="checkbox" name="" value="商铺" >
+                </div>
+                <div>
+                    <label for="">商用</label>
+                    <input type="checkbox" name="" value="商用" >
+                </div>
+              </div>
+          </div>
+        </span>
+        <span>
+          <p>&#42;土地性质要求</p>
+          <div>
+              <p class="module_soil--title">请选择</p>
+              <div class="module_soil" id="soil">
+                  <div>
+                      <label for="">全选</label>
+                      <input type="checkbox" name="" id="" >
+                  </div>
+                  <div>
+                      <label for="" title="住宅用地">住宅用地</label>
+                      <input type="checkbox" name="" value="住宅用地" >
+                  </div>
+                  <div>
+                      <label for="" title="工业用地">工业用地</label>
+                      <input type="checkbox" name="" value="工业用地" >
+                  </div>
+                  <div>
+                      <label for="" title="仓储用地">仓储用地</label>
+                      <input type="checkbox" name="" value="仓储用地" >
+                  </div>
+                  <div>
+                      <label for="" title="商业服务用地">商业服务用地</label>
+                      <input type="checkbox" name="" value="商业服务用地" >
+                  </div>
+                  <div>
+                    <label for="" title="旅游业用地">旅游业用地</label>
+                    <input type="checkbox" name="" value="旅游业用地" >
+                </div>
+                <div>
+                    <label for="" title="金融保险业用地">金融保险业用地</label>
+                    <input type="checkbox" name="" value="金融保险业用地" >
+                </div>
+                <div>
+                    <label for="" title="市政公用设施用地">市政公用设施用地</label>
+                    <input type="checkbox" name="" value="市政公用设施用地" >
+                </div>
+                <div>
+                    <label for="" title="绿代用地">绿代用地</label>
+                    <input type="checkbox" name="" value="绿代用地" >
+                </div>
+                <div>
+                    <label for="" title="公共建筑用地">公共建筑用地</label>
+                    <input type="checkbox" name="" value="公共建筑用地" >
+                </div>
+                <div>
+                    <label for="" title="文/体娱用地">文/体娱用地</label>
+                    <input type="checkbox" name="" value="文/体娱用地" >
+                </div>
+                <div>
+                    <label for="" title="机关/宣传用地">机关/宣传用地</label>
+                    <input type="checkbox" name="" value="机关/宣传用地" >
+                </div>
+                <div>
+                    <label for="" title="科研设计用地">科研设计用地</label>
+                    <input type="checkbox" name="" value="科研设计用地" >
+                </div>
+                <div>
+                    <label for="" title="教育用地">教育用地</label>
+                    <input type="checkbox" name="" value="教育用地" >
+                </div>
+                <div>
+                    <label for="" title="医卫用地">医卫用地</label>
+                    <input type="checkbox" name="" value="医卫用地" >
+                </div>
+                <div>
+                    <label for="" title="交通用地">交通用地</label>
+                    <input type="checkbox" name="" value="交通用地" >
+                </div>
+                <div>
+                    <label for="" title="铁路用地">铁路用地</label>
+                    <input type="checkbox" name="" value="铁路用地" >
+                </div>
+                <div>
+                    <label for="" title="民用机场用地">民用机场用地</label>
+                    <input type="checkbox" name="" value="民用机场用地" >
+                </div>
+                <div>
+                    <label for="" title="港口码头用地">港口码头用地</label> 
+                    <input type="checkbox" name="" value="港口码头用地" >
+                </div>
+                <div>
+                    <label for="" title="其他交通用地">其他交通用地</label>
+                    <input type="checkbox" name="" value="其他交通用地" >
+                </div>
+              </div>
+          </div>
+        </span>
+        <span>
+            <p>&#42;使用权类型</p>
+            <div>
+                <p class="module_use--title">请选择</p>
+                <div class="module_use" id="use">
+                    <div>
+                        <label for="">出让</label>
+                        <input type="checkbox" name="" value="出让" checked >
+                    </div>
+                    <div>
+                        <label for="">划拨</label>
+                        <input type="checkbox" name="" value="划拨" >
+                    </div>
+                </div>
+            </div>
+          </span>
+          <span>
+              <p>全款房</p>
+              <select name="mortgageHouseQuankuan" class="QuankuanHouse">
+                <option value="1">接受</option>
+                <option value="0">不接受</option>
+              </select>
+            </span>
+            <span class="QuankuanHouse_discount">
+              <p>全款房折扣</p>
+              <input type="text" name="mortgageHouseQuankuanDiscount"/>
+            </span>
+            <span>
+              <p>按揭房或已抵押房</p>
+              <select name="mortgageHouseAnjie" class="AnjieHouse">
+                <option value="1">接受</option>
+                <option value="0">不接受</option>
+              </select>
+            </span>
+            <span class="AnjieHouse_discount">
+              <p>按揭房或已抵押折扣</p>
+              <input type="text" name="mortgageHouseAnjieDiscount"/>
+            </span>
       </fieldset>
       <fieldset class="product_otherInfo--warp">
           <legend>进件要求</legend>
@@ -910,7 +1183,7 @@
       
       <fieldset class="product_creditRequire--warp">
         <legend>征信要求</legend>
-        <div class="creditRequire_query--warp">
+        <!-- <div class="creditRequire_query--warp">
           <div class="creditRequire_query--body">
             <div class="creditRequire_child_head">
               <span><p>征信查询次数要求</p></span>
@@ -990,8 +1263,62 @@
           <div class="creditRequire_child_foot">
             <button type="button" class="creditRequire_query--add">再加一条</button>
           </div>
+        </div> -->
+        <div class="creditRequire_query--warp2">
+            <div class="creditRequire_query--body2">
+              <div class="creditRequire_child_head2">
+                <span><p>征信查询次数要求</p></span>
+                <span>
+                  <select name="creditRequirement_require" class="creditRequire_query--wholeEnable2">
+                    <option value="1">可用</option>
+                    <option value="0">不可用</option>
+                  </select>
+                </span>
+              </div>
+              <div class="creditRequire_query--reuse2">
+                <span>
+                  <input type="text" name="creditRequirement_months" />
+                  <b>月内</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_loanStates">
+                    <option value="1">无</option>
+                    <option value="0">贷款</option>
+                  </select>
+                  <b>&#43;</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_cardStates">
+                    <option value="1">无</option>
+                    <option value="0">信用卡</option>
+                  </select>
+                  <b>&#43;</b>
+                </span>
+                <span>
+                    <select name="">
+                      <option value="1">无</option>
+                      <option value="0">担保</option>
+                    </select>
+                    <b>&#43;</b>
+                </span>
+                <span>
+                  <select name="creditRequirement_examinationStates">
+                    <option value="1">无</option>
+                    <option value="0">自查</option>
+                  </select>
+                  <b>&#8804;</b>
+                </span>
+                <span>
+                  <input type="text" name="creditRequirement_numbers" />
+                  <b>次</b>
+                </span>
+                <button type="button" class="creditRequire_query--singleEnable2">此条失效</button>
+            </div>
+          </div>
+            <div class="creditRequire_child_foot2">
+              <button type="button" class="creditRequire_query--add2">再加一条</button>
+            </div>
         </div>
-
         <div class="creditRequire_overduo--warp">
           <div class="creditRequire_overduo--body">
             <div class="creditRequire_child_head">
@@ -1104,7 +1431,99 @@
   <p class="fa fa-arrow-up"></p> 
   <p>TOP</p>
 </div>
-<script src="js/Client_Total_Script.js"></script>
 <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
+<script src="js/Client_Total_Script.js"></script>
+<script>
+
+var PlateList = document.getElementById("plate");
+var PlateInput = $('input',PlateList);
+(function showProv() {
+    var len = plateNumber.length;
+    for (var i = 0; i < len; i++) {
+        var prov = document.createElement('div');
+        prov.className = 'city1';
+        var provOpt = document.createElement('div');
+        provOpt.className = 'CityList-1';
+        var provOpt2 = document.createElement('div');
+        provOpt2.className = 'CityList-2'
+        provOpt.innerText = plateNumber[i]['name']+'：';
+        provOpt.value = i;
+        prov.appendChild(provOpt);
+        prov.appendChild(provOpt2);
+        PlateList.appendChild(prov);
+        var city1 = document.getElementsByClassName("city1");
+        for (var j = 0; j < plateNumber[i]["palte"].length; j++) {
+            var cityOpt = document.createElement('div');
+            cityOpt.className = 'city-plate';
+            cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
+            provOpt2.appendChild(cityOpt);
+        }
+    }
+})();
+// var plate = document.getElementsByClassName("plate-title")[0];
+// var PlateList = document.getElementById("plate");
+// var prov = document.getElementById("prov");
+// var city1 = document.getElementById("plate-list");
+// var plateInput = $('input',PlateList);
+// var current = {
+//     prov: '',
+//     city: '',
+// };
+/*自动加载省份列表*/
+// prov != null ? (function showProv() {
+//     var len = plateNumber.length;
+//     for (var i = 0; i < len; i++) {
+//         var provOpt = document.createElement('option');
+//         provOpt.innerText = plateNumber[i]['name'];
+//         provOpt.value = i;
+//         prov.appendChild(provOpt);
+//     }
+// })(): false;
+
+// plate.onclick = function(){
+//   PlateList.style.display = 'block';
+//   plate.onmouseleave = function(){
+// 			if (plate.innerText.length == 5){
+// 				plate.innerText = ('请选择');
+// 			};
+// 			PlateList.style.display = 'none';
+// 	}
+// 	PlateList.onmouseenter = function(){
+//     PlateList.style.display = 'block';
+// 	}
+// 	PlateList.onmouseleave = function(){
+// 			if (plate.innerText.length == 5){
+// 				plate.innerText = ('请选择');
+// 			};
+// 			PlateList.style.display = 'none';
+// 	};
+// };
+
+/*根据所选的省份来显示城市列表*/
+// prov.selectedIndex > -1 ? showCity(prov): false;
+// function showCity(obj) {
+//     var val = obj.options[obj.selectedIndex].value;
+//     if (val != current.prov) {
+//         current.prov = val;
+//     }
+    
+//     if (val != obj.options[0].value) {
+//         city1.length = 1;
+//         city1.innerHTML = '';
+//         var cityLen = plateNumber[val]["palte"].length;
+//         for (var j = 0; j < cityLen; j++) {
+//             var cityOpt = document.createElement('div');
+//             cityOpt.innerHTML = '<label for=>'+plateNumber[val]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[val]["palte"][j]+'"'+'type="checkbox"/>';
+//             city1.appendChild(cityOpt);
+//         }
+//     }
+//     if(val == obj.options[0].value){
+//         var childs = city1.childNodes;  
+//         for(var i=childs.length-1; i>=0; i--){      
+//             city1.removeChild(childs.item(i));      
+//         } 
+//     }
+// };
+</script>
 </body>
 </html>

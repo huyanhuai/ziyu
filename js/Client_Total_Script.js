@@ -32,12 +32,14 @@ function show2(){
 	};
 }
 function show3(list,name){
-	for(var i = 0; i<list.length; i++){
-		if(list[i].checked){
-			name.innerText = name.innerText.replace('请选择','已选择>>')
-			name.innerText += list[i].value;
+	if(name != null){
+		for(var i = 0; i<list.length; i++){
+			if(list[i].checked){
+				name.innerText = name.innerText.replace('请选择','已选择>>')
+				name.innerText += list[i].value;
+			}
 		}
-	}
+	}	
 }
 // 投保公司限制
 var InsureSelect2 = document.getElementById("module_insure_two");
@@ -75,6 +77,18 @@ var position = $('input',PositionSelect);
 var RentsName = document.getElementsByClassName("module_rents--title")[0];
 var RentsSelect = document.getElementById("rents");
 var rents = $('input',RentsSelect);
+//房屋性质
+var HouseName = document.getElementsByClassName("module_house--title")[0];
+var HouseSelect = document.getElementById("house");
+var house = $('input',HouseSelect);
+//土地性质
+var SoilName = document.getElementsByClassName("module_soil--title")[0];
+var SoilSelect = document.getElementById("soil");
+var soil = $('input',SoilSelect);
+//车牌
+var plate = document.getElementsByClassName("plate-title")[0];
+var PlateList = document.getElementById("plate");
+var plateInput = $('input',PlateList);
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -164,7 +178,10 @@ window.onload = function(){
 		show3(TypeBox2,InsureTypeName2);
 	}
 	RentsName != null ? show3(rents,RentsName): false;
+	show3(house,HouseName);
+	show3(soil,SoilName);
 };
+var AreaStatus = 0;
 // 产品发布	
 $('@product--warp') && function(Courier){
 	var Business = $('@require_businessLicense');
@@ -216,26 +233,32 @@ function insure(obj,name){
 		obj.appendChild(Child);
 		};
 }
-    InsureName != null ? lisBox(InsureName,InsureSelect,InsureBox): false;
+lisBox(plate,PlateList,plateInput);
+    lisBox(InsureName,InsureSelect,InsureBox);
 
     InsureSelect2 != null ? insure(InsureSelect2,'insure_name2'): false;
-    InsureName2 != null ? lisBox(InsureName2,InsureSelect2,InsureBox2): false;
+    lisBox(InsureName2,InsureSelect2,InsureBox2);
 
-    InsureTypeName2 != null ? lisBox(InsureTypeName2,TypeSelect2,TypeBox2): false;
+    lisBox(InsureTypeName2,TypeSelect2,TypeBox2);
 
-	InsureTypeName != null ? lisBox(InsureTypeName,TypeSelect,TypeBox): false;
+	lisBox(InsureTypeName,TypeSelect,TypeBox);
 
-	InsurePayName != null ? lisBox(InsurePayName,PaySelect,PayBox): false;
+	lisBox(InsurePayName,PaySelect,PayBox);
 
-	IndustryName != null ? lisBox(IndustryName,IndustrySelect,industry): false;
+	lisBox(IndustryName,IndustrySelect,industry);
 
-	EducationName != null ? lisBox(EducationName,EducationSelect,education): false;
+	lisBox(EducationName,EducationSelect,education);
 
-	PositionName != null ? lisBox(PositionName,PositionSelect,position): false;
+	lisBox(PositionName,PositionSelect,position);
 
-	RentsName != null ? lisBox(RentsName,RentsSelect,rents): false;
+	lisBox(RentsName,RentsSelect,rents);
+
+	lisBox(HouseName,HouseSelect,house);
+
+	lisBox(SoilName,SoilSelect,soil);
 
 	function lisBox(name,select,box,list){
+	  if(name != null){
 		name.onclick = function(){
 			select.style.display = 'block';
 			for(var i = 1; i<box.length; i++){
@@ -249,26 +272,26 @@ function insure(obj,name){
 							name.innerText = name.innerText.replace('请选择','已选择>>')
 						};
 						if(box[i].checked){
-							if(name.innerText.length == 5){
-								InsureBox[i].setAttribute('data-status','off');
-								name.innerText += this.value;
-							}else{
-								InsureBox[i].setAttribute('data-status','off');
-								name.innerText += "," + this.value;
-							}
-							// InsureBox[i].setAttribute('data-status','off');
-							// name.innerText += "," + this.value;
+							// if(name.innerText.length == 5){
+							// 	InsureBox[i].setAttribute('data-status','off');
+							// 	name.innerText += this.value;
+							// }else{
+							// 	InsureBox[i].setAttribute('data-status','off');
+							// 	name.innerText += "," + this.value;
+							// }
+							box[i].setAttribute('data-status','off');
+							name.innerText += this.value;
 						}else{
 							var text = name.innerText;
 							box[i].setAttribute('data-status','on');
-							if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\,") + 1,name.innerText.length)){
-								name.innerText = [].join.call(text.split("," + this.value),'');
-							}else{
-								name.innerText = [].join.call(text.split(this.value + ","),'');
-							}
-							if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\>") + 1,name.innerText.length)){
+							// if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\,") + 1,name.innerText.length)){
+							// 	name.innerText = [].join.call(text.split("," + this.value),'');
+							// }else{
+							// 	name.innerText = [].join.call(text.split(this.value + ","),'');
+							// }
+							// if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\>") + 1,name.innerText.length)){
 								name.innerText = [].join.call(text.split(this.value),'');
-							}
+							// }
 						};
 					};
 				})(i);
@@ -285,8 +308,9 @@ function insure(obj,name){
 			   }else{
 				for(var j=0;j<box.length;j++){
 					box[j].checked = false;
-				  var text = name.innerText;
-				  name.innerText = [].join.call(text.split(box[j].value),'');
+				    var text = name.innerText;
+				//   name.innerText = [].join.call(text.split(box[j].value),'');
+                    name.innerText = '请选择';
 			   }
 			   }
 			   }
@@ -307,6 +331,7 @@ function insure(obj,name){
 			};
 	
 		}
+	  }
 	}
 var InsureRequest = document.getElementsByClassName("insure_request")[0];
 var request = document.getElementsByClassName("request");
@@ -487,7 +512,7 @@ function showHide(obj1,obj2){
                   '<option value="0">'+'信用卡'+'</option>'+
                 '</select>'+
                '<b>'+'+'+'</b>'+
-              '</span>'+
+			  '</span>'+
               '<span>'+
                 '<select name="creditRequirement_examinationStates">'+
                   '<option value="1">'+'无'+'</option>'+
@@ -517,6 +542,7 @@ function showHide(obj1,obj2){
 	var QueryAdd = $('@creditRequire_query--add');
 	var QueryEnable = $('@creditRequire_query--wholeEnable');
 	var QuerySingleEnable = $('@creditRequire_query--singleEnable');
+	QueryEnable != null ?
 	QueryEnable.value == 0 ? function(){
 		QueryAdd.style.visibility = 'hidden';
 		var QueryReuse = $('.creditRequire_query--reuse');
@@ -541,14 +567,104 @@ function showHide(obj1,obj2){
 			En:QueryEnable,
 			Dymic:QueryDymic
 		});
-	});
-	QueryAdd.onclick = QueryDymic;
+	}): false;
+	QueryAdd != null ? QueryAdd.onclick = QueryDymic: false;
 	var btn1 = document.getElementsByClassName('creditRequire_query--singleEnable');
 	for(var i = 0; i < btn1.length; i++){
 	   btn1[i].onclick = function(){
 		 QueryBody.removeChild(this.parentNode);
 	   }
-    } 
+	} 
+	var QueryDymic2 = function QueryDymic2(){
+		var ReuseModule2 = document.createElement('div');
+		ReuseModule2.className = QueryReuse2.className;
+		ReuseModule2.innerHTML = '<span>'+
+                '<input type="text" name="creditRequirement_months"/>'+
+               '<b>'+"月内"+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_loanStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'贷款'+'</option>'+
+               '</select>'+
+               '<b>'+'+'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_cardStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'信用卡'+'</option>'+
+                '</select>'+
+               '<b>'+'+'+'</b>'+
+			  '</span>'+
+			  '<span>'+
+			    '<select name="">'+
+				  '<option value="1">'+'无'+'</option>'+
+				  '<option value="0">'+'担保'+'</option>'+
+			    '</select>'+
+			   '<b>'+'&#43;'+'</b>'+
+		     '</span>'+
+              '<span>'+
+                '<select name="creditRequirement_examinationStates">'+
+                  '<option value="1">'+'无'+'</option>'+
+                  '<option value="0">'+'自查'+'</option>'+
+                '</select>'+
+               '<b>'+'&#8804;'+'</b>'+
+              '</span>'+
+              '<span>'+
+                '<input type="text" name="creditRequirement_numbers" />'+
+               '<b>'+'次'+'</b>'+
+              '</span>'+
+              '<button type="button" class="creditRequire_query--singleEnable">'+'此条失效'+'</button>';
+		QueryBody2.appendChild(ReuseModule2);
+		var SingleEnable2 = $('button',QueryBody2);
+		for (var i = 0; i < SingleEnable2.length; i++) {
+				SingleEnable2[i].onclick = function(){
+					QueryBody2.removeChild(this.parentNode);
+				};
+		};
+	};
+	
+	var ValueRegion2 = $('input',Courier);
+	var CreditRequire2 = $('@product_creditRequire--warp2');
+	var QueryWarp2 = $('@creditRequire_query--warp2');
+	var QueryReuse2 = $('@creditRequire_query--reuse2');
+	var QueryBody2 = $('@creditRequire_query--body2');
+	var QueryAdd2 = $('@creditRequire_query--add2');
+	var QueryEnable2 = $('@creditRequire_query--wholeEnable2');
+	var QuerySingleEnable2 = $('@creditRequire_query--singleEnable2');
+	QueryEnable2 != null ? 
+	QueryEnable2.value == 0 ? function(){
+		QueryAdd2.style.visibility = 'hidden';
+		var QueryReuse2 = $('.creditRequire_query--reuse2');
+		var QueryReuseLen2 = QueryReuse2.length;
+		for(var i = 0; i < QueryReuseLen2; i++){
+			QueryBody2.removeChild(QueryReuse2[0]);
+		};
+		QueryEnable2.addEventListener('change',function(){
+			CreditEvent({
+				Re:'creditRequire_query--reuse2',
+				Bo:QueryBody2,
+				Ad:QueryAdd2,
+				En:QueryEnable2,
+				Dymic:QueryDymic2
+			});
+		});
+	}():false || QueryEnable2.addEventListener('change',function(){
+		CreditEvent({
+			Re:'creditRequire_query--reuse2',
+			Bo:QueryBody2,
+			Ad:QueryAdd2,
+			En:QueryEnable2,
+			Dymic:QueryDymic2
+		});
+	}): false;
+	QueryAdd2 != null ? QueryAdd2.onclick = QueryDymic2: false;
+	var btn12 = document.getElementsByClassName('creditRequire_query--singleEnable2');
+	for(var i = 0; i < btn12.length; i++){
+	   btn12[i].onclick = function(){
+		 QueryBody2.removeChild(this.parentNode);
+	   }
+	} 
 	// QuerySingleEnable.onclick = function(){
 	// 	QueryBody.removeChild(this.parentNode);
 	// };
@@ -1218,3 +1334,82 @@ for (var i = 0; i < picCheck.length; i++) {
 		}
 	}: false;
 }
+//使用权类型
+var UseName = document.getElementsByClassName("module_use--title")[0];
+var UseSelect = document.getElementById("use");
+var use = $('input',UseSelect);
+show3(use,UseName);
+lisBox2(UseName,UseSelect,use);
+function lisBox2(name,select,box){
+	if(name != null){
+		name.onclick = function(){
+			select.style.display = 'block';
+			for(var i = 0; i<box.length; i++){
+				if(!AreaStatus){
+					box[i].setAttribute('data-status','on');
+				};
+				(function(i){
+					box[i].onclick = function(){
+						AreaStatus = 1;
+						if (name.innerText.length == 3) {
+							name.innerText = name.innerText.replace('请选择','已选择>>')
+						};
+						if(box[i].checked){
+							box[i].setAttribute('data-status','off');
+							name.innerText += this.value;
+						}else{
+							var text = name.innerText;
+              box[i].setAttribute('data-status','on');
+              name.innerText = [].join.call(text.split(this.value),'');
+						};
+					};
+				})(i);
+			}
+			   name.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			   }
+			   select.onmouseenter = function(){
+				select.style.display = 'block';
+			   }
+			   select.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			};
+	
+		}
+	}
+}
+	var QuankuanHouse = document.getElementsByClassName("QuankuanHouse")[0];
+	var QuankuanHouse_discount = document.getElementsByClassName("QuankuanHouse_discount");
+	showHide2(QuankuanHouse,QuankuanHouse_discount);
+	var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
+	var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
+	showHide2(AnjieHouse,AnjieHouse_discount);
+	function showHide2(obj1,obj2){
+		if(obj1 != null){
+			obj1.value == 0 ? function(){
+				obj2[0].style.display ='none';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+					}
+				})
+			}(): function(){
+				obj2[0].style.display ='inline-block';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+					}
+				})
+			}() 
+		}
+	}

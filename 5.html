@@ -9,6 +9,7 @@
             width: 200px;
             height: 200px;
             position: absolute;
+            right: 0;
             background: #99dd33;
             cursor: move;
         }
@@ -22,30 +23,157 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        #plate{
+            width: 500px;
+            height: 250px;
+            border: 1px solid rgba(50%,50%,50%,.4);
+            /* display: none; */
+        }
+        .city1{
+            width: 500px;
+            clear: both;
+        }
+        .CityList-1{
+            width: 80px;
+            margin-bottom: 5px;
+            margin-left: 8px;
+            float: left;
+        }
+        .CityList-2{
+            width: 410px;
+            float: left;
+        }
+        .city-plate{
+            margin-right: 8px;
+            margin-bottom: 2px;
+            float: left;
+        }
     </style>
 </head>
 
 <body>
-    <div id="div1" onclick="dakai()"></div>
+        <select name="choose" size="3">
+                <option value="1" selected> 很全面，很好0 </option>
+                <option value="2"> 很全面，很好1 </option>
+                <option value="3"> 很全面，很好2 </option>
+                <option value="4"> 很全面，很好3 </option>
+                <option value="5"> 很全面，很好4 </option>
+                <option value="6"> 很全面，很好5 </option>
+                </select> 
+    <div id="div1">123</div>
     <a href="22.html" target="_blank">链接</a>
     <a href="22.html" target="_blank">链接</a>
     <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1>
+    <div class="module_plate--title">123</div>
+    <div id="plate">
+        <div class="all-plate">
+            <label for="">全选</label>
+            <input type="checkbox" name="" id="" >
+        </div>
+    </div>
 </body>
+<script src="js/Common_Map.js"></script>
+<script src="js/Common_UW.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
+var PlateList = document.getElementById("plate");
+(function showProv() {
+    var len = plateNumber.length;
+    for (var i = 0; i < len; i++) {
+        var prov = document.createElement('div');
+        prov.className = 'city1';
+        var provOpt = document.createElement('div');
+        provOpt.className = 'CityList-1';
+        var provOpt2 = document.createElement('div');
+        provOpt2.className = 'CityList-2'
+        provOpt.innerText = plateNumber[i]['name'];
+        provOpt.value = i;
+        prov.appendChild(provOpt);
+        prov.appendChild(provOpt2);
+        PlateList.appendChild(prov);
+        var city1 = document.getElementsByClassName("city1");
+        for (var j = 0; j < plateNumber[i]["palte"].length; j++) {
+            var cityOpt = document.createElement('div');
+            cityOpt.className = 'city-plate';
+            cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
+            provOpt2.appendChild(cityOpt);
+        }
+    }
+})();
+var AreaStatus = 0;
+var EducationName = document.getElementsByClassName("module_plate--title")[0];
+var PlateInput = $('input',PlateList);
+lisBox(EducationName,PlateList,PlateInput);
+function lisBox(name,select,box){
+		name.onclick = function(){
+			select.style.display = 'block';
+			for(var i = 1; i<box.length; i++){
+				if(!AreaStatus){
+					box[i].setAttribute('data-status','on');
+				};
+				(function(i){
+					box[i].onclick = function(){
+						AreaStatus = 1;
+						if (name.innerText.length == 3) {
+							name.innerText = name.innerText.replace('请选择','已选择>>')
+						};
+						if(box[i].checked){
+							box[i].setAttribute('data-status','off');
+							name.innerText += this.value;
+						}else{
+							var text = name.innerText;
+							box[i].setAttribute('data-status','on');
+								name.innerText = [].join.call(text.split(this.value),'');
+						};
+					};
+				})(i);
+			}
+			box[0].onclick = function(){
+				if(box[0].checked){
+				for(var i=0;i<box.length;i++){
+				   if(box[i].checked == false){
+					box[i].checked = true;
+					name.innerText = name.innerText.replace('请选择','已选择>>');
+					name.innerText +=  box[i].value;
+				}
+				} 
+			   }else{
+				for(var j=0;j<box.length;j++){
+					box[j].checked = false;
+				  var text = name.innerText;
+				  name.innerText = [].join.call(text.split(box[j].value),'');
+			   }
+			   }
+			   }
+			   name.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			   }
+			   select.onmouseenter = function(){
+				select.style.display = 'block';
+			   }
+			   select.onmouseleave = function(){
+				if (name.innerText.length == 5){
+					name.innerText = ('请选择');
+				};
+				select.style.display = 'none';
+			};
+	
+		}
+	}
     function dakai() {
         window.open("http://www.jb51.net");
     }
     window.onload = function () {
         var disX = disY = 0; // 鼠标距离div的左距离和上距离
         var div1 = document.getElementById("div1"); // 得到div1对象
-
         // 鼠标按下div1时
         div1.onmousedown = function (e) {
             var evnt = e || event; // 得到鼠标事件
             disX = evnt.clientX - div1.offsetLeft; // 鼠标横坐标 - div1的left
             disY = evnt.clientY - div1.offsetTop; // 鼠标纵坐标 - div1的top
-
             // 鼠标移动时
             document.onmousemove = function (e) {
                 var evnt = e || event;
@@ -53,22 +181,18 @@
                 var y = evnt.clientY - disY;
                 var window_width = document.documentElement.clientWidth - div1.offsetWidth;
                 var window_height = document.documentElement.clientHeight - div1.offsetHeight;
-
                 x = (x < 0) ? 0 : x; // 当div1到窗口最左边时
                 x = (x > window_width) ? window_width : x; // 当div1到窗口最右边时
                 y = (y < 0) ? 0 : y; // 当div1到窗口最上边时
                 y = (y > window_height) ? window_height : y; // 当div1到窗口最下边时
-
                 div1.style.left = x + "px";
                 div1.style.top = y + "px";
             };
-
             // 鼠标抬起时
             document.onmouseup = function () {
                 document.onmousemove = null;
                 document.onmouup = null;
             };
-
             return false;
         };
     };
@@ -79,7 +203,6 @@ var a = /^[a-zA-z]{1}\w{4,20}$/;
 
 var index = str .lastIndexOf("\/");  
 str  = str .substring(index + 1, str .length);
-alert(str );
 </script>
 
 </html>

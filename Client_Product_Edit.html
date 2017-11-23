@@ -9,6 +9,33 @@
   <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
   <script type="text/javascript" src="js/Common_Map.js"></script>
   <script type="text/javascript" src="js/Common_UW.js"></script>
+  <style>
+  .search-1{
+    width: 40%;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    font-size: 14px;
+  }
+  .search-1 input{
+    width: 75%;
+    height: 40px;
+    float: left;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 14px;
+    border: 1px solid #c9ced1;
+  }
+  .search-1 button{
+    padding: 0;
+    width: 78px;
+    height: 40px;
+    color: #FFF;
+    background: rgb(11, 161, 253);
+    border: 1px solid #009CFF;
+    float: left;
+  }
+  </style>
 </head>
 <body>
 <header class="DBMS_header">
@@ -57,6 +84,10 @@
   </span>
   <span class="DBMS_disArea">
     <div class="product_edit">
+        <!-- <div class="cusFir">
+            <div class="search"> <input type="search" name=""><button class="fa fa-search">&nbsp;搜索</button> </div>
+        </div> -->
+        <div class="search-1"> <input type="search" name=""><button class="fa fa-search">&nbsp;搜索</button></div>
       <!-- <form action="http://192.168.0.188/daikuan2/product_delete.do" method="post"> -->
       <table class="product_edit--body" id="td">
         <thead>
@@ -103,7 +134,7 @@
             </td>
           </tr>
         </tbody>
-        <tfoot class="table_tfoot--warp">
+        <!-- <tfoot class="table_tfoot--warp">
           <tr class="table_tfoot">
             <td colspan="4">
               <button>首页</button>
@@ -116,9 +147,19 @@
               <span><p>共/页</p></span>
             </td>
           </tr>
-        </tfoot>
+        </tfoot> -->
       </table>
     <!-- </form> -->
+    <div class="tfoot">
+        <button>首页</button>
+        <button>上一页</button>
+        <button>下一页</button>
+        <button>尾页</button>
+        <input type="text" name="" placeholder="页数">
+        <button>跳转</button>
+        <span><p>当前/页</p></span>
+        <span><p>共/页</p></span>
+    </div>
     </div>
   </span>
 </div>

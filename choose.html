@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    .module_rents{
+    /* display: none; */
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    overflow-y: scroll;
+    border: 1px solid rgba(50%,50%,50%,.4);
+    z-index: 3;
+    }
+    </style>
 </head>
 <body>
         <input type="text" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" value="Search" >
@@ -20,7 +32,7 @@
                         <!--省份选择-->
                         <select id="prov" onchange="showCity(this)">
                             <option>请选择省份</option>
-            
+
                         </select>
             
                         <!--城市选择-->
@@ -35,11 +47,42 @@
                         <button type="button" class="btn met1" onClick="showAddr()">确定</button>
                     </form>
                 </fieldset>
-            </div>
+                <!-- <select id="prov" onchange="showCity(this)">
+                        <option>请选择省份</option>
+
+                    </select>
+         -->
+                    <!--城市选择-->
+                    <!-- <select id="city" onchange="showCountry(this)">
+                        <option>请选择城市</option>
+                    </select> -->
+                    <!-- <div>
+                            <p class="module_rents--title">请选择</p>
+                            <div class="module_rents" id="">
+                                <div>
+                                    <label for="">全选</label>
+                                    <input type="checkbox" name="pay_name" id="" >
+                                </div>
+                                <div id="city">
+
+                                </div>
+                            </div>
+                        </div>
+            </div> -->
+            <select style="position: absolute;z-index: 1;" onmousedown="if(this.options.length>6){this.size=7}" onblur="this.size=0" onchange="this.size=0">
+                <option value="volvo">文学集</option>
+                <option value="saab">哲学</option>
+                <option value="opel">雅思</option>
+                <option value="audi">大学网奥数大学网奥数</option>
+                <option value="volvo">文学集</option>
+                <option value="saab">哲学</option>
+                <option value="opel">雅思</option>
+                <option value="audi">大学网奥数</option>
+            </select>
         <a href="1.html">111</a>
         <div class="creditRequire_liability--reuse">11111</div>
 </body>
-<script>
+<!-- <script>
     var dio = document.querySelector(".creditRequire_liability--reuse");
     console.log(dio.innerHTML);
       var localstorage=localStorage||new function(){
@@ -92,7 +135,8 @@
           element.save(prefix);
         };
       };
-</script>
+</script> -->
+<script src="js/Common_Map.js"></script>
 <script src="js/city.js" type="text/javascript"></script>
 <script>
     /*根据id获取对象*/
@@ -106,13 +150,60 @@ var prov = $('prov');
 var city = $('city');
 var country = $('country');
 
-
-/*用于保存当前所选的省市区*/
 var current = {
     prov: '',
     city: '',
     country: ''
 };
+
+/*自动加载省份列表*/
+// (function showProv() {
+//     // btn.disabled = true;
+//     var len = plateNumber.length;
+//     for (var i = 0; i < len; i++) {
+//         var provOpt = document.createElement('option');
+//         provOpt.innerText = plateNumber[i]['name'];
+//         provOpt.value = i;
+//         // provOpt.setAttribute("selected","selected");
+//         prov.appendChild(provOpt);
+//     }
+// })();
+// console.log(prov.options[0].value)
+/*根据所选的省份来显示城市列表*/
+// prov.selectedIndex > -1 ? showCity(): false;
+// function showCity(obj) {
+//     var val = prov.options[prov.selectedIndex].value;
+//     if (val != current.prov) {
+//         current.prov = val;
+//         // addrShow.value = '';
+//         // btn.disabled = true;
+//     }
+    
+//     if (val != prov.options[0].value) {
+//         city.length = 1;
+//         city.innerHTML = '';
+//         var cityLen = plateNumber[val]["palte"].length;
+//         for (var j = 0; j < cityLen; j++) {
+//             var cityOpt = document.createElement('div');
+//             cityOpt.calssName = "cty";
+//             cityOpt.innerHTML = '<label for=>'+plateNumber[val]["palte"][j]+'</label><input name="product_nation" value='+'"'+plateNumber[val]["palte"][j]+'"'+'type="checkbox" checked/>';
+//             city.appendChild(cityOpt);
+//         }
+//     }
+//     if(val == prov.options[0].value){
+//         city.innerHTML = '';
+//         var cty = document.getElementsByClassName("cty");
+//         for(var j = 0; j < cty.length; j++) {
+//         city.removeChild(cty[j]);
+//         }
+//     }
+// };
+/*用于保存当前所选的省市区*/
+// var current = {
+//     prov: '',
+//     city: '',
+//     country: ''
+// };
 
 /*自动加载省份列表*/
 (function showProv() {
@@ -178,12 +269,8 @@ function selecCountry(obj) {
 /*点击确定按钮显示用户所选的地址*/
 function showAddr() {
     addrShow.value = provice[current.prov].name + '-' + provice[current.prov]["city"][current.city].name + '-' + provice[current.prov]["city"][current.city].districtAndCounty[current.country];
-     localstorage.setItem('A',provice[current.prov].name); 
-     localstorage.setItem('B',provice[current.prov]["city"][current.city].name);
 }
-addrShow.value = localstorage.getItem('A')+',' +localstorage.getItem('B');
-// console.log(localstorage.getItem('A'));
-// console.log(localstorage.setItem('A','b'));
+
 
 </script>
 <script>
