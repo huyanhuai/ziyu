@@ -59,9 +59,11 @@
     z-index:3;
   }
   #plate .all-plate{
-    height: 30px;
+    width: 80px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
     text-align: left;
-    padding-left: 8px;
   }
   #plate .city1{
     width: 500px;
@@ -70,24 +72,28 @@
   .CityList-1{
     width: 80px;
     margin-bottom: 5px;
-    margin-left: 8px;
+    margin-right: 5px;
+    margin-left: 5px;
     text-align: left;
     float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .CityList-2{
     width: 410px;
     float: left;
   }
   .CityList-2 div{
-    width: 52px;
+    width: 65px;
   }
   .city-plate{
-    margin-right: 8px;
     margin-bottom: 2px;
     float: left;
   }
   #plate input{
     margin-left:2%;
+    margin-right: 2px;
     vertical-align:middle;
     width: 15px;
     height: 15px;
@@ -463,12 +469,12 @@
               </div>
           </div>
       </span>
-      <span >
+      <!-- <span >
           <p>省份选择</p>
           <select id="prov" name="" onchange="showCity(this)" >
               <option>请选择省份</option>
           </select>
-          <!-- <div>
+          <div>
               <p class="plate-title">请选择</p>
               <div class="plate" id="plate">
                   <div class="all-plate">
@@ -476,16 +482,16 @@
                       <input type="checkbox" name="" id="" >
                   </div>
               </div>
-          </div> -->
-      </span>
+          </div>
+      </span> -->
       <span>
           <p>&#42;车牌</p>
           <div>
               <p class="plate-title">请选择</p>
               <div class="plate" id="plate">
                   <div class="all-plate">
+                      <input type="checkbox" name="" id="plate_input">
                       <label for="">全选</label>
-                      <input type="checkbox" name="" id="" >
                   </div>
 
               </div>
@@ -1446,7 +1452,8 @@ var PlateInput = $('input',PlateList);
         provOpt.className = 'CityList-1';
         var provOpt2 = document.createElement('div');
         provOpt2.className = 'CityList-2'
-        provOpt.innerText = plateNumber[i]['name']+'：';
+        // provOpt.innerText = plateNumber[i]['name']+'：';
+        provOpt.innerHTML = '<input name="" value='+'"'+plateNumber[i]['name']+'"'+'type="checkbox"/><label for title='+'"'+plateNumber[i]['name']+'"'+'>'+plateNumber[i]['name']+'</label>';
         provOpt.value = i;
         prov.appendChild(provOpt);
         prov.appendChild(provOpt2);
@@ -1460,6 +1467,12 @@ var PlateInput = $('input',PlateList);
         }
     }
 })();
+
+var CityList1 = document.getElementsByClassName("CityList-1");
+var CityList2 = document.getElementsByClassName("CityList-2");
+console.log(CityList1[0].getElementsByTagName("input")[0]);
+var plate_input = document.getElementById("plate_input");
+choice();
 // var plate = document.getElementsByClassName("plate-title")[0];
 // var PlateList = document.getElementById("plate");
 // var prov = document.getElementById("prov");
@@ -1480,25 +1493,75 @@ var PlateInput = $('input',PlateList);
 //     }
 // })(): false;
 
-// plate.onclick = function(){
-//   PlateList.style.display = 'block';
-//   plate.onmouseleave = function(){
-// 			if (plate.innerText.length == 5){
-// 				plate.innerText = ('请选择');
-// 			};
-// 			PlateList.style.display = 'none';
-// 	}
-// 	PlateList.onmouseenter = function(){
-//     PlateList.style.display = 'block';
-// 	}
-// 	PlateList.onmouseleave = function(){
-// 			if (plate.innerText.length == 5){
-// 				plate.innerText = ('请选择');
-// 			};
-// 			PlateList.style.display = 'none';
-// 	};
-// };
-
+plate.onclick = function(){
+  PlateList.style.display = 'block';
+  for(var i=0; i<PlateInput.length; i++){
+      PlateInput[i].onclick = function(){
+        if(this.checked){
+          plate.innerText = plate.innerText.replace('请选择','已选择');
+			  }
+      }   
+    }
+  for(var i = 0; i<CityList1.length; i++){
+  (function(i){
+    CityList1[i].getElementsByTagName("input")[0].onclick = function(){
+      if(this.checked){
+        for (var j = 0; j < CityList2[i].getElementsByTagName("input").length; j++) {
+        if(CityList2[i].getElementsByTagName("input")[j].checked == false){
+          CityList2[i].getElementsByTagName("input")[j].checked = true;
+          plate.innerText = plate.innerText.replace('请选择','已选择');
+        }
+      }
+    }else{
+      for (var j = 0; j < CityList2[i].getElementsByTagName("input").length; j++) {
+        if(CityList2[i].getElementsByTagName("input")[j].checked){
+          CityList2[i].getElementsByTagName("input")[j].checked = false;
+        }
+      }
+    }
+   }
+  })(i)
+}
+  plate_input.onclick = function(){
+			if(plate_input.checked){
+				for(var i=0;i<PlateInput.length;i++){
+				   if(PlateInput[i].checked == false){
+            PlateInput[i].checked = true;
+            plate.innerText = plate.innerText.replace('请选择','已选择');
+				}
+				} 
+			}else{
+				for(var j=0;j<PlateInput.length;j++){
+					PlateInput[j].checked = false;
+          plate.innerText = '请选择';
+			   }
+      } 
+  }
+  plate.onmouseleave = function(){ 
+      choice();  
+			PlateList.style.display = 'none';
+	}
+	PlateList.onmouseenter = function(){   
+      PlateList.style.display = 'block';
+	}
+	PlateList.onmouseleave = function(){ 
+      choice();
+			PlateList.style.display = 'none';
+	};
+};
+function choice(){
+  var a = 0;
+  for(var j=0;j<PlateInput.length;j++){
+			if(PlateInput[j].checked){
+        a++;
+      }
+      if(a > 0){
+        plate.innerText = '已选择';
+      }else{
+        plate.innerText = '请选择';
+      }
+  }
+}
 /*根据所选的省份来显示城市列表*/
 // prov.selectedIndex > -1 ? showCity(prov): false;
 // function showCity(obj) {

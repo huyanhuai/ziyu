@@ -14,7 +14,7 @@
 /* tag style */
 body,html{
 	height:auto;
-	min-width:1050px;
+	min-width:1210px;
 }
 a{
 	text-decoration: none;
@@ -215,6 +215,7 @@ span.DBMS_header--select{
 /*后台内容显示区*/
 .DBMS_disArea{
 	width:85%;
+	/* min-width: 1020px; */
 	background:#eef2f5;
 	overflow:scroll;
 }

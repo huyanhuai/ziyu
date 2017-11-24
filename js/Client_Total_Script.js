@@ -233,7 +233,7 @@ function insure(obj,name){
 		obj.appendChild(Child);
 		};
 }
-lisBox(plate,PlateList,plateInput);
+// lisBox(plate,PlateList,plateInput);
     lisBox(InsureName,InsureSelect,InsureBox);
 
     InsureSelect2 != null ? insure(InsureSelect2,'insure_name2'): false;
@@ -1413,3 +1413,4 @@ function lisBox2(name,select,box){
 			}() 
 		}
 	}
+	
