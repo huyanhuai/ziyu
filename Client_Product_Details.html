@@ -221,17 +221,17 @@
           <div>
             <p class="module_industry--title">请选择</p>
           <div class="module_industry" id="industry">
-            <div>
+            <!-- <div>
                 <label for="">全选</label>
                 <input type="checkbox" name="" id="industryAll" >
-            </div>
+            </div> -->
             <div>
               <label for="">政府部门</label>
               <input type="checkbox" name="industry_name" value="政府部门">
             </div>
             <div>
               <label for="">科教文卫</label>
-              <input type="checkbox" name="industry_name" value="科教文卫">
+              <input type="checkbox" name="industry_name" value="科教文卫" >
             </div>
             <div>
               <label for="">邮电通讯</label>
@@ -346,7 +346,7 @@
           </select>
         </span>
         <span>
-          <p>可做区域限制</p>
+          <p>可做区域</p>
           <div>
             <p class="module_select--title">请选择</p>
             <div class="module_select" id="town">
@@ -374,10 +374,10 @@
           <div>
               <p class="module_education--title">请选择</p>
               <div class="module_education" id="education">
-                  <div>
+                  <!-- <div>
                       <label for="">全选</label>
                       <input type="checkbox" name="" id="" >
-                  </div>
+                  </div> -->
                   <div>
                       <label for="">研究生</label>
                       <input type="checkbox" name="" value="研究生" >
@@ -410,10 +410,10 @@
           <div>
               <p class="module_position--title">请选择</p>
               <div class="module_position" id="position">
-                  <div>
+                  <!-- <div>
                       <label for="">全选</label>
                       <input type="checkbox" name="" id="" >
-                  </div>
+                  </div> -->
                   <div>
                       <label for="" title="单位公司主管/局级以上">单位公司主管/局级以上</label>
                       <input type="checkbox" name="" value="单位公司主管/局级以上" >
@@ -446,10 +446,10 @@
           <div>
               <p class="module_rents--title">请选择</p>
               <div class="module_rents" id="rents">
-                  <div>
+                  <!-- <div>
                       <label for="">全选</label>
                       <input type="checkbox" name="pay_name" id="" >
-                  </div>
+                  </div> -->
                   <div>
                       <label for="">月收</label>
                       <input type="checkbox" name="policyRestrictMode" value="月收" ${fn:contains(productPolicy.policyRestrictMode, '月缴')?'checked':'' } >
@@ -671,6 +671,21 @@
               <p>按揭房或已抵押折扣</p>
               <input type="text" name="mortgageHouseAnjieDiscount"/>
             </span>
+            <span>
+              <p>当前逾期进件</p>
+              <select name="" class="overdue">
+                <option value="1">可以</option>
+                <option value="0">不可以</option>
+              </select>
+            </span>
+            <span class="OverdueAccount">
+              <p>逾期金额</p>
+              <div>
+                <b>&#8804;</b>
+                <input type="text" name=""/>
+                <b>元</b>
+              </div>
+            </span>
       </fieldset>
       <fieldset class="product_otherInfo--warp">
           <legend>进件要求</legend>
@@ -780,10 +795,10 @@
             <div>
                 <p class="module_insure--title">请选择</p>
                 <div class="module_insure" id="module_insure">
-                    <div>
+                    <!-- <div>
                         <label for="">全选</label>
                         <input type="checkbox" name="" id="insureAll" >
-                      </div>
+                      </div> -->
                 </div>
             </div>
           </span>

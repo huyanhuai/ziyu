@@ -53,15 +53,15 @@ var TypeBox2 = $('input',TypeSelect2);
 var InsureName = document.getElementsByClassName("module_insure--title")[0];
 var InsureSelect = document.getElementById("module_insure");
 var InsureBox= $('input',InsureSelect);
-
+//限制保险类型
 var InsureTypeName = document.getElementsByClassName("module_type--title")[0];
 var TypeSelect = document.getElementById("insure_type");
 var TypeBox = $('input',TypeSelect);
-
+//限制缴费方式
 var InsurePayName = document.getElementsByClassName("module_pay--title")[0];
 var PaySelect = document.getElementById("insure_pay");
 var PayBox = $('input',PaySelect);
-
+//行业限制
 var IndustryName = document.getElementsByClassName("module_industry--title")[0];
 var IndustrySelect = document.getElementById("industry");
 var industry = $('input',IndustrySelect);
@@ -253,15 +253,15 @@ function insure(obj,name){
 
 	lisBox(RentsName,RentsSelect,rents);
 
-	lisBox(HouseName,HouseSelect,house);
+	lisBox2(HouseName,HouseSelect,house);
 
-	lisBox(SoilName,SoilSelect,soil);
+	lisBox2(SoilName,SoilSelect,soil);
 
 	function lisBox(name,select,box,list){
 	  if(name != null){
 		name.onclick = function(){
 			select.style.display = 'block';
-			for(var i = 1; i<box.length; i++){
+			for(var i = 0; i<box.length; i++){
 				if(!AreaStatus){
 					box[i].setAttribute('data-status','on');
 				};
@@ -272,48 +272,16 @@ function insure(obj,name){
 							name.innerText = name.innerText.replace('请选择','已选择>>')
 						};
 						if(box[i].checked){
-							// if(name.innerText.length == 5){
-							// 	InsureBox[i].setAttribute('data-status','off');
-							// 	name.innerText += this.value;
-							// }else{
-							// 	InsureBox[i].setAttribute('data-status','off');
-							// 	name.innerText += "," + this.value;
-							// }
 							box[i].setAttribute('data-status','off');
 							name.innerText += this.value;
 						}else{
 							var text = name.innerText;
 							box[i].setAttribute('data-status','on');
-							// if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\,") + 1,name.innerText.length)){
-							// 	name.innerText = [].join.call(text.split("," + this.value),'');
-							// }else{
-							// 	name.innerText = [].join.call(text.split(this.value + ","),'');
-							// }
-							// if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\>") + 1,name.innerText.length)){
 								name.innerText = [].join.call(text.split(this.value),'');
-							// }
 						};
 					};
 				})(i);
 			}
-			box[0].onclick = function(){
-				if(box[0].checked){
-				for(var i=0;i<box.length;i++){
-				   if(box[i].checked == false){
-					box[i].checked = true;
-					name.innerText = name.innerText.replace('请选择','已选择>>');
-					name.innerText +=  box[i].value;
-				}
-				} 
-			   }else{
-				for(var j=0;j<box.length;j++){
-					box[j].checked = false;
-				    var text = name.innerText;
-				//   name.innerText = [].join.call(text.split(box[j].value),'');
-                    name.innerText = '请选择';
-			   }
-			   }
-			   }
 			   name.onmouseleave = function(){
 				if (name.innerText.length == 5){
 					name.innerText = ('请选择');
@@ -333,6 +301,82 @@ function insure(obj,name){
 		}
 	  }
 	}
+	function lisBox2(name,select,box,list){
+		if(name != null){
+		  name.onclick = function(){
+			  select.style.display = 'block';
+			  for(var i = 1; i<box.length; i++){
+				  if(!AreaStatus){
+					  box[i].setAttribute('data-status','on');
+				  };
+				  (function(i){
+					  box[i].onclick = function(){
+						  AreaStatus = 1;
+						  if (name.innerText.length == 3) {
+							  name.innerText = name.innerText.replace('请选择','已选择>>')
+						  };
+						  if(box[i].checked){
+							  // if(name.innerText.length == 5){
+							  // 	InsureBox[i].setAttribute('data-status','off');
+							  // 	name.innerText += this.value;
+							  // }else{
+							  // 	InsureBox[i].setAttribute('data-status','off');
+							  // 	name.innerText += "," + this.value;
+							  // }
+							  box[i].setAttribute('data-status','off');
+							  name.innerText += this.value;
+						  }else{
+							  var text = name.innerText;
+							  box[i].setAttribute('data-status','on');
+							  // if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\,") + 1,name.innerText.length)){
+							  // 	name.innerText = [].join.call(text.split("," + this.value),'');
+							  // }else{
+							  // 	name.innerText = [].join.call(text.split(this.value + ","),'');
+							  // }
+							  // if(this.value == name.innerText.substring(name.innerText.lastIndexOf("\>") + 1,name.innerText.length)){
+								  name.innerText = [].join.call(text.split(this.value),'');
+							  // }
+						  };
+					  };
+				  })(i);
+			  }
+			  box[0].onclick = function(){
+				  if(box[0].checked){
+				  for(var i=0;i<box.length;i++){
+					 if(box[i].checked == false){
+					  box[i].checked = true;
+					  name.innerText = name.innerText.replace('请选择','已选择>>');
+					  name.innerText +=  box[i].value;
+				  }
+				  } 
+				 }else{
+				  for(var j=0;j<box.length;j++){
+					  box[j].checked = false;
+					  var text = name.innerText;
+				  //   name.innerText = [].join.call(text.split(box[j].value),'');
+					  name.innerText = '请选择';
+				 }
+				 }
+				 }
+				 name.onmouseleave = function(){
+				  if (name.innerText.length == 5){
+					  name.innerText = ('请选择');
+				  };
+				  select.style.display = 'none';
+				 }
+				 select.onmouseenter = function(){
+				  select.style.display = 'block';
+				 }
+				 select.onmouseleave = function(){
+				  if (name.innerText.length == 5){
+					  name.innerText = ('请选择');
+				  };
+				  select.style.display = 'none';
+			  };
+	  
+		  }
+		}
+	  }
 var InsureRequest = document.getElementsByClassName("insure_request")[0];
 var request = document.getElementsByClassName("request");
 showHide(InsureRequest,request);
@@ -1390,6 +1434,9 @@ function lisBox2(name,select,box){
 	var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
 	var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
 	showHide2(AnjieHouse,AnjieHouse_discount);
+	var overdue = document.getElementsByClassName("overdue")[0];
+	var OverdueAccount = document.getElementsByClassName("OverdueAccount");
+	showHide2(overdue,OverdueAccount);
 	function showHide2(obj1,obj2){
 		if(obj1 != null){
 			obj1.value == 0 ? function(){
