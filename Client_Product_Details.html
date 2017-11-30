@@ -50,7 +50,8 @@
   #plate{
     display:none;
     position: absolute;
-    width:500px;
+    left: -60px;
+    width:400px;
     height:250px;
     font-size: 16px;
     background:#fff;
@@ -61,12 +62,12 @@
   #plate .all-plate{
     width: 80px;
     margin-bottom: 5px;
-    margin-right: 5px;
+    margin-right: 5px;  
     margin-left: 5px;
     text-align: left;
   }
   #plate .city1{
-    width: 500px;
+    width: 400px;
     clear: both;
   }
   .CityList-1{
@@ -81,7 +82,7 @@
     white-space: nowrap;
   }
   .CityList-2{
-    width: 410px;
+    width: 310px;
     float: left;
   }
   .CityList-2 div{
@@ -484,9 +485,9 @@
               </div>
           </div>
       </span> -->
-      <span>
+      <!-- <span>
           <p>&#42;车牌</p>
-          <div>
+          <div style="position: relative;">
               <p class="plate-title">请选择</p>
               <div class="plate" id="plate">
                   <div class="all-plate">
@@ -496,7 +497,7 @@
 
               </div>
           </div>
-      </span>
+      </span> -->
       <span>
           <p>&#42;房屋性质要求</p>
           <div>
@@ -655,11 +656,23 @@
                 <option value="1">接受</option>
                 <option value="0">不接受</option>
               </select>
-            </span>
-            <span class="QuankuanHouse_discount">
+          </span>
+          <span>
+            <p>&#42;车牌</p>
+            <div style="position: relative;">
+                <p class="plate-title">请选择</p>
+                <div class="plate" id="plate">
+                    <div class="all-plate">
+                        <input type="checkbox" name="" id="plate_input">
+                        <label for="">全选</label>
+                    </div>
+                </div>
+            </div>
+        </span>
+          <span class="QuankuanHouse_discount">
               <p>全款房折扣</p>
               <input type="text" name="mortgageHouseQuankuanDiscount"/>
-            </span>
+          </span>
             <span>
               <p>按揭房或已抵押房</p>
               <select name="mortgageHouseAnjie" class="AnjieHouse">
@@ -685,6 +698,134 @@
                 <input type="text" name=""/>
                 <b>元</b>
               </div>
+            </span>
+            <span>
+              <p>&#42;可做车类型</p>
+              <div>
+                <p class="module_vehicle--title">请选择</p>
+                <div class="module_vehicle" id="vehicle">
+                    <div>
+                        <label for="">全选</label>
+                        <input type="checkbox" name="" id="" >
+                    </div>
+                    <div>
+                        <label for="" title="轿车">轿车</label>
+                        <input type="checkbox" name="" value="轿车" >
+                    </div>
+                    <div>
+                        <label for="">商务车</label>
+                        <input type="checkbox" name="" value="商务车" >
+                    </div>
+                    <div>
+                        <label for="">面包车</label>
+                        <input type="checkbox" name="" value="面包车" >
+                    </div>
+                    <div>
+                        <label for="">越野车</label>
+                        <input type="checkbox" name="" value="越野车" >
+                    </div>
+                    <div>
+                      <label for="">越野车(城市SUV)</label>
+                      <input type="checkbox" name="" value="越野车(城市SUV)" >
+                  </div>
+                  <div>
+                      <label for="">皮卡车</label>
+                      <input type="checkbox" name="" value="皮卡车" >
+                  </div>
+                  <div>
+                      <label for="">跑车</label>
+                      <input type="checkbox" name="" value="跑车" >
+                  </div>
+                  <div>
+                      <label for="">货车</label>
+                      <input type="checkbox" name="" value="货车" >
+                  </div>
+                  <div>
+                      <label for="">工程车</label>
+                      <input type="checkbox" name="" value="工程车" >
+                  </div>
+                  <div>
+                    <label for="">客车</label>
+                    <input type="checkbox" name="" value="客车" >
+                </div>
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>&#42;车辆所有人要求</p>
+              <div>
+                <p class="module_owner--title">请选择</p>
+                <div class="module_owner" id="owner">
+                    <div>
+                        <label for="" title="轿车">轿车</label>
+                        <input type="checkbox" name="" value="轿车" >
+                    </div>
+                    <div>
+                        <label for="">商务车</label>
+                        <input type="checkbox" name="" value="商务车" >
+                    </div>
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>&#42;全款车</p>
+              <div>
+               <select name="mortgageVehicleQuankuan" class="whole-car">
+                   <option value="1">接受</option>
+                   <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span class="whole-car-1">
+              <p>&#42;全款车抵押折扣</p>
+                <input type="text" name="mortgageVehicleQuankuanDiscount" />
+            </span>
+            <span class="whole-car-1">
+              <p>全款车抵押方式</p>
+              <select name="mortgageVehicleQuankuanPattern">
+                <option>押车</option>
+                <option>不押车</option>
+              </select>
+            </span>
+            <span>
+              <p>&#42;按揭车</p>
+              <div>
+               <select name="mortgageVehicleAnjie" class="AnjieCar">
+                   <option value="1">接受</option>
+                   <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span class="AnjieCar-1">
+              <p>&#42;按揭车抵押折扣</p>
+                <input type="text" name="mortgageVehicleAnjieDiscount" />
+            </span>
+            <span class="AnjieCar-1">
+              <p>按揭车抵押方式</p>
+              <select name="mortgageVehicleAnjiePattern">
+                <option>押车</option>
+                <option>不押车</option>
+              </select>
+            </span>
+            <span>
+              <p>&#42;已抵押车</p>
+              <div>
+               <select name="mortgageVehicleYidiya" class="mortgage-car">
+                   <option value="1">接受</option>
+                   <option value="0">不接受</option>
+               </select>
+              </div>
+            </span>
+            <span class="mortgage-car-1">
+              <p>&#42;已抵押车折扣</p>
+                <input type="text" name="" />
+            </span>
+            <span class="mortgage-car-1">
+              <p>抵押车抵押方式</p>
+              <select name="mortgageVehicleYidiyaPattern">
+                <option>押车</option>
+                <option>不押车</option>
+              </select>
             </span>
       </fieldset>
       <fieldset class="product_otherInfo--warp">
@@ -1455,10 +1596,11 @@
 <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
 <script src="js/Client_Total_Script.js"></script>
 <script>
-
+var plate = document.getElementsByClassName("plate-title")[0];
 var PlateList = document.getElementById("plate");
 var PlateInput = $('input',PlateList);
-(function showProv() {
+var a = ['京A','京B'];
+PlateList != null ? (function showProv() {
     var len = plateNumber.length;
     for (var i = 0; i < len; i++) {
         var prov = document.createElement('div');
@@ -1478,16 +1620,22 @@ var PlateInput = $('input',PlateList);
             var cityOpt = document.createElement('div');
             cityOpt.className = 'city-plate';
             cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
+            for(var m = 0; m>a.length; m++){
+              if(a[m] == plateNumber[i]["palte"][j]){
+                cityOpt.getElementsByTagName("input")[0].setAttribute('checked','checked');
+                // continue
+              }
+              
+            }
             provOpt2.appendChild(cityOpt);
         }
     }
-})();
+})(): false;
 
 var CityList1 = document.getElementsByClassName("CityList-1");
 var CityList2 = document.getElementsByClassName("CityList-2");
-console.log(CityList1[0].getElementsByTagName("input")[0]);
 var plate_input = document.getElementById("plate_input");
-choice();
+plate != null ? choice(): false;
 // var plate = document.getElementsByClassName("plate-title")[0];
 // var PlateList = document.getElementById("plate");
 // var prov = document.getElementById("prov");
@@ -1508,7 +1656,7 @@ choice();
 //     }
 // })(): false;
 
-plate.onclick = function(){
+plate != null ? plate.onclick = function(){
   PlateList.style.display = 'block';
   for(var i=0; i<PlateInput.length; i++){
       PlateInput[i].onclick = function(){
@@ -1563,7 +1711,7 @@ plate.onclick = function(){
       choice();
 			PlateList.style.display = 'none';
 	};
-};
+}: false;
 function choice(){
   var a = 0;
   for(var j=0;j<PlateInput.length;j++){

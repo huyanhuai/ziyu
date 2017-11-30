@@ -48,6 +48,9 @@
             margin-bottom: 2px;
             float: left;
         }
+        #target{
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -63,7 +66,7 @@
     <div id="div1">123</div>
     <a href="22.html" target="_blank">链接</a>
     <a href="22.html" target="_blank">链接</a>
-    <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1>
+    <!-- <h1>梨花院落溶溶月，柳絮池塘淡淡风。</h1> -->
     <div class="module_plate--title">123</div>
     <div id="plate">
         <div class="all-plate">
@@ -71,11 +74,22 @@
             <input type="checkbox" name="" id="" >
         </div>
     </div>
+    <input type="text" id="asd">
+    <a href="#" id="as" >132</a>
+    <img id ="target" src="img/android.png">
 </body>
 <script src="js/Common_Map.js"></script>
 <script src="js/Common_UW.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
+var arr = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]$/;
+var reg = /^\w$/;
+var asd = document.getElementById("asd").value;
+var as = document.getElementById("as");
+as.onclick = function(){
+    alert(reg.test(asd));
+}
+
 var PlateList = document.getElementById("plate");
 (function showProv() {
     var len = plateNumber.length;

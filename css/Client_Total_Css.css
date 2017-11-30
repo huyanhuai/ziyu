@@ -1411,6 +1411,13 @@ table tr .listTop{
 	margin: 0 auto;
 }
 /* 图片放大 */
+#BigPicture p{
+	color: #FFF;
+	font-size: 16px;
+	position: absolute;
+	top: 10px;
+	z-index: 3;
+}
 #BigPicture{
 	width: 35%;
 	height: 90%;
@@ -1450,7 +1457,7 @@ table tr .listTop{
 	position: absolute;
 	top: 0;
 	right: 0;
-	z-index: 3;
+	z-index: 5;
 }
 #pic{
 	padding: 0;

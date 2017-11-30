@@ -371,6 +371,7 @@
     </div>
     <div id="BigPicture">
         <div class="closeX" onclick="dropImage1()">x</div>
+        <p id="target">旋转</p>
             <table width="100%" height="100%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td align="center">
@@ -429,6 +430,7 @@
             var srcto = src;
             BigPicture.style.display = 'block';
             images1.src= srcto;
+            images1.style = '';
         }
          function dropImage1(){
             BigPicture.style.display = 'none';
@@ -439,7 +441,7 @@
             if (zoom > 0) o.style.zoom = zoom + '%';
             return false;
             }
-
+            
 
     </script>
 </body>

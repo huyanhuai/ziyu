@@ -89,6 +89,14 @@ var soil = $('input',SoilSelect);
 var plate = document.getElementsByClassName("plate-title")[0];
 var PlateList = document.getElementById("plate");
 var plateInput = $('input',PlateList);
+//车辆类型
+var VehicleName = document.getElementsByClassName("module_vehicle--title")[0];
+var VehicleSelect = document.getElementById("vehicle");
+var VehicleInput = $('input',VehicleSelect);
+//车辆所有人要求
+var OwnerName = document.getElementsByClassName("module_owner--title")[0];
+var OwnerSelect = document.getElementById("owner");
+var OwnerInput = $('input',OwnerSelect);
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -180,6 +188,8 @@ window.onload = function(){
 	RentsName != null ? show3(rents,RentsName): false;
 	show3(house,HouseName);
 	show3(soil,SoilName);
+	show3(VehicleInput,VehicleName);
+	show3(OwnerInput,OwnerName);
 };
 var AreaStatus = 0;
 // 产品发布	
@@ -253,6 +263,10 @@ function insure(obj,name){
 
 	lisBox(RentsName,RentsSelect,rents);
 
+	lisBox(OwnerName,OwnerSelect,OwnerInput);
+
+	lisBox2(VehicleName,VehicleSelect,VehicleInput);
+
 	lisBox2(HouseName,HouseSelect,house);
 
 	lisBox2(SoilName,SoilSelect,soil);
@@ -297,7 +311,6 @@ function insure(obj,name){
 				};
 				select.style.display = 'none';
 			};
-	
 		}
 	  }
 	}
@@ -393,6 +406,16 @@ var UsedCar = document.getElementsByClassName("used_car")[0];
 var UsedCarList = document.getElementsByClassName("used_car_list");
 showHide(UsedCar,UsedCarList);
 
+var WholeCar = document.getElementsByClassName("whole-car")[0];
+var WholeCarList = document.getElementsByClassName("whole-car-1");
+showHide(WholeCar,WholeCarList);
+var AnjieCar = document.getElementsByClassName("AnjieCar")[0];
+var AnjieCarList = document.getElementsByClassName("AnjieCar-1");
+showHide(AnjieCar,AnjieCarList);
+
+var MortgageCar = document.getElementsByClassName("mortgage-car")[0];
+var MortgageCarList = document.getElementsByClassName("mortgage-car-1");
+showHide(MortgageCar,MortgageCarList);
 function showHide(obj1,obj2){
 	if(obj1 != null){
 		obj1.value == 0 ? function(){
@@ -972,7 +995,8 @@ function showHide(obj1,obj2){
 					],
 			Int = /^\d+$/,
 			Float = /^(\d+\.\d+|\d+(\.\d+)?%)$/,
-			StringReg = /[^1-9A-z]/;
+			StringReg = /[^1-9A-z]/,
+			sttr = /^[\u4e00-\u9fa5\d][\u4e00-\u9fa5a-zA-Z\d]+$/;
 
 			return StringName.indexOf(Courier.name) !== -1 ? StringReg.test(Courier.value):
 			IntName.indexOf(Courier.name) !== -1 ? Int.test(Courier.value) :
@@ -987,7 +1011,7 @@ function showHide(obj1,obj2){
 				if (Courier.value == '' || Courier.value == null) {
 					return true;
 				}else{
-					return StringReg.test(Courier.value);
+					return sttr.test(Courier.value);
 				};
 			}() : true;
 	};
@@ -1344,7 +1368,6 @@ fileList != null ? (function() {
 //拖动
     var disX = disY = 0;                         
     var div1 = document.getElementById("block1");  
-    
     div1 != null ? div1.onmousedown = function(e) {
         var evnt = e || event;                  
         disX = evnt.clientX - div1.offsetLeft;   
@@ -1366,7 +1389,12 @@ fileList != null ? (function() {
         };
         return false;
     }: false;
-
+	var current = 0;
+	div1 != null ? document.getElementById('target').onclick = function(){
+		   current = (current+90)%360;
+		   div1.style.transform = 'rotate('+current+'deg)';
+	   }: false;
+	   
 var picCheck = document.getElementsByClassName("picCheck");
 for (var i = 0; i < picCheck.length; i++) {
 	picCheck != null ? picCheck[i].onclick = function(){

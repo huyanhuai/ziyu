@@ -29,7 +29,7 @@
           </div>
         </span>
         <span>
-          <p>&#42;车型</p>
+          <p>&#42;可做车类型</p>
           <div>
           	<select name="mortgageVehicleModels">
           		<option>轿车</option>
