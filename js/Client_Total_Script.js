@@ -996,7 +996,7 @@ function showHide(obj1,obj2){
 			Int = /^\d+$/,
 			Float = /^(\d+\.\d+|\d+(\.\d+)?%)$/,
 			StringReg = /[^1-9A-z]/,
-			sttr = /^[\u4e00-\u9fa5\d][\u4e00-\u9fa5a-zA-Z\d]+$/;
+			sttr = /^[\u4e00-\u9fa5a-zA-Z\d\.]+$/;
 
 			return StringName.indexOf(Courier.name) !== -1 ? StringReg.test(Courier.value):
 			IntName.indexOf(Courier.name) !== -1 ? Int.test(Courier.value) :
