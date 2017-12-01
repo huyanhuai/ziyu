@@ -183,6 +183,7 @@
     <form id="warp" name="" class="product--warp" action="http://192.168.0.188/daikuan2/product_add.do" method="post" >
       <fieldset class="product_basicInfo--warp">
         <legend>产品基本信息</legend>
+          <input type="hidden" value="" id="ProvName">
           <input type="hidden" value="" id="CityName">
           <input type="hidden" value="1" name="a_id"/>
           <span>
@@ -1599,7 +1600,7 @@
 var plate = document.getElementsByClassName("plate-title")[0];
 var PlateList = document.getElementById("plate");
 var PlateInput = $('input',PlateList);
-var a = ['京A','京B'];
+var a = ['京A','京B','津A'];
 PlateList != null ? (function showProv() {
     var len = plateNumber.length;
     for (var i = 0; i < len; i++) {
@@ -1608,24 +1609,22 @@ PlateList != null ? (function showProv() {
         var provOpt = document.createElement('div');
         provOpt.className = 'CityList-1';
         var provOpt2 = document.createElement('div');
-        provOpt2.className = 'CityList-2'
+        provOpt2.className = 'CityList-2';
         // provOpt.innerText = plateNumber[i]['name']+'：';
         provOpt.innerHTML = '<input name="" value='+'"'+plateNumber[i]['name']+'"'+'type="checkbox"/><label for title='+'"'+plateNumber[i]['name']+'"'+'>'+plateNumber[i]['name']+'</label>';
         provOpt.value = i;
         prov.appendChild(provOpt);
         prov.appendChild(provOpt2);
-        PlateList.appendChild(prov);
+        PlateList.appendChild(prov);nfmn;
         var city1 = document.getElementsByClassName("city1");
         for (var j = 0; j < plateNumber[i]["palte"].length; j++) {
             var cityOpt = document.createElement('div');
             cityOpt.className = 'city-plate';
-            cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
-            for(var m = 0; m>a.length; m++){
-              if(a[m] == plateNumber[i]["palte"][j]){
-                cityOpt.getElementsByTagName("input")[0].setAttribute('checked','checked');
-                // continue
-              }
-              
+
+            if(a != null && a.indexOf(plateNumber[i]["palte"][j]) >= 0){
+              cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox" checked/>';
+            }else{
+              cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
             }
             provOpt2.appendChild(cityOpt);
         }

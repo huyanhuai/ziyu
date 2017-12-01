@@ -76,12 +76,29 @@
     </div>
     <input type="text" id="asd">
     <a href="#" id="as" >132</a>
+    <input name="rate" type="text" onkeyup="checkNum(this)"/> 
     <img id ="target" src="img/android.png">
+          
 </body>
 <script src="js/Common_Map.js"></script>
 <script src="js/Common_UW.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript">
+function checkNum(obj){
+    var re = /^[1-9]*(\.\d*)?$|^0(\.\d*)?$/;
+        if (!re.test(obj.value)){
+            alert("非法数字");
+            obj.value="";
+            obj.focus();
+            return false;
+        }
+    }
+IndexDemo('BA');
+function IndexDemo(str2){ 
+var str1 = "BABEBIBOBUBABEBIBOBU"; 
+var s = str1.indexOf(str2); 
+console.log(s); 
+} 
 var arr = /^[a-zA-Z\u4e00-\u9fa5][a-zA-Z0-9\u4e00-\u9fa5]$/;
 var reg = /^\w$/;
 var asd = document.getElementById("asd").value;
@@ -89,7 +106,7 @@ var as = document.getElementById("as");
 as.onclick = function(){
     alert(reg.test(asd));
 }
-
+/*自动加载车牌列表*/
 var PlateList = document.getElementById("plate");
 (function showProv() {
     var len = plateNumber.length;
@@ -142,38 +159,38 @@ function lisBox(name,select,box){
 					};
 				})(i);
 			}
-			box[0].onclick = function(){
-				if(box[0].checked){
-				for(var i=0;i<box.length;i++){
-				   if(box[i].checked == false){
-					box[i].checked = true;
-					name.innerText = name.innerText.replace('请选择','已选择>>');
-					name.innerText +=  box[i].value;
-				}
-				} 
-			   }else{
-				for(var j=0;j<box.length;j++){
-					box[j].checked = false;
-				  var text = name.innerText;
-				  name.innerText = [].join.call(text.split(box[j].value),'');
-			   }
-			   }
-			   }
-			   name.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
-			   }
-			   select.onmouseenter = function(){
-				select.style.display = 'block';
-			   }
-			   select.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
-			};
+        box[0].onclick = function(){
+            if(box[0].checked){
+            for(var i=0;i<box.length;i++){
+                if(box[i].checked == false){
+                    box[i].checked = true;
+                    name.innerText = name.innerText.replace('请选择','已选择>>');
+                    name.innerText +=  box[i].value;
+                }
+              } 
+            }else{
+            for(var j=0;j<box.length;j++){
+                box[j].checked = false;
+                var text = name.innerText;
+                name.innerText = [].join.call(text.split(box[j].value),'');
+            }
+            }
+            }
+            name.onmouseleave = function(){
+            if (name.innerText.length == 5){
+                name.innerText = ('请选择');
+            };
+            select.style.display = 'none';
+            }
+            select.onmouseenter = function(){
+            select.style.display = 'block';
+            }
+            select.onmouseleave = function(){
+            if (name.innerText.length == 5){
+                name.innerText = ('请选择');
+            };
+            select.style.display = 'none';
+            };
 	
 		}
 	}

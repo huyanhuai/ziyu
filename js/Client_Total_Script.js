@@ -144,6 +144,7 @@ window.onload = function(){
 	};
 	if(LocationSessioin.length > 0 && document.getElementById("CityName") != null){
 	   document.getElementById("CityName").value = LocationSessioin.getItem('B');
+	   document.getElementById("ProvName").value = LocationSessioin.getItem('A');
 	};
 
 	for (var i = 0; i < Button.length; i++) {
@@ -296,20 +297,20 @@ function insure(obj,name){
 					};
 				})(i);
 			}
-			   name.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
-			   }
-			   select.onmouseenter = function(){
-				select.style.display = 'block';
-			   }
-			   select.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
+			name.onmouseleave = function(){
+			if (name.innerText.length == 5){
+				name.innerText = ('请选择');
+			};
+			select.style.display = 'none';
+			}
+			select.onmouseenter = function(){
+			select.style.display = 'block';
+			}
+			select.onmouseleave = function(){
+			if (name.innerText.length == 5){
+				name.innerText = ('请选择');
+			};
+			select.style.display = 'none';
 			};
 		}
 	  }
@@ -360,7 +361,7 @@ function insure(obj,name){
 					  box[i].checked = true;
 					  name.innerText = name.innerText.replace('请选择','已选择>>');
 					  name.innerText +=  box[i].value;
-				  }
+					}
 				  } 
 				 }else{
 				  for(var j=0;j<box.length;j++){
@@ -368,25 +369,24 @@ function insure(obj,name){
 					  var text = name.innerText;
 				  //   name.innerText = [].join.call(text.split(box[j].value),'');
 					  name.innerText = '请选择';
+					}
 				 }
-				 }
-				 }
+			}
 				 name.onmouseleave = function(){
-				  if (name.innerText.length == 5){
-					  name.innerText = ('请选择');
-				  };
-				  select.style.display = 'none';
+					if (name.innerText.length == 5){
+						name.innerText = ('请选择');
+					};
+					select.style.display = 'none';
 				 }
 				 select.onmouseenter = function(){
-				  select.style.display = 'block';
+					select.style.display = 'block';
 				 }
 				 select.onmouseleave = function(){
-				  if (name.innerText.length == 5){
-					  name.innerText = ('请选择');
-				  };
-				  select.style.display = 'none';
-			  };
-	  
+					if (name.innerText.length == 5){
+						name.innerText = ('请选择');
+					};
+					select.style.display = 'none';
+			    };
 		  }
 		}
 	  }
@@ -475,21 +475,21 @@ function showHide(obj1,obj2){
 			Town[0].onclick = function(){
 				var checklist2 = document.getElementsByName("product_deptRegion");
 				if(Town[0].checked){
-				for(var i=0;i<checklist2.length;i++){
-					if(checklist2[i].checked == false){
-				   checklist2[i].checked = true;
-				   AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>');
-				   AreaName.innerText +=  checklist2[i].value;
-				}
-				} 
+					for(var i=0;i<checklist2.length;i++){
+						if(checklist2[i].checked == false){
+							checklist2[i].checked = true;
+							AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>');
+							AreaName.innerText +=  checklist2[i].value;
+						}
+					} 
 			   }else{
-				for(var j=0;j<checklist2.length;j++){
-				  checklist2[j].checked = false;
-				  var text = AreaName.innerText;
-				  AreaName.innerText = [].join.call(text.split(checklist2[j].value),'');
+					for(var j=0;j<checklist2.length;j++){
+					checklist2[j].checked = false;
+					var text = AreaName.innerText;
+					AreaName.innerText = [].join.call(text.split(checklist2[j].value),'');
+					}
 			   }
-			   }
-			   }
+			}
 			AreaSelect.onmouseleave = function(){
 				if (AreaName.innerText.length == 5){
 					AreaName.innerText = ('请选择');
@@ -993,7 +993,7 @@ function showHide(obj1,obj2){
 						'policyHholder',
 						'mortgageVehicleBrand'
 					],
-			Int = /^\d+$/,
+			Int = /^\d+$|^[\d\.]+$/,
 			Float = /^(\d+\.\d+|\d+(\.\d+)?%)$/,
 			StringReg = /[^1-9A-z]/,
 			sttr = /^[\u4e00-\u9fa5a-zA-Z\d\.]+$/;
@@ -1168,18 +1168,18 @@ var del = document.getElementsByClassName('del');
 // 	  }
 //   }
   
-  var arg = document.getElementsByClassName('arg')[0];
-  var checklist = document.getElementsByName ("selected");
-  var tc = document.getElementById("tc");
-  var arr = [];
-  function dow(){
+var arg = document.getElementsByClassName('arg')[0];
+var checklist = document.getElementsByName ("selected");
+var tc = document.getElementById("tc");
+var arr = [];
+function dow(){
 	for(var i = 0; i<tc.rows.length-1; i++){
 		if(tc.rows[i].cells[0].getElementsByTagName("input")[0].checked){
-		  arr.push(tc.rows[i].cells[0].id);
+			arr.push(tc.rows[i].cells[0].id);
 		}
 		// arg.value = arr;
 	}
-  }
+}
 function dell() {
 	dow();
 	if(arr.length > 0 && arr != null){
@@ -1199,9 +1199,9 @@ function dell() {
 		chk = cell.getElementsByTagName("input")[0];
 		if (chk.checked) {
 			tb.deleteRow(i);
-			}
 		}
 	}
+}
 	for(var i=0;i<checklist.length;i++){
 			if(checklist[i].checked == false){
 				(function(i){
@@ -1258,17 +1258,17 @@ ct.onscroll = function(){
 }
 var timer = null;
 oTop != null ? oTop.onclick = function(){
- cancelAnimationFrame(timer);
- timer = requestAnimationFrame(function fn(){
- var Top = document.body.scrollTop || document.documentElement.scrollTop;
- if(Top > 0){
- document.body.scrollTop = document.documentElement.scrollTop = Top - 50;
- document.getElementsByClassName('DBMS_disArea')[0].scrollTop = Top - 50;
- timer = requestAnimationFrame(fn);
- }else{
- cancelAnimationFrame(timer);
- } 
- });
+	cancelAnimationFrame(timer);
+	timer = requestAnimationFrame(function fn(){
+		var Top = document.body.scrollTop || document.documentElement.scrollTop;
+		if(Top > 0){
+			document.body.scrollTop = document.documentElement.scrollTop = Top - 50;
+			document.getElementsByClassName('DBMS_disArea')[0].scrollTop = Top - 50;
+			timer = requestAnimationFrame(fn);
+		}else{
+			cancelAnimationFrame(timer);
+		} 
+	});
 }: false;
 // 子账号
 var picBox = document.getElementById("pictureTop");
@@ -1437,55 +1437,55 @@ function lisBox2(name,select,box){
 					};
 				})(i);
 			}
-			   name.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
-			   }
-			   select.onmouseenter = function(){
-				select.style.display = 'block';
-			   }
-			   select.onmouseleave = function(){
-				if (name.innerText.length == 5){
-					name.innerText = ('请选择');
-				};
-				select.style.display = 'none';
+			name.onmouseleave = function(){
+			if (name.innerText.length == 5){
+				name.innerText = ('请选择');
+			};
+			select.style.display = 'none';
+			}
+			select.onmouseenter = function(){
+			select.style.display = 'block';
+			}
+			select.onmouseleave = function(){
+			if (name.innerText.length == 5){
+				name.innerText = ('请选择');
+			};
+			select.style.display = 'none';
 			};
 	
 		}
 	}
 }
-	var QuankuanHouse = document.getElementsByClassName("QuankuanHouse")[0];
-	var QuankuanHouse_discount = document.getElementsByClassName("QuankuanHouse_discount");
-	showHide2(QuankuanHouse,QuankuanHouse_discount);
-	var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
-	var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
-	showHide2(AnjieHouse,AnjieHouse_discount);
-	var overdue = document.getElementsByClassName("overdue")[0];
-	var OverdueAccount = document.getElementsByClassName("OverdueAccount");
-	showHide2(overdue,OverdueAccount);
-	function showHide2(obj1,obj2){
-		if(obj1 != null){
-			obj1.value == 0 ? function(){
-				obj2[0].style.display ='none';
-				obj1.addEventListener('change',function(){
-					if (this.value == 0) {
-						obj2[0].style.display ='none';
-					}else{
-						obj2[0].style.display ='inline-block';
-					}
-				})
-			}(): function(){
-				obj2[0].style.display ='inline-block';
-				obj1.addEventListener('change',function(){
-					if (this.value == 0) {
-						obj2[0].style.display ='none';
-					}else{
-						obj2[0].style.display ='inline-block';
-					}
-				})
-			}() 
-		}
+var QuankuanHouse = document.getElementsByClassName("QuankuanHouse")[0];
+var QuankuanHouse_discount = document.getElementsByClassName("QuankuanHouse_discount");
+showHide2(QuankuanHouse,QuankuanHouse_discount);
+var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
+var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
+showHide2(AnjieHouse,AnjieHouse_discount);
+var overdue = document.getElementsByClassName("overdue")[0];
+var OverdueAccount = document.getElementsByClassName("OverdueAccount");
+showHide2(overdue,OverdueAccount);
+function showHide2(obj1,obj2){
+	if(obj1 != null){
+		obj1.value == 0 ? function(){
+			obj2[0].style.display ='none';
+			obj1.addEventListener('change',function(){
+				if (this.value == 0) {
+					obj2[0].style.display ='none';
+				}else{
+					obj2[0].style.display ='inline-block';
+				}
+			})
+		}(): function(){
+			obj2[0].style.display ='inline-block';
+			obj1.addEventListener('change',function(){
+				if (this.value == 0) {
+					obj2[0].style.display ='none';
+				}else{
+					obj2[0].style.display ='inline-block';
+				}
+			})
+		}() 
 	}
+}
 	
