@@ -233,13 +233,15 @@ function Dialog(Courier){
 			}
 		};
 		}else{
-			for (var v = 0; v < CCourier.length; v++) {
-			var x = 'nation'+v
-			var Child = document.createElement('div');
-			Child.value = CCourier[v];
-			Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox"/>';
-			ACourier.appendChild(Child);
-			};
+			if(ACourier != null){
+				for (var v = 0; v < CCourier.length; v++) {
+					var x = 'nation'+v
+					var Child = document.createElement('div');
+					Child.value = CCourier[v];
+					Child.innerHTML = '<label for='+'"'+x+'"'+'>'+CCourier[v]+'</label><input name="product_nation"'+'id='+'"'+x+'"'+'value='+'"'+CCourier[v]+'"'+'type="checkbox"/>';
+					ACourier.appendChild(Child);
+				};
+			}
 		};
 	};
 

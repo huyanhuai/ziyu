@@ -347,7 +347,7 @@
             <option>循环借贷</option>
           </select>
         </span>
-        <span>
+        <!-- <span>
           <p>可做区域</p>
           <div>
             <p class="module_select--title">请选择</p>
@@ -358,15 +358,15 @@
                   </div>
             </div>
           </div>
-        </span>
-        <span>
+        </span> -->
+        <!-- <span>
           <p>民族限制</p>
           <div>
             <p class="module_nation--title">请选择</p>
             <div class="module_nation" id="nation">
             </div>
           </div>
-        </span>
+        </span> -->
         <span>
           <p>户籍限制</p>
           <input name="product_place" />
@@ -1615,13 +1615,12 @@ PlateList != null ? (function showProv() {
         provOpt.value = i;
         prov.appendChild(provOpt);
         prov.appendChild(provOpt2);
-        PlateList.appendChild(prov);nfmn;
+        PlateList.appendChild(prov);
         var city1 = document.getElementsByClassName("city1");
         for (var j = 0; j < plateNumber[i]["palte"].length; j++) {
             var cityOpt = document.createElement('div');
             cityOpt.className = 'city-plate';
-
-            if(a != null && a.indexOf(plateNumber[i]["palte"][j]) >= 0){
+            if(a.indexOf(plateNumber[i]["palte"][j]) >= 0){
               cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox" checked/>';
             }else{
               cityOpt.innerHTML = '<label for=>'+plateNumber[i]["palte"][j]+'</label><input name="" value='+'"'+plateNumber[i]["palte"][j]+'"'+'type="checkbox"/>';
@@ -1631,8 +1630,6 @@ PlateList != null ? (function showProv() {
     }
 })(): false;
 
-var CityList1 = document.getElementsByClassName("CityList-1");
-var CityList2 = document.getElementsByClassName("CityList-2");
 var plate_input = document.getElementById("plate_input");
 plate != null ? choice(): false;
 // var plate = document.getElementsByClassName("plate-title")[0];
@@ -1654,8 +1651,9 @@ plate != null ? choice(): false;
 //         prov.appendChild(provOpt);
 //     }
 // })(): false;
-
 plate != null ? plate.onclick = function(){
+var CityList1 = document.getElementsByClassName("CityList-1");
+var CityList2 = document.getElementsByClassName("CityList-2");
   PlateList.style.display = 'block';
   for(var i=0; i<PlateInput.length; i++){
       PlateInput[i].onclick = function(){

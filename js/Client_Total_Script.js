@@ -12,24 +12,28 @@ var DBMS_disArea = document.querySelector('.DBMS_disArea');
 function show1(){
 	var AreaSelect = $('@module_select');
 	var AreaName = $('@module_select--title');
-	var Town = $('input',AreaSelect);
-	for (var i = 0; i < Town.length; i++) {
-		if(Town[i].checked){
-			AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>')
-			AreaName.innerText += Town[i].value;
-		}
-	};
+	if(AreaName != null){
+		var Town = $('input',AreaSelect);
+		for (var i = 0; i < Town.length; i++) {
+			if(Town[i].checked){
+				AreaName.innerText = AreaName.innerText.replace('请选择','已选择>>')
+				AreaName.innerText += Town[i].value;
+			}
+		};
+	}
 }
 function show2(){
 	var NationSelect = $('@module_nation');
 	var NationName = $('@module_nation--title');
-	var Nation = $('input',NationSelect);
-	for (var i = 0; i < Nation.length; i++) {
-		if(Nation[i].checked){
-			NationName.innerText = NationName.innerText.replace('请选择','已选择>>')
-			NationName.innerText += Nation[i].value;
-		}
-	};
+	if(NationName != null){
+		var Nation = $('input',NationSelect);
+		for (var i = 0; i < Nation.length; i++) {
+			if(Nation[i].checked){
+				NationName.innerText = NationName.innerText.replace('请选择','已选择>>')
+				NationName.innerText += Nation[i].value;
+			}
+		};
+	}
 }
 function show3(list,name){
 	if(name != null){
@@ -227,23 +231,23 @@ $('@product--warp') && function(Courier){
 	}() 
 }
 
-var insurance = ["中国人寿","平安人寿","太保人寿","和谐健康人寿","人保寿险","富德生命人寿","新华人寿","安邦人寿","太平人寿","泰康人寿",
-	"建信人寿","华夏人寿","阳光人寿","工银安盛人寿","中邮人寿","天安人寿","人保健康人寿","国华人寿","农银人寿","合众人寿","前海人寿",
-	"百年人寿","幸福人寿","平安养老保险","珠江人寿","上海人寿","友邦保险","利安人寿","民生人寿","交银康联人寿","招商信诺人寿","中意人寿",
-	"国寿存续保险","长城人寿","渤海人寿","信诚人寿","中美联泰大都会人寿","中英人寿","恒大人寿","中宏人寿","君康人寿","太平养老人寿","泰康养老人寿",
-	"光大永明人寿","吉祥人寿","华泰人寿","中银三星人寿","中德安联人寿","中荷人寿","信泰人寿","英大人寿","长生人寿","国联人寿","同方全球人寿",
-	"恒安标准人寿","弘康人寿","北大方正人寿","华汇人寿","汇丰人寿","东吴人寿","平安健康人寿","陆家嘴国泰人寿","君龙人寿","中韩人寿",
-	"瑞泰人寿","昆仑健康人寿","德华安顾人寿","新光海航人寿","复星保德信人寿","中法人寿","太保安联健康人寿","中华人寿","中融人寿","安邦养老人寿",
-	"国寿养老人寿","长江养老人寿"];
-InsureSelect != null ? insure(InsureSelect,'insure_name'): false;
-function insure(obj,name){
-	for (var v = 0; v < insurance.length; v++) {
-		var Child = document.createElement('div');
-		Child.value = insurance[v];
-		Child.innerHTML = '<label for='+'"'+x+'"'+' title='+'"'+insurance[v]+'"'+''+'>'+insurance[v]+'</label><input name='+'"'+name+'"'+''+'value='+'"'+insurance[v]+'"'+'type="checkbox" checked/>';
-		obj.appendChild(Child);
-		};
-}
+	var insurance = ["中国人寿","平安人寿","太保人寿","和谐健康人寿","人保寿险","富德生命人寿","新华人寿","安邦人寿","太平人寿","泰康人寿",
+		"建信人寿","华夏人寿","阳光人寿","工银安盛人寿","中邮人寿","天安人寿","人保健康人寿","国华人寿","农银人寿","合众人寿","前海人寿",
+		"百年人寿","幸福人寿","平安养老保险","珠江人寿","上海人寿","友邦保险","利安人寿","民生人寿","交银康联人寿","招商信诺人寿","中意人寿",
+		"国寿存续保险","长城人寿","渤海人寿","信诚人寿","中美联泰大都会人寿","中英人寿","恒大人寿","中宏人寿","君康人寿","太平养老人寿","泰康养老人寿",
+		"光大永明人寿","吉祥人寿","华泰人寿","中银三星人寿","中德安联人寿","中荷人寿","信泰人寿","英大人寿","长生人寿","国联人寿","同方全球人寿",
+		"恒安标准人寿","弘康人寿","北大方正人寿","华汇人寿","汇丰人寿","东吴人寿","平安健康人寿","陆家嘴国泰人寿","君龙人寿","中韩人寿",
+		"瑞泰人寿","昆仑健康人寿","德华安顾人寿","新光海航人寿","复星保德信人寿","中法人寿","太保安联健康人寿","中华人寿","中融人寿","安邦养老人寿",
+		"国寿养老人寿","长江养老人寿"];
+	InsureSelect != null ? insure(InsureSelect,'insure_name'): false;
+	function insure(obj,name){
+		for (var v = 0; v < insurance.length; v++) {
+			var Child = document.createElement('div');
+			Child.value = insurance[v];
+			Child.innerHTML = '<label for='+'"'+x+'"'+' title='+'"'+insurance[v]+'"'+''+'>'+insurance[v]+'</label><input name='+'"'+name+'"'+''+'value='+'"'+insurance[v]+'"'+'type="checkbox" checked/>';
+			obj.appendChild(Child);
+			};
+	}
 // lisBox(plate,PlateList,plateInput);
     lisBox(InsureName,InsureSelect,InsureBox);
 
@@ -390,64 +394,95 @@ function insure(obj,name){
 		  }
 		}
 	  }
-var InsureRequest = document.getElementsByClassName("insure_request")[0];
-var request = document.getElementsByClassName("request");
-showHide(InsureRequest,request);
-var TypeRequest = document.getElementsByClassName("type_request")[0];
-var TypeTime = document.getElementsByClassName("type_time");
-showHide(TypeRequest,TypeTime);
-var SocialSecurity = document.getElementsByClassName("social_security")[0];
-var social = document.getElementsByClassName("social");
-var ProvidentFund = document.getElementsByClassName("provident_fund")[0];
-var provident = document.getElementsByClassName("provident");
-showHide(SocialSecurity,social);
-showHide(ProvidentFund,provident);
-var UsedCar = document.getElementsByClassName("used_car")[0];
-var UsedCarList = document.getElementsByClassName("used_car_list");
-showHide(UsedCar,UsedCarList);
+	var InsureRequest = document.getElementsByClassName("insure_request")[0];
+	var request = document.getElementsByClassName("request");
+	showHide(InsureRequest,request);
+	var TypeRequest = document.getElementsByClassName("type_request")[0];
+	var TypeTime = document.getElementsByClassName("type_time");
+	showHide(TypeRequest,TypeTime);
+	var SocialSecurity = document.getElementsByClassName("social_security")[0];
+	var social = document.getElementsByClassName("social");
+	var ProvidentFund = document.getElementsByClassName("provident_fund")[0];
+	var provident = document.getElementsByClassName("provident");
+	showHide(SocialSecurity,social);
+	showHide(ProvidentFund,provident);
+	var UsedCar = document.getElementsByClassName("used_car")[0];
+	var UsedCarList = document.getElementsByClassName("used_car_list");
+	showHide(UsedCar,UsedCarList);
 
-var WholeCar = document.getElementsByClassName("whole-car")[0];
-var WholeCarList = document.getElementsByClassName("whole-car-1");
-showHide(WholeCar,WholeCarList);
-var AnjieCar = document.getElementsByClassName("AnjieCar")[0];
-var AnjieCarList = document.getElementsByClassName("AnjieCar-1");
-showHide(AnjieCar,AnjieCarList);
+	var WholeCar = document.getElementsByClassName("whole-car")[0];
+	var WholeCarList = document.getElementsByClassName("whole-car-1");
+	showHide(WholeCar,WholeCarList);
+	var AnjieCar = document.getElementsByClassName("AnjieCar")[0];
+	var AnjieCarList = document.getElementsByClassName("AnjieCar-1");
+	showHide(AnjieCar,AnjieCarList);
 
-var MortgageCar = document.getElementsByClassName("mortgage-car")[0];
-var MortgageCarList = document.getElementsByClassName("mortgage-car-1");
-showHide(MortgageCar,MortgageCarList);
-function showHide(obj1,obj2){
-	if(obj1 != null){
-		obj1.value == 0 ? function(){
-			obj2[0].style.display ='none';
-			obj2[1].style.display ='none';
-			obj1.addEventListener('change',function(){
-				if (this.value == 0) {
-					obj2[0].style.display ='none';
-					obj2[1].style.display ='none';
-				}else{
-					obj2[0].style.display ='inline-block';
-					obj2[1].style.display ='inline-block';
-					console.log(obj2[1].style.display);
-				}
-			})
-		}(): function(){
-			obj2[0].style.display ='inline-block';
-			obj2[1].style.display ='inline-block';
-			obj1.addEventListener('change',function(){
-				if (this.value == 0) {
-					obj2[0].style.display ='none';
-					obj2[1].style.display ='none';
-				}else{
-					obj2[0].style.display ='inline-block';
-					obj2[1].style.display ='inline-block';
-				}
-			})
-		}() 
+	var MortgageCar = document.getElementsByClassName("mortgage-car")[0];
+	var MortgageCarList = document.getElementsByClassName("mortgage-car-1");
+	showHide(MortgageCar,MortgageCarList);
+	function showHide(obj1,obj2){
+		if(obj1 != null){
+			obj1.value == 0 ? function(){
+				obj2[0].style.display ='none';
+				obj2[1].style.display ='none';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+						obj2[1].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+						obj2[1].style.display ='inline-block';
+						console.log(obj2[1].style.display);
+					}
+				})
+			}(): function(){
+				obj2[0].style.display ='inline-block';
+				obj2[1].style.display ='inline-block';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+						obj2[1].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+						obj2[1].style.display ='inline-block';
+					}
+				})
+			}() 
+		}
 	}
-}
-    
-	AreaName.onclick = function(){
+	var QuankuanHouse = document.getElementsByClassName("QuankuanHouse")[0];
+	var QuankuanHouse_discount = document.getElementsByClassName("QuankuanHouse_discount");
+	showHide2(QuankuanHouse,QuankuanHouse_discount);
+	var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
+	var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
+	showHide2(AnjieHouse,AnjieHouse_discount);
+	var overdue = document.getElementsByClassName("overdue")[0];
+	var OverdueAccount = document.getElementsByClassName("OverdueAccount");
+	showHide2(overdue,OverdueAccount);
+	function showHide2(obj1,obj2){
+		if(obj1 != null){
+			obj1.value == 0 ? function(){
+				obj2[0].style.display ='none';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+					}
+				})
+			}(): function(){
+				obj2[0].style.display ='inline-block';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+						obj2[0].style.display ='none';
+					}else{
+						obj2[0].style.display ='inline-block';
+					}
+				})
+			}() 
+		}
+	}
+	AreaName != null ? AreaName.onclick = function(){
 		if(Status){
 			AreaSelect.style.display = 'block';
 			var Town = $('input',AreaSelect);
@@ -502,9 +537,9 @@ function showHide(obj1,obj2){
 				Message:'请选择你的位置'
 			});
 		};
-	};
+	}: false;
 	
-	NationName.onclick = function(){
+	NationName != null ? NationName.onclick = function(){
 		NationSelect.style.display = 'block';
 		var Nation = $('input',NationSelect);
 		for (var i = 0; i < Nation.length; i++) {
@@ -534,7 +569,7 @@ function showHide(obj1,obj2){
 			};
 			NationSelect.style.display = 'none';
 		};
-	};
+	}: false;
 	/*ProductCompany.onchange = function(){
 		if (this.value !== 0){
 			$('@product_company--warp').innerHTML = '<input name="product_company" />'
@@ -1048,7 +1083,7 @@ $('#loanType') && function(){
 	});
 	// 启动相应产品的详单
 	var loanTypeOne = $('.disArea_loanType--one'),
-			loanTypeTwo = $('.disArea_loanType--two');
+		loanTypeTwo = $('.disArea_loanType--two');
 	for(var i = 0; i < loanTypeOne.length; i++) { 
 		(function(i){
 		  loanTypeOne[i].onmouseenter = function(){
@@ -1077,32 +1112,34 @@ function showTime(){
 	date = nowtime.getDate();
 	day = nowtime.getDay();
 	time.innerHTML = year + "年" + month + "月" + date + "日" + "&nbsp;&nbsp;" + nowtime.toLocaleTimeString() + "&nbsp;&nbsp;" + weekday[day];
-  }
-  time != null ? setInterval("showTime()",1000) : false;
+}
+time != null ? setInterval("showTime()",1000) : false;
 // 子账号
-  var sel = document.getElementById("sel");
-  var sel_ul = document.getElementById("sel_ul");
-  var checkxh = document.getElementsByClassName("checkxh");
-  var ClassName = document.getElementsByClassName("ClassName");
-  sel != null ? ReviewPush() : false;
+  ReviewPush();
   function ReviewPush(){
-	sel.onclick =function(){
-		sel_ul.style.display = 'block';
-	}
-	sel_ul.onmouseleave =function(){
-		sel_ul.style.display = 'none';
-	}
-	for (var i = 0; i < checkxh.length; i++) {
-		(function(i){
-			checkxh[i].onclick = function(){ 
-				if(checkxh[i].checked){
-					sel.innerHTML += ClassName[i].innerText + "&nbsp;";
-				};
-				if(checkxh[i].checked == false){
-					sel.innerText = [].join.call(sel.innerText.split(ClassName[i].innerText) ,'');
+	var sel = document.getElementById("sel");
+	var sel_ul = document.getElementById("sel_ul");
+	var checkxh = document.getElementsByClassName("checkxh");
+	var ClassName = document.getElementsByClassName("ClassName");
+	if(sel != null){
+		sel.onclick =function(){
+			sel_ul.style.display = 'block';
+		}
+		sel_ul.onmouseleave =function(){
+			sel_ul.style.display = 'none';
+		}
+		for (var i = 0; i < checkxh.length; i++) {
+			(function(i){
+				checkxh[i].onclick = function(){ 
+					if(checkxh[i].checked){
+						sel.innerHTML += ClassName[i].innerText + "&nbsp;";
+					};
+					if(checkxh[i].checked == false){
+						sel.innerText = [].join.call(sel.innerText.split(ClassName[i].innerText) ,'');
+					}
 				}
-			}
-		})(i)   
+			})(i)   
+		}
 	}
   }
   
@@ -1272,10 +1309,13 @@ oTop != null ? oTop.onclick = function(){
 }: false;
 // 子账号
 var picBox = document.getElementById("pictureTop");
-var picBtn = document.getElementById("btn_1");
 picBox == null ? vanish(): false;
 function vanish(){
-	picBtn != null ? picBtn.removeAttribute('disabled'): false;
+	var picBtn = document.getElementById("btn_1");
+	if(picBtn != null){
+		picBtn.removeAttribute('disabled');
+	}
+	// picBtn != null ? picBtn.removeAttribute('disabled'): false;
 }
 var fileList = document.getElementById("pic");
 fileList != null ? (function() {
@@ -1306,7 +1346,7 @@ fileList != null ? (function() {
 					fileList.appendChild(span);
 					document.getElementById("btn_1").setAttribute("disabled","disabled");
 				}                          
-				}             
+		}             
 			function traverseFiles (files) {
 					if (typeof files !== "undefined") {
 						 for (var i=0, l=files.length; i<l; i++) {
@@ -1456,36 +1496,5 @@ function lisBox2(name,select,box){
 		}
 	}
 }
-var QuankuanHouse = document.getElementsByClassName("QuankuanHouse")[0];
-var QuankuanHouse_discount = document.getElementsByClassName("QuankuanHouse_discount");
-showHide2(QuankuanHouse,QuankuanHouse_discount);
-var AnjieHouse = document.getElementsByClassName("AnjieHouse")[0];
-var AnjieHouse_discount = document.getElementsByClassName("AnjieHouse_discount");
-showHide2(AnjieHouse,AnjieHouse_discount);
-var overdue = document.getElementsByClassName("overdue")[0];
-var OverdueAccount = document.getElementsByClassName("OverdueAccount");
-showHide2(overdue,OverdueAccount);
-function showHide2(obj1,obj2){
-	if(obj1 != null){
-		obj1.value == 0 ? function(){
-			obj2[0].style.display ='none';
-			obj1.addEventListener('change',function(){
-				if (this.value == 0) {
-					obj2[0].style.display ='none';
-				}else{
-					obj2[0].style.display ='inline-block';
-				}
-			})
-		}(): function(){
-			obj2[0].style.display ='inline-block';
-			obj1.addEventListener('change',function(){
-				if (this.value == 0) {
-					obj2[0].style.display ='none';
-				}else{
-					obj2[0].style.display ='inline-block';
-				}
-			})
-		}() 
-	}
-}
+
 	

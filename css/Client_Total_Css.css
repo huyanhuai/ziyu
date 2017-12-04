@@ -544,6 +544,9 @@ div.disArea_product--handle{
 	text-align:left;
 	box-shadow:0 0 6px 0px gray;
 }
+.disArea_loanType--details span a{
+	color: #FFF;
+}
 .disArea_loanType--details>div{
 	height:36px;
 	line-height: 36px;
@@ -577,6 +580,19 @@ div.disArea_loanType--one{
 	font-size:50px;
 }
 .disArea_loanType--one p{
+	margin-top:5%;
+}
+div.disArea_loanType--one-1{
+	position:absolute;
+	height:100%;
+	width:100%;
+	background:#0c5fa1;
+}
+.disArea_loanType--one-1 i{
+	margin-top:20%;
+	font-size:50px;
+}
+.disArea_loanType--one-1 p{
 	margin-top:5%;
 }
 /*选择要添加产品类型详情-2*/
