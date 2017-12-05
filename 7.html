@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">//这里是相对路径-博客园老牛大讲堂
+       
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div  class="text-center">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>名称</td>
+                        <td>年龄段</td>
+                        <td>年龄</td>
+                    </tr>
+                </thead>
+                <tbody id="contant">
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        
+        <div class="container">
+            <ul class="pagination">
+                <li onclick="first()"><a href="#">«</a></li>
+            </ul>
+        
+            <ul class="pagination" id="fenye">
+            
+            </ul>
+        
+            <ul class="pagination">
+                <li onclick="end()"><a href="#">»</a></li>
+            </ul>
+        </div>
+        
+        
+
+        <script type="text/javascript">
+            var All = [{
+                "name": "林柯",
+                "sex": "少女",
+                "age": "21岁"
+            }, {
+                "name": "林柯",
+                "sex": "少女",
+                "age": "21岁"
+            }, {
+                "name": "林柯",
+                "sex": "少女",
+                "age": "21岁"
+            }, {
+                "name": "周菲",
+                "sex": "少女",
+                "age": "22岁"
+            }, {
+                "name": "周菲",
+                "sex": "少女",
+                "age": "22岁"
+            }, {
+                "name": "周菲",
+                "sex": "少女",
+                "age": "22岁"
+            }, {
+                "name": "叶问天",
+                "sex": "男生",
+                "age": "19岁"
+            }, {
+                "name": "叶问天",
+                "sex": "男生",
+                "age": "19岁"
+            }, {
+                "name": "叶问天",
+                "sex": "男生",
+                "age": "19岁"
+            }, {
+                "name": "444",
+                "sex": "男生",
+                "age": "19岁"
+            }]
+            
+            
+            var rows=4;//这个是页面显示的条数(可以修改该)
+            var pages = Math.ceil(All.length / rows);
+            init(pages);//初始化页面
+            pagesClick();//添加点击事件
+            fuzhi();//遍历出选中的内容
+            
+            //初始化下面的图标
+            function init(pages){
+                for(var i = 0; i < pages; i++) {
+                    $("#fenye").append("<li><a href='#'>"+(i+1)+"</a></li>");
+                }
+                $("#fenye li").eq(0).addClass("active");
+                
+            }
+            //为下面的小图标增加监听事件
+            function pagesClick(){
+                $("#fenye li").click(function(){
+                    var index=$(this).index();
+                    $(this).siblings().removeClass("active");
+                    $(this).addClass("active");
+                    fuzhi();
+                });
+            }
+            //点击前一个
+            function first(){
+                var a=$("#fenye .active").index();
+                var b=a-1;
+                if(a>0)
+                {
+                    $("#fenye li").eq(a).removeClass("active");
+                    $("#fenye li").eq(b).addClass("active");
+                    fuzhi();
+                }
+            }
+　　　　　　//点击后一个
+            function end(){
+                var a=$("#fenye .active").index();
+                var b=$("#fenye li").length;
+                if(a<b-1)
+                {
+                    $("#fenye li").eq(a).removeClass("active");
+                    $("#fenye li").eq(a+1).addClass("active");
+                    fuzhi();
+                }
+            }
+            
+　　　　　　//遍历小下标，得到后显示内容
+            function fuzhi(){
+                $("#contant").empty();//首先清空contant的内容为空
+                var a=$("#fenye .active").index();
+                var b=rows*a;
+                
+                for(var i=b;i<b+rows;i++){
+                    $("#contant").append("<tr><td>"+All[i].name+"</td><td>"+All[i].sex+"</td><td>"+All[i].age+"</td></tr>");//这个是内容区域（可以修改）
+                }
+            }
+            
+        </script>
+    </body>
+</html>
