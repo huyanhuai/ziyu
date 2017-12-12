@@ -137,7 +137,47 @@
                 </span>
                 </span>
             </div>
+            <a href="3.html" onclick="return checkall()">hh</a>
+            <input type="hidden" name="" id="examines" value="0">
+            <div id="box5" class="box">
+                <div class="Audit">
+                    <div class="AuditPush">
+                        <span class="AuditPushOne">信息提示</span><span id="AuditPushTwo4" class="AuditX" onclick="allClose()">&times;</span> 
+                    </div>
+                    <div class="AuditSuccess">
+                        <div class="AuditSuccessOne" id="AuditMessage"><span class="fa fa-exclamation Radic"></span> <span>请先处理放款通知</span></div>
+                    </div>
+                </div>
+            </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
 </body>
+<script>
+    var pro_num = document.getElementById("examines");
+    var box5 = document.getElementById("box5");
+    function checkall(){
+        if(pro_num.value > 0){
+            return true;
+        }else{
+            box5.style.display = 'block';
+            return false;
+        }
+    }
+    function allClose(){
+        box5.style.display = 'none';
+    }
+    // var left_btn = $('button',$('@DBMS_funcArea'));
+	// var pro_num = document.getElementById("examines");
+	//    if(pro_num.value > 0){
+	// 	  for(var i=0; i<left_btn.length; i++){
+	// 		  (function(i){
+	// 			left_btn[i].onclick = function(){
+	// 	            location.href = '5.html';
+	// 			}
+	// 		  })(i)
+	// 	  }
+	//    }else{
+	
+	//    }
+</script>
 </html>

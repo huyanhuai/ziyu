@@ -150,7 +150,14 @@ window.onload = function(){
 	   document.getElementById("CityName").value = LocationSessioin.getItem('B');
 	   document.getElementById("ProvName").value = LocationSessioin.getItem('A');
 	};
-
+	function stopDefault( e ) { 
+		if ( e && e.preventDefault ) 
+		   e.preventDefault(); 
+	   else 
+		   window.event.returnValue = false; 
+		   
+	   return false; 
+	}
 	for (var i = 0; i < Button.length; i++) {
 		(function(i){
 			Button[i].id == 'loan' ? Button[i].onclick = function(){
@@ -196,6 +203,7 @@ window.onload = function(){
 	show3(VehicleInput,VehicleName);
 	show3(OwnerInput,OwnerName);
 };
+
 var AreaStatus = 0;
 // 产品发布	
 $('@product--warp') && function(Courier){
@@ -1496,5 +1504,3 @@ function lisBox2(name,select,box){
 		}
 	}
 }
-
-	
