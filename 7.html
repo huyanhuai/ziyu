@@ -145,7 +145,15 @@
                     $("#contant").append("<tr><td>"+All[i].name+"</td><td>"+All[i].sex+"</td><td>"+All[i].age+"</td></tr>");//这个是内容区域（可以修改）
                 }
             }
-            
+            $.ajax({
+                type: "method",
+                url: "url",
+                data: "data",
+                dataType: "dataType",
+                success: function (response) {
+                    
+                }
+            });
         </script>
     </body>
 </html>
