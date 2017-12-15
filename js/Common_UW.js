@@ -165,7 +165,7 @@ function Dialog(Courier){
 		if(arguments[3] == 'head'){
 		var StatusReporter = new Promise(function(resolve,reject){
 			var ACtor,BCtor;
-			var OptionText = '<option>请选择</option>';;
+			var OptionText = '<option>请选择</option>';
 			for(var i = 0; i < provinceList.length; i++){
 					(function(i){
 							Add(ACourier,provinceList[i]);
@@ -176,6 +176,9 @@ function Dialog(Courier){
 							Name = Brother.name||Brother;
 					Child.value = Name;
 					Child.innerText = Name;
+					// if(Child.value == "浙江"){
+					// 	Child.setAttribute('selected','selected');
+					// }
 					Father.appendChild(Child);
 			};
 			ACourier.addEventListener("change",function(){

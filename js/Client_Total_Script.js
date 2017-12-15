@@ -128,19 +128,37 @@ window.onload = function(){
 	}else{
 		Status = 1;
 		var editer;
-		CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
-		$('@DBMS_header--select').innerHTML = 
-		'<span>'+
-			'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
-		 '</span>'+
-		 '<span>'+
-				'<ul>'+
-					'<li>'+LocationSessioin.getItem('A')+'</li>'
-				+'<li>'+LocationSessioin.getItem('B')+'</li>'
-				+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
-			+'</ul>'+
-			'</span>';
-		editer = $('@select_editer');
+		if(document.getElementById("wen") != null && localStorage.length >0 && document.getElementById("wen").value != LocationSessioin.getItem('B')){
+			// LocationSessioin.setItem('A',document.getElementById("zhe").value);
+			// LocationSessioin.setItem('B',document.getElementById("wen").value);
+			CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
+			$('@DBMS_header--select').innerHTML = 
+			'<span>'+
+				'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
+			 '</span>'+
+			 '<span>'+
+					'<ul>'+
+						'<li>'+document.getElementById("zhe").value+'</li>'
+					+'<li>'+document.getElementById("wen").value+'</li>'
+					+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
+				+'</ul>'+
+				'</span>';
+			editer = $('@select_editer');
+		}else if(document.getElementsByClassName("select_editer")[0] == null){
+			CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
+			$('@DBMS_header--select').innerHTML = 
+			'<span>'+
+				'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
+			 '</span>'+
+			 '<span>'+
+					'<ul>'+
+						'<li>'+LocationSessioin.getItem('A')+'</li>'
+					+'<li>'+LocationSessioin.getItem('B')+'</li>'
+					+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
+				+'</ul>'+
+				'</span>';
+			editer = $('@select_editer');
+		}
 		editer.onclick = function(){
 			localStorage.clear();
 			location.reload();
@@ -150,14 +168,6 @@ window.onload = function(){
 	   document.getElementById("CityName").value = LocationSessioin.getItem('B');
 	   document.getElementById("ProvName").value = LocationSessioin.getItem('A');
 	};
-	function stopDefault( e ) { 
-		if ( e && e.preventDefault ) 
-		   e.preventDefault(); 
-	   else 
-		   window.event.returnValue = false; 
-		   
-	   return false; 
-	}
 	for (var i = 0; i < Button.length; i++) {
 		(function(i){
 			Button[i].id == 'loan' ? Button[i].onclick = function(){
@@ -1371,11 +1381,12 @@ fileList != null ? (function() {
 			}, false);                                    
 	})(): false;
 	//子账号验证
+	var picBtn = document.getElementById("btn_1");
 	function checkUser1(va) {
         if (va == "") {
             document.getElementById("user_ID").innerHTML = "帐号不能为空";
         } else {
-            document.getElementById("user_ID").innerHTML = "";
+			document.getElementById("user_ID").innerHTML = "";
         }
     }
 
@@ -1403,14 +1414,15 @@ fileList != null ? (function() {
     function checkRpwd(va) {
         var pwd = document.getElementById("quepwd").value;
         if (va == "") {
-            document.getElementById("rpwd").innerHTML = "密码不能为空";
+			document.getElementById("rpwd").innerHTML = "密码不能为空";
         } else {
-            document.getElementById("rpwd").innerHTML = "";
+			document.getElementById("rpwd").innerHTML = "";
         }
         if (va != pwd) {
-            document.getElementById("rpwd").innerHTML = "两个密码不同";
-        } else {
-            document.getElementById("rpwd").innerHTML = "";
+			document.getElementById("rpwd").innerHTML = "两个密码不同";
+			picBtn.setAttribute('disabled','disabled');
+        } else if(va == pwd && va != ''){
+			picBtn.removeAttribute('disabled');
         }
     }
 //拖动
