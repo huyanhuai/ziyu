@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>子育金服 -入驻机构后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robit" content="no-fallow">
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+    <script type="text/javascript" src="js/Common_Map.js"></script>
+    <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+    <header class="DBMS_header">
+        <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+        <span class="DBMS_header--select">
+          <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+          <span>
+            <select name="province" id="province">
+              <option value="请选择">请选择</option>
+            </select>
+            <select name="city" id="city">
+              <option value="请选择">请选择</option>
+            </select>
+          </span>
+        </span>
+        <span class="DBMS_header--logout">
+          <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+          <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+        </span>
+    </header>
+      <div class="DBMS_body">
+        <span class="DBMS_funcArea">
+          <div>
+            <p><i  class="fa fa-suitcase"></i>产品发布</p>
+            <div><button id="loan">贷款</button></div>
+            <div><button id="money">理财</button></div>
+            <div><button id="insurance">保险</button></div>
+            <div><button id="other">其他</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-file"></i>还款管理</p>
+            <div><button id="refundManage">还款管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-address-book"></i>贷款审核</p>
+            <div><button id="loanAudit">贷款审核</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-folder-open"></i>产品管理</p>
+            <div><button type="button" id="productManage">产品管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-user-circle"></i>帐号管理</p>
+            <div><button id="addAccount">添加帐号</button></div>
+          </div>
+        </span>
+        <span class="DBMS_disArea">
+        <div id="nav">
+            <div class="per-que-nav clear">
+                <p class="que-nav-cur">
+                    <span class="fa fa-home house"></span>
+                    <h7>您当前的位置：</h7>
+                    <span><a href="#">首页</a> &gt; 添加子账号</span>
+                </p>
+                <p id="que-nav-data">
+                    <span id="nav-data-span1"></span>
+                </p>
+            </div>
+        </div>
+          <span id="rightBox">
+            <div class="cusFir">
+                <h1 class="cusFir_span">通知</h1>
+            </div>
+            <div class="query">
+                <p class="query-tz">通知详情：</p>
+                <form action="">
+                    <div class="query-xq">
+                        <p>xxx 搜索 xx 的 xx  &nbsp;&nbsp;身份证号：xxxxx</p>
+                        <input type="text" placeholder="贷款金额">
+                        <select name="" id="">
+                            <option value="0">贷款状态</option>
+                        </select>
+                        <p style="clear:both;">备注</p>
+                        <textarea name="" id="" cols="5" rows="6" placeholder="请输入备注"></textarea>
+                        <div>
+                            <button>保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </span>
+        </span>
+    </div>
+    <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
+    <script src="js/Client_Total_Script.js"></script>
+    <script>
+    </script>
+</body>
+</html>

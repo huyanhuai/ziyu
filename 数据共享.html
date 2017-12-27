@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>子育金服 -入驻机构后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robit" content="no-fallow">
+    <link rel="stylesheet" type="text/css" href="css/Client_Icon_Css.css" />
+    <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
+    <script type="text/javascript" src="js/Common_Map.js"></script>
+    <script type="text/javascript" src="js/Common_UW.js"></script>
+</head>
+<body>
+    <header class="DBMS_header">
+        <span class="DBMS_header--title"><p><i class="fa fa-bar-chart"></i>后台管理<sup>实验版</sup></p></span>
+        <span class="DBMS_header--select">
+          <span><p><i class="fa fa-location-arrow"></i>城市选择</p></span>
+          <span>
+            <select name="province" id="province">
+              <option value="请选择">请选择</option>
+            </select>
+            <select name="city" id="city">
+              <option value="请选择">请选择</option>
+            </select>
+          </span>
+        </span>
+        <span class="DBMS_header--logout">
+          <button type="button"><i class="fa fa-times-circle"></i>退出登录</button>
+          <button type="button"><i class="fa fa-tv"></i>返回首页</button>
+        </span>
+    </header>
+      <div class="DBMS_body">
+        <span class="DBMS_funcArea">
+          <div>
+            <p><i  class="fa fa-suitcase"></i>产品发布</p>
+            <div><button id="loan">贷款</button></div>
+            <div><button id="money">理财</button></div>
+            <div><button id="insurance">保险</button></div>
+            <div><button id="other">其他</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-file"></i>还款管理</p>
+            <div><button id="refundManage">还款管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-address-book"></i>贷款审核</p>
+            <div><button id="loanAudit">贷款审核</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-folder-open"></i>产品管理</p>
+            <div><button type="button" id="productManage">产品管理</button></div>
+          </div>
+          <div>
+            <p><i class="fa fa-user-circle"></i>帐号管理</p>
+            <div><button id="addAccount">添加帐号</button></div>
+          </div>
+        </span>
+        <span class="DBMS_disArea">
+        <div id="nav">
+            <div class="per-que-nav clear">
+                <p class="que-nav-cur">
+                    <span class="fa fa-home house"></span>
+                    <h7>您当前的位置：</h7>
+                    <span><a href="#">首页</a> &gt; 添加子账号</span>
+                </p>
+                <p id="que-nav-data">
+                    <span id="nav-data-span1"></span>
+                </p>
+            </div>
+        </div>
+          <span id="rightBox">
+            <div class="cusFir">
+                <h1 class="cusFir_span">贷款申请人查询</h1>
+            </div>
+            <div class="query">
+                <div class="query-1">
+                    <span>姓名：</span><input type="text" class="query-1-int">
+                    <span>身份证号码：</span><input type="text" class="query-1-int">
+                    <button id="query-btn" onclick="queryOpen()">点击查询</button>
+                </div>
+            </div>
+          </span>
+        </span>
+    </div>
+    <div id="box6" class="box">
+        <form action="">
+            <div class="query-popup">
+                <div class="AuditX" onclick="close5()">&times;</div> 
+                <p>是否进行查询？</p>
+                <input type="hidden" value="" id="query-name">
+                <input type="hidden" value="" id="query-number">
+                <div class="query-popup-btn">
+                    <button class="query-popup-btn1" onclick="">是</button>
+                    <button class="query-popup-btn2" onclick="close5()">否</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
+    <script src="js/Client_Total_Script.js"></script>
+    <script>
+       var query_btn = document.getElementById("query-btn");
+       var query_int = document.getElementsByClassName("query-1-int");
+       var box6 = document.getElementById("box6");
+       function queryOpen(){
+           if(query_int[0].value != '' && query_int[1].value.length == 18){
+            box6.style.display = 'block';
+            document.getElementById("query-name").value = query_int[0].value;
+            document.getElementById("query-number").value = query_int[1].value;
+           }
+       }
+       function close5(){
+           box6.style.display = 'none';
+       }
+    </script>
+</body>
+</html>

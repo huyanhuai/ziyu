@@ -108,8 +108,8 @@ window.onload = function(){
 	var DbmsBody = $('@DBMS_body');
 	var LocationSessioin = localStorage;
 	var Prov = $('#province'),
-			City = $('#city'),
-			Town = $('#town');
+		City = $('#city'),
+		Town = $('#town');
 	if(LocationSessioin.length == 0 || LocationSessioin.length == null){
 		Dialog({
 			Background:DbmsBody,
@@ -128,7 +128,9 @@ window.onload = function(){
 	}else{
 		Status = 1;
 		var editer;
-		if(document.getElementById("wen") != null && localStorage.length >0 && document.getElementById("wen").value != LocationSessioin.getItem('B')){
+		var zhe = document.getElementById("zhe");
+		var wen = document.getElementById("wen");
+		if(wen != null && localStorage.length >0 && wen.value != LocationSessioin.getItem('B')){
 			// LocationSessioin.setItem('A',document.getElementById("zhe").value);
 			// LocationSessioin.setItem('B',document.getElementById("wen").value);
 			CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
@@ -138,8 +140,8 @@ window.onload = function(){
 			 '</span>'+
 			 '<span>'+
 					'<ul>'+
-						'<li>'+document.getElementById("zhe").value+'</li>'
-					+'<li>'+document.getElementById("wen").value+'</li>'
+						'<li>'+zhe.value+'</li>'
+					+'<li>'+wen.value+'</li>'
 					+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
 				+'</ul>'+
 				'</span>';
@@ -650,6 +652,17 @@ $('@product--warp') && function(Courier){
 		for (var i = 0; i < SingleEnable.length; i++) {
 				SingleEnable[i].onclick = function(){
 					QueryBody.removeChild(this.parentNode);
+					SingleEnable.length == 0 ? function(){
+						QueryEnable.value = 0;
+						QueryAdd.style.visibility = 'hidden';
+						QueryEnable.addEventListener('change',function(){
+							if (this.value == 0) {
+								QueryAdd.style.visibility = 'hidden';
+							}else{
+								QueryAdd.style.visibility ='visible';
+							}
+						})
+					}(): false;
 				};
 		};
 	};
@@ -693,8 +706,20 @@ $('@product--warp') && function(Courier){
 	for(var i = 0; i < btn1.length; i++){
 	   btn1[i].onclick = function(){
 		 QueryBody.removeChild(this.parentNode);
+			btn1.length == 0 ? function(){
+				QueryEnable.value = 0;
+				QueryAdd.style.visibility = 'hidden';
+				QueryEnable.addEventListener('change',function(){
+					if (this.value == 0) {
+						QueryAdd.style.visibility = 'hidden';
+					}else{
+						QueryAdd.style.visibility ='visible';
+					}
+				})
+			}(): false;
 	   }
 	} 
+	
 	var QueryDymic2 = function QueryDymic2(){
 		var ReuseModule2 = document.createElement('div');
 		ReuseModule2.className = QueryReuse2.className;
@@ -740,6 +765,17 @@ $('@product--warp') && function(Courier){
 		for (var i = 0; i < SingleEnable2.length; i++) {
 				SingleEnable2[i].onclick = function(){
 					QueryBody2.removeChild(this.parentNode);
+					SingleEnable2.length == 0 ? function(){
+						QueryEnable2.value = 0;
+						QueryAdd2.style.visibility = 'hidden';
+						QueryEnable2.addEventListener('change',function(){
+							if (this.value == 0) {
+								QueryAdd2.style.visibility = 'hidden';
+							}else{
+								QueryAdd2.style.visibility ='visible';
+							}
+						})
+					}(): false;
 				};
 		};
 	};
@@ -783,6 +819,17 @@ $('@product--warp') && function(Courier){
 	for(var i = 0; i < btn12.length; i++){
 	   btn12[i].onclick = function(){
 		 QueryBody2.removeChild(this.parentNode);
+		 btn12.length == 0 ? function(){
+			QueryEnable2.value = 0;
+			QueryAdd2.style.visibility = 'hidden';
+			QueryEnable2.addEventListener('change',function(){
+				if (this.value == 0) {
+					QueryAdd2.style.visibility = 'hidden';
+				}else{
+					QueryAdd2.style.visibility ='visible';
+				}
+			})
+		}(): false;
 	   }
 	} 
 	// QuerySingleEnable.onclick = function(){
@@ -835,6 +882,17 @@ $('@product--warp') && function(Courier){
 		for (var i = 0; i < OverduoSingleEnable.length; i++) {
 			OverduoSingleEnable[i].onclick = function(){
 				OverduoBody.removeChild(this.parentNode);
+				OverduoSingleEnable.length == 0 ? function(){
+					OverduoEnable.value = 0;
+					OverduoAdd.style.visibility = 'hidden';
+					OverduoEnable.addEventListener('change',function(){
+						if (this.value == 0) {
+							OverduoAdd.style.visibility = 'hidden';
+						}else{
+							OverduoAdd.style.visibility ='visible';
+						}
+					})
+				}(): false;
 			}
 		};
 	};
@@ -868,6 +926,17 @@ $('@product--warp') && function(Courier){
 	for(var i = 0; i < btn2.length; i++){
 		btn2[i].onclick = function(){
 			OverduoBody.removeChild(this.parentNode);
+			btn2.length == 0 ? function(){
+				OverduoEnable.value = 0;
+				OverduoAdd.style.visibility = 'hidden';
+				OverduoEnable.addEventListener('change',function(){
+					if (this.value == 0) {
+						OverduoAdd.style.visibility = 'hidden';
+					}else{
+						OverduoAdd.style.visibility ='visible';
+					}
+				})
+			}(): false;
 		}
 	}
 	// OverduoSingleEnable.onclick = function(){
@@ -916,6 +985,17 @@ $('@product--warp') && function(Courier){
 		for (var i = 0; i < LiabilitySingleEnable.length; i++) {
 			LiabilitySingleEnable[i].onclick = function(){
 				LiabilityBody.removeChild(this.parentNode);
+				LiabilitySingleEnable.length == 0 ? function(){
+					LiabilityEnable.value = 0;
+					LiabilityAdd.style.visibility = 'hidden';
+					LiabilityEnable.addEventListener('change',function(){
+						if (this.value == 0) {
+							LiabilityAdd.style.visibility = 'hidden';
+						}else{
+							LiabilityAdd.style.visibility ='visible';
+						}
+					})
+				}(): false;
 			};
 		};
 	};
@@ -949,6 +1029,17 @@ $('@product--warp') && function(Courier){
 	for(var i = 0; i < btn3.length; i++){
 		btn3[i].onclick = function(){
 			LiabilityBody.removeChild(this.parentNode);
+			btn3.length == 0 ? function(){
+				LiabilityEnable.value = 0;
+				LiabilityAdd.style.visibility = 'hidden';
+				LiabilityEnable.addEventListener('change',function(){
+					if (this.value == 0) {
+						LiabilityAdd.style.visibility = 'hidden';
+					}else{
+						LiabilityAdd.style.visibility ='visible';
+					}
+				})
+			}(): false;
 		}
 	}
 	// LiabilitySingleEnable.onclick = function(){

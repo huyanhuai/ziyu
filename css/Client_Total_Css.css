@@ -1022,6 +1022,7 @@ table tr .listTop{
 }
 .AuditX {
 	width: 50px;
+	height: 33px;
 	float: right;
 	font-size:25px;
 	cursor:pointer;
@@ -1543,4 +1544,168 @@ table tr .listTop{
 #AuditMessage{
 	margin: 0 auto;
 	margin-top: 30px;
+}
+/* 数据共享 */
+.query{
+	width: 100%;
+	height: 1000px;
+	background-color: #FFF;
+	border: 1px solid #e4e7e9;
+}
+.query .query-1{
+	width: 90%;
+	font-size: 18px;
+	margin-top: 50px;
+}
+.query .query-1 input{
+	width: 200px;
+	height: 30px;
+	border: 1px solid #c9ccce;
+	margin-right: 20px;
+}
+.query .query-1 button{
+	width: 70px;
+	height: 30px;
+	color: #fff;
+    background-color: #337ab7;
+	border-color: #2e6da4;
+	line-height: 1.3333333;
+	border-radius: 6px;
+	-moz-border-radius:  6px;
+	-webkit-border-radius:  6px;
+}
+.query-popup{
+	background: #fff;
+	border: 1px solid rgb(202, 202, 202);
+	border-radius: 6px;
+	-moz-border-radius:  6px;
+	-webkit-border-radius:  6px;
+	width: 400px;
+	height: 200px;
+	font-size: 18px;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	margin-top: -125px;
+	margin-left: -200px;
+	z-index: 50px;
+}
+.query-popup p{
+	width: 300px;
+	height: 150px;
+	line-height: 150px;
+	margin: 0 auto;
+	text-align: center;
+	color: rgb(145, 149, 160);
+}
+.query-popup .query-popup-btn button{
+	width: 80px;
+	height: 35px;
+	margin-right: 20px;
+	color: #fff;
+	font-size: 16px;
+}
+.query-popup .query-popup-btn .query-popup-btn1{
+	background-color: #FD7067;
+}
+.query-popup .query-popup-btn .query-popup-btn2{
+	background-color: #B5BBCB;
+}
+.query-popup .query-popup-bz{
+	width: 80px;
+	height: 33px;
+	float: left;
+}
+.query-popup  .query-popup-nr{
+	width: 300px;
+	height: 150px;
+	margin: 0 auto;
+	padding-top: 10px;
+	word-wrap:break-word; 
+	word-break:normal;
+	overflow: auto;
+}
+.query-popup  .query-popup-nr span{
+	text-align: left;
+}
+.query .query-tz{
+	text-align: left;
+	margin-top: 50px;
+	font-size: 18px;
+	padding-left: 18px;
+}
+.query .td-btn{
+	width: 60px;
+    height: 25px;
+    background: #07c6c4;
+    color: white;
+    margin-left: 5px;
+}
+.query .query-xq{
+	margin-top: 20px;
+	padding-left: 18px;
+}
+.query .query-xq p{
+	text-align: left;
+	font-size: 14px;
+	color: #FD7067;
+	margin-bottom: 10px;
+}
+.query .query-xq input{
+	width: 200px;
+	height: 30px;
+	border: 1px solid #c9ccce;
+	margin-right: 30px;
+	padding-left: 5px;
+	text-align: left;
+	float: left;
+	border-radius: 4px;
+	-moz-border-radius:  4px;
+	-webkit-border-radius:  4px;
+	-moz-box-shadow:inset 0.5px 0.5px 2px #B5BBCB;
+    -webkit-box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+    box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+}
+.query .query-xq select{
+	width: 200px;
+	height: 30px;
+	border: 1px solid #c9ccce;
+	padding-left: 5px;
+	float: left;
+	border-radius: 4px;
+	-moz-border-radius:  4px;
+	-webkit-border-radius:  4px;
+	-moz-box-shadow:inset 0.5px 0.5px 2px #B5BBCB;
+    -webkit-box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+    box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+}
+.query .query-xq textarea{
+	width: 430px;
+	padding-left: 5px;
+	float: left;
+	text-align: left;
+	border: 1px solid #c9ccce;
+	border-radius: 4px;
+	-moz-border-radius:  4px;
+	-webkit-border-radius:  4px;
+	-moz-box-shadow:inset 0.5px 0.5px 2px #B5BBCB;
+    -webkit-box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+    box-shadow: inset 0.5px 0.5px 2px #B5BBCB;
+}
+.query .query-xq div{
+	width: 100px;
+}
+.query .query-xq button{
+	width: 80px;
+	height: 35px;
+	margin-top: 20px;
+	float: left;
+	color: #fff;
+	font-size: 14px;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+	line-height: 1.3333333;
+	border-radius: 6px;
+	-moz-border-radius:  6px;
+	-webkit-border-radius:  6px;
 }
