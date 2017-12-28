@@ -452,7 +452,6 @@ $('@product--warp') && function(Courier){
 					}else{
 						obj2[0].style.display ='inline-block';
 						obj2[1].style.display ='inline-block';
-						console.log(obj2[1].style.display);
 					}
 				})
 			}(): function(){
