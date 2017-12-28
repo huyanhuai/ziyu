@@ -86,7 +86,7 @@
                         <td class="listRight">银行</td> 
                         <td class="listCentre">8万</td> 
                         <td class="listCentre">正常还款 </td> 
-                        <td class="listLeft"><button class="td-btn" onclick="beizhu()">查看</button> </td> 
+                        <td class="listLeft"><button class="td-btn" onclick="beizhu('')">查看</button> </td> 
                     </tr>
                 </table>
             </div>
@@ -94,11 +94,11 @@
         </span>
     </div>
     <div id="box7" class="box">
-            <form action="">
+            <form action="" method="post">
                 <div class="query-popup">
                     <div class="query-popup-bz">备注信息</div><div class="AuditX" onclick="close6()">&times;</div> 
                     <div class="query-popup-nr" style="clear:both;">
-                        <span>备注信息</span>
+                        <span id="query-popup-nr-bz">无备注信息</span>
                     </div>
                 </div>
             </form>
@@ -106,8 +106,13 @@
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-        function beizhu(){
+        function beizhu(str){
            document.getElementById("box7").style.display = 'block';
+           if(str != null && str != ''){
+            document.getElementById("query-popup-nr-bz").innerHTML = str;
+           }else{
+            document.getElementById("query-popup-nr-bz").innerHTML = '无备注信息';
+           }
         }
         function close6(){
             document.getElementById("box7").style.display = 'none';
