@@ -100,11 +100,11 @@
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-       var query_btn = document.getElementById("query-btn");
-       var query_int = document.getElementsByClassName("query-1-int");
        var box6 = document.getElementById("box6");
-       var num_str = /^\d{18}$/;
        function queryOpen(){
+           var query_btn = document.getElementById("query-btn");
+           var query_int = document.getElementsByClassName("query-1-int");
+           var num_str = /^\d{18}$/;
            if(query_int[0].value != '' && num_str.test(query_int[1].value)){
             box6.style.display = 'block';
             document.getElementById("query-name").value = query_int[0].value;
