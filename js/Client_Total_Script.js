@@ -1606,3 +1606,28 @@ function lisBox2(name,select,box){
 		}
 	}
 }
+var box6 = document.getElementById("box6");
+function queryOpen(){
+	var query_btn = document.getElementById("query-btn");
+	var query_int = document.getElementsByClassName("query-1-int");
+	var num_str = /^\d{18}$/;
+	if(query_int[0].value != '' && num_str.test(query_int[1].value)){
+	 box6.style.display = 'block';
+	 document.getElementById("query-name").value = query_int[0].value;
+	 document.getElementById("query-number").value = query_int[1].value;
+	}
+}
+function close5(){
+	box6.style.display = 'none';
+}
+function beizhu(str){
+	document.getElementById("box7").style.display = 'block';
+	if(str != null && str != ''){
+	 document.getElementById("query-popup-nr-bz").innerHTML = str;
+	}else{
+	 document.getElementById("query-popup-nr-bz").innerHTML = '无备注信息';
+	}
+ }
+ function close6(){
+	 document.getElementById("box7").style.display = 'none';
+ }
