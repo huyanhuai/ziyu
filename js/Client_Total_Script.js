@@ -439,6 +439,7 @@ $('@product--warp') && function(Courier){
 
 	var MortgageCar = document.getElementsByClassName("mortgage-car")[0];
 	var MortgageCarList = document.getElementsByClassName("mortgage-car-1");
+	console.log(MortgageCarList[0].getElementsByTagName("input"));
 	showHide(MortgageCar,MortgageCarList);
 	function showHide(obj1,obj2){
 		if(obj1 != null){
@@ -448,6 +449,8 @@ $('@product--warp') && function(Courier){
 				obj1.addEventListener('change',function(){
 					if (this.value == 0) {
 						obj2[0].style.display ='none';
+						obj2[0].getElementsByTagName("input").innerText = ' ';
+						console.log(obj2[0].getElementsByTagName("input"));
 						obj2[1].style.display ='none';
 					}else{
 						obj2[0].style.display ='inline-block';
