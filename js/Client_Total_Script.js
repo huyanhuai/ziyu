@@ -130,23 +130,24 @@ window.onload = function(){
 		var editer;
 		var zhe = document.getElementById("zhe");
 		var wen = document.getElementById("wen");
-		if(wen != null && localStorage.length >0 && wen.value != LocationSessioin.getItem('B')){
-			// LocationSessioin.setItem('A',document.getElementById("zhe").value);
-			// LocationSessioin.setItem('B',document.getElementById("wen").value);
-			CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
-			$('@DBMS_header--select').innerHTML = 
-			'<span>'+
-				'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
-			 '</span>'+
-			 '<span>'+
-					'<ul>'+
-						'<li>'+zhe.value+'</li>'
-					+'<li>'+wen.value+'</li>'
-					+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
-				+'</ul>'+
-				'</span>';
-			editer = $('@select_editer');
-		}else if(document.getElementsByClassName("select_editer")[0] == null){
+		// if(wen != null && localStorage.length >0 && wen.value != LocationSessioin.getItem('B')){
+		// 	// LocationSessioin.setItem('A',document.getElementById("zhe").value);
+		// 	// LocationSessioin.setItem('B',document.getElementById("wen").value);
+		// 	CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
+		// 	$('@DBMS_header--select').innerHTML = 
+		// 	'<span>'+
+		// 		'<p>'+'<i class="fa fa-location-arrow">'+'</i>'+'当前城市'+'</p>'+
+		// 	 '</span>'+
+		// 	 '<span>'+
+		// 			'<ul>'+
+		// 				'<li>'+zhe.value+'</li>'
+		// 			+'<li>'+wen.value+'</li>'
+		// 			+'<li>'+'<input class="select_editer" type="button" value="修改" />'+'</li>'
+		// 		+'</ul>'+
+		// 		'</span>';
+		// 	editer = $('@select_editer');
+		// }else 
+		if(document.getElementsByClassName("select_editer")[0] == null){
 			CitySelector(LocationSessioin.getItem('A'),LocationSessioin.getItem('B'),Town,'town');
 			$('@DBMS_header--select').innerHTML = 
 			'<span>'+
