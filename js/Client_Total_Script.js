@@ -450,7 +450,6 @@ $('@product--warp') && function(Courier){
 					if (this.value == 0) {
 						obj2[0].style.display ='none';
 						obj2[0].getElementsByTagName("input").innerText = ' ';
-						console.log(obj2[0].getElementsByTagName("input"));
 						obj2[1].style.display ='none';
 					}else{
 						obj2[0].style.display ='inline-block';
