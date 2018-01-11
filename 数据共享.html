@@ -41,7 +41,7 @@
           </div>
           <div>
             <p><i class="fa fa-file"></i>还款管理</p>
-            <div><button id="refundManage">还款管理</button></div>
+            <div><button id="refundManage">还款管理 <sup class="list-th">!</sup></button></div>
           </div>
           <div>
             <p><i class="fa fa-address-book"></i>贷款审核</p>
@@ -83,8 +83,9 @@
           </span>
         </span>
     </div>
+    <!-- <button id="tongzhi">tongzhi<sup class="list-th">!</sup> </button> -->
     <div id="box6" class="box">
-        <form action="">
+        <!-- <form action=""> -->
             <div class="query-popup">
                 <div class="AuditX" onclick="close5()">&times;</div> 
                 <p>是否进行查询？</p>
@@ -95,9 +96,17 @@
                     <button class="query-popup-btn2" onclick="close5()">否</button>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
     </div>  
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
 </body>
+<script>
+    function tongzhi(){
+        var listTh = document.getElementsByClassName("list-th")[0];
+        if(listTh != null){
+            listTh.style.display = 'inline-block';
+        }
+    }
+</script>
 </html>
