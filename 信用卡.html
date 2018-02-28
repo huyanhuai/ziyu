@@ -10,6 +10,53 @@
     <link rel="stylesheet" type="text/css" href="css/Client_Total_Css.css" />
     <script type="text/javascript" src="js/Common_Map.js"></script>
     <script type="text/javascript" src="js/Common_UW.js"></script>
+    <style>
+        .Credit_Cards-list{
+            width: 200px;
+        }
+        .Credit_Cards-content{
+            padding-top: 10px;
+            color: red;
+        }
+        .Credit_Cards-content input{
+            width: 200px;
+            height: 25px;
+            border: 1px solid rgba(50%,50%,50%,.4);
+            text-align: left;
+            padding-left: 10px;
+            float: left;
+        }
+        .Credit_Cards-content select{
+            width: 200px;
+            height: 25px;
+            border: 1px solid rgba(50%,50%,50%,.4);
+            text-align: left;
+            padding-left: 10px;
+            float: left;
+        }
+        .Credit_Cards-content0{
+            padding-top: 10px;
+            color: red;
+        }
+        .Credit_Cards-content0 span{
+            color: #000;
+        }
+        .Credit_Cards-content0 input{
+            width: 80px;
+            height: 25px;
+            border: 1px solid rgba(50%,50%,50%,.4);
+            text-align: left;
+            padding-left: 10px;
+        }
+        .Credit_Cards-btn{
+            width: 100px;
+            height: 48px;
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #E94160;
+            color: #fff;
+        }   
+    </style>
 </head>
 <body>
     <header class="DBMS_header">
@@ -62,7 +109,7 @@
                             <p class="que-nav-cur">
                                 <span class="fa fa-home house"></span>
                                 <h7>您当前的位置：</h7>
-                                <span><a href="#">首页</a> &gt; 还款管理</span>
+                                <span><a href="#">首页</a> &gt; 信用卡</span>
                             </p>
                             <p id="que-nav-data">
                                 <span id="nav-data-span1"></span>
@@ -70,12 +117,61 @@
                         </div>
                     </div>
                     <span id="rightBox">
-                        <table border="0" cellspacing="0" cellpadding="0">
-                            <tr style="border:none;">
-                                <td>1</td>
-                                <td>1</td>
+                        <table border="1" cellspacing="0" cellpadding="0">
+                            <tr class="list">
+                                <td class="Credit_Cards-list">卡片名称</td>
+                                <td class="Credit_Cards-content"><input type="text"> &nbsp;*</td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">年费</td>
+                                <td class="Credit_Cards-content">
+                                    <select name="" id="">
+                                        <option value="">免年费</option>
+                                        <option value="">免年费</option>
+                                    </select>
+                                    &nbsp;*
+                                </td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">免息期</td>
+                                <td class="Credit_Cards-content0"><input type="text" ><span>&nbsp;~&nbsp;</span><input type="text"> <span>（单位：天）</span>  &nbsp;*</td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">卡组织</td>
+                                <td class="Credit_Cards-content">
+                                    <select name="" id="">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    &nbsp;*
+                                </td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">针对客户群</td>
+                                <td class="Credit_Cards-content">
+                                    <select name="" id="">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    &nbsp;*
+                                </td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">进件条件</td>
+                                <td class="Credit_Cards-content">
+                                    <input type="text">
+                                </td>
+                            </tr>
+                            <tr class="list">
+                                <td class="Credit_Cards-list">选择卡片</td>
+                                <td class="Credit_Cards-content">
+                                    <input type="text">
+                                </td>
                             </tr>
                         </table>
+                        <div>
+                            <button class="Credit_Cards-btn">保存</button>
+                        </div>
                     </span>
                 </span>
             </div>

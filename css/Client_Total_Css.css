@@ -895,13 +895,15 @@ table{
 }
 table tr th{
 	width: 14.286%;
+	height: 40px;
 	font-size: 15px;
 	line-height: 40px;
 	background: #4e606a;
 	color: #fff;
 }
 table tr td{
-	width: 14.286%;
+	/* width: 14.286%; */
+	height: 40px;
 	font-size: 14px;
 	border: 1px solid rgba(50%,50%,50%,.4);
 	padding: 10px 0;
