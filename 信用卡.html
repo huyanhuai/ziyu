@@ -32,7 +32,6 @@
             border: 1px solid rgba(50%,50%,50%,.4);
             text-align: left;
             padding-left: 10px;
-            float: left;
         }
         .Credit_Cards-content0{
             padding-top: 10px;
@@ -59,10 +58,11 @@
         .Credit_Cards-picture{
             width: 350px;
             height: 200px;
+            float: left;
         } 
-        #Credit_Cards-picture{
-            width: 320px;
-            height: 160px;
+        #Credit_Cards-pictureList0{
+            width: 300px;
+            height: 165px;
             margin-top: 10px;
             text-align: left;
         }  
@@ -153,6 +153,11 @@
                                         <option value=""></option>
                                         <option value=""></option>
                                     </select>
+                                    &nbsp;
+                                    <select name="" id="">
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
                                     &nbsp;*
                                 </td>
                             </tr>
@@ -176,9 +181,10 @@
                                 <td class="Credit_Cards-list">选择卡片</td>
                                 <td class="Credit_Cards-content">
                                     <div class="Credit_Cards-picture">
-                                        <input type="file" name="file" id="files-upload" style="border:0;width:200px;height:30px;"/><br>
-                                        <div id="Credit_Cards-picture"></div>
+                                        <input type="file" name="file" id="files-upload0" onchange="traverseFiles()" style="border:0;width:200px;height:30px;"/><br>
+                                        <div id="Credit_Cards-pictureList0"></div>
                                     </div>
+                                    <button style="width:80px;" onclick="pic();">添加</button>
                                 </td>
                             </tr>
                         </table>
@@ -191,9 +197,24 @@
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-        var picList = document.getElementById("Credit_Cards-picture");
-       picList != null ? (function() {
-            var filesUpload = document.getElementById("files-upload");                      
+var aa = testEle.attributes["sty"].nodeValue; // 获取
+console.log(aa)
+        // pic();
+        function pic(){
+            var div1 = document.createElement("div");
+                div1.className = "Credit_Cards-picture";
+                div1.innerHTML = '<input type="file" name="file" id="files-upload'+magId+'" onchange="traverseFiles()" style="border:0;width:200px;height:30px;"/><br>'
+                                 +'<div id="Credit_Cards-pictureList'+magId+'"></div>';
+                document.getElementsByClassName("Credit_Cards-content")[5].appendChild(div1); 
+        };
+        var magId=0;
+        // function setImagePreviews(){ 
+        var ppp = document.getElementsByClassName("Credit_Cards-picture");
+        var picList = document.getElementById("Credit_Cards-pictureList"+magId);
+        var filesUpload = document.getElementById("files-upload"+magId);
+        // (function() { 
+            for(var i=0; i<ppp.length; i++){
+                magId++;               
                 function uploadFile(file) {
                 var span = document.createElement("span"),
                     img,
@@ -203,8 +224,8 @@
                     span.innerText = "文件格式错误" ;          
                 if (typeof FileReader !== "undefined" && (/image/i).test(file.type)) {
                         img = document.createElement("img");
-                        img.style.width = '150px';
-                        img.style.height = '120px';
+                        img.style.width = '300px';
+                        img.style.height = '165px';
                         reader = new FileReader();
                         reader.onload = (function (theImg) {
                         return function (evt) {
@@ -215,27 +236,30 @@
                         }          
                         if(img != null){
                             picList.appendChild(img);
-                            document.getElementById("btn_1").removeAttribute('disabled');
+                            // document.getElementById("btn_1").removeAttribute('disabled');
                         } else{
                             picList.appendChild(span);
-                            document.getElementById("btn_1").setAttribute("disabled","disabled");
+                            // document.getElementById("btn_1").setAttribute("disabled","disabled");
                         }                          
                 }             
-                    function traverseFiles (files) {
-                            if (typeof files !== "undefined") {
-                                for (var i=0, l=files.length; i<l; i++) {
-                                    uploadFile(files[i]);
-                                }
-                            }
-                            else {
-                                    fileList.innerHTML = "No support for the File API in this web browser";
-                                }   
-                            }
+                function traverseFiles (files) {
+                    if (typeof files !== "undefined") {
+                        for (var i=0, l=files.length; i<l; i++) {
+                            uploadFile(files[i]);
+                        }
+                    }
+                    else {
+                            fileList.innerHTML = "No support for the File API in this web browser";
+                        }   
+                }
                     filesUpload.addEventListener("change", function () {
                         picList.innerHTML = '';
                         traverseFiles(this.files);
-                    }, false);                                    
-            })(): false;
+                    }, false); 
+            }
+        // }                                     
+        // })();
+        
     </script>
 </body>
 </html>

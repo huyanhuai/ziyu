@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div  class='upimgcontent' style="margin:0px auto;width:990px;">  
+                <div class="fileinput-wrap">  
+                <input type="file" name="files" id="doc0" imgid="img0" style="width:100px;"  
+                    onchange="javascript:setImagePreviews()" />  
+            </div>  
+                <div id="dd" style="width:990px;"></div>   
+            </div>  
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    var magId=0;  
+function setImagePreviews(){  
+    var docobj=document.getElementById("doc"+magId);  
+    var dd=document.getElementById("dd");  
+    var fileList=docobj.files;    
+    for( var i=0;i<fileList.length;i++){  
+        magId++;  
+        $(dd).append("<div class='img-wrap' imgid='img"+(magId-1)+"'><img id='img"+(magId-1)+"'/><span class=' closeimg"+(magId-1)+" close'>×</span></div>");  
+        $(".fileinput-wrap [imgid=img"+(magId-1)+"]")[0].style.position="absolute";  
+        $(".fileinput-wrap [imgid=img"+(magId-1)+"]")[0].style.left="-10000px";       
+        $(".fileinput-wrap").append('<input type="file" name="files" id="doc'+magId+'" imgid="img'+magId+'" style="width:100px;" onchange="javascript:setImagePreviews()" />');         
+        $(".closeimg"+(magId-1)).on("click",function(e){  
+            var id=$(this).parents(".img-wrap").attr("imgid");  
+            $(this).parent().remove();  
+            $(".fileinput-wrap input[imgid="+id+"]").remove();  
+        })  
+        var imgObjPreview=document.getElementById("img"+(magId-1));  
+        if(docobj.files&&docobj.files[i]){  
+            imgObjPreview.style.display="block";  
+            imgObjPreview.style.width="100px";  
+            imgObjPreview.style.height="120px";  
+            imgObjPreview.src=window.URL.createObjectURL(docobj.files[i]);  
+        }else{  
+            //IE  
+            docobj.select();  
+            var imgsrc=document.selection.createRange().text;  
+            var localImageId=document.getElementById("img"+(magId-1));  
+            localImageId.style.width="100px";  
+            localImageId.style.height="120px";  
+            try{  
+                localIamgeId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";  
+                localIamgeId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src=imgsrc;  
+            }catch(e){  
+                alert("上传图片出错")  
+                return false;  
+            }  
+            imgObjPreview.style.display="none";  
+            document.selection.empty();  
+        }         
+    }  
+    return true;  
+}   
+</script>
+</html>
