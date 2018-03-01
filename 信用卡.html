@@ -59,7 +59,13 @@
         .Credit_Cards-picture{
             width: 350px;
             height: 200px;
-        }   
+        } 
+        #Credit_Cards-picture{
+            width: 320px;
+            height: 160px;
+            margin-top: 10px;
+            text-align: left;
+        }  
     </style>
 </head>
 <body>
@@ -170,8 +176,8 @@
                                 <td class="Credit_Cards-list">选择卡片</td>
                                 <td class="Credit_Cards-content">
                                     <div class="Credit_Cards-picture">
-                                        <input type="file" name="file" id="files-upload" style="border:0;width:200px;height:30px;"/>
-                                        <div id="pic"></div>
+                                        <input type="file" name="file" id="files-upload" style="border:0;width:200px;height:30px;"/><br>
+                                        <div id="Credit_Cards-picture"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -185,8 +191,8 @@
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-        var fileList = document.getElementById("pic");
-        fileList != null ? (function() {
+        var picList = document.getElementById("Credit_Cards-picture");
+       picList != null ? (function() {
             var filesUpload = document.getElementById("files-upload");                      
                 function uploadFile(file) {
                 var span = document.createElement("span"),
@@ -208,10 +214,10 @@
                             reader.readAsDataURL(file);
                         }          
                         if(img != null){
-                            fileList.appendChild(img);
+                            picList.appendChild(img);
                             document.getElementById("btn_1").removeAttribute('disabled');
                         } else{
-                            fileList.appendChild(span);
+                            picList.appendChild(span);
                             document.getElementById("btn_1").setAttribute("disabled","disabled");
                         }                          
                 }             
@@ -226,7 +232,7 @@
                                 }   
                             }
                     filesUpload.addEventListener("change", function () {
-                        fileList.innerHTML = '';
+                        picList.innerHTML = '';
                         traverseFiles(this.files);
                     }, false);                                    
             })(): false;
