@@ -181,7 +181,7 @@
                                 <td class="Credit_Cards-list">选择卡片</td>
                                 <td class="Credit_Cards-content">
                                     <div class="Credit_Cards-picture">
-                                        <input type="file" name="file" id="files-upload0" onchange="traverseFiles()" style="border:0;width:200px;height:30px;"/><br>
+                                        <input type="file" name="file" id="files-upload0" imgid="img0" style="border:0;width:200px;height:30px;"/><br>
                                         <div id="Credit_Cards-pictureList0"></div>
                                     </div>
                                     <button style="width:80px;" onclick="pic();">添加</button>
@@ -197,13 +197,14 @@
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-var aa = testEle.attributes["sty"].nodeValue; // 获取
-console.log(aa)
+        var testEle = document.getElementById("files-upload0")
+        var aa = testEle.attributes["imgid"].nodeValue; // 获取
+        console.log(aa);
         // pic();
         function pic(){
             var div1 = document.createElement("div");
                 div1.className = "Credit_Cards-picture";
-                div1.innerHTML = '<input type="file" name="file" id="files-upload'+magId+'" onchange="traverseFiles()" style="border:0;width:200px;height:30px;"/><br>'
+                div1.innerHTML = '<input type="file" name="file" id="files-upload'+magId+'" style="border:0;width:200px;height:30px;"/><br>'
                                  +'<div id="Credit_Cards-pictureList'+magId+'"></div>';
                 document.getElementsByClassName("Credit_Cards-content")[5].appendChild(div1); 
         };
