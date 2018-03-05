@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
     //选择图片，马上预览
-    function xmTanUploadImg(obj) {
+    function xmTanUploadImg(obj){
 
         var fl=obj.files.length;
         for(var i=0;i<fl;i++){
@@ -37,7 +37,7 @@
             // reader.onerror = function (e) {
             //     console.log("读取异常....");
             // }
-            reader.onload = function (e) {
+            reader.onload = function(e){
                 console.log("成功读取....");
 
             var imgstr='<img style="width:100px;height:100px;" src="'+e.target.result+'"/>';
@@ -47,11 +47,8 @@
             ndiv.innerHTML=imgstr;
             ndiv.className="img-div";
             oimgbox.appendChild(ndiv);
-               
             }
-
             reader.readAsDataURL(file);
-//alert(1);
         }
 
     }
@@ -62,7 +59,7 @@
 
     </div>
     <div id="xmTanDiv"></div><br/>
-    <div id="errordiv"   style="margin-top:15px;width:100%;text-align:center;">
+    <div id="errordiv"  style="margin-top:15px;width:100%;text-align:center;">
     <!-- <input id="bt" type="button" onclick="test(this)" value="提交" />  -->
     </div>
 </form>

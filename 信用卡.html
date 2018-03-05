@@ -11,6 +11,21 @@
     <script type="text/javascript" src="js/Common_Map.js"></script>
     <script type="text/javascript" src="js/Common_UW.js"></script>
     <style>
+        .Credit_Cards{
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            line-height: 40px;
+            text-align: left;
+            border-top: 4px solid #E94160; 
+        }
+        .Credit_Cards h1{
+            width: 80px;
+            float: left;
+        }
+        .Credit_Cards span{
+            font-size: 16px;
+        }
         .Credit_Cards-list{
             width: 200px;
         }
@@ -56,16 +71,18 @@
             color: #fff;
         }
         .Credit_Cards-picture{
-            width: 350px;
             height: 200px;
             float: left;
         } 
-        #Credit_Cards-pictureList0{
-            width: 300px;
+        #Credit_Cards-pictureList{
             height: 165px;
             margin-top: 10px;
-            text-align: left;
+            clear: both;
         }  
+        .img-div{
+            width: 300px;
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -127,6 +144,9 @@
                         </div>
                     </div>
                     <span id="rightBox">
+                        <div class="Credit_Cards">
+                            <h1 class="">信用卡 </h1><span>>  添加卡片 </span>
+                        </div>
                         <table border="1" cellspacing="0" cellpadding="0">
                             <tr class="list">
                                 <td class="Credit_Cards-list">卡片名称</td>
@@ -181,10 +201,9 @@
                                 <td class="Credit_Cards-list">选择卡片</td>
                                 <td class="Credit_Cards-content">
                                     <div class="Credit_Cards-picture">
-                                        <input type="file" name="file" id="files-upload0" imgid="img0" style="border:0;width:200px;height:30px;"/><br>
-                                        <div id="Credit_Cards-pictureList0"></div>
+                                        <input type="file" name="file" id="files-upload" onchange="xmTanUploadImg(this)" imgid="img" style="border:0;width:200px;height:30px;"/><br>
+                                        <div id="Credit_Cards-pictureList"></div>
                                     </div>
-                                    <button style="width:80px;" onclick="pic();">添加</button>
                                 </td>
                             </tr>
                         </table>
@@ -200,67 +219,27 @@
         var testEle = document.getElementById("files-upload0")
         var aa = testEle.attributes["imgid"].nodeValue; // 获取
         console.log(aa);
-        // pic();
-        function pic(){
-            var div1 = document.createElement("div");
-                div1.className = "Credit_Cards-picture";
-                div1.innerHTML = '<input type="file" name="file" id="files-upload'+magId+'" style="border:0;width:200px;height:30px;"/><br>'
-                                 +'<div id="Credit_Cards-pictureList'+magId+'"></div>';
-                document.getElementsByClassName("Credit_Cards-content")[5].appendChild(div1); 
-        };
-        var magId=0;
-        // function setImagePreviews(){ 
-        var ppp = document.getElementsByClassName("Credit_Cards-picture");
-        var picList = document.getElementById("Credit_Cards-pictureList"+magId);
-        var filesUpload = document.getElementById("files-upload"+magId);
-        // (function() { 
-            for(var i=0; i<ppp.length; i++){
-                magId++;               
-                function uploadFile(file) {
-                var span = document.createElement("span"),
-                    img,
-                    reader,
-                    xhr,
-                    fileInfo;  
-                    span.innerText = "文件格式错误" ;          
-                if (typeof FileReader !== "undefined" && (/image/i).test(file.type)) {
-                        img = document.createElement("img");
-                        img.style.width = '300px';
-                        img.style.height = '165px';
-                        reader = new FileReader();
-                        reader.onload = (function (theImg) {
-                        return function (evt) {
-                                theImg.src = evt.target.result;
-                            };
-                        }(img));
-                            reader.readAsDataURL(file);
-                        }          
-                        if(img != null){
-                            picList.appendChild(img);
-                            // document.getElementById("btn_1").removeAttribute('disabled');
-                        } else{
-                            picList.appendChild(span);
-                            // document.getElementById("btn_1").setAttribute("disabled","disabled");
-                        }                          
-                }             
-                function traverseFiles (files) {
-                    if (typeof files !== "undefined") {
-                        for (var i=0, l=files.length; i<l; i++) {
-                            uploadFile(files[i]);
-                        }
-                    }
-                    else {
-                            fileList.innerHTML = "No support for the File API in this web browser";
-                        }   
+        function xmTanUploadImg(obj){
+            var fl=obj.files.length;
+            for(var i=0;i<fl;i++){
+                var file=obj.files[i];
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    console.log("成功读取....");
+
+                var imgstr='<img style="width:300px;height:160px;" src="'+e.target.result+'"/>';
+                var oimgbox=document.getElementById("Credit_Cards-pictureList");
+                var ndiv=document.createElement("div");
+
+                ndiv.innerHTML=imgstr;
+                ndiv.className="img-div";
+                ndiv.style = "margin-right:10px;";
+                oimgbox.appendChild(ndiv);
                 }
-                    filesUpload.addEventListener("change", function () {
-                        picList.innerHTML = '';
-                        traverseFiles(this.files);
-                    }, false); 
+                reader.readAsDataURL(file);
             }
-        // }                                     
-        // })();
-        
+
+        }
     </script>
 </body>
 </html>
