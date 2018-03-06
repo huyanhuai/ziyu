@@ -39,7 +39,7 @@
             border: 1px solid rgba(50%,50%,50%,.4);
             text-align: left;
             padding-left: 10px;
-            float: left;
+            /* float: left; */
         }
         .Credit_Cards-content select{
             width: 200px;
@@ -71,16 +71,54 @@
             color: #fff;
         }
         .Credit_Cards-picture{
-            height: 200px;
+            min-height: 200px;
             float: left;
         } 
         #Credit_Cards-pictureList{
-            height: 165px;
+            /* height: 165px; */
             margin-top: 10px;
             clear: both;
         }  
         .img-div{
             width: 300px;
+            float: left;
+        }
+        .card_condition{
+            color: #000;
+        }
+        .card_condition input{
+            width: 60px;
+            height: 30px;
+        }
+        .card_condition label{
+            /* font-size: 16px; */
+            
+        }
+        .card_condition label input{
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+        .card_condition .card_list-1{
+            width: 100%;
+            height: 55px;
+            padding-left: 25px;
+        }
+        .card_condition .card_list-1 .card_list-1-1{
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            float: left;
+        }
+        .card_list-1-1 select{
+            width: 150px;
+        }
+        .card_condition .card_list-1 .card_list-1-2{
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
             float: left;
         }
     </style>
@@ -193,8 +231,86 @@
                             </tr>
                             <tr class="list">
                                 <td class="Credit_Cards-list">进件条件</td>
-                                <td class="Credit_Cards-content">
-                                    <input type="text">
+                                <td class="Credit_Cards-content card_condition">
+                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以卡办卡</b></label>
+                                    <div class="card_list-1">
+                                        <div class="card_list-1-1">
+                                            <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>他行信用卡办理时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>他行信用卡开卡时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                    </div>
+                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>学历办卡</b></label>
+                                    <div class="card_list-1">
+                                        <div class="card_list-1-1">
+                                            <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>学历要求</span>
+                                            <select name="" id="">
+                                                <option value="">本科及以上</option>
+                                                <option value="">大专及以上</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>社保办卡</b></label>
+                                    <div class="card_list-1">
+                                        <div class="card_list-1-1">
+                                            <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>现单位社保连续缴纳 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>社保基数 &#8805; <input type="text"> </span>
+                                        </div>
+                                    </div>
+                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以车办卡</b></label>
+                                    <div class="card_list-1" style="height: 155px;">
+                                        <div class="card_list-1-2">
+                                            <label for=""><input type="checkbox" name="" id="">&nbsp;本市七座以下</label>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        
+                                        <div class="card_list-1-2" style="clear: both;">
+                                            <label for=""><input type="checkbox" name="" id="">&nbsp;外市七座以下</label>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+
+                                        <div class="card_list-1-2" style="clear: both;">
+                                            <label for=""><input type="checkbox" name="" id="">&nbsp;无要求本市外市</label>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                    </div>
+                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以商品房办卡</b></label>
+                                    <div class="card_list-1">
+                                        <div class="card_list-1-1">
+                                            <select name="" id="">
+                                                <option value="">本市商品房</option>
+                                                <option value="">外市商品房</option>
+                                                <option value="">无要求本市外市</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr class="list">
@@ -210,15 +326,15 @@
                         <div>
                             <button class="Credit_Cards-btn">保存</button>
                         </div>
-                    </span>
+                    </>
                 </span>
             </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
     <script src="js/Client_Total_Script.js"></script>
     <script>
-        var testEle = document.getElementById("files-upload0")
-        var aa = testEle.attributes["imgid"].nodeValue; // 获取
-        console.log(aa);
+        // var testEle = document.getElementById("files-upload0")
+        // var aa = testEle.attributes["imgid"].nodeValue; // 获取
+        // console.log(aa);
         function xmTanUploadImg(obj){
             var fl=obj.files.length;
             for(var i=0;i<fl;i++){
@@ -240,6 +356,13 @@
             }
 
         }
+        function bb(){
+            var a = 12.3;
+            var b = 12.6;
+            var c = a+b;
+            console.log(Math.ceil(c));
+        }
+        bb();
     </script>
 </body>
 </html>
