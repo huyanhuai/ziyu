@@ -83,6 +83,10 @@
             width: 300px;
             float: left;
         }
+        .inp-div{
+            width: 300px;
+            float: left;
+        }
         .card_condition{
             color: #000;
         }
@@ -232,7 +236,7 @@
                             <tr class="list">
                                 <td class="Credit_Cards-list">进件条件</td>
                                 <td class="Credit_Cards-content card_condition">
-                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以卡办卡</b></label>
+                                    <label for=""><input type="checkbox" name="" id="" value="以卡办卡">&nbsp;<b>以卡办卡</b></label>
                                     <div class="card_list-1">
                                         <div class="card_list-1-1">
                                             <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
@@ -244,7 +248,7 @@
                                             <span>他行信用卡开卡时间 &#8805; <input type="text"> </span><span>月</span>
                                         </div>
                                     </div>
-                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>学历办卡</b></label>
+                                    <label for=""><input type="checkbox" name="" id="" value="学历办卡">&nbsp;<b>学历办卡</b></label>
                                     <div class="card_list-1">
                                         <div class="card_list-1-1">
                                             <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
@@ -257,7 +261,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>社保办卡</b></label>
+                                    <label for=""><input type="checkbox" name="" id="" value="社保办卡">&nbsp;<b>社保办卡</b></label>
                                     <div class="card_list-1">
                                         <div class="card_list-1-1">
                                             <span>现单位工作时间 &#8805; <input type="text"> </span><span>月</span>
@@ -269,10 +273,10 @@
                                             <span>社保基数 &#8805; <input type="text"> </span>
                                         </div>
                                     </div>
-                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以车办卡</b></label>
+                                    <label for=""><input type="checkbox" name="" id="" value="以车办卡">&nbsp;<b>以车办卡</b></label>
                                     <div class="card_list-1" style="height: 155px;">
                                         <div class="card_list-1-2">
-                                            <label for=""><input type="checkbox" name="" id="">&nbsp;本市七座以下</label>
+                                            <label for=""><input type="checkbox" name="" id="" value="本市七座以下">&nbsp;本市七座以下</label>
                                         </div>
                                         <div class="card_list-1-1">
                                             <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
@@ -282,7 +286,7 @@
                                         </div>
                                         
                                         <div class="card_list-1-2" style="clear: both;">
-                                            <label for=""><input type="checkbox" name="" id="">&nbsp;外市七座以下</label>
+                                            <label for=""><input type="checkbox" name="" id="" value="外市七座以下">&nbsp;外市七座以下</label>
                                         </div>
                                         <div class="card_list-1-1">
                                             <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
@@ -292,7 +296,7 @@
                                         </div>
 
                                         <div class="card_list-1-2" style="clear: both;">
-                                            <label for=""><input type="checkbox" name="" id="">&nbsp;无要求本市外市</label>
+                                            <label for=""><input type="checkbox" name="" id="" value="无要求本市外市">&nbsp;无要求本市外市</label>
                                         </div>
                                         <div class="card_list-1-1">
                                             <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
@@ -301,7 +305,7 @@
                                             <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
                                         </div>
                                     </div>
-                                    <label for=""><input type="checkbox" name="" id="">&nbsp;<b>以商品房办卡</b></label>
+                                    <label for=""><input type="checkbox" name="" id="" value="以商品房办卡">&nbsp;<b>以商品房办卡</b></label>
                                     <div class="card_list-1">
                                         <div class="card_list-1-1">
                                             <select name="" id="">
@@ -317,8 +321,10 @@
                                 <td class="Credit_Cards-list">选择卡片</td>
                                 <td class="Credit_Cards-content">
                                     <div class="Credit_Cards-picture">
-                                        <input type="file" name="file" id="files-upload" onchange="xmTanUploadImg(this)" imgid="img" style="border:0;width:200px;height:30px;"/><br>
-                                        <div id="Credit_Cards-pictureList"></div>
+                                        <div id="Credit_Cards-pictureList">
+                                            <div class="inp-div"><input type="file" name="file" class="files-upload" multiple="multiple" onchange="xmTanUploadImg(this)" imgid="img" style="border:0;width:200px;height:30px;float:left;"/><br></div>
+                                            
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -326,7 +332,7 @@
                         <div>
                             <button class="Credit_Cards-btn">保存</button>
                         </div>
-                    </>
+                    </span>
                 </span>
             </div>
     <script src="node_modules/bluebird/js/browser/bluebird.min.js"></script>
@@ -337,32 +343,32 @@
         // console.log(aa);
         function xmTanUploadImg(obj){
             var fl=obj.files.length;
-            for(var i=0;i<fl;i++){
-                var file=obj.files[i];
+            // for(var i=0;i<fl;i++){
+                var file=obj.files[0];
                 var reader = new FileReader();
                 reader.onload = function(e){
                     console.log("成功读取....");
 
-                var imgstr='<img style="width:300px;height:160px;" src="'+e.target.result+'"/>';
+                var imgstr='<img style="width:300px;height:160px;" src="'+e.target.result+'"/><span class="" onclick="closeP(this);">×</span>';
+                var inpstr='<input type="file" name="file" class="files-upload" multiple="multiple" onchange="xmTanUploadImg(this)" imgid="img" style="border:0;width:200px;height:30px;float:left;"/>'
                 var oimgbox=document.getElementById("Credit_Cards-pictureList");
+                var xdiv=document.createElement("div")
                 var ndiv=document.createElement("div");
-
+                xdiv.innerHTML=inpstr;
+                xdiv.className="inp-div";
                 ndiv.innerHTML=imgstr;
                 ndiv.className="img-div";
                 ndiv.style = "margin-right:10px;";
-                oimgbox.appendChild(ndiv);
+                var xxdiv = document.getElementsByClassName("inp-div");
+                    obj.parentNode.appendChild(ndiv);
+                    oimgbox.appendChild(xdiv);
                 }
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(file);   
             }
-
+        // }
+        function closeP(obj){
+            obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
         }
-        function bb(){
-            var a = 12.3;
-            var b = 12.6;
-            var c = a+b;
-            console.log(Math.ceil(c));
-        }
-        bb();
     </script>
 </body>
 </html>
