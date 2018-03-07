@@ -101,6 +101,7 @@ var VehicleInput = $('input',VehicleSelect);
 var OwnerName = document.getElementsByClassName("module_owner--title")[0];
 var OwnerSelect = document.getElementById("owner");
 var OwnerInput = $('input',OwnerSelect);
+
 //点击事件开始边界
 window.onload = function(){
 	var Button = $('button',$('@DBMS_funcArea'));
@@ -269,7 +270,6 @@ $('@product--warp') && function(Courier){
 			obj.appendChild(Child);
 			};
 	}
-// lisBox(plate,PlateList,plateInput);
     lisBox(InsureName,InsureSelect,InsureBox);
 
     InsureSelect2 != null ? insure(InsureSelect2,'insure_name2'): false;
