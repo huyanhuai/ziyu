@@ -23,6 +23,7 @@
         var fl=obj.files.length;
         for(var i=0;i<fl;i++){
             var file=obj.files[i];
+            
             var reader = new FileReader();
             //读取文件过程方法
             // reader.onloadstart = function (e) {
@@ -49,6 +50,7 @@
             oimgbox.appendChild(ndiv);
             }
             reader.readAsDataURL(file);
+            console.log(e.target.files);
         }
 
     }
