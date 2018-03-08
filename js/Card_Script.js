@@ -129,7 +129,7 @@
     function closeP(obj){
         obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
     }
-    //卡组织选择
+    //卡组织
     var currency = document.getElementsByClassName("currency")[0];
     var card_brand = document.getElementsByClassName("card_brand");
     showHide2(currency,card_brand);
