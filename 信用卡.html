@@ -76,6 +76,7 @@
                         <div class="Credit_Cards">
                             <h1 class="">信用卡 </h1><span>>  添加卡片 </span>
                         </div>
+                        <form action="" method="post">
                         <table border="1" cellspacing="0" cellpadding="0">
                             <tr class="list">
                                 <td class="Credit_Cards-list">卡片名称</td>
@@ -98,14 +99,24 @@
                             <tr class="list">
                                 <td class="Credit_Cards-list">卡组织</td>
                                 <td class="Credit_Cards-content">
-                                    <select name="" id="">
-                                        <option value=""></option>
-                                        <option value=""></option>
+                                    <select name="" class="currency">
+                                        <option value="0">单币种</option>
+                                        <option value="1">多币种</option>
                                     </select>
                                     &nbsp;
-                                    <select name="" id="">
-                                        <option value=""></option>
-                                        <option value=""></option>
+                                    <select name="" class="card_brand">
+                                        <option value="">银联</option>
+                                        <option value="">visa</option>
+                                        <option value="">mastercard</option>
+                                        <option value="">JCB</option>
+                                        <option value="">运通</option>
+                                    </select>
+                                    &nbsp;
+                                    <select name="" class="card_brand" style="display:none;">
+                                        <option value="">银联 + visa</option>
+                                        <option value="">银联 + mastercard</option>
+                                        <option value="">银联 + JCB</option>
+                                        <option value="">银联 + 运通</option>
                                     </select>
                                     &nbsp;*
                                 </td>
@@ -333,7 +344,21 @@
                                     </div>
                                     <label for=""><input type="checkbox" name="" id="" value="以车办卡">&nbsp;<b>以车办卡</b></label>
                                     <div class="card_list-1">
-                                        <div class="card_list-1-2">
+                                        <div class="card_list-1-1">
+                                            <span>车：</span>
+                                            <select name="" id="">
+                                                <option value="">本市七座以下</option>
+                                                <option value="">外市七座以下</option>
+                                                <option value="">无要求本市外市</option>
+                                            </select>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>裸车价 &#8805; <input type="text"> </span><span>万元</span>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
+                                        </div>
+                                        <!-- <div class="card_list-1-2">
                                             <label for=""><input type="radio" name="carRadio" id="" value="本市七座以下">&nbsp;本市七座以下</label>
                                         </div>
                                         <div class="card_list-1-1">
@@ -361,7 +386,7 @@
                                         </div>
                                         <div class="card_list-1-1">
                                             <span>上牌时间 &#8805; <input type="text"> </span><span>月</span>
-                                        </div>
+                                        </div> -->
                                         <div class="card_list-1-1 card_list-1-3" style="clear:both;">
                                             <span>卡种类 ：</span>
                                             <p class="card_type">请选择</p>
@@ -425,7 +450,18 @@
                                     </div>
                                     <label for=""><input type="checkbox" name="" id="" value="以商品房办卡">&nbsp;<b>以商品房办卡</b></label>
                                     <div class="card_list-1">
-                                        <div class="card_list-1-2">
+                                        <div class="card_list-1-1">
+                                            <span>商品房：</span>
+                                            <select name="" id="">
+                                                <option value="">本市商品房</option>
+                                                <option value="">外市商品房</option>
+                                                <option value="">无要求本市外市</option>
+                                            </select>
+                                        </div>
+                                        <div class="card_list-1-1">
+                                            <span>商品房价格 &#8805; <input type="text"> </span><span>万元</span>
+                                        </div>
+                                        <!-- <div class="card_list-1-2">
                                                 <label for=""><input type="radio" name="homeRadio" id="" value="本市商品房">&nbsp;本市商品房</label>
                                             </div>
                                             <div class="card_list-1-1">
@@ -444,7 +480,7 @@
                                             </div>
                                             <div class="card_list-1-1">
                                                 <span>商品房价格 &#8805; <input type="text"> </span><span>万元</span>
-                                            </div>
+                                            </div> -->
                                         <div class="card_list-1-1 card_list-1-3" style="clear:both;">
                                             <span>卡种类 ：</span>
                                             <p class="card_type">请选择</p>
@@ -592,6 +628,7 @@
                         <div>
                             <button class="Credit_Cards-btn">保存</button>
                         </div>
+                        </form>
                     </span>
                 </span>
             </div>

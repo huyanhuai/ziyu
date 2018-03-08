@@ -104,6 +104,7 @@ var OwnerInput = $('input',OwnerSelect);
 
 //点击事件开始边界
 window.onload = function(){
+	//城市选择
 	var Button = $('button',$('@DBMS_funcArea'));
 	var LogInOrOut = $('button',$('@DBMS_header'));
 	var DbmsBody = $('@DBMS_body');
@@ -197,6 +198,7 @@ window.onload = function(){
 	LogInOrOut[1].onclick = function(){
 		location.href = 'http://192.168.0.188/daikuan2/Home_Page.jsp';
 	};
+	//默认选中
 	show1();
 	show2();
 	show3(industry,IndustryName);
@@ -392,7 +394,6 @@ $('@product--warp') && function(Courier){
 				  for(var j=0;j<box.length;j++){
 					  box[j].checked = false;
 					  var text = name.innerText;
-				  //   name.innerText = [].join.call(text.split(box[j].value),'');
 					  name.innerText = '请选择';
 					}
 				 }

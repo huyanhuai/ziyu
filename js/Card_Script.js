@@ -129,3 +129,23 @@
     function closeP(obj){
         obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
     }
+    //卡组织选择
+    var currency = document.getElementsByClassName("currency")[0];
+    var card_brand = document.getElementsByClassName("card_brand");
+    showHide2(currency,card_brand);
+	function showHide2(obj1,obj2){
+		if(obj1 != null){
+			obj1.value == 0 ? function(){
+				obj2[0].style.display ='inline-block';
+				obj1.addEventListener('change',function(){
+					if (this.value == 0) {
+                        obj2[0].style.display ='inline-block';
+                        obj2[1].style.display ='none';
+					}else{
+						obj2[0].style.display ='none';
+                        obj2[1].style.display ='inline-block';
+					}
+				})
+			}(): false;
+		}
+	}
