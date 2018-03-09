@@ -129,21 +129,31 @@
     function closeP(obj){
         obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
     }
-    //卡组织
+    //卡组织选择
     var currency = document.getElementsByClassName("currency")[0];
     var card_brand = document.getElementsByClassName("card_brand");
     showHide2(currency,card_brand);
 	function showHide2(obj1,obj2){
+		var sdiv1 = document.createElement("select");
+		sdiv1.innerHTML = '<option value="">银联 + visa</option>'+
+							'<option value="">银联 + mastercard</option>'+
+							'<option value="">银联 + JCB</option>'+
+							'<option value="">银联 + 运通</option>';
+		var sdiv2 = document.createElement("select");
+		sdiv2.innerHTML = '<option value="">银联</option>'+
+							'<option value="">visa</option>'+
+							'<option value="">mastercard</option>'+
+							'<option value="">JCB</option>'+
+							'<option value="">运通</option>';
 		if(obj1 != null){
 			obj1.value == 0 ? function(){
-				obj2[0].style.display ='inline-block';
 				obj1.addEventListener('change',function(){
-					if (this.value == 0) {
-                        obj2[0].style.display ='inline-block';
-                        obj2[1].style.display ='none';
+					if (this.value == 1) {
+						obj2[1].innerHTML = '';
+						obj2[1].appendChild(sdiv1);
 					}else{
-						obj2[0].style.display ='none';
-                        obj2[1].style.display ='inline-block';
+						obj2[1].innerHTML = '';
+						obj2[1].appendChild(sdiv2);
 					}
 				})
 			}(): false;

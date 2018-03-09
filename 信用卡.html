@@ -11,7 +11,13 @@
     <script type="text/javascript" src="js/Common_Map.js"></script>
     <script type="text/javascript" src="js/Common_UW.js"></script>
     <style>
-        
+        .card_brand{
+            width: 250px;
+            float: left;
+        }
+        .card_brand select{
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -99,26 +105,21 @@
                             <tr class="list">
                                 <td class="Credit_Cards-list">卡组织</td>
                                 <td class="Credit_Cards-content">
-                                    <select name="" class="currency">
-                                        <option value="0">单币种</option>
-                                        <option value="1">多币种</option>
-                                    </select>
-                                    &nbsp;
-                                    <select name="" class="card_brand">
-                                        <option value="">银联</option>
-                                        <option value="">visa</option>
-                                        <option value="">mastercard</option>
-                                        <option value="">JCB</option>
-                                        <option value="">运通</option>
-                                    </select>
-                                    &nbsp;
-                                    <select name="" class="card_brand" style="display:none;">
-                                        <option value="">银联 + visa</option>
-                                        <option value="">银联 + mastercard</option>
-                                        <option value="">银联 + JCB</option>
-                                        <option value="">银联 + 运通</option>
-                                    </select>
-                                    &nbsp;*
+                                    <div class="card_brand">
+                                        <select name="" class="currency">
+                                            <option value="0">单币种</option>
+                                            <option value="1">多币种</option>
+                                        </select>
+                                    </div>
+                                    <div class="card_brand">
+                                        <select name="" class="card_brand0">
+                                            <option value="">银联</option>
+                                            <option value="">visa</option>
+                                            <option value="">mastercard</option>
+                                            <option value="">JCB</option>
+                                            <option value="">运通</option>
+                                        </select>
+                                    </div>
                                 </td>
                             </tr>
                             <tr class="list">
