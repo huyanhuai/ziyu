@@ -91,8 +91,31 @@
 			};
 		}
 	  }
-    }
-    // 预览
+	}
+	
+	show3(CardInput0,CardName[0]);
+	show3(CardInput1,CardName[1]);
+	show3(CardInput2,CardName[2]);
+	show3(CardInput3,CardName[3]);
+	show3(CardInput4,CardName[4]);
+	show3(CardInput5,CardName[5]);
+	show3(CustomerInput0,CustomerName[0]);
+	show3(CustomerInput1,CustomerName[1]);
+	show3(CustomerInput2,CustomerName[2]);
+	show3(CustomerInput3,CustomerName[3]);
+	show3(CustomerInput4,CustomerName[4]);
+	show3(CustomerInput5,CustomerName[5]);
+	function show3(list,name){
+		if(name != null){
+			for(var i = 0; i<list.length; i++){
+				if(list[i].checked){
+					name.innerText = name.innerText.replace('请选择','已选择>>')
+					name.innerText += list[i].value;
+				}
+			}
+		}	
+	}
+    // 图片预览
     function xmTanUploadImg(obj){
         var fl=obj.files.length;
         // for(var i=0;i<fl;i++){
@@ -128,11 +151,30 @@
     // }
     function closeP(obj){
         obj.parentNode.parentNode.parentNode.removeChild(obj.parentNode.parentNode);
-    }
+	}
+	showPic();
+	function showPic(){
+		var str = 'img/android.png,img/apple.png,img/bg.png,img/apple.png';
+		var arr = str.split(",");
+		for(var i=0; i<arr.length; i++){
+			(function(i){
+				pic();
+			})(i)
+		}
+		function pic(){
+			var cardPic = document.getElementsByClassName("Credit_Cards-pic")[0];
+			var pdiv = document.createElement("div");
+			pdiv.innerHTML = '<div class="Credit_Cards-pic-1"><button onclick="pics(this);">x</button><img src="'+arr[i]+'" alt=""></div>';
+			cardPic.appendChild(pdiv);
+		}
+	}
+	function pics(obj){
+		obj.parentNode.parentNode.removeChild(obj.parentNode);
+	}
     //卡组织选择
     var currency = document.getElementsByClassName("currency")[0];
     var card_brand = document.getElementsByClassName("card_brand");
-    showHide2(currency,card_brand);
+	showHide2(currency,card_brand);
 	function showHide2(obj1,obj2){
 		if(obj1 != null){
 			var sdiv1 = document.createElement("select");
@@ -148,6 +190,8 @@
 								'<option value="">运通</option>';
 			if(obj1 != null){
 				obj1.value == 0 ? function(){
+					obj2[1].innerHTML = '';
+					obj2[1].appendChild(sdiv2)
 					obj1.addEventListener('change',function(){
 						if (this.value == 1) {
 							obj2[1].innerHTML = '';
@@ -157,7 +201,19 @@
 							obj2[1].appendChild(sdiv2);
 						}
 					})
-				}(): false;
+				}(): function(){
+					obj2[1].innerHTML = '';
+					obj2[1].appendChild(sdiv1);
+					obj1.addEventListener('change',function(){
+						if (this.value == 0) {
+							obj2[1].innerHTML = '';
+							obj2[1].appendChild(sdiv2);
+						}else{
+							obj2[1].innerHTML = '';
+							obj2[1].appendChild(sdiv1);
+						}
+					})
+				}() 
 			}
 		}
 	}
