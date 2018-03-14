@@ -1824,6 +1824,7 @@ table tr .listTop{
 	width: 100%;
 	min-height: 55px;
 	padding-left: 25px;
+	position: relative;
 }
 .card_condition .card_list-1 .card_list-1-1{
 	width: 250px;

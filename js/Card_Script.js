@@ -164,8 +164,9 @@
 		function pic(){
 			var cardPic = document.getElementsByClassName("Credit_Cards-pic")[0];
 			var pdiv = document.createElement("div");
-			pdiv.innerHTML = '<div class="Credit_Cards-pic-1"><button onclick="pics(this);">x</button><img src="'+arr[i]+'" alt=""></div>';
-			cardPic.appendChild(pdiv);
+			pdiv.className = 'Credit_Cards-pic-1';
+			pdiv.innerHTML = '<input type="hidden"><button onclick="pics(this);">x</button><img src="'+arr[i]+'" alt="">';
+			cardPic.appendChild(pdiv);	
 		}
 	}
 	function pics(obj){
