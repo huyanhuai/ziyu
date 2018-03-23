@@ -154,13 +154,16 @@
 	}
 	showPic();
 	function showPic(){
-		var str = 'img/android.png,img/apple.png,img/bg.png,img/apple.png';
+		// var str = 'img/android.png,img/apple.png,img/bg.png,img/apple.png';
+		var str = ',,';
 		var arr = str.split(",");
-		for(var i=0; i<arr.length; i++){
-			(function(i){
-				pic();
-			})(i)
-		}
+			for(var i=0; i<arr.length; i++){
+				(function(i){
+					if(arr[i] != null && arr[i] != ''){
+						pic();
+					}
+				})(i)
+			}
 		function pic(){
 			var cardPic = document.getElementsByClassName("Credit_Cards-pic")[0];
 			var pdiv = document.createElement("div");
