@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="clear">clear</button>
+    <button id="new">new</button>
+    <div id="test"></div>
+</body>
+<script type="text/babel">
+//node.js
+const database = {
+    add(article){
+        list.push(article);
+        return list.length-1;
+    },
+    del(index){
+        list[index] = null;
+    },
+    update(index,newArticle){
+        list.splice(index,1,newArticle)
+    },
+    get list(){
+        return list;
+
+    }
+}
+const Item = React.createClass({
+    displayName:'Item',
+    getDefaultProps(){ //默认值
+
+        return {
+            value:123,
+            str:'string',
+        }
+    },
+    getInitialState(){
+        return {
+            value:this.props.value,
+            currentHistoryIndex:0,
+            history:[this.props.value]
+        }
+    },
+    componentWillMount(){ //装载 只被调用一次
+        this.state.dbkey = database.add({value:this.state.value});
+
+    },
+    componentDidMount(){ //装载完毕
+
+        let isYellow = false;
+        const dom = ReactDOM.findDOMNode(this);
+        this.state.loopNum = setInterval(function() {
+            if(isYellow){
+                dom.style.backgroundColor = 'red';
+                isYellow = false;
+            }else{
+                dom.style.backgroundColor = 'yellow';
+                isYellow = true;
+            }
+        }, 1000);
+    },
+    componentWillReceiveProps(nextProps){
+        this.state.value = nextProps.value;
+    },
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('should')
+        return true;
+    },
+    componentWillUpdate(nextProps,nextState){
+        //setState & forceUpdate
+        let dbkey = thsi.state.dbkey;
+        database.update(dbkey,{value:this.state.value});
+    },
+    // render()
+
+    componentDidUpdate(oldProps,oldState){
+        let dom = ReactDOM.findDOMNode(this);
+        let oldStyle = dom.style.broder;
+        dom.style.broder = '2px solid red';
+        setTimeout(function() {
+            dom.style.border = oldStyle;
+        }, 2000);
+
+        //dom 
+    },
+
+    update(){
+        this.setState({name:'zeng'});
+        // this.forceUpdate(); //强制更新
+    },
+
+    changeValue(event){
+        this.setState({value:event.target.value})
+    },
+    save(){ //history
+        // this.state.history.push(this.state.value);
+        // this.state.currentHistory = thsi.state.value;
+
+        const value = this.state.value;
+        const history = this.state.history;
+        history.push(value);
+        const currentHistoryIndex = history.length;
+
+        this.setState({
+            history,currentHistoryIndex
+        })
+    },
+    prev(){
+        const history = this.state.history;
+    },
+    next(){
+
+    },
+
+    render(){
+        return <div>
+            <div><button onClick={this.prev}>prev</buttton><span>{this.state.currentHistory}</span><button onClick={this.next}>111</buttton></div>
+            <input value={this.state.value} onChange={this.changeValue}/><button onClick={this.save}>update</button>
+        </div>
+    },
+
+    componentWillUnmount(){
+        console.log('loop');
+        clearInterval(this.state.loopNum);
+    }
+});
+ReactDOM.render(
+        <div>
+        <Item />
+        </div>
+        ,document.getElementById('test')
+)
+
+ 
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="clear">clear</button>
+    <button id="new">new</button>
+    <div id="test"></div>
+</body>
+<script type="text/babel">
+const Item = React.createClass({
+    displayName:'Item',
+    getDefaultProps(){ //默认值
+        console.log('get default props');
+        return {
+            group:123,
+            str:'string'
+        }
+    },
+    getInitialState(){
+        console.log('get initial state');
+        return {
+            name:'leo'
+        }
+    },
+    componentWillMount(){ //装载 只被调用一次
+        console.log('component wil mount');
+        this.state.name = 'liang';
+
+    },
+    componentDidMount(){ //装载完毕
+        console.log('component did mount');
+        const dom = ReactDOM.findDOMNode(this);
+        console.log(dom);
+
+        let isYellow = false;
+        this.state.loopNum = setInterval(function() {
+            if(isYellow){
+                dom.style.backgroundColor = 'red';
+                isYellow = false;
+            }else{
+                dom.style.backgroundColor = 'yellow';
+                isYellow = true;
+            }
+        }, 3000);
+    },
+    componentWillReceiveProps(nextProps){
+        console.log('component will receive props');
+    },
+    shouldComponentUpdate(nextProps,nextState){
+        console.log('should')
+        return false
+    },
+    componentWillUpdate(nextProps,nextState){
+        console.log('component will update');
+    },
+    // render()
+
+    componentDidUpdate(oldProps,oldState){
+        console.log('component did update');
+
+        //dom 
+    },
+
+    update(){
+        this.setState({name:'zeng'});
+        // this.forceUpdate(); //强制更新
+    },
+
+    render(){
+        console.log('render');
+        return <div>{this.props.group + this.state.name}<button onClick={this.update}>update</button></div>
+    },
+
+    componentWillUnmount(){
+        console.log('loop');
+        clearInterval(this.state.loopNum);
+    }
+});
+function render(bool){
+    ReactDOM.render(
+        <div>
+        <Item />
+        {bool ? <Item/>:''}
+        </div>
+        ,document.getElementById('test')
+   )
+}
+render(true);
+// render();
+document.getElementById('clear').onclick = function (){
+   render(false); 
+}
+document.getElementById('new').onclick = function (){
+   render(true); 
+}    
+</script>
+</html>

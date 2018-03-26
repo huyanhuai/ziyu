@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+	<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="test"></div>
+</body>
+<script type="text/babel">
+const Comp = React.createClass({
+    getInitialState(){
+        return {
+            inputValue:'leo',
+            inputValue2:'leo',
+            checkboxValue:false,
+            radioValue:false
+        }
+    },
+    click(){
+        this.refs.myinput.focus();
+    },
+    componentDidMount(){
+        this.refs.myinput2.focus();
+        console.log('componentDidMount')
+    },
+    render(){
+        return <div>
+            <input ref={function (dom) {dom.focus(); console.log('ref')}} type="text"/>
+            <input ref="myinput" type="text"/>
+            <input ref="myinput2" type="text"/>
+            <button onClick={this.click}>click</button>
+        </div>
+    }
+});
+ReactDOM.render(<Comp/>,document.getElementById('test'));  
+</script>
+</html>
